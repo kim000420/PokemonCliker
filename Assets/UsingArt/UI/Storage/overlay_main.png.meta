@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7aa3d07405037dd4f8aa15e70f931910
+guid: 94378e0a76a7c23409e07dd84952f503
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,13 +93,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 000_0
+      name: overlay_main_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 180
+        height: 384
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -107,20 +107,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 06c6f1265ecfc9745ab548c52c6b3e80
-      internalID: -210655786
+      spriteID: b189cc6368775af4788ca9bf64647201
+      internalID: -1952026660
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 000_1
+      name: overlay_main_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
+        x: 186
+        y: 18
+        width: 168
+        height: 46
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12f87ea14756175419e55a60f07c3084
-      internalID: 1237680011
+      spriteID: 200f84f77bec2584291883ffb8d72f5c
+      internalID: 1636801044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: overlay_main_2
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 18
+        width: 120
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5958a6996b37cca48b0acc61172f2aa9
+      internalID: 1943373462
       vertices: []
       indices: 
       edges: []
@@ -145,8 +166,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      000_0: -210655786
-      000_1: 1237680011
+      overlay_main_0: -1952026660
+      overlay_main_1: 1636801044
+      overlay_main_2: 1943373462
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
