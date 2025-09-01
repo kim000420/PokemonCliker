@@ -1661,7 +1661,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 282029782, guid: 9307912428fa71a468540a440e3bba11, type: 3}
+  m_Sprite: {fileID: 660515928, guid: 9307912428fa71a468540a440e3bba11, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2471,7 +2471,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 282029782, guid: 9307912428fa71a468540a440e3bba11, type: 3}
+  m_Sprite: {fileID: 1299348382, guid: 9307912428fa71a468540a440e3bba11, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -2758,7 +2758,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -119590250, guid: 9307912428fa71a468540a440e3bba11, type: 3}
+  m_Sprite: {fileID: -360248713, guid: 9307912428fa71a468540a440e3bba11, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -4502,6 +4502,102 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360267231}
   m_CullTransparentMesh: 1
+--- !u!1 &371751964
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 371751970}
+  - component: {fileID: 371751969}
+  - component: {fileID: 371751968}
+  - component: {fileID: 371751967}
+  - component: {fileID: 371751966}
+  - component: {fileID: 371751965}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &371751965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371751964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83db210adce08de43aed0eb3c581f5f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &371751966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371751964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad976253b9b954848810747947487d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &371751967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371751964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c66a1c2a3af0da4e82f3af6ddb370ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &371751968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371751964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c5d71c49604d9247963ee9a20a34211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &371751969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371751964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96a3a741428856c42bc6fd74b132774d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &371751970
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371751964}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 301.93906, y: 384.40155, z: -3.6899557}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &380526204
 GameObject:
   m_ObjectHideFlags: 0
@@ -6652,7 +6748,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 282029782, guid: 9307912428fa71a468540a440e3bba11, type: 3}
+  m_Sprite: {fileID: 1998425128, guid: 9307912428fa71a468540a440e3bba11, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -8012,7 +8108,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 31
+  m_text: 30
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1a2d79e435e644c47a18ddc6015be8c0, type: 2}
   m_sharedMaterial: {fileID: 394747774361031245, guid: 1a2d79e435e644c47a18ddc6015be8c0, type: 2}
@@ -8147,7 +8243,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 282029782, guid: 9307912428fa71a468540a440e3bba11, type: 3}
+  m_Sprite: {fileID: 1042280515, guid: 9307912428fa71a468540a440e3bba11, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -8223,7 +8319,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -119590250, guid: 9307912428fa71a468540a440e3bba11, type: 3}
+  m_Sprite: {fileID: -2141766264, guid: 9307912428fa71a468540a440e3bba11, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -8258,7 +8354,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &812161540
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9588,7 +9684,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 31
+  m_text: 16
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1a2d79e435e644c47a18ddc6015be8c0, type: 2}
   m_sharedMaterial: {fileID: 394747774361031245, guid: 1a2d79e435e644c47a18ddc6015be8c0, type: 2}
@@ -10431,7 +10527,7 @@ GameObject:
   - component: {fileID: 1020337122}
   - component: {fileID: 1020337124}
   m_Layer: 5
-  m_Name: pokePreview
+  m_Name: Img_PokemonPreview
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10779,7 +10875,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 31
+  m_text: 26
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1a2d79e435e644c47a18ddc6015be8c0, type: 2}
   m_sharedMaterial: {fileID: 394747774361031245, guid: 1a2d79e435e644c47a18ddc6015be8c0, type: 2}
@@ -11001,12 +11097,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1064420014}
   m_Layer: 0
-  m_Name: PokeDex
+  m_Name: PokeDex_Temp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1064420014
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11908,7 +12004,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 31
+  m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1a2d79e435e644c47a18ddc6015be8c0, type: 2}
   m_sharedMaterial: {fileID: 394747774361031245, guid: 1a2d79e435e644c47a18ddc6015be8c0, type: 2}
@@ -13557,7 +13653,7 @@ GameObject:
   - component: {fileID: 1298035398}
   - component: {fileID: 1298035397}
   m_Layer: 0
-  m_Name: Party_Member
+  m_Name: Party_Member (0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16321,7 +16417,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1523668616
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16636,7 +16732,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -79, y: 99}
+  m_AnchoredPosition: {x: -311.78976, y: 0}
   m_SizeDelta: {x: 656.4205, y: 669.6914}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1541440662
@@ -16859,7 +16955,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1558283093}
   m_Layer: 0
-  m_Name: Info_Overlay
+  m_Name: Summary_Info_Overlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17980,7 +18076,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -119590250, guid: 9307912428fa71a468540a440e3bba11, type: 3}
+  m_Sprite: {fileID: -270139217, guid: 9307912428fa71a468540a440e3bba11, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -18191,7 +18287,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -119590250, guid: 9307912428fa71a468540a440e3bba11, type: 3}
+  m_Sprite: {fileID: 1968012243, guid: 9307912428fa71a468540a440e3bba11, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -20440,12 +20536,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1941322373}
   m_Layer: 0
-  m_Name: Bag
+  m_Name: Bag_Temp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1941322373
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21630,7 +21726,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 282029782, guid: 9307912428fa71a468540a440e3bba11, type: 3}
+  m_Sprite: {fileID: -699055096, guid: 9307912428fa71a468540a440e3bba11, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -21706,7 +21802,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -119590250, guid: 9307912428fa71a468540a440e3bba11, type: 3}
+  m_Sprite: {fileID: 11722530, guid: 9307912428fa71a468540a440e3bba11, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -21782,7 +21878,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 31
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1a2d79e435e644c47a18ddc6015be8c0, type: 2}
   m_sharedMaterial: {fileID: 394747774361031245, guid: 1a2d79e435e644c47a18ddc6015be8c0, type: 2}
@@ -22140,7 +22236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2083219730}
   m_Layer: 0
-  m_Name: Type (1)
+  m_Name: Type
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
