@@ -4516,6 +4516,7 @@ GameObject:
   - component: {fileID: 371751967}
   - component: {fileID: 371751966}
   - component: {fileID: 371751965}
+  - component: {fileID: 371751971}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -4547,6 +4548,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad976253b9b954848810747947487d94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  imgA: {fileID: 0}
+  imgB: {fileID: 0}
 --- !u!114 &371751967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4559,6 +4562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c66a1c2a3af0da4e82f3af6ddb370ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  img: {fileID: 0}
 --- !u!114 &371751968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4571,6 +4575,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c5d71c49604d9247963ee9a20a34211, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  img: {fileID: 0}
+  fps: 8
 --- !u!114 &371751969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4583,6 +4589,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96a3a741428856c42bc6fd74b132774d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadTypeByAddressables: 0
+  typeSpritesByIndex: []
+  typeAddressRoot: type/
+  male: {fileID: 0}
+  female: {fileID: 0}
+  genderless: {fileID: 0}
+  iconCacheLimit: 256
+  animCacheLimit: 64
 --- !u!4 &371751970
 Transform:
   m_ObjectHideFlags: 0
@@ -4598,6 +4612,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &371751971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371751964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96a3a741428856c42bc6fd74b132774d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadTypeByAddressables: 0
+  typeSpritesByIndex: []
+  typeAddressRoot: type/
+  male: {fileID: 0}
+  female: {fileID: 0}
+  genderless: {fileID: 0}
+  iconCacheLimit: 256
+  animCacheLimit: 64
 --- !u!1 &380526204
 GameObject:
   m_ObjectHideFlags: 0

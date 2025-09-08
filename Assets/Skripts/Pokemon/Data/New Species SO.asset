@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
   m_Name: New Species SO
   m_EditorClassIdentifier: 
-  speciesId: 0
+  speciesId: 1
   nameKey: 
-  expCurveId: 2
+  generation: 1
+  expCurveId: 0
   maxLevel: 100
   genderPolicy:
     hasGender: 0
-    maleRate0to100: 0
+    maleRate0to100: 73
   baseStats:
     hp: 0
     atk: 0
@@ -26,4 +27,5 @@ MonoBehaviour:
     spa: 0
     spd: 0
     spe: 0
+  totalStats: 0
   forms: []
