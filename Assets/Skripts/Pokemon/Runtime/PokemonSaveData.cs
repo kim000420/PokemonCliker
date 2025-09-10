@@ -3,28 +3,38 @@ using UnityEngine;
 
 namespace PokeClicker
 {
-    // 플레이어가 보유하는 "포켓몬 개체"의 순수 데이터
-    // 저장/로드 대상이며, 표시나 계산 시엔 SpeciesSO, FormSO 등을 참조한다.
+    // 플레이어가 보유하는 "포켓몬 개체"의 순수 저장 데이터
+    // - 생성(랜덤 결정), 계산(실측치), 진화 적용은 외부 서비스에서 수행
+    // - 이 클래스는 상태를 보관만 한다
     [Serializable]
     public class PokemonSaveData
     {
         // 식별
-        public int uid;                 // 개체 고유 ID (세이브 내부에서 유일)
-        public int speciesId;           // 종 ID (SpeciesSO.speciesId)
-        public string formKey = "Default"; // 폼 키 ("Default", "Alola" 등)
-        public bool isShiny;            // 이로치 여부
+        public int P_uid;                    // 외부(리포지토리 등)에서 부여하는 고유 ID
+        public int speciesId;              // 종 ID (SpeciesSO.speciesId)
+        public string formKey = "Default"; // 현재 폼 키 ("Default","Alola"...)
+        public bool isShiny;               // 이로치 여부
 
-        // 이름/성장
-        public string nickname;         // 별명 (비어 있으면 종 이름을 사용)
-        public int level = 1;           // 현재 레벨
-        public int currentExp = 0;      // 현재 레벨 내에서의 경험치(증분)
+        // 성장
+        public int level = 1;              // 현재 레벨
+        public int currentExp = 0;         // 현재 레벨 내 경험치(증분)
 
-        // 상태
+        // 관계/상태
+        public string nickname;            // 별명(비어 있으면 종 이름 표시)
         public Gender gender = Gender.Male;
-        public int friendship = 0;      // 친밀도 (0~255 권장)
-        public string heldItemId;       // 소지 아이템 ID (선택)
+        public int friendship = 0;         // 0~255 권장
+        public string heldItemId;          // 소지 아이템 ID (선택)
 
-        // 표시용 이름 반환 (별명이 있으면 별명, 없으면 종 이름 키)
+        // 고급(옵션) 시스템: 성격/개체값
+        public NatureId nature = NatureId.Hardy; // 성격(25종), 중립 기본
+        public IVs ivs;                           // 개체값(0~31), 사용하지 않으면 0 유지
+
+        // 메타데이터(표시/정렬/출처 추적에 유용)
+        public DateTime obtainedAt;        // 획득 시각(현지 시간)
+        public int metLevel = 1;           // 처음 만난 레벨
+        public string metFormKey = "Default"; // 처음 만난 폼
+
+        // 표시용 이름(별명 우선, 없으면 종 이름 키)
         public string GetDisplayName(SpeciesSO species)
         {
             if (!string.IsNullOrWhiteSpace(nickname))
@@ -32,66 +42,41 @@ namespace PokeClicker
             return species != null ? species.nameKey : "Unknown";
         }
 
-        // 성별 정책에 따라 성별을 굴린다
-        public static Gender RollGender(GenderPolicy policy)
-        {
-            if (!policy.hasGender) return Gender.Genderless;
-
-            int r = UnityEngine.Random.Range(0, 100); // 0~99
-            return (r < policy.maleRate0to100) ? Gender.Male : Gender.Female;
-        }
-
-        // 로드 직후나 수동 수정 후에 값 범위를 정리한다
-        // - 레벨: 1~종의 최대 레벨
-        // - 경험치: 현재 레벨에서 필요한 요구치 미만으로 클램프
-        // - 친밀도: 0 이상
+        // 로드 후 값 범위 보정
         public void EnsureValidAfterLoad(SpeciesSO species, ExperienceCurveSO curve)
         {
-            if (species == null) return;
-
-            // 레벨 범위 보정
-            int maxLv = Mathf.Clamp(species.maxLevel, 1, 100);
-            if (level < 1) level = 1;
-            if (level > maxLv) level = maxLv;
-
-            // 경험치 보정
-            if (curve != null)
+            if (species != null)
             {
-                int need = curve.GetNeedExpForNextLevel(level);
-                if (need == int.MaxValue) currentExp = 0; // 만렙
-                else currentExp = Mathf.Clamp(currentExp, 0, Mathf.Max(0, need - 1));
+                int maxLv = Mathf.Clamp(species.maxLevel, 1, 100);
+                if (level < 1) level = 1;
+                if (level > maxLv) level = maxLv;
+
+                if (curve != null)
+                {
+                    int need = curve.GetNeedExpForNextLevel(level);
+                    if (need == int.MaxValue) currentExp = 0;            // 만렙
+                    else currentExp = Mathf.Clamp(currentExp, 0, Math.Max(0, need - 1));
+                }
+                else
+                {
+                    currentExp = Mathf.Max(0, currentExp);
+                }
             }
             else
             {
-                // 곡선이 없다면 음수만 방지
+                // species 미지정 시 최소 보정
+                level = Mathf.Max(1, level);
                 currentExp = Mathf.Max(0, currentExp);
             }
 
-            // 친밀도 보정
+            // 친밀도/IV 보정
             if (friendship < 0) friendship = 0;
-        }
+            ivs.Clamp();
+            if (string.IsNullOrWhiteSpace(formKey)) formKey = "Default";
+            if (string.IsNullOrWhiteSpace(metFormKey)) metFormKey = formKey;
 
-        // 새 개체 생성 헬퍼
-        // - 종/폼/성별/이로치 여부를 받아 초기 상태를 만든다
-        public static PokemonSaveData CreateNew(int uid, SpeciesSO species, string formKey, bool isShiny, Gender? fixedGender = null)
-        {
-            var p = new PokemonSaveData();
-            p.uid = uid;
-            p.speciesId = (species != null) ? species.speciesId : 0;
-            p.formKey = string.IsNullOrWhiteSpace(formKey) ? "Default" : formKey;
-            p.isShiny = isShiny;
-
-            p.level = 1;
-            p.currentExp = 0;
-            p.friendship = 0;
-
-            // 성별 결정
-            if (fixedGender.HasValue)
-                p.gender = fixedGender.Value;
-            else
-                p.gender = (species != null) ? RollGender(species.genderPolicy) : Gender.Genderless;
-
-            return p;
+            // obtainedAt 기본값 보정
+            if (obtainedAt == default) obtainedAt = DateTime.Now;
         }
     }
 }
