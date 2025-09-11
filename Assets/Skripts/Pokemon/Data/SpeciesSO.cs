@@ -43,19 +43,23 @@ namespace PokeClicker
             // 폼 리스트 정리
             if (forms != null)
             {
-                forms.RemoveAll(f => f == null);
                 var seen = new HashSet<FormSO>();
-                for (int i = forms.Count - 1; i >= 0; i--)
-                {
-                    var f = forms[i];
-                    if (seen.Contains(f)) forms.RemoveAt(i);
-                    else seen.Add(f);
-                }
-
                 for (int i = 0; i < forms.Count; i++)
                 {
-                    if (forms[i] != null && forms[i].species != this)
-                        forms[i].species = this;
+                    var f = forms[i];
+                    if (f == null) continue;
+                    if (seen.Contains(f))
+                        forms[i] = null; // 중복은 null로 바꿔서 슬롯 유지
+                    else
+                        seen.Add(f);
+                }
+
+                // 역참조 보정: null이 아닌 항목만 species 역링크 정리
+                for (int i = 0; i < forms.Count; i++)
+                {
+                    var f = forms[i];
+                    if (f != null && f.species != this)
+                        f.species = this;
                 }
             }
         }

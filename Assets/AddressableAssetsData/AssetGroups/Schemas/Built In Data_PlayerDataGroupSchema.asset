@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6c75d99ef0240e49ac1b9eaa3098e00, type: 3}
-  m_Name: New Evolution Rule SO
+  m_Script: {fileID: 11500000, guid: b1487f5d688e4f94f828f879d599dbdc, type: 3}
+  m_Name: Built In Data_PlayerDataGroupSchema
   m_EditorClassIdentifier: 
-  fromSpecies: {fileID: 0}
-  fromFormKey: Default
-  toSpecies: {fileID: 0}
-  toFormKey: Default
-  priority: 0
-  conditions: []
+  m_Group: {fileID: 11400000, guid: edca5e2eda0fc1949a90270c9e002d95, type: 2}
+  m_IncludeResourcesFolders: 1
+  m_IncludeBuildSettingsScenes: 1
