@@ -19,7 +19,7 @@ namespace PokeClicker
         public int AddExpAndHandleLevelUps(
             PokemonSaveData p,
             SpeciesSO species,
-            ExperienceCurveSO curve,
+            ExperienceCurve curve,
             int gainedExp)
         {
             int cnt = ExpService.AddExpAndHandleLevelUps(

@@ -43,7 +43,7 @@ namespace PokeClicker
         }
 
         // 로드 후 값 범위 보정
-        public void EnsureValidAfterLoad(SpeciesSO species, ExperienceCurveSO curve)
+        public void EnsureValidAfterLoad(SpeciesSO species, ExperienceCurve curve)
         {
             if (species != null)
             {
@@ -53,7 +53,7 @@ namespace PokeClicker
 
                 if (curve != null)
                 {
-                    int need = curve.GetNeedExpForNextLevel(level);
+                    int need = ExperienceCurveService.GetNeedExpForNextLevel(species.ExpCurve, level);
                     if (need == int.MaxValue) currentExp = 0;            // 만렙
                     else currentExp = Mathf.Clamp(currentExp, 0, Math.Max(0, need - 1));
                 }

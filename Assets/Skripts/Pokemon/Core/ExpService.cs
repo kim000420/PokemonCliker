@@ -18,14 +18,13 @@ namespace PokeClicker
         public static int AddExpAndHandleLevelUps(
             PokemonSaveData p,
             SpeciesSO species,
-            ExperienceCurveSO curve,
+            ExperienceCurve curve,
             int gainedExp,
             Action<int> onLevelUp = null // newLevel 전달
         )
         {
             if (p == null) throw new ArgumentNullException(nameof(p));
             if (species == null) throw new ArgumentNullException(nameof(species));
-            if (curve == null) throw new ArgumentNullException(nameof(curve));
 
             // 안전 보정
             int maxLv = Mathf.Clamp(species.maxLevel, 1, 100); // 1~100 (SpeciesSO 규칙)
@@ -48,7 +47,7 @@ namespace PokeClicker
             // while 루프: 현재 레벨에서 필요 EXP를 채우면 레벨업
             while (p.level < maxLv)
             {
-                int need = curve.GetNeedExpForNextLevel(p.level); // 다음 레벨까지 필요 EXP
+                int need = ExperienceCurveService.GetNeedExpForNextLevel(species.ExpCurve, p.level); // 다음 레벨까지 필요 EXP
                 if (need == int.MaxValue) // 안전 처리
                 {
                     p.currentExp = 0;
@@ -81,7 +80,7 @@ namespace PokeClicker
             if (p.level >= maxLv) p.currentExp = 0;
             else
             {
-                int need = curve.GetNeedExpForNextLevel(p.level);
+                int need = ExperienceCurveService.GetNeedExpForNextLevel(species.ExpCurve, p.level);
                 if (need != int.MaxValue)
                     p.currentExp = Mathf.Clamp(p.currentExp, 0, Math.Max(0, need - 1));
             }

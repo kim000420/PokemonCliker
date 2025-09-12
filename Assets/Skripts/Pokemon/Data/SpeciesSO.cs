@@ -1,84 +1,97 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace PokeClicker
 {
-    // 포켓몬 "종" 단위의 불변 데이터
-    [CreateAssetMenu(menuName = "PokeClicker/DB/Species")]
+    /// <summary>
+    /// "종" 단위의 불변 정보(도감번호, 이름, 세대, 성별정책, 성장곡선, 최대 레벨).
+    /// 폼별로 달라지는 정보는 하위 FormSO(sub-asset)들이 가진다.
+    /// </summary>
+    [CreateAssetMenu(menuName = "PokeClicker/Data/Species")]
     public class SpeciesSO : ScriptableObject
     {
-        [Header("기본 식별 정보")]
-        public int speciesId = 0;          // 도감번호(고유값)
-        public string nameKey = "";        // 현지화 키
-        [Range(1, 9)] public int generation = 1; // 포켓몬 세대 (1~9)
+        [Header("Identity (불변)")]
+        [Tooltip("도감번호(유일)")] public int speciesId;          // 포켓몬 전국도감 번호
+        [Tooltip("표시용 이름/로컬라이즈 키")] public string nameKey;
+        [Tooltip("세대")] public int generation = 1;
 
-        [Header("성장/레벨 설정")]
-        public ExperienceCurve expCurveId = ExperienceCurve.MediumFast;
+        [Header("정책/성장")]
+        public GenderPolicy genderPolicy;
+        public ExperienceCurve ExpCurve = ExperienceCurve.MediumFast;
         [Range(1, 100)] public int maxLevel = 100;
 
-        [Header("성별/능력치")]
-        public GenderPolicy genderPolicy;  // 성별 정책
-        public StatBlock baseStats;        // H,A,B,C,D,S
-        [SerializeField, HideInInspector] private int totalStats; // 합계 (자동 계산됨)
+        [Header("Forms (가변: sub-asset)")]
+        [SerializeField] private List<FormSO> forms = new List<FormSO>();
 
-        [Header("이 종이 보유한 폼 목록(선택)")]
-        public List<FormSO> forms = new List<FormSO>();
+        /// <summary>폼 목록 읽기 전용</summary>
+        public IReadOnlyList<FormSO> Forms => forms;
 
-        // totalStats 값을 읽기 전용으로 제공
-        public int TotalStats => totalStats;
+        /// <summary>(speciesId, formKey) 로 FormSO를 찾는다. formKey가 비면 "Default".</summary>
+        public FormSO GetForm(string formKey)
+        {
+            var key = NormalizeFormKey(formKey);
+            for (int i = 0; i < forms.Count; i++)
+            {
+                var f = forms[i];
+                if (f != null && string.Equals(NormalizeFormKey(f.formKey), key, StringComparison.Ordinal))
+                    return f;
+            }
+            return null;
+        }
 
+        public static string NormalizeFormKey(string key)
+        {
+            return string.IsNullOrWhiteSpace(key) ? "Default" : key.Trim();
+        }
+
+        // ─────────────────────────────────────────────────────────────────────
+        // 에디터 검증
+        // ─────────────────────────────────────────────────────────────────────
+#if UNITY_EDITOR
         private void OnValidate()
         {
-            // speciesId 보정
-            if (speciesId < 1) speciesId = 1;
+            // 폼 리스트 null 방지
+            if (forms == null) forms = new List<FormSO>();
 
-            // maxLevel 보정
-            if (maxLevel < 1) maxLevel = 1;
-            if (maxLevel > 100) maxLevel = 100;
-
-            // 총합 스탯 계산
-            totalStats = baseStats.hp + baseStats.atk + baseStats.def +
-                         baseStats.spa + baseStats.spd + baseStats.spe;
-
-            // 폼 리스트 정리
-            if (forms != null)
+            // 빈/중복 formKey 정리 + 타입 정규화
+            var seen = new HashSet<string>(StringComparer.Ordinal);
+            for (int i = 0; i < forms.Count; i++)
             {
-                var seen = new HashSet<FormSO>();
-                for (int i = 0; i < forms.Count; i++)
-                {
-                    var f = forms[i];
-                    if (f == null) continue;
-                    if (seen.Contains(f))
-                        forms[i] = null; // 중복은 null로 바꿔서 슬롯 유지
-                    else
-                        seen.Add(f);
-                }
+                var f = forms[i];
+                if (f == null) continue;
 
-                // 역참조 보정: null이 아닌 항목만 species 역링크 정리
-                for (int i = 0; i < forms.Count; i++)
-                {
-                    var f = forms[i];
-                    if (f != null && f.species != this)
-                        f.species = this;
-                }
+                // 기본값/트리밍
+                f.formKey = NormalizeFormKey(f.formKey);
+                f.NormalizeTypes();
+
+                // 중복 formKey 경고
+                if (!seen.Add(f.formKey))
+                    Debug.LogWarning($"{name}: duplicated formKey '{f.formKey}' at index {i}", this);
             }
+
+            // 최소 하나의 Default 폼 권장
+            if (GetForm("Default") == null)
+                Debug.LogWarning($"{name}: Default form is missing.", this);
         }
 
-        // 외부에서 유효성 검사 호출 가능
-        public bool IsValid(out string reason)
+        /// <summary>에디터에서 하위 FormSO를 sub-asset으로 안전하게 추가(메뉴/유틸용)</summary>
+        public FormSO Editor_AddFormIfMissing(string formKey = "Default")
         {
-            if (speciesId < 1)
-            {
-                reason = "speciesId는 1 이상이어야 합니다.";
-                return false;
-            }
-            if (string.IsNullOrEmpty(nameKey))
-            {
-                reason = "nameKey가 비어 있습니다.";
-                return false;
-            }
-            reason = null;
-            return true;
+            formKey = NormalizeFormKey(formKey);
+            var found = GetForm(formKey);
+            if (found != null) return found;
+
+            var f = ScriptableObject.CreateInstance<FormSO>();
+            f.name = $"{name}_Form_{formKey}";
+            f.formKey = formKey;
+
+            UnityEditor.AssetDatabase.AddObjectToAsset(f, this);
+            UnityEditor.AssetDatabase.ImportAsset(UnityEditor.AssetDatabase.GetAssetPath(f));
+            forms.Add(f);
+            UnityEditor.EditorUtility.SetDirty(this);
+            return f;
         }
+#endif
     }
 }

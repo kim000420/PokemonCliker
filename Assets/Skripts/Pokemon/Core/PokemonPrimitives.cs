@@ -1,7 +1,43 @@
+using System;
 using UnityEngine;
 
 namespace PokeClicker
 {
+    // 포켓몬 종족값
+    [System.Serializable]
+    public struct StatBlock
+    {
+        public int hp;
+        public int atk;
+        public int def;
+        public int spa;
+        public int spd;
+        public int spe;
+    }
+
+    // 포켓몬 개체값
+    [Serializable]
+    public struct IVs
+    {
+        public int hp, atk, def, spa, spd, spe;
+        public void Clamp()
+        {
+            hp = Mathf.Clamp(hp, 0, 31);
+            atk = Mathf.Clamp(atk, 0, 31);
+            def = Mathf.Clamp(def, 0, 31);
+            spa = Mathf.Clamp(spa, 0, 31);
+            spd = Mathf.Clamp(spd, 0, 31);
+            spe = Mathf.Clamp(spe, 0, 31);
+        }
+    }
+
+    // 포켓몬 스텟 실측값
+    [Serializable]
+    public struct DerivedStats
+    {
+        public int hp, atk, def, spa, spd, spe;
+    }
+
     // 포켓몬 타입 열거형
     // secondary 가 없는 경우에는 None 으로 표기한다
     public enum TypeEnum
@@ -29,19 +65,6 @@ namespace PokeClicker
         public bool hasGender;
         [Range(0, 100)]
         public int maleRate0to100;
-    }
-
-    // 수집 가치나 정렬 지표로만 사용할 기본 능력치 묶음
-    // 전투 시스템이 없어도 수집가치 정렬 등에 활용 가능
-    [System.Serializable]
-    public struct StatBlock
-    {
-        public int hp;
-        public int atk;
-        public int def;
-        public int spa;
-        public int spd;
-        public int spe;
     }
 
     // 듀얼 타입 지원을 위한 타입 쌍 구조체
