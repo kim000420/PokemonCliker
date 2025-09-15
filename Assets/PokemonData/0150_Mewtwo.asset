@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6870999581417680352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generation: 1
+  formKey: Default
+  typePair:
+    hasDualType: 0
+    primary: 11
+    secondary: 0
+  baseStats:
+    hp: 106
+    atk: 110
+    def: 90
+    spa: 154
+    spd: 90
+    spe: 130
+--- !u!114 &-5679662413954956592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generation: 1
+  formKey: Mega_Y
+  typePair:
+    hasDualType: 0
+    primary: 11
+    secondary: 0
+  baseStats:
+    hp: 106
+    atk: 150
+    def: 70
+    spa: 194
+    spd: 120
+    spe: 140
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0150_Mewtwo
+  m_EditorClassIdentifier: 
+  speciesId: 150
+  nameKeyEng: Mewtwo
+  nameKeyKor: "\uBBA4\uCE20"
+  rarityCategory: 1
+  catchRate: 3
+  genderPolicy:
+    hasGender: 0
+    maleRate0to100: 0
+  curveType: 4
+  maxLevel: 100
+  forms: []
+--- !u!114 &6295023855504780995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generation: 1
+  formKey: Mega_X
+  typePair:
+    hasDualType: 1
+    primary: 11
+    secondary: 7
+  baseStats:
+    hp: 106
+    atk: 190
+    def: 100
+    spa: 154
+    spd: 100
+    spe: 130

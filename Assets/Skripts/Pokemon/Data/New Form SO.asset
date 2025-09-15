@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
   m_Name: New Form SO
   m_EditorClassIdentifier: 
-  species: {fileID: 11400000, guid: 09285157ad6299a42a2e8d7e537e3eef, type: 2}
+  generation: 1
   formKey: Default
-  types:
+  typePair:
+    hasDualType: 0
     primary: 1
-    secondary: 0
-  normal:
-    icon: {fileID: 0}
-    frontAnimator: {fileID: 0}
-  shiny:
-    icon: {fileID: 0}
-    frontAnimator: {fileID: 0}
+    secondary: 9
+  baseStats:
+    hp: 0
+    atk: 0
+    def: 0
+    spa: 0
+    spd: 0
+    spe: 0

@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9080878628630402309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generation: 8
+  formKey: Galarian
+  typePair:
+    hasDualType: 1
+    primary: 8
+    secondary: 11
+  baseStats:
+    hp: 95
+    atk: 100
+    def: 95
+    spa: 100
+    spd: 70
+    spe: 30
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0080_Slowbro
+  m_EditorClassIdentifier: 
+  speciesId: 80
+  nameKeyEng: Slowbro
+  nameKeyKor: "\uC57C\uB3C4\uB780"
+  rarityCategory: 0
+  catchRate: 75
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 2
+  maxLevel: 100
+  forms: []
+--- !u!114 &440395063883771293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generation: 1
+  formKey: Mega
+  typePair:
+    hasDualType: 1
+    primary: 3
+    secondary: 11
+  baseStats:
+    hp: 95
+    atk: 75
+    def: 180
+    spa: 130
+    spd: 80
+    spe: 30
+--- !u!114 &596483690544054397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generation: 1
+  formKey: Default
+  typePair:
+    hasDualType: 1
+    primary: 3
+    secondary: 11
+  baseStats:
+    hp: 95
+    atk: 75
+    def: 110
+    spa: 100
+    spd: 80
+    spe: 30

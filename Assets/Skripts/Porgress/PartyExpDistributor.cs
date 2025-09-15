@@ -12,18 +12,15 @@ namespace PokeClicker
         private readonly OwnedPokemonManager _owned;
         private readonly PokemonLevelupManager _levelup;
         private readonly Func<int, SpeciesSO> _getSpeciesById;          // speciesId -> SpeciesSO
-        private readonly Func<SpeciesSO, ExperienceCurveSO> _getCurve;  // 종 -> 경험치 곡선 SO
 
         public PartyExpDistributor(
             OwnedPokemonManager owned,
             PokemonLevelupManager levelup,
-            Func<int, SpeciesSO> getSpeciesById,
-            Func<SpeciesSO, ExperienceCurveSO> getCurve)
+            Func<int, SpeciesSO> getSpeciesById)
         {
             _owned = owned;
             _levelup = levelup;
             _getSpeciesById = getSpeciesById;
-            _getCurve = _getCurve;
         }
 
         /// <summary>
@@ -42,10 +39,7 @@ namespace PokeClicker
                 var species = _getSpeciesById(p.speciesId);
                 if (species == null) continue;
 
-                var curve = _getCurve(species);
-                if (curve == null) continue;
-
-                _levelup.AddExpAndHandleLevelUps(p, species, curve, expGainPerInput);
+                _levelup.AddExpAndHandleLevelUps(p, species, species.curveType, expGainPerInput);
             }
         }
     }

@@ -9,6 +9,9 @@ namespace PokeClicker
     /// </summary>
     public class FormSO : ScriptableObject
     {
+
+        [Tooltip("세대")] public int generation = 1; // 폼의 세대
+
         [Header("Key")]
         public string formKey = "Default";   // SpeciesSO.NormalizeFormKey 로 정규화
 
@@ -17,10 +20,5 @@ namespace PokeClicker
 
         [Header("Base Stats (폼별)")]
         public StatBlock baseStats;          // 종족값
-
-        public void NormalizeTypes()
-        {
-            typePair = TypePair.Create(typePair.primary, typePair.secondary);
-        }
     }
 }

@@ -1,0 +1,125 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7082078991613672141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generation: 9
+  formKey: Paldean
+  typePair:
+    hasDualType: 1
+    primary: 7
+    secondary: 2
+  baseStats:
+    hp: 75
+    atk: 110
+    def: 105
+    spa: 30
+    spd: 70
+    spe: 100
+--- !u!114 &-4577893100402763073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generation: 1
+  formKey: Default
+  typePair:
+    hasDualType: 0
+    primary: 1
+    secondary: 0
+  baseStats:
+    hp: 75
+    atk: 100
+    def: 95
+    spa: 40
+    spd: 70
+    spe: 110
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0128_Tauros
+  m_EditorClassIdentifier: 
+  speciesId: 128
+  nameKeyEng: Tauros
+  nameKeyKor: "\uCF04\uD0C0\uB85C\uC2A4"
+  rarityCategory: 0
+  catchRate: 45
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 100
+  curveType: 4
+  maxLevel: 100
+  forms: []
+--- !u!114 &2438628690231016316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generation: 9
+  formKey: Paldean
+  typePair:
+    hasDualType: 1
+    primary: 7
+    secondary: 3
+  baseStats:
+    hp: 75
+    atk: 110
+    def: 105
+    spa: 30
+    spd: 70
+    spe: 100
+--- !u!114 &7905500027480847300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generation: 1
+  formKey: Paldean
+  typePair:
+    hasDualType: 0
+    primary: 7
+    secondary: 0
+  baseStats:
+    hp: 75
+    atk: 110
+    def: 105
+    spa: 30
+    spd: 70
+    spe: 100

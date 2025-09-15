@@ -65,7 +65,7 @@ namespace PokeClicker
             };
 
             // 저장 안전 보정(상한/하한)
-            p.EnsureValidAfterLoad(species, null);
+            p.EnsureValidAfterLoad(species, species.curveType);
 
             return p;
         }

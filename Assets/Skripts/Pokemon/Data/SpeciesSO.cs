@@ -13,16 +13,23 @@ namespace PokeClicker
     {
         [Header("Identity (불변)")]
         [Tooltip("도감번호(유일)")] public int speciesId;          // 포켓몬 전국도감 번호
-        [Tooltip("표시용 이름/로컬라이즈 키")] public string nameKey;
-        [Tooltip("세대")] public int generation = 1;
+        [Tooltip("표시용 이름/로컬라이즈 키, 영어")] public string nameKeyEng;
+        [Tooltip("표시용 이름/로컬라이즈 키, 한글")] public string nameKeyKor;
+        [Tooltip("희귀도 카테고리")] public RarityCategory rarityCategory = RarityCategory.Ordinary; // 희귀도 카테고리
+        [Tooltip("포획률")] public int catchRate = 0; // 포획률
+
+        // [ 알그룹,스탭 ] 추후 추가예정
+        // Egg_GroupA 
+        // Egg_GroupB 
+        // Egg_Step
 
         [Header("정책/성장")]
-        public GenderPolicy genderPolicy;
-        public ExperienceCurve ExpCurve = ExperienceCurve.MediumFast;
+        public GenderPolicy genderPolicy; // 성별 정책
+        public ExperienceCurve curveType = ExperienceCurve.MediumFast; // 경험치 그룹
         [Range(1, 100)] public int maxLevel = 100;
 
         [Header("Forms (가변: sub-asset)")]
-        [SerializeField] private List<FormSO> forms = new List<FormSO>();
+        [SerializeField] private List<FormSO> forms = new List<FormSO>(); // 폼 리스트(메가진화,다이멕스,리전폼등...)
 
         /// <summary>폼 목록 읽기 전용</summary>
         public IReadOnlyList<FormSO> Forms => forms;
@@ -54,6 +61,18 @@ namespace PokeClicker
             // 폼 리스트 null 방지
             if (forms == null) forms = new List<FormSO>();
 
+            for (int i = 0; i < forms.Count; i++)
+            {
+                var f = forms[i];
+                if (f == null) continue;
+
+                f.formKey = NormalizeFormKey(f.formKey);
+
+                // 보기 편하게 sub-asset 이름을 formKey로 맞춤
+                if (f.name != f.formKey)
+                    f.name = f.formKey;
+            }
+
             // 빈/중복 formKey 정리 + 타입 정규화
             var seen = new HashSet<string>(StringComparer.Ordinal);
             for (int i = 0; i < forms.Count; i++)
@@ -63,7 +82,6 @@ namespace PokeClicker
 
                 // 기본값/트리밍
                 f.formKey = NormalizeFormKey(f.formKey);
-                f.NormalizeTypes();
 
                 // 중복 formKey 경고
                 if (!seen.Add(f.formKey))

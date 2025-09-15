@@ -39,11 +39,11 @@ namespace PokeClicker
         {
             if (!string.IsNullOrWhiteSpace(nickname))
                 return nickname;
-            return species != null ? species.nameKey : "Unknown";
+            return species != null ? species.nameKeyEng : "Unknown";
         }
 
         // 로드 후 값 범위 보정
-        public void EnsureValidAfterLoad(SpeciesSO species, ExperienceCurve curve)
+        public void EnsureValidAfterLoad(SpeciesSO species, ExperienceCurve curveType)
         {
             if (species != null)
             {
@@ -51,9 +51,9 @@ namespace PokeClicker
                 if (level < 1) level = 1;
                 if (level > maxLv) level = maxLv;
 
-                if (curve != null)
+                if (curveType != null)
                 {
-                    int need = ExperienceCurveService.GetNeedExpForNextLevel(species.ExpCurve, level);
+                    int need = ExperienceCurveService.GetNeedExpForNextLevel(species.curveType, level);
                     if (need == int.MaxValue) currentExp = 0;            // 만렙
                     else currentExp = Mathf.Clamp(currentExp, 0, Math.Max(0, need - 1));
                 }

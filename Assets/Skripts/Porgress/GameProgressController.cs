@@ -27,8 +27,7 @@ namespace PokeClicker
             _exp = new PartyExpDistributor(
                 owned,
                 levelupManager,
-                speciesId => speciesDB.GetSpecies(speciesId),
-                species => curveDB.GetCurveForSpecies(species));
+                speciesId => speciesDB.GetSpecies(speciesId));
 
             _friend = new PartyFriendshipDistributor(
                 owned,
@@ -72,8 +71,8 @@ namespace PokeClicker
     }
     public class ExperienceCurveDatabase : MonoBehaviour
     {
-        public ExperienceCurveSO defaultCurve;
-        public ExperienceCurveSO GetCurveForSpecies(SpeciesSO s)
+        public ExperienceCurve defaultCurve;
+        public ExperienceCurve GetCurveForSpecies(SpeciesSO s)
         {
             // 종에 따라 다른 곡선을 사용한다면 여기에서 매핑
             return defaultCurve;
