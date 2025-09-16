@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
-  m_Name: 0022_Fearow
+  m_Name: 0153_Bayleef
   m_EditorClassIdentifier: 
-  speciesId: 22
-  nameKeyEng: Fearow
-  nameKeyKor: "\uAE68\uBE44\uB4DC\uB9B4\uC870"
+  speciesId: 153
+  nameKeyEng: Bayleef
+  nameKeyKor: "\uBCA0\uC774\uB9AC\uD504"
   rarityCategory: 0
-  catchRate: 90
+  catchRate: 45
   genderPolicy:
     hasGender: 1
-    maleRate0to100: 50
-  curveType: 2
+    maleRate0to100: 88
+  curveType: 3
   maxLevel: 100
   forms:
-  - {fileID: 980940686810201470}
---- !u!114 &980940686810201470
+  - {fileID: 5123018378804029045}
+--- !u!114 &5123018378804029045
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -36,16 +36,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
   m_Name: Default
   m_EditorClassIdentifier: 
-  generation: 1
+  generation: 2
   formKey: Default
   typePair:
-    hasDualType: 1
-    primary: 1
-    secondary: 10
+    hasDualType: 0
+    primary: 4
+    secondary: 0
   baseStats:
-    hp: 65
-    atk: 90
-    def: 65
-    spa: 61
-    spd: 61
-    spe: 100
+    hp: 60
+    atk: 62
+    def: 80
+    spa: 63
+    spd: 80
+    spe: 60

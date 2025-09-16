@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4304834945447635576
+--- !u!114 &-2221636537113370555
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
   m_Name: Default
   m_EditorClassIdentifier: 
-  generation: 1
+  generation: 2
   formKey: Default
   typePair:
     hasDualType: 0
-    primary: 8
+    primary: 2
     secondary: 0
   baseStats:
-    hp: 60
-    atk: 95
-    def: 69
-    spa: 65
-    spd: 79
-    spe: 80
+    hp: 39
+    atk: 52
+    def: 43
+    spa: 60
+    spd: 50
+    spe: 65
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35,17 +35,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
-  m_Name: 0024_Arbok
+  m_Name: 0155_Cyndaquil
   m_EditorClassIdentifier: 
-  speciesId: 24
-  nameKeyEng: Arbok
-  nameKeyKor: "\uC544\uBCF4\uD06C"
+  speciesId: 155
+  nameKeyEng: Cyndaquil
+  nameKeyKor: "\uBE0C\uCF00\uC778"
   rarityCategory: 0
-  catchRate: 90
+  catchRate: 45
   genderPolicy:
     hasGender: 1
-    maleRate0to100: 50
-  curveType: 2
+    maleRate0to100: 88
+  curveType: 3
   maxLevel: 100
   forms:
-  - {fileID: -4304834945447635576}
+  - {fileID: -2221636537113370555}

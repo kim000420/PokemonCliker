@@ -1,6 +1,7 @@
 // 파일: Scripts/Trainer/PokemonTrainerManager.cs
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace PokeClicker
 {
@@ -9,21 +10,22 @@ namespace PokeClicker
     /// - T_uid 단위로 로드/저장
     /// - TrainerProfile + OwnedPokemonManager 조합
     /// </summary>
-    public class PokemonTrainerManager
+    public class PokemonTrainerManager : MonoBehaviour
     {
-        private readonly ITrainerRepository _repo;
-        private readonly OwnedPokemonManager _owned;
+        private ITrainerRepository _repo;
+        private OwnedPokemonManager _owned;
 
         public TrainerProfile Profile { get; private set; }
         public OwnedPokemonManager Owned => _owned;
 
         public int T_uid => Profile.T_uid;
 
-        public PokemonTrainerManager(ITrainerRepository repo)
+        public void Init(ITrainerRepository repo)
         {
             _repo = repo;
-            _owned = new OwnedPokemonManager();
+            if (_owned == null) _owned = GetComponentInChildren<OwnedPokemonManager>();
         }
+
 
         public void LoadForTrainer(int T_uid)
         {

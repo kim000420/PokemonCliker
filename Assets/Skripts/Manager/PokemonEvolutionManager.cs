@@ -1,6 +1,7 @@
 // 파일: Scripts/Managers/PokemonEvolutionManager.cs
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace PokeClicker
 {
@@ -10,7 +11,7 @@ namespace PokeClicker
     /// - 적용 후 종/폼만 갱신(성별/성격/IVs/이로치 등은 유지)
     /// - 계산/표시는 소비자가 StatService를 호출
     /// </summary>
-    public class PokemonEvolutionManager
+    public class PokemonEvolutionManager : MonoBehaviour
     {
         public event Action<int /*uid*/, int /*fromSpecies*/, string /*fromForm*/,
                             int /*toSpecies*/, string /*toForm*/, EvolutionRuleSO /*rule*/> OnEvolved;

@@ -22,7 +22,9 @@ MonoBehaviour:
     maleRate0to100: 88
   curveType: 3
   maxLevel: 100
-  forms: []
+  forms:
+  - {fileID: 640855641382527578}
+  - {fileID: 4170277753378726143}
 --- !u!114 &640855641382527578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33,7 +35,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
-  m_Name: 
+  m_Name: Default
   m_EditorClassIdentifier: 
   generation: 1
   formKey: Default
@@ -58,7 +60,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
-  m_Name: 
+  m_Name: Mega
   m_EditorClassIdentifier: 
   generation: 1
   formKey: Mega

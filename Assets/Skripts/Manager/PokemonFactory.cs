@@ -9,9 +9,12 @@ namespace PokeClicker
     /// - 종/폼/레벨과 옵션(성격/이로치/성별/IVs)을 기준으로 PokemonSaveData를 생성한다.
     /// - 계산/표시는 여기서 하지 않는다(StatService를 사용하는 쪽에서 호출).
     /// </summary>
-    public static class PokemonFactory
+    public class PokemonFactory : MonoBehaviour
     {
-        [Serializable]
+
+        public SpeciesDB speciesDB;                // 씬에서 연결
+        public OwnedPokemonManager ownedManager;   // 씬에서 연결
+        
         public struct Options
         {
             public bool rollNature;              // 성격 랜덤 적용 여부 (기본: true)
@@ -19,7 +22,6 @@ namespace PokeClicker
             public int shinyOneOver;             // 이로치 확률 분모(1/x). 0 또는 음수면 4096으로 간주
             public bool rollGender;              // 성별 정책 적용 여부 (기본: true)
             public bool rollIVs;                 // IVs 랜덤 굴림 여부 (기본: false ? 전투 없으면 OFF)
-            public DateTime obtainedAt;          // 획득 시각 (default이면 Now)
         }
 
         public static PokemonSaveData Create(
@@ -36,8 +38,7 @@ namespace PokeClicker
                 rollShiny = true,
                 shinyOneOver = 4096,
                 rollGender = true,
-                rollIVs = false,
-                obtainedAt = default
+                rollIVs = false
             };
 
             // 기본값 보정
@@ -57,9 +58,8 @@ namespace PokeClicker
                 gender = opt.rollGender ? RandomService.RollGender(species.genderPolicy) : Gender.Genderless,
                 friendship = 0,
                 heldItemId = null,
-                nature = opt.rollNature ? NatureTable.PickRandom() : NatureId.Hardy,
+                nature = opt.rollNature ? RandomService.RollNature() : NatureId.Hardy,
                 ivs = opt.rollIVs ? RandomService.RollIVsAll() : default,
-                obtainedAt = opt.obtainedAt == default ? DateTime.Now : opt.obtainedAt,
                 metLevel = level,
                 metFormKey = formKey
             };
@@ -67,6 +67,27 @@ namespace PokeClicker
             // 저장 안전 보정(상한/하한)
             p.EnsureValidAfterLoad(species, species.curveType);
 
+            return p;
+        }
+
+        public PokemonSaveData GiveSpecificFormPokemon(int speciesId, string formKey, int level)
+        {
+            var species = speciesDB.GetSpecies(speciesId);
+            if (species == null) return null;
+            var p = Create(species, formKey, level);
+            ownedManager.Add(p);
+            return p;
+        }
+
+        // 4) 포획 지급
+        public PokemonSaveData CatchPokemon(SpeciesSO species, string formKey, int level, bool guaranteed = false)
+        {
+            int rate = species.catchRate;
+            bool success = guaranteed || UnityEngine.Random.Range(0, 100) < rate;
+            if (!success) return null;
+
+            var p = Create(species, formKey, level);
+            ownedManager.Add(p);
             return p;
         }
     }

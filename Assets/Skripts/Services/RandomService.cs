@@ -62,6 +62,14 @@ namespace PokeClicker
             return NextInt(32); // 0..31
         }
 
+
+        // 무작위 성격 하나 뽑기 
+        public static NatureId RollNature()
+        {
+            int idx = NextInt(24);
+            return (NatureId)idx;
+        }
+
         /// <summary>
         /// 6개 스탯 IVs 전부 굴림.
         /// </summary>

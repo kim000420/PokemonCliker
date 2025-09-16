@@ -15,8 +15,7 @@ namespace PokeClicker
         public ClickProgressTracker tracker;            // 트레이너 단위로 로드/세이브
 
         // 종/곡선 조회(간단히 Service Locator 스타일로 함수 주입)
-        public SpeciesDatabase speciesDB;               // 예시: speciesId -> SpeciesSO
-        public ExperienceCurveDatabase curveDB;         // 예시: speciesSO -> ExperienceCurveSO
+        public SpeciesDB speciesDB;               // 예시: speciesId -> SpeciesSO
 
         private PartyExpDistributor _exp;
         private PartyFriendshipDistributor _friend;
@@ -56,26 +55,6 @@ namespace PokeClicker
             _friend.OnInput();
 
             // 세이브 이벤트
-        }
-    }
-
-    // 아래 두 클래스는 예시용 스텁입니다. 프로젝트의 실제 DB/인덱스에 맞춰 바꾸세요.
-    public class SpeciesDatabase : MonoBehaviour
-    {
-        public SpeciesSO[] all;
-        public SpeciesSO GetSpecies(int id)
-        {
-            foreach (var s in all) if (s != null && s.speciesId == id) return s;
-            return null;
-        }
-    }
-    public class ExperienceCurveDatabase : MonoBehaviour
-    {
-        public ExperienceCurve defaultCurve;
-        public ExperienceCurve GetCurveForSpecies(SpeciesSO s)
-        {
-            // 종에 따라 다른 곡선을 사용한다면 여기에서 매핑
-            return defaultCurve;
         }
     }
 }

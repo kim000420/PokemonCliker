@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 namespace PokeClicker
 {
@@ -10,7 +11,7 @@ namespace PokeClicker
     /// - 파티(<=6), 박스(가변) 이동/교체/방출
     /// - 외부 영속화(ITrainerRepository 하위 메서드)를 통해 저장/로드
     /// </summary>
-    public class OwnedPokemonManager
+    public class OwnedPokemonManager : MonoBehaviour
     {
         // ===== 외부 발급기 =====
         public interface IPokemonIdProvider
@@ -18,20 +19,21 @@ namespace PokeClicker
             int NextPuid(); // 새 P_uid 발급
         }
 
-        private readonly IPokemonIdProvider _idProvider;  // null 가능(그 경우 Add 시 P_uid 필수)
+        private IPokemonIdProvider _idProvider;  // null 가능(그 경우 Add 시 P_uid 필수)
 
         // ===== 데이터 보관 =====
         private readonly Dictionary<int, PokemonSaveData> _table = new(); // P_uid -> data
         private readonly List<int> _party = new();                         // P_uid (<=6)
         private readonly List<List<int>> _boxes = new();                   // 박스들: 각 박스는 P_uid 리스트
 
-        private readonly int _partyLimit;
+        private int _partyLimit = 6;
 
-        public OwnedPokemonManager(int partyLimit = 6, IPokemonIdProvider idProvider = null)
+        public void Init(int partyLimit = 6, IPokemonIdProvider idProvider = null)
         {
             _partyLimit = Math.Max(1, partyLimit);
-            _idProvider = idProvider; // null 허용
+            _idProvider = idProvider;
         }
+
 
         // ====== 조회 ======
         public IReadOnlyList<int> Party => _party;

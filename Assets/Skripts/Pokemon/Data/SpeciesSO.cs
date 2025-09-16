@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 namespace PokeClicker
@@ -25,7 +27,7 @@ namespace PokeClicker
 
         [Header("정책/성장")]
         public GenderPolicy genderPolicy; // 성별 정책
-        public ExperienceCurve curveType = ExperienceCurve.MediumFast; // 경험치 그룹
+        public ExperienceCurve curveType; // 경험치 그룹
         [Range(1, 100)] public int maxLevel = 100;
 
         [Header("Forms (가변: sub-asset)")]
@@ -109,6 +111,72 @@ namespace PokeClicker
             forms.Add(f);
             UnityEditor.EditorUtility.SetDirty(this);
             return f;
+        }
+
+        public void Editor_AddOrEnsureFormRef(FormSO form)
+        {
+            if (form == null) return;
+            // formKey 정규화 + 서브에셋 이름 동기화
+            form.formKey = NormalizeFormKey(form.formKey);
+            if (form.name != form.formKey) form.name = form.formKey;
+
+            // 리스트에 없으면 등록
+            if (!forms.Contains(form))
+            {
+                forms.Add(form);
+                EditorUtility.SetDirty(this);
+            }
+        }
+
+        public void Editor_SyncFormsFromSubassets()
+        {
+            string path = AssetDatabase.GetAssetPath(this);
+            var subs = AssetDatabase.LoadAllAssetsAtPath(path).OfType<FormSO>().ToList();
+
+            // 리스트를 서브에셋 실체와 동기화
+            forms.Clear();
+            foreach (var f in subs)
+            {
+                // formKey/이름 정규화
+                f.formKey = NormalizeFormKey(f.formKey);
+                if (f.name != f.formKey) f.name = f.formKey;
+                forms.Add(f);
+                EditorUtility.SetDirty(f);
+            }
+            EditorUtility.SetDirty(this);
+            AssetDatabase.SaveAssets();
+        }
+
+        public void Editor_SortFormsDefaultFirst()
+        {
+            // "Default" 먼저, 그 다음 알파벳
+            forms = forms.Where(f => f != null)
+                         .OrderBy(f => f.formKey == "Default" ? 0 : 1)
+                         .ThenBy(f => f.formKey, System.StringComparer.Ordinal)
+                         .ToList();
+            EditorUtility.SetDirty(this);
+        }
+
+        [CustomEditor(typeof(PokeClicker.SpeciesSO))]
+        public class SpeciesSOEditor : Editor
+        {
+            public override void OnInspectorGUI()
+            {
+                base.OnInspectorGUI();
+
+                var species = (PokeClicker.SpeciesSO)target;
+                EditorGUILayout.Space();
+                EditorGUILayout.LabelField("Forms Utilities", EditorStyles.boldLabel);
+
+                if (GUILayout.Button("서브에셋(폼) 리스트로 추가"))
+                {
+                    species.Editor_SyncFormsFromSubassets();
+                }
+                if (GUILayout.Button("Default 가 리스트 폼 맨위로"))
+                {
+                    species.Editor_SortFormsDefaultFirst();
+                }
+            }
         }
 #endif
     }

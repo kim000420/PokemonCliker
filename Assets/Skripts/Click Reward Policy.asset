@@ -9,19 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
-  m_Name: New Form SO
+  m_Script: {fileID: 11500000, guid: 534c89799e9077948bdb239f1dc65625, type: 3}
+  m_Name: Click Reward Policy
   m_EditorClassIdentifier: 
-  generation: 1
-  formKey: Default
-  typePair:
-    hasDualType: 0
-    primary: 1
-    secondary: 9
-  baseStats:
-    hp: 0
-    atk: 0
-    def: 0
-    spa: 0
-    spd: 0
-    spe: 0
+  expPerInput: 1
+  clicksPerFriendship: 1000
+  friendshipSlot1: 2
+  friendshipOthers: 1
+  maxFriendship: 255
+  expMultiplier: 1
+  friendshipMultiplier: 1

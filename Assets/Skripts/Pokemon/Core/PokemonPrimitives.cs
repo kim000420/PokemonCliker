@@ -49,6 +49,16 @@ namespace PokeClicker
         Bug, Rock, Ghost, Dragon, Dark, Steel, Fairy
     }
 
+    // 성격 열거형 25종
+    public enum NatureId
+    {
+        Hardy, Lonely, Brave, Adamant, Naughty,
+        Bold, Docile, Relaxed, Impish, Lax,
+        Timid, Hasty, Serious, Jolly, Naive,
+        Modest, Mild, Quiet, Bashful, Rash,
+        Calm, Gentle, Sassy, Careful, Quirky
+    }
+
     // 성별 열거형
     [System.Serializable]
     public enum Gender

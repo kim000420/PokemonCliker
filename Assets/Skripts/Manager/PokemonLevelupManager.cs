@@ -1,5 +1,6 @@
 // 파일: Scripts/Managers/PokemonLevelupManager.cs
 using System;
+using UnityEngine;
 
 namespace PokeClicker
 {
@@ -8,7 +9,7 @@ namespace PokeClicker
     /// - ExpService를 호출하여 경험치 추가 및 연쇄 레벨업을 처리
     /// - 각 단계에서 OnLevelUp 이벤트 방출(소비자가 StatService 재계산)
     /// </summary>
-    public class PokemonLevelupManager
+    public class PokemonLevelupManager : MonoBehaviour
     {
         public event Action<int /*uid*/, int /*newLevel*/> OnLevelUp;
 

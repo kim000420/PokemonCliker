@@ -159,8 +159,22 @@ namespace PokeClicker.EditorTools
             {
                 form = ScriptableObject.CreateInstance<FormSO>();
                 form.formKey = formKey;
+                // 보기 편하게 sub-asset 이름을 formKey로
+                form.name = SpeciesSO.NormalizeFormKey(formKey);
+
                 AssetDatabase.AddObjectToAsset(form, species);
+
+                // 리스트 자동 등록 (중복 체크/이름 동기화 포함)
+                species.Editor_AddOrEnsureFormRef(form);
+
                 Debug.Log($"[Importer] Created FormSO: {species.speciesId} {formKey}");
+            }
+            else
+            {
+                // 기존 폼도 이름/키 동기화 & 리스트 보장
+                form.formKey = SpeciesSO.NormalizeFormKey(form.formKey);
+                if (form.name != form.formKey) form.name = form.formKey;
+                species.Editor_AddOrEnsureFormRef(form);
             }
 
             // FormSO 데이터 갱신
@@ -180,8 +194,8 @@ namespace PokeClicker.EditorTools
                 spe = SafeInt(cols[22])
             };
 
-            EditorUtility.SetDirty(species);
             EditorUtility.SetDirty(form);
+            EditorUtility.SetDirty(species);
         }
 
         // ──────────────────────────────────────────────────────────────

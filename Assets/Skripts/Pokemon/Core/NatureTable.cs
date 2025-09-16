@@ -3,16 +3,6 @@ using UnityEngine;
 
 namespace PokeClicker
 {
-    // 성격 식별자(25종, 메인 시리즈 기준)
-    public enum NatureId
-    {
-        Hardy, Lonely, Brave, Adamant, Naughty,
-        Bold, Docile, Relaxed, Impish, Lax,
-        Timid, Hasty, Serious, Jolly, Naive,
-        Modest, Mild, Quiet, Bashful, Rash,
-        Calm, Gentle, Sassy, Careful, Quirky
-    }
-
     // 성격이 스탯에 주는 배율(HP는 영향 없음)
     public struct NatureMultiplier
     {
@@ -37,21 +27,39 @@ namespace PokeClicker
         {
             // 공격↑ 방어↓
             { NatureId.Lonely,  new NatureMultiplier(1.1f, 0.9f, 1.0f, 1.0f, 1.0f) },
-            // 공격↑ 스피드↓
-            { NatureId.Brave,   new NatureMultiplier(1.1f, 1.0f, 1.0f, 1.0f, 0.9f) },
             // 공격↑ 특공↓
             { NatureId.Adamant, new NatureMultiplier(1.1f, 1.0f, 0.9f, 1.0f, 1.0f) },
             // 공격↑ 특방↓
             { NatureId.Naughty, new NatureMultiplier(1.1f, 1.0f, 1.0f, 0.9f, 1.0f) },
+            // 공격↑ 스피드↓
+            { NatureId.Brave,   new NatureMultiplier(1.1f, 1.0f, 1.0f, 1.0f, 0.9f) },
 
             // 방어↑ 공격↓
             { NatureId.Bold,    new NatureMultiplier(0.9f, 1.1f, 1.0f, 1.0f, 1.0f) },
-            // 방어↑ 스피드↓
-            { NatureId.Relaxed, new NatureMultiplier(1.0f, 1.1f, 1.0f, 1.0f, 0.9f) },
             // 방어↑ 특공↓
             { NatureId.Impish,  new NatureMultiplier(1.0f, 1.1f, 0.9f, 1.0f, 1.0f) },
             // 방어↑ 특방↓
             { NatureId.Lax,     new NatureMultiplier(1.0f, 1.1f, 1.0f, 0.9f, 1.0f) },
+            // 방어↑ 스피드↓
+            { NatureId.Relaxed, new NatureMultiplier(1.0f, 1.1f, 1.0f, 1.0f, 0.9f) },
+
+            // 특공↑ 공격↓
+            { NatureId.Modest,  new NatureMultiplier(0.9f, 1.0f, 1.1f, 1.0f, 1.0f) },
+            // 특공↑ 방어↓
+            { NatureId.Mild,    new NatureMultiplier(1.0f, 0.9f, 1.1f, 1.0f, 1.0f) },
+            // 특공↑ 특방↓
+            { NatureId.Rash,    new NatureMultiplier(1.0f, 1.0f, 1.1f, 0.9f, 1.0f) },
+            // 특공↑ 스피드↓
+            { NatureId.Quiet,   new NatureMultiplier(1.0f, 1.0f, 1.1f, 1.0f, 0.9f) },
+
+            // 특방↑ 공격↓
+            { NatureId.Calm,    new NatureMultiplier(0.9f, 1.0f, 1.0f, 1.1f, 1.0f) },
+            // 특방↑ 방어↓
+            { NatureId.Gentle,  new NatureMultiplier(1.0f, 0.9f, 1.0f, 1.1f, 1.0f) },
+            // 특방↑ 특공↓
+            { NatureId.Careful, new NatureMultiplier(1.0f, 1.0f, 0.9f, 1.1f, 1.0f) },
+            // 특방↑ 스피드↓
+            { NatureId.Sassy,   new NatureMultiplier(1.0f, 1.0f, 1.0f, 1.1f, 0.9f) },
 
             // 스피드↑ 공격↓
             { NatureId.Timid,   new NatureMultiplier(0.9f, 1.0f, 1.0f, 1.0f, 1.1f) },
@@ -61,24 +69,6 @@ namespace PokeClicker
             { NatureId.Jolly,   new NatureMultiplier(1.0f, 1.0f, 0.9f, 1.0f, 1.1f) },
             // 스피드↑ 특방↓
             { NatureId.Naive,   new NatureMultiplier(1.0f, 1.0f, 1.0f, 0.9f, 1.1f) },
-
-            // 특공↑ 공격↓
-            { NatureId.Modest,  new NatureMultiplier(0.9f, 1.0f, 1.1f, 1.0f, 1.0f) },
-            // 특공↑ 방어↓
-            { NatureId.Mild,    new NatureMultiplier(1.0f, 0.9f, 1.1f, 1.0f, 1.0f) },
-            // 특공↑ 스피드↓
-            { NatureId.Quiet,   new NatureMultiplier(1.0f, 1.0f, 1.1f, 1.0f, 0.9f) },
-            // 특공↑ 특방↓
-            { NatureId.Rash,    new NatureMultiplier(1.0f, 1.0f, 1.1f, 0.9f, 1.0f) },
-
-            // 특방↑ 공격↓
-            { NatureId.Calm,    new NatureMultiplier(0.9f, 1.0f, 1.0f, 1.1f, 1.0f) },
-            // 특방↑ 방어↓
-            { NatureId.Gentle,  new NatureMultiplier(1.0f, 0.9f, 1.0f, 1.1f, 1.0f) },
-            // 특방↑ 스피드↓
-            { NatureId.Sassy,   new NatureMultiplier(1.0f, 1.0f, 1.0f, 1.1f, 0.9f) },
-            // 특방↑ 특공↓
-            { NatureId.Careful, new NatureMultiplier(1.0f, 1.0f, 0.9f, 1.1f, 1.0f) },
 
             // 중립 5종
             { NatureId.Hardy,   new NatureMultiplier(1.0f, 1.0f, 1.0f, 1.0f, 1.0f) },
@@ -93,13 +83,6 @@ namespace PokeClicker
         {
             if (_map.TryGetValue(id, out var m)) return m;
             return new NatureMultiplier(1f, 1f, 1f, 1f, 1f);
-        }
-
-        // 무작위 성격 하나 뽑기 (균등)
-        public static NatureId PickRandom()
-        {
-            int idx = Random.Range(0, 25); // 0~24
-            return (NatureId)idx;
         }
 
         // 디버그/툴용: 성격이 스탯에 주는 배율을 특정 스탯 코드로 가져오기
