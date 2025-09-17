@@ -88,6 +88,8 @@ namespace PokeClicker
         {
             var json = JsonUtility.ToJson(data, true);
             File.WriteAllText(path, json);
+
+            UnityEngine.Debug.Log($"[REPO] Saved JSON to {path}");
         }
     }
 }

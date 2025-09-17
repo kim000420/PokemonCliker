@@ -42,15 +42,6 @@ namespace PokeClicker
             };
             _repo.SaveAccount(record);
 
-            // 트레이너 초기 프로필도 함께 생성
-            var profile = new TrainerProfile
-            {
-                T_uid = tUid,
-                TrainerName = string.IsNullOrWhiteSpace(displayName) ? $"Trainer{tUid}" : displayName,
-                CreatedAt = DateTime.Now
-            };
-            _repo.SaveTrainerProfile(profile);
-
             return tUid;
         }
 

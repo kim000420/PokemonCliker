@@ -22,11 +22,16 @@ namespace PokeClicker
         AccountMap _accounts;
         ProfileMap _profiles;
 
-        void Awake()
+        public void Initialize()
         {
             Directory.CreateDirectory(Folder);
             _accounts = LoadJson<AccountMap>(AccountsPath) ?? new AccountMap();
             _profiles = LoadJson<ProfileMap>(ProfilesPath) ?? new ProfileMap();
+        }
+
+        void Awake()
+        {
+            if (_accounts == null) Initialize();
         }
 
         // IAccountRepository -------------------------------
@@ -34,6 +39,12 @@ namespace PokeClicker
 
         public int GetMaxTrainerUid()
         {
+            if (_profiles == null)
+            {
+                Directory.CreateDirectory(Folder);
+                _profiles = LoadJson<ProfileMap>(ProfilesPath) ?? new ProfileMap();
+            }
+
             int max = 0;
             foreach (var p in _profiles.list) if (p.T_uid > max) max = p.T_uid;
             return max;
@@ -76,6 +87,8 @@ namespace PokeClicker
         {
             var json = JsonUtility.ToJson(obj, true);
             File.WriteAllText(path, json);
+
+            UnityEngine.Debug.Log($"[REPO] Saved JSON to {path}");
         }
     }
 }
