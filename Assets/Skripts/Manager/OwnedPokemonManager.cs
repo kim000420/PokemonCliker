@@ -26,7 +26,8 @@ namespace PokeClicker
         private readonly List<int> _party = new();                         // P_uid (<=6)
         private readonly List<List<int>> _boxes = new();                   // 박스들: 각 박스는 P_uid 리스트
 
-        private int _partyLimit = 6;
+        private int _nextPuid = 1;              // P_uid 발급 시퀀스 (기본 1부터)
+        private int _partyLimit = 6;            // 파티 최대수 6 고정
 
         public void Init(int partyLimit = 6, IPokemonIdProvider idProvider = null)
         {
@@ -50,6 +51,26 @@ namespace PokeClicker
             return _table.Values;
         }
 
+        /// <summary>현재 테이블 내 최대 P_uid를 스캔해 다음 발급 번호를 갱신</summary>
+        public void RefreshNextPuid()
+        {
+            int max = 0;
+            foreach (var kv in _table)
+            {
+                if (kv.Value != null && kv.Value.P_uid > max)
+                    max = kv.Value.P_uid;
+            }
+            _nextPuid = max + 1;
+        }
+
+        /// <summary>새로운 P_uid 발급 (외부 Provider가 있으면 위임, 없으면 시퀀스 사용)</summary>
+        private int IssuePuid()
+        {
+            if (_idProvider != null) return _idProvider.NextPuid();
+            return _nextPuid++;
+        }
+
+
         // ====== 외부로부터 로드 ======
         /// <summary>
         /// TrainerRepository에서 불러온 원시 데이터를 그대로 주입.
@@ -72,6 +93,8 @@ namespace PokeClicker
             }
             if (party != null) _party.AddRange(party);
             if (boxes != null) _boxes.AddRange(boxes);
+
+            RefreshNextPuid(); // 로드된 데이터 기반으로 다음 발급 번호 보정
         }
 
         // ====== 추가/삭제 ======
@@ -88,15 +111,16 @@ namespace PokeClicker
             // P_uid 확보
             if (data.P_uid <= 0)
             {
-                if (_idProvider == null)
-                    throw new InvalidOperationException("P_uid가 비어 있습니다. IPokemonIdProvider를 주입하거나, 사전에 P_uid를 설정하세요.");
-                data.P_uid = _idProvider.NextPuid();
+                data.P_uid = IssuePuid(); // ← 이전의 throw 제거, 내부 시퀀스로 발급
             }
+
 
             int P_uid = data.P_uid;
 
             // 테이블에 등록
             _table[P_uid] = data;
+            Debug.Log($"[OWNED] Added P_uid={data.P_uid}, species={data.speciesId}, form={data.formKey}");
+
 
             // 기본 배치: 파티 우선
             if (_party.Count < _partyLimit)

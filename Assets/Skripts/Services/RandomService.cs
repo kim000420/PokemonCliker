@@ -33,12 +33,10 @@ namespace PokeClicker
 
         /// <summary>
         /// 이로치 판정. 기본 1/4096
-        /// overrideOneOver 값으로 확률을 덮어쓸 수 있다. (예 512 이면 1/512)
         /// </summary>
-        public static bool RollShiny(int overrideOneOver = 4096)
+        public static bool RollShiny()
         {
-            int denom = Mathf.Max(1, overrideOneOver);
-            int r = NextInt(denom); // 0..denom-1
+            int r = NextInt(4095); // 0~4095 
             return r == 0;
         }
 

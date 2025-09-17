@@ -1,30 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3544282257590342705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  generation: 7
-  formKey: Alolan
-  typePair:
-    hasDualType: 0
-    primary: 16
-    secondary: 0
-  baseStats:
-    hp: 65
-    atk: 60
-    def: 60
-    spa: 75
-    spd: 65
-    spe: 115
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47,8 +22,10 @@ MonoBehaviour:
     maleRate0to100: 50
   curveType: 2
   maxLevel: 100
-  forms: []
---- !u!114 &146115862454021637
+  forms:
+  - {fileID: 5211211582547456771}
+  - {fileID: 3111155454570078278}
+--- !u!114 &3111155454570078278
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,7 +35,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
-  m_Name: 
+  m_Name: Alolan
+  m_EditorClassIdentifier: 
+  generation: 7
+  formKey: Alolan
+  typePair:
+    hasDualType: 0
+    primary: 16
+    secondary: 0
+  baseStats:
+    hp: 65
+    atk: 60
+    def: 60
+    spa: 75
+    spd: 65
+    spe: 115
+--- !u!114 &5211211582547456771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
   m_EditorClassIdentifier: 
   generation: 1
   formKey: Default

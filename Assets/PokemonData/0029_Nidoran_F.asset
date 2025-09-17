@@ -1,6 +1,30 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1520612163213962763
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0029_Nidoran_F
+  m_EditorClassIdentifier: 
+  speciesId: 29
+  nameKeyEng: Nidoran F
+  nameKeyKor: "\uB2C8\uB4DC\uB7F0\u2640"
+  rarityCategory: 0
+  catchRate: 235
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 0
+  curveType: 3
+  maxLevel: 100
+  forms:
+  - {fileID: 2642273953012476535}
+--- !u!114 &2642273953012476535
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -25,27 +49,3 @@ MonoBehaviour:
     spa: 40
     spd: 40
     spe: 41
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
-  m_Name: 0029_Nidoran_F
-  m_EditorClassIdentifier: 
-  speciesId: 29
-  nameKeyEng: Nidoran F
-  nameKeyKor: "\uB2C8\uB4DC\uB7F0\u2640"
-  rarityCategory: 0
-  catchRate: 235
-  genderPolicy:
-    hasGender: 1
-    maleRate0to100: 0
-  curveType: 3
-  maxLevel: 100
-  forms:
-  - {fileID: -1520612163213962763}

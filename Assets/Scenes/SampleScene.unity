@@ -8209,6 +8209,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 805567060}
   m_CullTransparentMesh: 1
+--- !u!1 &809880243
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 809880245}
+  - component: {fileID: 809880244}
+  m_Layer: 0
+  m_Name: PuidSequencer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &809880244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809880243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40bb806723862304190a854eaa47f5fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _next: 1
+--- !u!4 &809880245
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809880243}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 985.2352, y: 482.59314, z: -8.232441}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &812040335
 GameObject:
   m_ObjectHideFlags: 0
@@ -8665,12 +8710,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 863778549}
+  - component: {fileID: 863778546}
+  - component: {fileID: 863778550}
   - component: {fileID: 863778545}
   - component: {fileID: 863778548}
   - component: {fileID: 863778547}
   - component: {fileID: 863778544}
-  - component: {fileID: 863778546}
-  - component: {fileID: 863778550}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -8714,8 +8759,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4918f3877481edc47afc0a6a608f1dc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speciesDB: {fileID: 0}
-  ownedManager: {fileID: 0}
+  speciesDB: {fileID: 1865642126}
+  owned: {fileID: 863778545}
+  currentTuid: 0
 --- !u!114 &863778547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8779,6 +8825,7 @@ MonoBehaviour:
   tracker:
     totalInputs: 0
     remainderFriendship: 0
+  puidSequencer: {fileID: 809880244}
   loginId: test@user
   loginPw: 1234
   displayName: Trainer
@@ -20324,9 +20371,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allSpecies:
-  - {fileID: 11400000, guid: 98a021f91f4a73d4cbf15135ff9055ca, type: 2}
-  - {fileID: 11400000, guid: 3a089474bc9e2bc41b508b7d2bac93af, type: 2}
-  - {fileID: 11400000, guid: 621394f5f13519e4b98ea00c0fd2e879, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &1865642127
 Transform:
   m_ObjectHideFlags: 0
@@ -23296,7 +23343,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2141152990
 RectTransform:
   m_ObjectHideFlags: 0

@@ -102,9 +102,18 @@ namespace PokeClicker
     [System.Serializable]
     public enum RarityCategory
     {
-        Ordinary, Legendary, Semi_Legendary, Mythical
+        Ordinary, Legendary, SemiLegendary, Mythical
     }
-    
+
+    /// <summary>스타터 풀 범위</summary>
+    public enum StarterTier
+    {
+        NormalOnly,
+        Include_SemiLegendary,
+        Include_Legendary,
+        Include_Mythical
+    }
+
     // 알그룹
     //
 }

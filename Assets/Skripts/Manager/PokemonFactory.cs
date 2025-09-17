@@ -13,13 +13,13 @@ namespace PokeClicker
     {
 
         public SpeciesDB speciesDB;                // 씬에서 연결
-        public OwnedPokemonManager ownedManager;   // 씬에서 연결
+        public OwnedPokemonManager owned;   // 씬에서 연결
+        public int currentTuid;
         
         public struct Options
         {
             public bool rollNature;              // 성격 랜덤 적용 여부 (기본: true)
             public bool rollShiny;               // 이로치 판정 적용 여부 (기본: true)
-            public int shinyOneOver;             // 이로치 확률 분모(1/x). 0 또는 음수면 4096으로 간주
             public bool rollGender;              // 성별 정책 적용 여부 (기본: true)
             public bool rollIVs;                 // IVs 랜덤 굴림 여부 (기본: false ? 전투 없으면 OFF)
         }
@@ -36,7 +36,6 @@ namespace PokeClicker
             {
                 rollNature = true,
                 rollShiny = true,
-                shinyOneOver = 4096,
                 rollGender = true,
                 rollIVs = false
             };
@@ -51,7 +50,7 @@ namespace PokeClicker
                 P_uid = 0, // 소유 매니저가 부여
                 speciesId = species.speciesId,
                 formKey = formKey,
-                isShiny = opt.rollShiny ? RandomService.RollShiny(opt.shinyOneOver > 0 ? opt.shinyOneOver : 4096) : false,
+                isShiny = opt.rollShiny ? RandomService.RollShiny() : false,
                 level = level,
                 currentExp = 0,
                 nickname = null,
@@ -65,30 +64,45 @@ namespace PokeClicker
             };
 
             // 저장 안전 보정(상한/하한)
-            p.EnsureValidAfterLoad(species, species.curveType);
+            p.EnsureValidAfterLoad(species);
 
             return p;
         }
 
+        // 임시
         public PokemonSaveData GiveSpecificFormPokemon(int speciesId, string formKey, int level)
         {
             var species = speciesDB.GetSpecies(speciesId);
             if (species == null) return null;
             var p = Create(species, formKey, level);
-            ownedManager.Add(p);
+            owned.Add(p);
             return p;
         }
 
-        // 4) 포획 지급
-        public PokemonSaveData CatchPokemon(SpeciesSO species, string formKey, int level, bool guaranteed = false)
+        public PokemonSaveData GiveStarterForSignup(int speciesId, string formKey, int level)
         {
-            int rate = species.catchRate;
-            bool success = guaranteed || UnityEngine.Random.Range(0, 100) < rate;
-            if (!success) return null;
+            var species = speciesDB.GetSpecies(speciesId);
+            if (species == null) { Debug.LogWarning($"Starter species not found: {speciesId}"); return null; }
 
-            var p = Create(species, formKey, level);
-            ownedManager.Add(p);
+            var p = Create(species, formKey, level);   // 여기서는 P_uid 부여 X
+            owned.Add(p);                              // 여기서 Provider를 통해 P_uid 순차 발급
             return p;
         }
+
+        // 위치: PokemonFactory 안 (메서드 단위 추가)
+        public PokemonSaveData GiveRandomTest(int level)
+        {
+            var s = speciesDB.GetRandom();
+            if (s == null) return null;
+
+            var forms = s.Forms;
+            if (forms == null || forms.Count == 0) return null;
+
+            var key = forms[UnityEngine.Random.Range(0, forms.Count)].formKey;
+            var p = Create(s, key, level); // P_uid 없이 생성
+            owned.Add(p);                  // 여기서 P_uid 부여
+            return p;
+        }
+
     }
 }

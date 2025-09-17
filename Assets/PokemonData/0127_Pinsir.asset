@@ -22,8 +22,10 @@ MonoBehaviour:
     maleRate0to100: 50
   curveType: 4
   maxLevel: 100
-  forms: []
---- !u!114 &4315188730489891648
+  forms:
+  - {fileID: 7596501040290274885}
+  - {fileID: 4058201606351001032}
+--- !u!114 &4058201606351001032
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -33,32 +35,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  generation: 1
-  formKey: Default
-  typePair:
-    hasDualType: 0
-    primary: 12
-    secondary: 0
-  baseStats:
-    hp: 65
-    atk: 125
-    def: 100
-    spa: 55
-    spd: 70
-    spe: 85
---- !u!114 &4628997966132201622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
-  m_Name: 
+  m_Name: Mega
   m_EditorClassIdentifier: 
   generation: 1
   formKey: Mega
@@ -73,3 +50,28 @@ MonoBehaviour:
     spa: 65
     spd: 90
     spe: 105
+--- !u!114 &7596501040290274885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  generation: 1
+  formKey: Default
+  typePair:
+    hasDualType: 0
+    primary: 12
+    secondary: 0
+  baseStats:
+    hp: 65
+    atk: 125
+    def: 100
+    spa: 55
+    spd: 70
+    spe: 85

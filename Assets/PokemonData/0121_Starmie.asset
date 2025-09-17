@@ -1,5 +1,30 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9062907783616102079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  generation: 1
+  formKey: Default
+  typePair:
+    hasDualType: 1
+    primary: 3
+    secondary: 11
+  baseStats:
+    hp: 60
+    atk: 75
+    def: 85
+    spa: 100
+    spd: 85
+    spe: 115
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22,29 +47,5 @@ MonoBehaviour:
     maleRate0to100: 0
   curveType: 4
   maxLevel: 100
-  forms: []
---- !u!114 &1296228845809210248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  generation: 1
-  formKey: Default
-  typePair:
-    hasDualType: 1
-    primary: 3
-    secondary: 11
-  baseStats:
-    hp: 60
-    atk: 75
-    def: 85
-    spa: 100
-    spd: 85
-    spe: 115
+  forms:
+  - {fileID: -9062907783616102079}

@@ -10,7 +10,7 @@ namespace PokeClicker
     public class PokemonSaveData
     {
         // 식별
-        public int P_uid;                    // 외부(리포지토리 등)에서 부여하는 고유 ID
+        public int P_uid;                  // 외부(리포지토리 등)에서 부여하는 고유 ID
         public int speciesId;              // 종 ID (SpeciesSO.speciesId)
         public string formKey = "Default"; // 현재 폼 키 ("Default","Alola"...)
         public bool isShiny;               // 이로치 여부
@@ -43,7 +43,7 @@ namespace PokeClicker
         }
 
         // 로드 후 값 범위 보정
-        public void EnsureValidAfterLoad(SpeciesSO species, ExperienceCurve curveType)
+        public void EnsureValidAfterLoad(SpeciesSO species)
         {
             if (species != null)
             {
@@ -51,16 +51,10 @@ namespace PokeClicker
                 if (level < 1) level = 1;
                 if (level > maxLv) level = maxLv;
 
-                if (curveType != null)
-                {
-                    int need = ExperienceCurveService.GetNeedExpForNextLevel(species.curveType, level);
-                    if (need == int.MaxValue) currentExp = 0;            // 만렙
-                    else currentExp = Mathf.Clamp(currentExp, 0, Math.Max(0, need - 1));
-                }
-                else
-                {
-                    currentExp = Mathf.Max(0, currentExp);
-                }
+                int need = ExperienceCurveService.GetNeedExpForNextLevel(species.curveType, level);
+                if (need == int.MaxValue) currentExp = 0;            // 만렙
+                else currentExp = Mathf.Clamp(currentExp, 0, Math.Max(0, need - 1));
+                
             }
             else
             {

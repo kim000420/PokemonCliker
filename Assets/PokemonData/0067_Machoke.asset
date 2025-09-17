@@ -22,8 +22,9 @@ MonoBehaviour:
     maleRate0to100: 75
   curveType: 3
   maxLevel: 100
-  forms: []
---- !u!114 &60781306127991700
+  forms:
+  - {fileID: 8906489923699739528}
+--- !u!114 &8906489923699739528
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -33,7 +34,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
-  m_Name: 
+  m_Name: Default
   m_EditorClassIdentifier: 
   generation: 1
   formKey: Default
