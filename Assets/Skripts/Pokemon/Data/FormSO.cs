@@ -20,5 +20,8 @@ namespace PokeClicker
 
         [Header("Base Stats (폼별)")]
         public StatBlock baseStats;          // 종족값
+        
+        [Header("Visuals (SO)")]
+        public PokemonVisualSO visual;       // 아이콘과 애니메이션 에셋을 참조
     }
 }
