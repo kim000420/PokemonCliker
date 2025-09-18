@@ -1,31 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
-  m_Name: 0094_Gengar
-  m_EditorClassIdentifier: 
-  speciesId: 94
-  nameKeyEng: Gengar
-  nameKeyKor: "\uD32C\uD140"
-  rarityCategory: 0
-  catchRate: 45
-  genderPolicy:
-    hasGender: 1
-    maleRate0to100: 50
-  curveType: 3
-  maxLevel: 100
-  forms:
-  - {fileID: 3659318187015986899}
-  - {fileID: 7283707850645665729}
---- !u!114 &3659318187015986899
+--- !u!114 &-3969045270973437879
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -51,7 +26,32 @@ MonoBehaviour:
     spd: 75
     spe: 110
   visual: {fileID: 11400000, guid: 7e7ed6fe366a4854088e7060db22bd27, type: 2}
---- !u!114 &7283707850645665729
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0094_Gengar
+  m_EditorClassIdentifier: 
+  speciesId: 94
+  nameKeyEng: Gengar
+  nameKeyKor: "\uD32C\uD140"
+  rarityCategory: 0
+  catchRate: 45
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 3
+  maxLevel: 100
+  forms:
+  - {fileID: -3969045270973437879}
+  - {fileID: 1508517203982176574}
+--- !u!114 &1508517203982176574
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

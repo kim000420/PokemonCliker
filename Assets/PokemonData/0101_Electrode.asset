@@ -1,32 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3943784373413377413
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
-  m_Name: Hisuian
-  m_EditorClassIdentifier: 
-  generation: 8
-  formKey: Hisuian
-  typePair:
-    hasDualType: 1
-    primary: 5
-    secondary: 4
-  baseStats:
-    hp: 60
-    atk: 50
-    def: 70
-    spa: 80
-    spd: 80
-    spe: 150
-  visual: {fileID: 11400000, guid: 1fd0c7e689d101644bbcd0e93f1d3934, type: 2}
---- !u!114 &-836191126720676817
+--- !u!114 &-5440979940458658579
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -75,5 +49,31 @@ MonoBehaviour:
   curveType: 2
   maxLevel: 100
   forms:
-  - {fileID: -836191126720676817}
-  - {fileID: -3943784373413377413}
+  - {fileID: -5440979940458658579}
+  - {fileID: 7734453592182834377}
+--- !u!114 &7734453592182834377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Hisuian
+  m_EditorClassIdentifier: 
+  generation: 8
+  formKey: Hisuian
+  typePair:
+    hasDualType: 1
+    primary: 5
+    secondary: 4
+  baseStats:
+    hp: 60
+    atk: 50
+    def: 70
+    spa: 80
+    spd: 80
+    spe: 150
+  visual: {fileID: 11400000, guid: 1fd0c7e689d101644bbcd0e93f1d3934, type: 2}

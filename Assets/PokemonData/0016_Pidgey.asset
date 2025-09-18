@@ -1,30 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
-  m_Name: 0016_Pidgey
-  m_EditorClassIdentifier: 
-  speciesId: 16
-  nameKeyEng: Pidgey
-  nameKeyKor: "\uAD6C\uAD6C"
-  rarityCategory: 0
-  catchRate: 255
-  genderPolicy:
-    hasGender: 1
-    maleRate0to100: 50
-  curveType: 3
-  maxLevel: 100
-  forms:
-  - {fileID: 3057657329212452779}
---- !u!114 &3057657329212452779
+--- !u!114 &-1933039446854912861
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50,3 +26,27 @@ MonoBehaviour:
     spd: 35
     spe: 56
   visual: {fileID: 11400000, guid: 047c00fb0240a70478ebccf1698e0687, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0016_Pidgey
+  m_EditorClassIdentifier: 
+  speciesId: 16
+  nameKeyEng: Pidgey
+  nameKeyKor: "\uAD6C\uAD6C"
+  rarityCategory: 0
+  catchRate: 255
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 3
+  maxLevel: 100
+  forms:
+  - {fileID: -1933039446854912861}

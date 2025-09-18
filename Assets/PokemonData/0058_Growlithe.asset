@@ -1,6 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3129300880431890429
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0058_Growlithe
+  m_EditorClassIdentifier: 
+  speciesId: 58
+  nameKeyEng: Growlithe
+  nameKeyKor: "\uAC00\uB514"
+  rarityCategory: 0
+  catchRate: 190
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 75
+  curveType: 4
+  maxLevel: 100
+  forms:
+  - {fileID: 7455341271250202992}
+  - {fileID: 2490528418964886223}
+--- !u!114 &2490528418964886223
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -26,32 +51,7 @@ MonoBehaviour:
     spd: 50
     spe: 55
   visual: {fileID: 11400000, guid: 168d219412d0d0b4297c380dd5dba271, type: 2}
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
-  m_Name: 0058_Growlithe
-  m_EditorClassIdentifier: 
-  speciesId: 58
-  nameKeyEng: Growlithe
-  nameKeyKor: "\uAC00\uB514"
-  rarityCategory: 0
-  catchRate: 190
-  genderPolicy:
-    hasGender: 1
-    maleRate0to100: 75
-  curveType: 4
-  maxLevel: 100
-  forms:
-  - {fileID: 385332460581459368}
-  - {fileID: -3129300880431890429}
---- !u!114 &385332460581459368
+--- !u!114 &7455341271250202992
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

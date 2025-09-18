@@ -1,30 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
-  m_Name: 0017_Pidgeotto
-  m_EditorClassIdentifier: 
-  speciesId: 17
-  nameKeyEng: Pidgeotto
-  nameKeyKor: "\uD53C\uC8E4"
-  rarityCategory: 0
-  catchRate: 120
-  genderPolicy:
-    hasGender: 1
-    maleRate0to100: 50
-  curveType: 3
-  maxLevel: 100
-  forms:
-  - {fileID: 1252422989877587582}
---- !u!114 &1252422989877587582
+--- !u!114 &-3464641490601227099
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50,3 +26,27 @@ MonoBehaviour:
     spd: 50
     spe: 71
   visual: {fileID: 11400000, guid: 028b386c48d62914491920d20011dc1c, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0017_Pidgeotto
+  m_EditorClassIdentifier: 
+  speciesId: 17
+  nameKeyEng: Pidgeotto
+  nameKeyKor: "\uD53C\uC8E4"
+  rarityCategory: 0
+  catchRate: 120
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 3
+  maxLevel: 100
+  forms:
+  - {fileID: -3464641490601227099}

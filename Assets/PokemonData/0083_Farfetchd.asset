@@ -1,57 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
-  m_Name: 0083_Farfetch'd
-  m_EditorClassIdentifier: 
-  speciesId: 83
-  nameKeyEng: Farfetch'd
-  nameKeyKor: "\uD30C\uC624\uB9AC"
-  rarityCategory: 0
-  catchRate: 45
-  genderPolicy:
-    hasGender: 1
-    maleRate0to100: 50
-  curveType: 2
-  maxLevel: 100
-  forms:
-  - {fileID: 7817206307336835957}
-  - {fileID: 271056204847331238}
---- !u!114 &271056204847331238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
-  m_Name: Galarian
-  m_EditorClassIdentifier: 
-  generation: 8
-  formKey: Galarian
-  typePair:
-    hasDualType: 0
-    primary: 7
-    secondary: 0
-  baseStats:
-    hp: 52
-    atk: 95
-    def: 55
-    spa: 58
-    spd: 62
-    spe: 55
-  visual: {fileID: 11400000, guid: 7d93fcb8a35d9564aab0900113a32ad4, type: 2}
---- !u!114 &7817206307336835957
+--- !u!114 &-8913563712766858253
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -76,4 +25,55 @@ MonoBehaviour:
     spa: 58
     spd: 62
     spe: 60
-  visual: {fileID: 11400000, guid: 8621e7770ca4b0e45893839aedcb6658, type: 2}
+  visual: {fileID: 11400000, guid: e62facf10f7084a49b95475d6aaf36d8, type: 2}
+--- !u!114 &-3409606244169864740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Galarian
+  m_EditorClassIdentifier: 
+  generation: 8
+  formKey: Galarian
+  typePair:
+    hasDualType: 0
+    primary: 7
+    secondary: 0
+  baseStats:
+    hp: 52
+    atk: 95
+    def: 55
+    spa: 58
+    spd: 62
+    spe: 55
+  visual: {fileID: 11400000, guid: 2bcdfba5669756d43ba27fa3fcdffc31, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0083_Farfetchd
+  m_EditorClassIdentifier: 
+  speciesId: 83
+  nameKeyEng: Farfetchd
+  nameKeyKor: "\uD30C\uC624\uB9AC"
+  rarityCategory: 0
+  catchRate: 45
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 2
+  maxLevel: 100
+  forms:
+  - {fileID: -8913563712766858253}
+  - {fileID: -3409606244169864740}

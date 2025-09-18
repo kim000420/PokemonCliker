@@ -103,25 +103,23 @@ namespace PokeClicker.EditorTools
             {
                 visualSO = ScriptableObject.CreateInstance<PokemonVisualSO>();
                 AssetDatabase.CreateAsset(visualSO, path);
-                Debug.Log($"[Visual Importer] Created new VisualSO: {fileName}");
+                Debug.Log($"[Visual Importer] 신규 생성 SO: {fileName}");
             }
 
-            string assetName = $"{species.speciesId:0000}_{species.nameKeyEng}";
-            if (!string.IsNullOrWhiteSpace(form.formKey) && form.formKey != "Default")
-            {
-                assetName += $"_{form.formKey}";
-            }
+            string speciesName = $"{species.speciesId:0000}_{species.nameKeyEng}";
+            string formSuffix = string.IsNullOrWhiteSpace(form.formKey) || form.formKey == "Default" ? "" : $"_{species.Forms.Count-1}";
+            string assetName = $"{species.nameKeyEng}{formSuffix}";
 
             // 아이콘 에셋 로드 및 분리 (128x64 스프라이트 시트)
             var iconFrames = LoadSpritesFromSheet(Path.Combine(rootAssetPath, "Icons"), assetName, 64, 64);
-            var shinyIconFrames = LoadSpritesFromSheet(Path.Combine(rootAssetPath, "Icons"), $"{assetName}_shiny", 64, 64);
+            var shinyIconFrames = LoadSpritesFromSheet(Path.Combine(rootAssetPath, "Icons shiny"), assetName, 64, 64);
 
             visualSO.icon = iconFrames?.FirstOrDefault();
             visualSO.shinyIcon = shinyIconFrames?.FirstOrDefault();
 
             // Front 애니메이션 에셋 로드 및 분리
-            var frames = LoadSpritesFromSheet(Path.Combine(rootAssetPath, "Fronts"), assetName, null, null);
-            var shinyFrames = LoadSpritesFromSheet(Path.Combine(rootAssetPath, "Fronts"), $"{assetName}_shiny", null, null);
+            var frames = LoadSpritesFromSheet(Path.Combine(rootAssetPath, "Front"), assetName, null, null);
+            var shinyFrames = LoadSpritesFromSheet(Path.Combine(rootAssetPath, "Front shiny"), assetName, null, null);
 
             visualSO.frontFrames = frames?.ToArray();
             visualSO.shinyFrontFrames = shinyFrames?.ToArray();
@@ -133,19 +131,25 @@ namespace PokeClicker.EditorTools
         /// <summary>
         /// 지정된 폴더에서 스프라이트 시트를 찾아 프레임을 분리합니다.
         /// </summary>
+        
+        // LoadSpeitesFromSheet( 경로 포켓몬이름 프레임넓이 프레임높이 )
         private List<Sprite> LoadSpritesFromSheet(string folderPath, string sheetName, int? frameWidth, int? frameHeight)
         {
             var sprites = new List<Sprite>();
             var fullPath = Path.Combine(folderPath, $"{sheetName}.png");
 
-            if (!File.Exists(fullPath)) return null;
+            if (!File.Exists(fullPath))
+            {
+                Debug.LogWarning($"[Visual Importer] 스프라이트 시트가 없음. [ 경로: {fullPath} ]");
+                return null;
+            }
 
             var importer = AssetImporter.GetAtPath(fullPath) as TextureImporter;
             if (importer != null)
             {
                 importer.textureCompression = TextureImporterCompression.Uncompressed;
                 importer.filterMode = FilterMode.Point;
-                importer.spritePixelsPerUnit = 64; // 아이콘과 프론트 프레임 크기에 맞춰 설정
+                importer.spritePixelsPerUnit = 100;
                 importer.maxTextureSize = 16384;
                 importer.isReadable = true;
                 importer.spriteImportMode = SpriteImportMode.Multiple;
@@ -153,9 +157,8 @@ namespace PokeClicker.EditorTools
                 var texture = AssetDatabase.LoadAssetAtPath<Texture2D>(fullPath);
                 if (texture == null) return null;
 
-                int fw = frameWidth ?? texture.height;
-                int fh = frameHeight ?? texture.height;
-                int framesCount = texture.width / fw;
+                int frameSize = frameWidth ?? texture.height;
+                int framesCount = texture.width / frameSize;
 
                 var spriteSheet = new List<SpriteMetaData>();
                 for (int i = 0; i < framesCount; i++)
@@ -163,7 +166,7 @@ namespace PokeClicker.EditorTools
                     var metaData = new SpriteMetaData
                     {
                         name = $"{sheetName}_{i}",
-                        rect = new Rect(i * fw, 0, fw, fh)
+                        rect = new Rect(i * frameSize, 0, frameSize, frameSize)
                     };
                     spriteSheet.Add(metaData);
                 }
@@ -172,7 +175,6 @@ namespace PokeClicker.EditorTools
                 importer.SaveAndReimport();
             }
 
-            // AssetDatabase.LoadAllAssetsAtPath로 분리된 스프라이트를 로드
             var allAssets = AssetDatabase.LoadAllAssetsAtPath(fullPath);
             foreach (var asset in allAssets)
             {
@@ -181,7 +183,6 @@ namespace PokeClicker.EditorTools
                     sprites.Add(sprite);
                 }
             }
-            // 분리된 스프라이트의 이름 규칙에 따라 정렬 (예: sheetName_0, sheetName_1...)
             return sprites.OrderBy(s => int.TryParse(s.name.Split('_').Last(), out var n) ? n : int.MaxValue).ToList();
         }
     }

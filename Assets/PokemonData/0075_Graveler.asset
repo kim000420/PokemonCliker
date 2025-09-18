@@ -1,57 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
-  m_Name: 0075_Graveler
-  m_EditorClassIdentifier: 
-  speciesId: 75
-  nameKeyEng: Graveler
-  nameKeyKor: "\uB370\uAD6C\uB9AC"
-  rarityCategory: 0
-  catchRate: 120
-  genderPolicy:
-    hasGender: 1
-    maleRate0to100: 50
-  curveType: 3
-  maxLevel: 100
-  forms:
-  - {fileID: 4725659506002502623}
-  - {fileID: 2950181140831726422}
---- !u!114 &2950181140831726422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
-  m_Name: Alolan
-  m_EditorClassIdentifier: 
-  generation: 7
-  formKey: Alolan
-  typePair:
-    hasDualType: 1
-    primary: 13
-    secondary: 5
-  baseStats:
-    hp: 55
-    atk: 95
-    def: 115
-    spa: 45
-    spd: 45
-    spe: 35
-  visual: {fileID: 11400000, guid: 553b50e8dd54c724ba63606ab4fa02b6, type: 2}
---- !u!114 &4725659506002502623
+--- !u!114 &-7521837630255090560
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77,3 +26,54 @@ MonoBehaviour:
     spd: 45
     spe: 35
   visual: {fileID: 11400000, guid: 988e2ab0a763b19428b2a4cd379dba1d, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0075_Graveler
+  m_EditorClassIdentifier: 
+  speciesId: 75
+  nameKeyEng: Graveler
+  nameKeyKor: "\uB370\uAD6C\uB9AC"
+  rarityCategory: 0
+  catchRate: 120
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 3
+  maxLevel: 100
+  forms:
+  - {fileID: -7521837630255090560}
+  - {fileID: 6208864605043670826}
+--- !u!114 &6208864605043670826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Alolan
+  m_EditorClassIdentifier: 
+  generation: 7
+  formKey: Alolan
+  typePair:
+    hasDualType: 1
+    primary: 13
+    secondary: 5
+  baseStats:
+    hp: 55
+    atk: 95
+    def: 115
+    spa: 45
+    spd: 45
+    spe: 35
+  visual: {fileID: 11400000, guid: 553b50e8dd54c724ba63606ab4fa02b6, type: 2}

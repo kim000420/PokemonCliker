@@ -8,7 +8,7 @@ namespace PokeClicker
     /// 포켓몬 타입 아이콘을 중앙에서 관리하는 ScriptableObject.
     /// </summary>
     [CreateAssetMenu(menuName = "PokeClicker/DB/TypeIconDB")]
-    public class TypeIconDB : ScriptableObject
+    public class TypeIconSO : ScriptableObject
     {
         [System.Serializable]
         public struct TypeSpritePair

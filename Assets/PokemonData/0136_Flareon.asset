@@ -1,30 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
-  m_Name: 0136_Flareon
-  m_EditorClassIdentifier: 
-  speciesId: 136
-  nameKeyEng: Flareon
-  nameKeyKor: "\uBD80\uC2A4\uD130"
-  rarityCategory: 0
-  catchRate: 45
-  genderPolicy:
-    hasGender: 1
-    maleRate0to100: 88
-  curveType: 2
-  maxLevel: 100
-  forms:
-  - {fileID: 1382541595551724125}
---- !u!114 &1382541595551724125
+--- !u!114 &-8065905728901308013
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50,3 +26,27 @@ MonoBehaviour:
     spd: 110
     spe: 65
   visual: {fileID: 11400000, guid: 71e0ecba8ffcb50409470e99f3a58413, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0136_Flareon
+  m_EditorClassIdentifier: 
+  speciesId: 136
+  nameKeyEng: Flareon
+  nameKeyKor: "\uBD80\uC2A4\uD130"
+  rarityCategory: 0
+  catchRate: 45
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 88
+  curveType: 2
+  maxLevel: 100
+  forms:
+  - {fileID: -8065905728901308013}

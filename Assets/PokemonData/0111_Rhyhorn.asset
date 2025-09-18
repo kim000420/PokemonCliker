@@ -1,6 +1,30 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8435818259739624997
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0111_Rhyhorn
+  m_EditorClassIdentifier: 
+  speciesId: 111
+  nameKeyEng: Rhyhorn
+  nameKeyKor: "\uBFD4\uCE74\uB178"
+  rarityCategory: 0
+  catchRate: 120
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 4
+  maxLevel: 100
+  forms:
+  - {fileID: 8521998093046433511}
+--- !u!114 &8521998093046433511
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -26,27 +50,3 @@ MonoBehaviour:
     spd: 30
     spe: 25
   visual: {fileID: 11400000, guid: 12d86be6bce787949a91ed1c8fe480f4, type: 2}
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
-  m_Name: 0111_Rhyhorn
-  m_EditorClassIdentifier: 
-  speciesId: 111
-  nameKeyEng: Rhyhorn
-  nameKeyKor: "\uBFD4\uCE74\uB178"
-  rarityCategory: 0
-  catchRate: 120
-  genderPolicy:
-    hasGender: 1
-    maleRate0to100: 50
-  curveType: 4
-  maxLevel: 100
-  forms:
-  - {fileID: -8435818259739624997}

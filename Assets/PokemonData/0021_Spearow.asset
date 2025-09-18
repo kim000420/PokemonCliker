@@ -1,6 +1,30 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4313773736350585544
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0021_Spearow
+  m_EditorClassIdentifier: 
+  speciesId: 21
+  nameKeyEng: Spearow
+  nameKeyKor: "\uAE68\uBE44\uCC38"
+  rarityCategory: 0
+  catchRate: 255
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 2
+  maxLevel: 100
+  forms:
+  - {fileID: 2735533330209028161}
+--- !u!114 &2735533330209028161
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -26,27 +50,3 @@ MonoBehaviour:
     spd: 31
     spe: 70
   visual: {fileID: 11400000, guid: cf12b8a94f4f2cf45910b15f1682e55a, type: 2}
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
-  m_Name: 0021_Spearow
-  m_EditorClassIdentifier: 
-  speciesId: 21
-  nameKeyEng: Spearow
-  nameKeyKor: "\uAE68\uBE44\uCC38"
-  rarityCategory: 0
-  catchRate: 255
-  genderPolicy:
-    hasGender: 1
-    maleRate0to100: 50
-  curveType: 2
-  maxLevel: 100
-  forms:
-  - {fileID: -4313773736350585544}

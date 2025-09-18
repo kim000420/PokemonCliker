@@ -1,6 +1,30 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-623647627690251884
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0057_Primeape
+  m_EditorClassIdentifier: 
+  speciesId: 57
+  nameKeyEng: Primeape
+  nameKeyKor: "\uC131\uC6D0\uC22D"
+  rarityCategory: 0
+  catchRate: 75
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 2
+  maxLevel: 100
+  forms:
+  - {fileID: 1846498108808211841}
+--- !u!114 &1846498108808211841
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -26,27 +50,3 @@ MonoBehaviour:
     spd: 70
     spe: 95
   visual: {fileID: 11400000, guid: 1f577cf5731c9c44f9077806c2082ffc, type: 2}
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
-  m_Name: 0057_Primeape
-  m_EditorClassIdentifier: 
-  speciesId: 57
-  nameKeyEng: Primeape
-  nameKeyKor: "\uC131\uC6D0\uC22D"
-  rarityCategory: 0
-  catchRate: 75
-  genderPolicy:
-    hasGender: 1
-    maleRate0to100: 50
-  curveType: 2
-  maxLevel: 100
-  forms:
-  - {fileID: -623647627690251884}

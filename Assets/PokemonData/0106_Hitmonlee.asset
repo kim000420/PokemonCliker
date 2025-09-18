@@ -1,30 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
-  m_Name: 0106_Hitmonlee
-  m_EditorClassIdentifier: 
-  speciesId: 106
-  nameKeyEng: Hitmonlee
-  nameKeyKor: "\uC2DC\uB77C\uC18C\uBAAC"
-  rarityCategory: 0
-  catchRate: 45
-  genderPolicy:
-    hasGender: 1
-    maleRate0to100: 100
-  curveType: 2
-  maxLevel: 100
-  forms:
-  - {fileID: 3247301328304862645}
---- !u!114 &3247301328304862645
+--- !u!114 &-3149884884464236942
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50,3 +26,27 @@ MonoBehaviour:
     spd: 110
     spe: 87
   visual: {fileID: 11400000, guid: ea91221d413e86c43bed190c40a1bcdf, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0106_Hitmonlee
+  m_EditorClassIdentifier: 
+  speciesId: 106
+  nameKeyEng: Hitmonlee
+  nameKeyKor: "\uC2DC\uB77C\uC18C\uBAAC"
+  rarityCategory: 0
+  catchRate: 45
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 100
+  curveType: 2
+  maxLevel: 100
+  forms:
+  - {fileID: -3149884884464236942}

@@ -1,30 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
-  m_Name: 0125_Electabuzz
-  m_EditorClassIdentifier: 
-  speciesId: 125
-  nameKeyEng: Electabuzz
-  nameKeyKor: "\uC5D0\uB808\uBE0C"
-  rarityCategory: 0
-  catchRate: 45
-  genderPolicy:
-    hasGender: 1
-    maleRate0to100: 75
-  curveType: 2
-  maxLevel: 100
-  forms:
-  - {fileID: 6737547264575011980}
---- !u!114 &6737547264575011980
+--- !u!114 &-6214132198603062915
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50,3 +26,27 @@ MonoBehaviour:
     spd: 85
     spe: 105
   visual: {fileID: 11400000, guid: 37803fa5540c1ee48b38c236b2f5748a, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0125_Electabuzz
+  m_EditorClassIdentifier: 
+  speciesId: 125
+  nameKeyEng: Electabuzz
+  nameKeyKor: "\uC5D0\uB808\uBE0C"
+  rarityCategory: 0
+  catchRate: 45
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 75
+  curveType: 2
+  maxLevel: 100
+  forms:
+  - {fileID: -6214132198603062915}

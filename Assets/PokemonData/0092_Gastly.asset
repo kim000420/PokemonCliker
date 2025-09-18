@@ -1,6 +1,30 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3070587576806628478
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0092_Gastly
+  m_EditorClassIdentifier: 
+  speciesId: 92
+  nameKeyEng: Gastly
+  nameKeyKor: "\uACE0\uC624\uC2A4"
+  rarityCategory: 0
+  catchRate: 190
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 3
+  maxLevel: 100
+  forms:
+  - {fileID: 1098657683856749402}
+--- !u!114 &1098657683856749402
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -26,27 +50,3 @@ MonoBehaviour:
     spd: 35
     spe: 80
   visual: {fileID: 11400000, guid: 4a9692a8244e2c84a8344384333035c3, type: 2}
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
-  m_Name: 0092_Gastly
-  m_EditorClassIdentifier: 
-  speciesId: 92
-  nameKeyEng: Gastly
-  nameKeyKor: "\uACE0\uC624\uC2A4"
-  rarityCategory: 0
-  catchRate: 190
-  genderPolicy:
-    hasGender: 1
-    maleRate0to100: 50
-  curveType: 3
-  maxLevel: 100
-  forms:
-  - {fileID: -3070587576806628478}

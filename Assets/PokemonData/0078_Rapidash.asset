@@ -1,57 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8643329576633565673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
-  m_Name: Galarian
-  m_EditorClassIdentifier: 
-  generation: 8
-  formKey: Galarian
-  typePair:
-    hasDualType: 1
-    primary: 11
-    secondary: 18
-  baseStats:
-    hp: 65
-    atk: 100
-    def: 70
-    spa: 80
-    spd: 80
-    spe: 105
-  visual: {fileID: 11400000, guid: 9bb5afe50e0880441a75678b98ff17ee, type: 2}
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
-  m_Name: 0078_Rapidash
-  m_EditorClassIdentifier: 
-  speciesId: 78
-  nameKeyEng: Rapidash
-  nameKeyKor: "\uB0A0\uC329\uB9C8"
-  rarityCategory: 0
-  catchRate: 60
-  genderPolicy:
-    hasGender: 1
-    maleRate0to100: 50
-  curveType: 2
-  maxLevel: 100
-  forms:
-  - {fileID: 1782291960510386187}
-  - {fileID: -8643329576633565673}
---- !u!114 &1782291960510386187
+--- !u!114 &-4559101685683177579
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77,3 +26,54 @@ MonoBehaviour:
     spd: 80
     spe: 105
   visual: {fileID: 11400000, guid: 57d83e5a3ad75c24bbe44dabc6a8046a, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0078_Rapidash
+  m_EditorClassIdentifier: 
+  speciesId: 78
+  nameKeyEng: Rapidash
+  nameKeyKor: "\uB0A0\uC329\uB9C8"
+  rarityCategory: 0
+  catchRate: 60
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 2
+  maxLevel: 100
+  forms:
+  - {fileID: -4559101685683177579}
+  - {fileID: 3682461889525568601}
+--- !u!114 &3682461889525568601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Galarian
+  m_EditorClassIdentifier: 
+  generation: 8
+  formKey: Galarian
+  typePair:
+    hasDualType: 1
+    primary: 11
+    secondary: 18
+  baseStats:
+    hp: 65
+    atk: 100
+    def: 70
+    spa: 80
+    spd: 80
+    spe: 105
+  visual: {fileID: 11400000, guid: 9bb5afe50e0880441a75678b98ff17ee, type: 2}

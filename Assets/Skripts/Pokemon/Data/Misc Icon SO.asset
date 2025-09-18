@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f3474a92ab4514489a4dcd33157e7d2, type: 3}
+  m_Name: Misc Icon SO
+  m_EditorClassIdentifier: 
+  male: {fileID: -1101280064, guid: 6846973152c11a64ebf42dd4f82c862e, type: 3}
+  female: {fileID: 1199772131, guid: 6846973152c11a64ebf42dd4f82c862e, type: 3}
+  genderless: {fileID: 21300000, guid: 1a2e6381f17e3e94a9907282d2325f50, type: 3}
+  ivRankIcons:
+  - minIvValue: 0
+    maxIvValue: 0
+    rankIcon: {fileID: -270139217, guid: 9307912428fa71a468540a440e3bba11, type: 3}
+    starIcon: {fileID: -699055096, guid: 9307912428fa71a468540a440e3bba11, type: 3}
+  - minIvValue: 1
+    maxIvValue: 15
+    rankIcon: {fileID: 11722530, guid: 9307912428fa71a468540a440e3bba11, type: 3}
+    starIcon: {fileID: 1042280515, guid: 9307912428fa71a468540a440e3bba11, type: 3}
+  - minIvValue: 16
+    maxIvValue: 25
+    rankIcon: {fileID: -2141766264, guid: 9307912428fa71a468540a440e3bba11, type: 3}
+    starIcon: {fileID: 660515928, guid: 9307912428fa71a468540a440e3bba11, type: 3}
+  - minIvValue: 26
+    maxIvValue: 29
+    rankIcon: {fileID: 1968012243, guid: 9307912428fa71a468540a440e3bba11, type: 3}
+    starIcon: {fileID: 282029782, guid: 9307912428fa71a468540a440e3bba11, type: 3}
+  - minIvValue: 30
+    maxIvValue: 30
+    rankIcon: {fileID: -360248713, guid: 9307912428fa71a468540a440e3bba11, type: 3}
+    starIcon: {fileID: 1998425128, guid: 9307912428fa71a468540a440e3bba11, type: 3}
+  - minIvValue: 31
+    maxIvValue: 31
+    rankIcon: {fileID: -119590250, guid: 9307912428fa71a468540a440e3bba11, type: 3}
+    starIcon: {fileID: 1299348382, guid: 9307912428fa71a468540a440e3bba11, type: 3}

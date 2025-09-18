@@ -1,6 +1,30 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5485532732165154132
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0046_Paras
+  m_EditorClassIdentifier: 
+  speciesId: 46
+  nameKeyEng: Paras
+  nameKeyKor: "\uD30C\uB77C\uC2A4"
+  rarityCategory: 0
+  catchRate: 190
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 2
+  maxLevel: 100
+  forms:
+  - {fileID: 8529632410822691084}
+--- !u!114 &8529632410822691084
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -26,27 +50,3 @@ MonoBehaviour:
     spd: 55
     spe: 25
   visual: {fileID: 11400000, guid: fe83ba11375b4e94bb1123e0f869bc89, type: 2}
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
-  m_Name: 0046_Paras
-  m_EditorClassIdentifier: 
-  speciesId: 46
-  nameKeyEng: Paras
-  nameKeyKor: "\uD30C\uB77C\uC2A4"
-  rarityCategory: 0
-  catchRate: 190
-  genderPolicy:
-    hasGender: 1
-    maleRate0to100: 50
-  curveType: 2
-  maxLevel: 100
-  forms:
-  - {fileID: -5485532732165154132}

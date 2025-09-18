@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5807423356863236109
+--- !u!114 &-2054226493494823884
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -26,7 +26,32 @@ MonoBehaviour:
     spd: 80
     spe: 90
   visual: {fileID: 11400000, guid: 5a6817294a7c54f4eb01692f024a296b, type: 2}
---- !u!114 &-2983903110989999593
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0059_Arcanine
+  m_EditorClassIdentifier: 
+  speciesId: 59
+  nameKeyEng: Arcanine
+  nameKeyKor: "\uC708\uB514"
+  rarityCategory: 0
+  catchRate: 75
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 75
+  curveType: 4
+  maxLevel: 100
+  forms:
+  - {fileID: 8506994183389131847}
+  - {fileID: -2054226493494823884}
+--- !u!114 &8506994183389131847
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -52,28 +77,3 @@ MonoBehaviour:
     spd: 80
     spe: 95
   visual: {fileID: 11400000, guid: 1deef2dd817f5044689398eb21ce5715, type: 2}
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
-  m_Name: 0059_Arcanine
-  m_EditorClassIdentifier: 
-  speciesId: 59
-  nameKeyEng: Arcanine
-  nameKeyKor: "\uC708\uB514"
-  rarityCategory: 0
-  catchRate: 75
-  genderPolicy:
-    hasGender: 1
-    maleRate0to100: 75
-  curveType: 4
-  maxLevel: 100
-  forms:
-  - {fileID: -2983903110989999593}
-  - {fileID: -5807423356863236109}

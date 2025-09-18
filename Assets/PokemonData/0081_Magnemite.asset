@@ -1,6 +1,30 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5153116672954215190
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0081_Magnemite
+  m_EditorClassIdentifier: 
+  speciesId: 81
+  nameKeyEng: Magnemite
+  nameKeyKor: "\uCF54\uC77C"
+  rarityCategory: 0
+  catchRate: 190
+  genderPolicy:
+    hasGender: 0
+    maleRate0to100: 0
+  curveType: 2
+  maxLevel: 100
+  forms:
+  - {fileID: 7264317698909484727}
+--- !u!114 &7264317698909484727
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -26,27 +50,3 @@ MonoBehaviour:
     spd: 55
     spe: 45
   visual: {fileID: 11400000, guid: 153147ea0646f8a4c8e80b8fb0e05fa3, type: 2}
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
-  m_Name: 0081_Magnemite
-  m_EditorClassIdentifier: 
-  speciesId: 81
-  nameKeyEng: Magnemite
-  nameKeyKor: "\uCF54\uC77C"
-  rarityCategory: 0
-  catchRate: 190
-  genderPolicy:
-    hasGender: 0
-    maleRate0to100: 0
-  curveType: 2
-  maxLevel: 100
-  forms:
-  - {fileID: -5153116672954215190}

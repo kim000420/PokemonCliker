@@ -1,6 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5368565369466259937
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0110_Weezing
+  m_EditorClassIdentifier: 
+  speciesId: 110
+  nameKeyEng: Weezing
+  nameKeyKor: "\uB610\uB3C4\uAC00\uC2A4"
+  rarityCategory: 0
+  catchRate: 60
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 2
+  maxLevel: 100
+  forms:
+  - {fileID: 473143974698551982}
+  - {fileID: 5541571368006089774}
+--- !u!114 &473143974698551982
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -26,7 +51,7 @@ MonoBehaviour:
     spd: 70
     spe: 60
   visual: {fileID: 11400000, guid: be7d87aaa0ffe134681cdefa3e4cf1fa, type: 2}
---- !u!114 &-410918345859362483
+--- !u!114 &5541571368006089774
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -52,28 +77,3 @@ MonoBehaviour:
     spd: 70
     spe: 60
   visual: {fileID: 11400000, guid: 8a4a921bef4c69945a2d3ab6f650f30e, type: 2}
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
-  m_Name: 0110_Weezing
-  m_EditorClassIdentifier: 
-  speciesId: 110
-  nameKeyEng: Weezing
-  nameKeyKor: "\uB610\uB3C4\uAC00\uC2A4"
-  rarityCategory: 0
-  catchRate: 60
-  genderPolicy:
-    hasGender: 1
-    maleRate0to100: 50
-  curveType: 2
-  maxLevel: 100
-  forms:
-  - {fileID: -5368565369466259937}
-  - {fileID: -410918345859362483}

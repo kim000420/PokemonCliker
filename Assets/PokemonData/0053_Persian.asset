@@ -1,31 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
-  m_Name: 0053_Persian
-  m_EditorClassIdentifier: 
-  speciesId: 53
-  nameKeyEng: Persian
-  nameKeyKor: "\uD398\uB974\uC2DC\uC628"
-  rarityCategory: 0
-  catchRate: 90
-  genderPolicy:
-    hasGender: 1
-    maleRate0to100: 50
-  curveType: 2
-  maxLevel: 100
-  forms:
-  - {fileID: 5211211582547456771}
-  - {fileID: 3111155454570078278}
---- !u!114 &3111155454570078278
+--- !u!114 &-4630096643943462852
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -51,7 +26,32 @@ MonoBehaviour:
     spd: 65
     spe: 115
   visual: {fileID: 11400000, guid: 41a67a29f5dac8e41835411e12ebf94a, type: 2}
---- !u!114 &5211211582547456771
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0053_Persian
+  m_EditorClassIdentifier: 
+  speciesId: 53
+  nameKeyEng: Persian
+  nameKeyKor: "\uD398\uB974\uC2DC\uC628"
+  rarityCategory: 0
+  catchRate: 90
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 2
+  maxLevel: 100
+  forms:
+  - {fileID: 4048807837782699640}
+  - {fileID: -4630096643943462852}
+--- !u!114 &4048807837782699640
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

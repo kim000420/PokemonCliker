@@ -1,57 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
-  m_Name: 0130_Gyarados
-  m_EditorClassIdentifier: 
-  speciesId: 130
-  nameKeyEng: Gyarados
-  nameKeyKor: "\uAC38\uB77C\uB3C4\uC2A4"
-  rarityCategory: 0
-  catchRate: 45
-  genderPolicy:
-    hasGender: 1
-    maleRate0to100: 50
-  curveType: 4
-  maxLevel: 100
-  forms:
-  - {fileID: 8647373589677281698}
-  - {fileID: 248630083319329962}
---- !u!114 &248630083319329962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
-  m_Name: Mega
-  m_EditorClassIdentifier: 
-  generation: 1
-  formKey: Mega
-  typePair:
-    hasDualType: 1
-    primary: 3
-    secondary: 16
-  baseStats:
-    hp: 95
-    atk: 155
-    def: 109
-    spa: 70
-    spd: 130
-    spe: 81
-  visual: {fileID: 11400000, guid: 62977e4dffbf0df4ba29f30e9e85cdc5, type: 2}
---- !u!114 &8647373589677281698
+--- !u!114 &-1536762352836107077
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77,3 +26,54 @@ MonoBehaviour:
     spd: 100
     spe: 81
   visual: {fileID: 11400000, guid: 9ec39f915f8a2fc4babdd56de6c40a0d, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0130_Gyarados
+  m_EditorClassIdentifier: 
+  speciesId: 130
+  nameKeyEng: Gyarados
+  nameKeyKor: "\uAC38\uB77C\uB3C4\uC2A4"
+  rarityCategory: 0
+  catchRate: 45
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 4
+  maxLevel: 100
+  forms:
+  - {fileID: -1536762352836107077}
+  - {fileID: 226938032069475377}
+--- !u!114 &226938032069475377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Mega
+  m_EditorClassIdentifier: 
+  generation: 1
+  formKey: Mega
+  typePair:
+    hasDualType: 1
+    primary: 3
+    secondary: 16
+  baseStats:
+    hp: 95
+    atk: 155
+    def: 109
+    spa: 70
+    spd: 130
+    spe: 81
+  visual: {fileID: 11400000, guid: 62977e4dffbf0df4ba29f30e9e85cdc5, type: 2}

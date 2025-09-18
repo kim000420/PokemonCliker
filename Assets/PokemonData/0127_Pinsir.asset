@@ -1,31 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
-  m_Name: 0127_Pinsir
-  m_EditorClassIdentifier: 
-  speciesId: 127
-  nameKeyEng: Pinsir
-  nameKeyKor: "\uC058\uC0AC\uC774\uC800"
-  rarityCategory: 0
-  catchRate: 45
-  genderPolicy:
-    hasGender: 1
-    maleRate0to100: 50
-  curveType: 4
-  maxLevel: 100
-  forms:
-  - {fileID: 7596501040290274885}
-  - {fileID: 4058201606351001032}
---- !u!114 &4058201606351001032
+--- !u!114 &-3935978663473282073
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -51,7 +26,32 @@ MonoBehaviour:
     spd: 90
     spe: 105
   visual: {fileID: 11400000, guid: 3eed677cccee33a49ad4e78e0f10f811, type: 2}
---- !u!114 &7596501040290274885
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0127_Pinsir
+  m_EditorClassIdentifier: 
+  speciesId: 127
+  nameKeyEng: Pinsir
+  nameKeyKor: "\uC058\uC0AC\uC774\uC800"
+  rarityCategory: 0
+  catchRate: 45
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 4
+  maxLevel: 100
+  forms:
+  - {fileID: 3881242056753129845}
+  - {fileID: -3935978663473282073}
+--- !u!114 &3881242056753129845
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

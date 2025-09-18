@@ -1,6 +1,30 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7496179253790664632
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0091_Cloyster
+  m_EditorClassIdentifier: 
+  speciesId: 91
+  nameKeyEng: Cloyster
+  nameKeyKor: "\uD30C\uB974\uC140"
+  rarityCategory: 0
+  catchRate: 60
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 4
+  maxLevel: 100
+  forms:
+  - {fileID: 1970380908454688295}
+--- !u!114 &1970380908454688295
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -26,27 +50,3 @@ MonoBehaviour:
     spd: 45
     spe: 70
   visual: {fileID: 11400000, guid: a91d7f022ba42d0468c71811619d063d, type: 2}
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
-  m_Name: 0091_Cloyster
-  m_EditorClassIdentifier: 
-  speciesId: 91
-  nameKeyEng: Cloyster
-  nameKeyKor: "\uD30C\uB974\uC140"
-  rarityCategory: 0
-  catchRate: 60
-  genderPolicy:
-    hasGender: 1
-    maleRate0to100: 50
-  curveType: 4
-  maxLevel: 100
-  forms:
-  - {fileID: -7496179253790664632}

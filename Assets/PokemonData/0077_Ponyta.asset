@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2468123548751183087
+--- !u!114 &-5392978727522559798
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -26,32 +26,7 @@ MonoBehaviour:
     spd: 65
     spe: 90
   visual: {fileID: 11400000, guid: d513e52035fa4724aa79880eb8ef7b6f, type: 2}
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
-  m_Name: 0077_Ponyta
-  m_EditorClassIdentifier: 
-  speciesId: 77
-  nameKeyEng: Ponyta
-  nameKeyKor: "\uD3EC\uB2C8\uD0C0"
-  rarityCategory: 0
-  catchRate: 190
-  genderPolicy:
-    hasGender: 1
-    maleRate0to100: 50
-  curveType: 2
-  maxLevel: 100
-  forms:
-  - {fileID: 3064036925701843570}
-  - {fileID: -2468123548751183087}
---- !u!114 &3064036925701843570
+--- !u!114 &-3400759874104371884
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77,3 +52,28 @@ MonoBehaviour:
     spd: 65
     spe: 90
   visual: {fileID: 11400000, guid: 346cadc89bd08f34591b038471958aec, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0077_Ponyta
+  m_EditorClassIdentifier: 
+  speciesId: 77
+  nameKeyEng: Ponyta
+  nameKeyKor: "\uD3EC\uB2C8\uD0C0"
+  rarityCategory: 0
+  catchRate: 190
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 2
+  maxLevel: 100
+  forms:
+  - {fileID: -3400759874104371884}
+  - {fileID: -5392978727522559798}
