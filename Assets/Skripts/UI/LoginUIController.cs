@@ -26,6 +26,13 @@ namespace PokeClicker
         private void OnEnable()
         {
             // UI 버튼 클릭 이벤트 연결
+            // LoginManager가 할당되어 있는지 확인
+            if (loginManager == null)
+            {
+                Debug.LogError("Login Manager가 할당되지 않았습니다. 인스펙터에서 할당해주세요.", this);
+                return;
+            }
+
             if (loginButton != null)
             {
                 loginButton.onClick.AddListener(OnLoginButtonClick);
@@ -87,6 +94,10 @@ namespace PokeClicker
         private void OnLoginComplete(bool success, string message)
         {
             ShowFeedback(message, success);
+            if (success)
+            {
+                UIManager.Instance.SwitchToMainUI();
+            }
         }
 
         /// <summary>
@@ -95,6 +106,10 @@ namespace PokeClicker
         private void OnRegisterComplete(bool success, string message)
         {
             ShowFeedback(message, success);
+            if (success)
+            {
+                UIManager.Instance.SwitchToMainUI();
+            }
         }
 
         private void ShowFeedback(string message, bool isSuccess)
