@@ -8620,7 +8620,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &791405773
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9475,6 +9475,7 @@ GameObject:
   - component: {fileID: 863778548}
   - component: {fileID: 863778547}
   - component: {fileID: 863778544}
+  - component: {fileID: 863778551}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -9585,6 +9586,21 @@ MonoBehaviour:
     totalInputs: 0
     remainderFriendship: 0
   puidSequencer: {fileID: 809880244}
+--- !u!114 &863778551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863778543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b9da6edea004b849a4b919a987fe33e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loginPanel: {fileID: 0}
+  mainPanel: {fileID: 1942739847}
+  expandedPanel: {fileID: 2033376768}
 --- !u!1 &870618700
 GameObject:
   m_ObjectHideFlags: 0
@@ -11558,7 +11574,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1231313991}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -13082,7 +13098,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1159415186
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13157,7 +13173,7 @@ GameObject:
   - component: {fileID: 1169497147}
   - component: {fileID: 1169497146}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Btn_OpenExpandedUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14100,8 +14116,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1651444631}
   - {fileID: 1020337121}
+  - {fileID: 1651444631}
   - {fileID: 1757825530}
   - {fileID: 1325581034}
   - {fileID: 1715905580}
@@ -18083,7 +18099,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1523668616
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19948,7 +19964,7 @@ GameObject:
   - component: {fileID: 1651444630}
   - component: {fileID: 1651444629}
   m_Layer: 5
-  m_Name: count_click
+  m_Name: TMP_CurExp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20064,7 +20080,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1231313991}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -23750,7 +23766,7 @@ GameObject:
   - component: {fileID: 1989976886}
   - component: {fileID: 1989976885}
   m_Layer: 0
-  m_Name: Btn_Bag
+  m_Name: Btn_Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
