@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5056493141928405480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Paldean Blaze Breed
+  m_EditorClassIdentifier: 
+  formId: 2
+  formKey: Paldean Blaze Breed
+  generation: 9
+  typePair:
+    hasDualType: 1
+    primary: 7
+    secondary: 2
+  baseStats:
+    hp: 75
+    atk: 110
+    def: 105
+    spa: 30
+    spd: 70
+    spe: 100
+  visual: {fileID: 11400000, guid: 6bfa461b60ef04c4d93e30733a8c6988, type: 2}
 --- !u!114 &-4123231419038777658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,8 +39,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
   m_Name: Default
   m_EditorClassIdentifier: 
-  generation: 1
+  formId: 0
   formKey: Default
+  generation: 1
   typePair:
     hasDualType: 0
     primary: 1
@@ -26,6 +54,33 @@ MonoBehaviour:
     spd: 70
     spe: 110
   visual: {fileID: 11400000, guid: 0e6a724eb0d10f540a9053b64f7431eb, type: 2}
+--- !u!114 &-1988249276804709450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Paldean Combat Breed
+  m_EditorClassIdentifier: 
+  formId: 1
+  formKey: Paldean Combat Breed
+  generation: 1
+  typePair:
+    hasDualType: 0
+    primary: 7
+    secondary: 0
+  baseStats:
+    hp: 75
+    atk: 110
+    def: 105
+    spa: 30
+    spd: 70
+    spe: 100
+  visual: {fileID: 11400000, guid: 8b01a5ea787024c49a71d3d1dbd3f252, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51,6 +106,36 @@ MonoBehaviour:
   forms:
   - {fileID: -4123231419038777658}
   - {fileID: 3592005044806735875}
+  - {fileID: -1988249276804709450}
+  - {fileID: -5056493141928405480}
+  - {fileID: 2224757914885629864}
+--- !u!114 &2224757914885629864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Paldean Aqua Breed
+  m_EditorClassIdentifier: 
+  formId: 3
+  formKey: Paldean Aqua Breed
+  generation: 9
+  typePair:
+    hasDualType: 1
+    primary: 7
+    secondary: 3
+  baseStats:
+    hp: 75
+    atk: 110
+    def: 105
+    spa: 30
+    spd: 70
+    spe: 100
+  visual: {fileID: 11400000, guid: 43d669e7f0cf3754cb70f702cd28b852, type: 2}
 --- !u!114 &3592005044806735875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,8 +148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
   m_Name: Paldean
   m_EditorClassIdentifier: 
-  generation: 9
+  formId: 0
   formKey: Paldean
+  generation: 9
   typePair:
     hasDualType: 1
     primary: 7

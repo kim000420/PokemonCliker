@@ -17,6 +17,10 @@ namespace PokeClicker.EditorTools
         public string rootAssetPath = "Assets/PokeArt/Graphics/Pokemon";
         public string saveFolder = "Assets/PokemonVisualData";
 
+        [Header("Import Range (SpeciesId)")]
+        public int startSpeciesId = 1;
+        public int endSpeciesId = 0; // 0이면 끝까지
+
         private SpeciesDB speciesDB;
 
         [MenuItem("Tools/Pokemon Visual Importer")]
@@ -39,9 +43,16 @@ namespace PokeClicker.EditorTools
 
             EditorGUILayout.Space();
 
+            startSpeciesId = EditorGUILayout.IntField("Start species ID",startSpeciesId);
+            endSpeciesId = EditorGUILayout.IntField("End species ID", endSpeciesId);
+
+            EditorGUILayout.Space();
+
             speciesDB = (SpeciesDB)EditorGUILayout.ObjectField("Species DB", speciesDB, typeof(SpeciesDB), true);
 
-            if (GUILayout.Button("Import Visual Assets"))
+            EditorGUILayout.Space();
+
+            if (GUILayout.Button("Import Icons Only"))
             {
                 if (speciesDB == null)
                 {
@@ -55,7 +66,24 @@ namespace PokeClicker.EditorTools
                     return;
                 }
 
-                ImportAllVisuals();
+                ImportAllVisuals(true, false);
+            }
+
+            if (GUILayout.Button("Import Front Sprites Only"))
+            {
+                if (speciesDB == null)
+                {
+                    EditorUtility.DisplayDialog("Error", "Species DB를 할당해주세요.", "OK");
+                    return;
+                }
+
+                if (!Directory.Exists(rootAssetPath))
+                {
+                    EditorUtility.DisplayDialog("Error", $"{rootAssetPath} 폴더가 존재하지 않습니다.", "OK");
+                    return;
+                }
+
+                ImportAllVisuals(false, true);
             }
 
             EditorGUILayout.EndScrollView();
@@ -64,7 +92,7 @@ namespace PokeClicker.EditorTools
         /// <summary>
         /// 모든 SpeciesSO를 순회하며 VisualSO를 생성/업데이트하고 FormSO에 연결합니다.
         /// </summary>
-        private void ImportAllVisuals()
+        private void ImportAllVisuals(bool importIcons, bool importFronts)
         {
             if (!Directory.Exists(saveFolder)) Directory.CreateDirectory(saveFolder);
 
@@ -72,11 +100,15 @@ namespace PokeClicker.EditorTools
             {
                 if (species == null) continue;
 
+                // 도감번호 범위 체크
+                if (species.speciesId < startSpeciesId) continue;
+                if (endSpeciesId > 0 && species.speciesId > endSpeciesId) continue;
+
                 foreach (var form in species.Forms)
                 {
                     if (form == null) continue;
 
-                    var visual = CreateOrUpdateVisualSO(species, form);
+                    var visual = CreateOrUpdateVisualSO(species, form, importIcons, importFronts);
                     if (visual != null)
                     {
                         form.visual = visual;
@@ -93,7 +125,7 @@ namespace PokeClicker.EditorTools
         /// <summary>
         /// VisualSO를 생성하거나 기존 것을 찾아 업데이트하고, 에셋을 할당합니다.
         /// </summary>
-        private PokemonVisualSO CreateOrUpdateVisualSO(SpeciesSO species, FormSO form)
+        private PokemonVisualSO CreateOrUpdateVisualSO(SpeciesSO species, FormSO form, bool importIcons, bool improtFronts)
         {
             string fileName = $"{species.speciesId:0000}_{species.nameKeyEng}_{form.formKey}_Visual.asset";
             string path = Path.Combine(saveFolder, fileName);
@@ -107,22 +139,28 @@ namespace PokeClicker.EditorTools
             }
 
             string speciesName = $"{species.speciesId:0000}_{species.nameKeyEng}";
-            string formSuffix = string.IsNullOrWhiteSpace(form.formKey) || form.formKey == "Default" ? "" : $"_{species.Forms.Count-1}";
+            string formSuffix = string.IsNullOrWhiteSpace(form.formKey) || form.formKey == "Default" ? "" : $"_{form.formId}";
             string assetName = $"{species.nameKeyEng}{formSuffix}";
 
-            // 아이콘 에셋 로드 및 분리 (128x64 스프라이트 시트)
-            var iconFrames = LoadSpritesFromSheet(Path.Combine(rootAssetPath, "Icons"), assetName, 64, 64);
-            var shinyIconFrames = LoadSpritesFromSheet(Path.Combine(rootAssetPath, "Icons shiny"), assetName, 64, 64);
+            if (importIcons)
+            {
+                // 아이콘 에셋 로드 및 분리 (128x64 스프라이트 시트)
+                var iconFrames = LoadSpritesFromSheet(Path.Combine(rootAssetPath, "Icons"), assetName, 64, 64);
+                var shinyIconFrames = LoadSpritesFromSheet(Path.Combine(rootAssetPath, "Icons shiny"), assetName, 64, 64);
 
-            visualSO.icon = iconFrames?.FirstOrDefault();
-            visualSO.shinyIcon = shinyIconFrames?.FirstOrDefault();
+                visualSO.icon = iconFrames?.FirstOrDefault();
+                visualSO.shinyIcon = shinyIconFrames?.FirstOrDefault();
+            }
 
-            // Front 애니메이션 에셋 로드 및 분리
-            var frames = LoadSpritesFromSheet(Path.Combine(rootAssetPath, "Front"), assetName, null, null);
-            var shinyFrames = LoadSpritesFromSheet(Path.Combine(rootAssetPath, "Front shiny"), assetName, null, null);
+            if (improtFronts)
+            {
+                // Front 애니메이션 에셋 로드 및 분리
+                var frames = LoadSpritesFromSheet(Path.Combine(rootAssetPath, "Front"), assetName, null, null);
+                var shinyFrames = LoadSpritesFromSheet(Path.Combine(rootAssetPath, "Front shiny"), assetName, null, null);
 
-            visualSO.frontFrames = frames?.ToArray();
-            visualSO.shinyFrontFrames = shinyFrames?.ToArray();
+                visualSO.frontFrames = frames?.ToArray();
+                visualSO.shinyFrontFrames = shinyFrames?.ToArray();
+            }
 
             EditorUtility.SetDirty(visualSO);
             return visualSO;

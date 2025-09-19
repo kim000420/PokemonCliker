@@ -34,8 +34,14 @@ namespace PokeClicker.EditorTools
             _scroll = EditorGUILayout.BeginScrollView(_scroll);
 
             csvFile = (TextAsset)EditorGUILayout.ObjectField("CSV File", csvFile, typeof(TextAsset), false);
+
+            EditorGUILayout.Space();
+
             startLine = EditorGUILayout.IntField("Start Line (1-based)", startLine);
             endLine = EditorGUILayout.IntField("End Line (0 = all)", endLine);
+
+            EditorGUILayout.Space();
+
             saveFolder = EditorGUILayout.TextField("Save Folder", saveFolder);
 
             EditorGUILayout.Space();
@@ -85,31 +91,34 @@ namespace PokeClicker.EditorTools
 
         private void ProcessLine(string line, int lineNumber)
         {
-            // CSV 구조 / 실제로는 0번부터 시작
-            // 0.species_id	
-            // 1.eng_name_key	
-            // 2.kor_name_key	
-            // 3.name	
-            // 4.form_key	
-            // 5.type_a	
-            // 6.type_b	
-            // 7.generation	
-            // 8.Gender_Unknown	
-            // 9.Gender_Male	
-            // 10.Gender_Female	
-            // 11.Egg_Steps	
-            // 12.Egg_Group1	
-            // 13.Egg_Group2	
-            // 14.Get_Rate	
-            // 15.Experience_Type	
-            // 16.Category	
-            // 17.HP	
-            // 18.A	
-            // 19.B	
-            // 20.C	
-            // 21.D	
-            // 22.S	
-            // 23.Total
+            /// <summary> 
+            /// PokemonDB.CSV 컬럼 인덱스
+            /// 0.species_ID	
+            /// 1.species_eng_name	
+            /// 2.species_kor_name	
+            /// 3.form_ID	
+            /// 4.form_eng_name	
+            /// 5.form_key	
+            /// 6.type_a	
+            /// 7.type_b	
+            /// 8.generation	
+            /// 9.gender_unknown	
+            /// 10.gender_male	
+            /// 11.gender_female	
+            /// 12.egg_steps	
+            /// 13.egg_group1	
+            /// 14.egg_group2	
+            /// 15.catch_rate	
+            /// 16.experience_group	
+            /// 17.rarity_category
+            /// 18.HP	
+            /// 19.A	
+            /// 20.B	
+            /// 21.C	
+            /// 22.D	
+            /// 23.S	
+            /// 24.Total
+            /// </summary>
 
             string[] cols = line.Split(',');
             if (cols.Length < 24)
@@ -118,8 +127,11 @@ namespace PokeClicker.EditorTools
             int dex = int.Parse(cols[0].Trim()); // 도감번호
             string engName = cols[1].Trim(); // 영문명
             string korName = cols[2].Trim(); // 한글명
-            int catchRate = int.Parse(cols[14].Trim());
-            string formKey = string.IsNullOrWhiteSpace(cols[4]) ? "Default" : cols[4].Trim(); // 폼 키
+            int catchRate = int.Parse(cols[15].Trim()); // 포획률
+            //int eggSteps = int.Parse(cols[12].Trim()); // 알스텝
+            //int eggGroup1 = int.Parse(cols[13].Trim()); // 알그룹1
+            //int eggGroup2 = int.Parse(cols[14].Trim()); // 알그룹2
+            string formKey = string.IsNullOrWhiteSpace(cols[5]) ? "Default" : cols[5].Trim(); // 폼 키
 
             // 기본 경로/파일명
             string fileName = $"{dex:0000}_{Sanitize(engName)}.asset";
@@ -134,9 +146,9 @@ namespace PokeClicker.EditorTools
                 species.nameKeyEng = engName;
                 species.nameKeyKor = korName;
                 species.catchRate = catchRate;
-                species.rarityCategory = ParseRarityCategory(cols[16]);
-                species.curveType = ParseGrowthCurve(cols[15]);
-                species.genderPolicy = ParseGenderPolicy(cols[8], cols[9]);
+                species.rarityCategory = ParseRarityCategory(cols[17]);
+                species.curveType = ParseGrowthCurve(cols[16]);
+                species.genderPolicy = ParseGenderPolicy(cols[9], cols[10]);
 
                 if (!Directory.Exists(saveFolder)) Directory.CreateDirectory(saveFolder);
                 AssetDatabase.CreateAsset(species, path);
@@ -148,8 +160,10 @@ namespace PokeClicker.EditorTools
                 species.speciesId = dex;
                 species.nameKeyEng = engName;
                 species.nameKeyKor = korName;
-                species.curveType = ParseGrowthCurve(cols[15]);
-                species.genderPolicy = ParseGenderPolicy(cols[8], cols[9]);
+                species.catchRate = catchRate;
+                species.rarityCategory = ParseRarityCategory(cols[17]);
+                species.curveType = ParseGrowthCurve(cols[16]);
+                species.genderPolicy = ParseGenderPolicy(cols[9], cols[10]);
                 Debug.Log($"[Importer] Updated SpeciesSO: {fileName}");
             }
 
@@ -179,19 +193,20 @@ namespace PokeClicker.EditorTools
 
             // FormSO 데이터 갱신
 
-            form.generation = SafeInt(cols[7], 1); // 세대
+            form.formId = int.Parse(cols[3].Trim());
+            form.generation = SafeInt(cols[8], 1); // 세대
 
             form.typePair = new TypePair(); // 타입
-            form.typePair = ParseType(cols[5], cols[6]);
+            form.typePair = ParseType(cols[6], cols[7]);
 
             form.baseStats = new StatBlock // 스텟
             {
-                hp = SafeInt(cols[17]),
-                atk = SafeInt(cols[18]),
-                def = SafeInt(cols[19]),
-                spa = SafeInt(cols[20]),
-                spd = SafeInt(cols[21]),
-                spe = SafeInt(cols[22])
+                hp = SafeInt(cols[18]),
+                atk = SafeInt(cols[19]),
+                def = SafeInt(cols[20]),
+                spa = SafeInt(cols[21]),
+                spd = SafeInt(cols[22]),
+                spe = SafeInt(cols[23])
             };
 
             EditorUtility.SetDirty(form);
@@ -232,6 +247,7 @@ namespace PokeClicker.EditorTools
             return ExperienceCurve.MediumFast;
         }
 
+        // 성별 반환
         private GenderPolicy ParseGenderPolicy(string genderUnknown, string maleRateStr)
         {
             GenderPolicy gp = new GenderPolicy();
@@ -253,17 +269,15 @@ namespace PokeClicker.EditorTools
             return gp;
         }
 
-
+        // 타입 반환
         private TypePair ParseType(string typeA, string typeB)
         {
             TypePair result = new TypePair();
 
-            // 1. 기본값
             result.primary = TypeEnum.None;
             result.secondary = TypeEnum.None;
             result.hasDualType = false;
 
-            // 2. 문자열 → enum 파싱 (대소문자 무시)
             if (!string.IsNullOrWhiteSpace(typeA) &&
                 Enum.TryParse<TypeEnum>(typeA.Trim(), true, out var tA))
             {

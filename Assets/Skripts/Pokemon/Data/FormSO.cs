@@ -9,11 +9,13 @@ namespace PokeClicker
     /// </summary>
     public class FormSO : ScriptableObject
     {
+        [Header("Form ID")]
+        public int formId;
+
+        [Header("From Key")]
+        public string formKey = "Default";   // SpeciesSO.NormalizeFormKey 로 정규화
 
         [Tooltip("세대")] public int generation = 1; // 폼의 세대
-
-        [Header("Key")]
-        public string formKey = "Default";   // SpeciesSO.NormalizeFormKey 로 정규화
 
         [Header("Typing")]
         public TypePair typePair;            // 듀얼 타입(정규화 내장)

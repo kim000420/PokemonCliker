@@ -118,7 +118,6 @@ namespace PokeClicker
             if (form == null) return;
             // formKey 정규화 + 서브에셋 이름 동기화
             form.formKey = NormalizeFormKey(form.formKey);
-            if (form.name != form.formKey) form.name = form.formKey;
 
             // 리스트에 없으면 등록
             if (!forms.Contains(form))
