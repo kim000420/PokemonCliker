@@ -22,6 +22,7 @@ namespace PokeClicker
 
         [Header("Dependencies")]
         [SerializeField] private OwnedPokemonManager ownedPokemonManager;
+        [SerializeField] private SpeciesDB speciesDB;
 
         private PokemonSaveData _currentPokemon;
         private Coroutine _playAnimationCoroutine;
@@ -65,7 +66,7 @@ namespace PokeClicker
         /// </summary>
         public void UpdateMainUI()
         {
-            if (ownedPokemonManager == null || ownedPokemonManager.Party.Count == 0)
+            if (ownedPokemonManager == null || ownedPokemonManager.Party.Count == 0 || speciesDB == null)
             {
                 ClearUI();
                 return;
@@ -80,21 +81,41 @@ namespace PokeClicker
                 return;
             }
 
-            nameText.text = _currentPokemon.GetDisplayName();
-            levelText.text = $"Lv.{_currentPokemon.level}";
-            if (_currentPokemon.level < 100)
+            var species = speciesDB.GetSpecies(_currentPokemon.speciesId);
+            if (species == null)
             {
-                // TODO: SpeciesSO 참조 필요
-                // var needExp = ExperienceCurveService.GetNeedExpForNextLevel(species.curveType, _currentPokemon.level);
-                // expBar.fillAmount = needExp > 0 ? (float)_currentPokemon.currentExp / needExp : 0;
+                ClearUI();
+                return;
+            }
+
+            var form = species.GetForm(_currentPokemon.formKey);
+            if (form == null || form.visual == null)
+            {
+                ClearUI();
+                return;
+            }
+
+            // 포켓몬 정보 표시
+            nameText.text = _currentPokemon.GetDisplayName(species);
+            levelText.text = $"Lv.{_currentPokemon.level}";
+
+            // 경험치 바 업데이트
+            if (_currentPokemon.level < species.maxLevel)
+            {
+                int needExp = ExperienceCurveService.GetNeedExpForNextLevel(species.curveType, _currentPokemon.level);
+                currentExpText.text = $"{_currentPokemon.currentExp}/{needExp}";
+                expBar.fillAmount = needExp > 0 ? (float)_currentPokemon.currentExp / needExp : 0;
             }
             else
             {
-                expBar.fillAmount = 1; // 만렙
+                currentExpText.text = "MAX";
+                expBar.fillAmount = 1;
             }
 
-            // TODO: 포켓몬 애니메이션 표시 (VisualSO 참조 필요)
-            // StartAnimation(visual.frontFrames, visual.frontAnimationFps
+            // 포켓몬 애니메이션 표시
+            var frames = _currentPokemon.isShiny ? form.visual.shinyFrontFrames : form.visual.frontFrames;
+            var fps = _currentPokemon.isShiny ? form.visual.shinyFrontAnimationFps : form.visual.frontAnimationFps;
+            StartAnimation(frames, fps);
         }
 
         /// <summary>

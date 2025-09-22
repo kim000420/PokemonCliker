@@ -48,8 +48,7 @@ namespace PokeClicker
 
         [Header("Dependencies")]
         [SerializeField] private SpeciesDB speciesDB;
-        [SerializeField] private MiscIconSO miscIcons;
-        //[SerializeField] private GameIconDB gameIconDB;
+        [SerializeField] private GameIconDB gameIconDB;
 
         private PokemonSaveData _currentPokemon;
         private SpeciesSO _currentSpecies;
@@ -93,13 +92,13 @@ namespace PokeClicker
             levelText.text = $"Lv.{_currentPokemon.level}";
 
             // 성별 아이콘 업데이트
-            if (genderIcon != null && miscIcons != null)
+            if (genderIcon != null && gameIconDB.miscIcons != null)
             {
                 genderIcon.sprite = _currentPokemon.gender switch
                 {
-                    Gender.Male => miscIcons.male,
-                    Gender.Female => miscIcons.female,
-                    _ => miscIcons.genderless
+                    Gender.Male => gameIconDB.miscIcons.male,
+                    Gender.Female => gameIconDB.miscIcons.female,
+                    _ => gameIconDB.miscIcons.genderless
                 };
             }
 
@@ -188,16 +187,16 @@ namespace PokeClicker
         /// </summary>
         private void UpdateIvIconsForStat(int statIndex, int ivValue)
         {
-            if (miscIcons == null || statIndex >= ivRankIcons.Count || statIndex >= ivStarIcons.Count) return;
+            if (gameIconDB.miscIcons == null || statIndex >= ivRankIcons.Count || statIndex >= ivStarIcons.Count) return;
 
             var rankIcon = ivRankIcons[statIndex];
             var starIcon = ivStarIcons[statIndex];
 
-            var rankSprite = miscIcons.GetIvRankIcon(ivValue);
+            var rankSprite = gameIconDB.miscIcons.GetIvRankIcon(ivValue);
             rankIcon.sprite = rankSprite;
             rankIcon.enabled = rankSprite != null;
 
-            var starSprite = miscIcons.GetIvStarIcon(ivValue);
+            var starSprite = gameIconDB.miscIcons.GetIvStarIcon(ivValue);
             starIcon.sprite = starSprite;
             starIcon.enabled = starSprite != null;
         }
