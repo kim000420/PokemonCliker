@@ -25,6 +25,7 @@ namespace PokeClicker
         private readonly Dictionary<int, PokemonSaveData> _table = new(); // P_uid -> data
         private readonly List<int> _party = new();                         // P_uid (<=6)
         private readonly List<List<int>> _boxes = new();                   // 박스들: 각 박스는 P_uid 리스트
+        public event Action OnPartyUpdated; // 파티 데이터 변경 시 호출되는 이벤트
 
         private int _nextPuid = 1;              // P_uid 발급 시퀀스 (기본 1부터)
         private int _partyLimit = 6;            // 파티 최대수 6 고정
@@ -126,6 +127,7 @@ namespace PokeClicker
             if (_party.Count < _partyLimit)
             {
                 _party.Add(P_uid);
+                OnPartyUpdated?.Invoke();
             }
             else
             {
@@ -258,6 +260,7 @@ namespace PokeClicker
             if (biA >= 0 && biB >= 0)
             {
                 (_boxes[biA][bjA], _boxes[biB][bjB]) = (_boxes[biB][bjB], _boxes[biA][bjA]);
+                OnPartyUpdated?.Invoke();
                 return true;
             }
 

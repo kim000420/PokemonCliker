@@ -25,8 +25,16 @@ namespace PokeClicker
         [SerializeField] private GameObject infoMainPanel;
         [SerializeField] private TextMeshProUGUI speciesIdText;
         [SerializeField] private TextMeshProUGUI speciesNameText;
-        [SerializeField] private Image typeIconA;
+
+        // TODO: (현재 사용중) singleP, dual_P,_S 로 교체해야함
+        [SerializeField] private Image typeIconA; 
         [SerializeField] private Image typeIconB;
+
+        // TODO: (현재 미사용) 교체시 사용하게될 UI
+        [SerializeField] public Image singlePrimaryTypeIcon; // 단일 타입 아이콘
+        [SerializeField] public Image dualPrimaryTypeIcon;   // 듀얼 타입 (좌측) 아이콘
+        [SerializeField] public Image dualSecondaryTypeIcon; // 듀얼 타입 (우측) 아이콘
+
         [SerializeField] private TextMeshProUGUI trainerNameText;
         [SerializeField] private TextMeshProUGUI friendshipText;
         [SerializeField] private TextMeshProUGUI currentExpText;
@@ -34,6 +42,7 @@ namespace PokeClicker
         [SerializeField] private Image expBar;
 
         [Header("Info Stat Panel")]
+        // TODO: (현재 사용중) 컴포넌트 부족 교체해야함
         [SerializeField] private GameObject infoStatPanel;
         [SerializeField] private TextMeshProUGUI hpStatText;
         [SerializeField] private TextMeshProUGUI atkStatText;
@@ -42,6 +51,10 @@ namespace PokeClicker
         [SerializeField] private TextMeshProUGUI spdStatText;
         [SerializeField] private TextMeshProUGUI speStatText;
 
+        // TODO: (현재 미사용) 컴포넌트 추가 완료본
+        [SerializeField] private List<InfoStatSlot> slots = new List<InfoStatSlot>();
+
+        // TODO: GameIconDB에서 가져와야함
         [Header("IV Icons")]
         [SerializeField] private List<Image> ivRankIcons;
         [SerializeField] private List<Image> ivStarIcons;
@@ -285,5 +298,13 @@ namespace PokeClicker
             infoMainPanel.SetActive(false);
             infoStatPanel.SetActive(true);
         }
+    }
+
+    public class InfoStatSlot
+    {
+        private TextMeshProUGUI statText;
+
+        private Image IVsRankIcon; 
+        private Image IVsStarIcon;
     }
 }

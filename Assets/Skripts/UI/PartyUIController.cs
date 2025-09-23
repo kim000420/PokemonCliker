@@ -21,6 +21,7 @@ namespace PokeClicker
         [Header("Dependencies")]
         [SerializeField] private OwnedPokemonManager ownedPokemonManager;
         [SerializeField] private SpeciesDB speciesDB;
+        [SerializeField] private GameIconDB gameIconDB;
 
         private int? _selectedSlotIndex = null;
 
@@ -64,8 +65,6 @@ namespace PokeClicker
         /// </summary>
         public void UpdatePartyUI()
         {
-            if (ownedPokemonManager == null || speciesDB == null) return;
-
             var party = ownedPokemonManager.Party;
             for (int i = 0; i < slots.Count; i++)
             {
@@ -82,7 +81,7 @@ namespace PokeClicker
                             if (form != null && form.visual != null)
                             {
                                 // 아이콘과 레벨 표시
-                                slot.SetData(p, form);
+                                slot.SetData(p, form, species, gameIconDB);
                                 slot.iconButton.onClick.RemoveAllListeners();
                                 int slotIndex = i; // 클로저 이슈 방지
                                 slot.iconButton.onClick.AddListener(() => OnPokemonSlotClick(slotIndex));
@@ -154,19 +153,61 @@ namespace PokeClicker
     public class PartyPokemonSlot
     {
         public Button iconButton;
-        public Image iconImage;
+        public Image pokemonIconImage;
+        public Image genderIconImage;
+        public Image expBar;
         public TextMeshProUGUI levelText;
+        public TextMeshProUGUI nameText;
+        public TextMeshProUGUI expText;
 
-        public void SetData(PokemonSaveData p, FormSO form)
+        /// <summary>
+        /// 포켓몬 데이터를 슬롯에 설정합니다.
+        /// </summary>
+        public void SetData(PokemonSaveData p, FormSO form, SpeciesSO species, GameIconDB gameIconDB)
         {
+            // 슬롯 활성화 및 데이터 표시
             iconButton.gameObject.SetActive(true);
-            iconImage.sprite = p.isShiny ? form.visual.shinyIcon : form.visual.icon;
+
+            // 포켓몬 이미지 설정
+            pokemonIconImage.sprite = p.isShiny ? form.visual.shinyIcon : form.visual.icon;
+
+            // 성별 아이콘 설정
+            genderIconImage.sprite = p.gender switch
+            {
+                Gender.Male => gameIconDB.miscIcons.male,
+                Gender.Female => gameIconDB.miscIcons.female,
+                _ => gameIconDB.miscIcons.genderless
+            };
+
+            // 레벨 및 이름 설정
             levelText.text = $"Lv.{p.level}";
+            nameText.text = p.GetDisplayName(species);
+
+            // 경험치 정보 설정
+            if (p.level < species.maxLevel)
+            {
+                int needExp = ExperienceCurveService.GetNeedExpForNextLevel(species.curveType, p.level);
+                expText.text = $"{p.currentExp} / {needExp}";
+                expBar.fillAmount = needExp > 0 ? (float)p.currentExp / needExp : 0;
+            }
+            else
+            {
+                expText.text = "MAX";
+                expBar.fillAmount = 1;
+            }
         }
 
+        /// <summary>
+        /// 슬롯을 비웁니다.
+        /// </summary>
         public void Clear()
         {
             iconButton.gameObject.SetActive(false);
+            nameText.text = string.Empty;
+            levelText.text = string.Empty;
+            expText.text = string.Empty;
+            expBar.fillAmount = 0;
+            genderIconImage.sprite = null;
         }
     }
 }

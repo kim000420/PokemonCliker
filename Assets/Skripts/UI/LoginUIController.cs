@@ -109,6 +109,8 @@ namespace PokeClicker
             if (success)
             {
                 UIManager.Instance.SwitchToMainUI();
+
+                Debug.Log($"[UIManager.Instance.SwitchToMainUI]");
             }
         }
 

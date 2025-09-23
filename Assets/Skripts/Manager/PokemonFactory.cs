@@ -66,6 +66,8 @@ namespace PokeClicker
             // 저장 안전 보정(상한/하한)
             p.EnsureValidAfterLoad(species);
 
+            Debug.Log($"[Factory] 포켓몬 생성 완료");
+
             return p;
         }
 

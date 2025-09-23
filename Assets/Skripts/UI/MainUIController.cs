@@ -34,7 +34,11 @@ namespace PokeClicker
                 menuButton.onClick.AddListener(OnMenuButtonClick);
             }
 
-            // UI가 활성화되면 파티 1번 포켓몬 정보 업데이트
+            if (ownedPokemonManager != null)
+            {
+                ownedPokemonManager.OnPartyUpdated += UpdateMainUI;
+            }
+
             UpdateMainUI();
         }
 
@@ -45,11 +49,9 @@ namespace PokeClicker
                 menuButton.onClick.RemoveListener(OnMenuButtonClick);
             }
 
-            // 애니메이션 코루틴 정지
-            if (_playAnimationCoroutine != null)
+            if (ownedPokemonManager != null)
             {
-                StopCoroutine(_playAnimationCoroutine);
-                _playAnimationCoroutine = null;
+                ownedPokemonManager.OnPartyUpdated -= UpdateMainUI;
             }
         }
 
@@ -115,6 +117,8 @@ namespace PokeClicker
             // 포켓몬 애니메이션 표시
             var frames = _currentPokemon.isShiny ? form.visual.shinyFrontFrames : form.visual.frontFrames;
             var fps = _currentPokemon.isShiny ? form.visual.shinyFrontAnimationFps : form.visual.frontAnimationFps;
+
+            Debug.Log($"Get Animation \nFrames = {frames}");
             StartAnimation(frames, fps);
         }
 
@@ -154,6 +158,7 @@ namespace PokeClicker
 
             pokemonFrontImage.enabled = true;
             _playAnimationCoroutine = StartCoroutine(PlayAnimation(frames, fps));
+            Debug.Log($"Start Animation \nFrames = {frames}");
         }
 
         private IEnumerator PlayAnimation(Sprite[] frames, float fps)

@@ -20,10 +20,10 @@ namespace PokeClicker
 
         public int T_uid => Profile.T_uid;
 
-        public void Init(ITrainerRepository repo)
+        public void Init(ITrainerRepository repo, OwnedPokemonManager owned)
         {
-            _repo = repo;
-            if (_owned == null) _owned = GetComponentInChildren<OwnedPokemonManager>();
+            _repo = repo; 
+            _owned = owned;
         }
 
 
