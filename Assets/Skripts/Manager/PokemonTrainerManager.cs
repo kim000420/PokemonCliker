@@ -20,6 +20,9 @@ namespace PokeClicker
 
         public int T_uid => Profile.T_uid;
 
+        // 트레이너 이름 반환
+        public string TrainerName => Profile?.TrainerName ?? "Unknown";
+
         public void Init(ITrainerRepository repo, OwnedPokemonManager owned)
         {
             _repo = repo; 

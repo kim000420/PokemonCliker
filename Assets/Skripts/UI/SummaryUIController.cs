@@ -26,11 +26,6 @@ namespace PokeClicker
         [SerializeField] private TextMeshProUGUI speciesIdText;
         [SerializeField] private TextMeshProUGUI speciesNameText;
 
-        // TODO: (현재 사용중) singleP, dual_P,_S 로 교체해야함
-        [SerializeField] private Image typeIconA; 
-        [SerializeField] private Image typeIconB;
-
-        // TODO: (현재 미사용) 교체시 사용하게될 UI
         [SerializeField] public Image singlePrimaryTypeIcon; // 단일 타입 아이콘
         [SerializeField] public Image dualPrimaryTypeIcon;   // 듀얼 타입 (좌측) 아이콘
         [SerializeField] public Image dualSecondaryTypeIcon; // 듀얼 타입 (우측) 아이콘
@@ -42,26 +37,13 @@ namespace PokeClicker
         [SerializeField] private Image expBar;
 
         [Header("Info Stat Panel")]
-        // TODO: (현재 사용중) 컴포넌트 부족 교체해야함
         [SerializeField] private GameObject infoStatPanel;
-        [SerializeField] private TextMeshProUGUI hpStatText;
-        [SerializeField] private TextMeshProUGUI atkStatText;
-        [SerializeField] private TextMeshProUGUI defStatText;
-        [SerializeField] private TextMeshProUGUI spaStatText;
-        [SerializeField] private TextMeshProUGUI spdStatText;
-        [SerializeField] private TextMeshProUGUI speStatText;
-
-        // TODO: (현재 미사용) 컴포넌트 추가 완료본
         [SerializeField] private List<InfoStatSlot> slots = new List<InfoStatSlot>();
-
-        // TODO: GameIconDB에서 가져와야함
-        [Header("IV Icons")]
-        [SerializeField] private List<Image> ivRankIcons;
-        [SerializeField] private List<Image> ivStarIcons;
 
         [Header("Dependencies")]
         [SerializeField] private SpeciesDB speciesDB;
         [SerializeField] private GameIconDB gameIconDB;
+        [SerializeField] private PokemonTrainerManager trainerManager;
 
         private PokemonSaveData _currentPokemon;
         private SpeciesSO _currentSpecies;
@@ -135,16 +117,26 @@ namespace PokeClicker
 
             // 타입 아이콘 업데이트
             var form = _currentSpecies.GetForm(_currentPokemon.formKey);
-            //if (form != null && gameIconDB != null)
+            if (form != null && gameIconDB != null && gameIconDB.typeIcons != null)
             {
-                // TODO: TypeIconDB는 GameIconDB에 통합될 예정
-                // typeIconA.sprite = gameIconDB.typeIcons.GetIcon(form.typePair.primary);
-                // typeIconB.sprite = form.typePair.hasDualType ? gameIconDB.typeIcons.GetIcon(form.typePair.secondary) : null;
-                // typeIconB.gameObject.SetActive(form.typePair.hasDualType);
+                bool hasDualType = form.typePair.hasDualType;
+                singlePrimaryTypeIcon.gameObject.SetActive(!hasDualType);
+                dualPrimaryTypeIcon.gameObject.SetActive(hasDualType);
+                dualSecondaryTypeIcon.gameObject.SetActive(hasDualType);
+
+                if (!hasDualType)
+                {
+                    singlePrimaryTypeIcon.sprite = gameIconDB.typeIcons.GetIcon(form.typePair.primary);
+                }
+                else
+                {
+                    dualPrimaryTypeIcon.sprite = gameIconDB.typeIcons.GetIcon(form.typePair.primary);
+                    dualSecondaryTypeIcon.sprite = gameIconDB.typeIcons.GetIcon(form.typePair.secondary);
+                }
             }
 
             // TODO: 트레이너 이름 가져오기
-            trainerNameText.text = "TODO";
+            trainerNameText.text = trainerManager.TrainerName;
             friendshipText.text = _currentPokemon.friendship.ToString();
 
             // 경험치 정보 업데이트
@@ -180,38 +172,22 @@ namespace PokeClicker
                 true,
                 true);
 
-            hpStatText.text = derivedStats.hp.ToString();
-            atkStatText.text = derivedStats.atk.ToString();
-            defStatText.text = derivedStats.def.ToString();
-            spaStatText.text = derivedStats.spa.ToString();
-            spdStatText.text = derivedStats.spd.ToString();
-            speStatText.text = derivedStats.spe.ToString();
+            if (slots.Count >= 6)
+            {
+                var stats = new List<int> {
+                    derivedStats.hp, derivedStats.atk, derivedStats.def,
+                    derivedStats.spa, derivedStats.spd, derivedStats.spe
+                };
+                var ivs = new List<int> {
+                    _currentPokemon.ivs.hp, _currentPokemon.ivs.atk, _currentPokemon.ivs.def,
+                    _currentPokemon.ivs.spa, _currentPokemon.ivs.spd, _currentPokemon.ivs.spe
+                };
 
-            UpdateIvIconsForStat(0, _currentPokemon.ivs.hp);
-            UpdateIvIconsForStat(1, _currentPokemon.ivs.atk);
-            UpdateIvIconsForStat(2, _currentPokemon.ivs.def);
-            UpdateIvIconsForStat(3, _currentPokemon.ivs.spa);
-            UpdateIvIconsForStat(4, _currentPokemon.ivs.spd);
-            UpdateIvIconsForStat(5, _currentPokemon.ivs.spe);
-        }
-
-        /// <summary>
-        /// 특정 스탯 줄의 IV 아이콘들을 갱신합니다.
-        /// </summary>
-        private void UpdateIvIconsForStat(int statIndex, int ivValue)
-        {
-            if (gameIconDB.miscIcons == null || statIndex >= ivRankIcons.Count || statIndex >= ivStarIcons.Count) return;
-
-            var rankIcon = ivRankIcons[statIndex];
-            var starIcon = ivStarIcons[statIndex];
-
-            var rankSprite = gameIconDB.miscIcons.GetIvRankIcon(ivValue);
-            rankIcon.sprite = rankSprite;
-            rankIcon.enabled = rankSprite != null;
-
-            var starSprite = gameIconDB.miscIcons.GetIvStarIcon(ivValue);
-            starIcon.sprite = starSprite;
-            starIcon.enabled = starSprite != null;
+                for (int i = 0; i < 6; i++)
+                {
+                    slots[i].SetData(stats[i], ivs[i], gameIconDB.miscIcons);
+                }
+            }
         }
 
         /// <summary>
@@ -266,25 +242,20 @@ namespace PokeClicker
             // Info Main
             if (speciesIdText != null) speciesIdText.text = string.Empty;
             if (speciesNameText != null) speciesNameText.text = string.Empty;
-            if (typeIconA != null) typeIconA.sprite = null;
-            if (typeIconB != null) typeIconB.sprite = null;
+            if (singlePrimaryTypeIcon != null) singlePrimaryTypeIcon.sprite = null;
+            if (dualPrimaryTypeIcon != null) dualPrimaryTypeIcon.sprite = null;
+            if (dualSecondaryTypeIcon != null) dualSecondaryTypeIcon.sprite = null;
             if (trainerNameText != null) trainerNameText.text = string.Empty;
             if (friendshipText != null) friendshipText.text = string.Empty;
             if (currentExpText != null) currentExpText.text = string.Empty;
             if (nextLevelExpText != null) nextLevelExpText.text = string.Empty;
             if (expBar != null) expBar.fillAmount = 0;
 
-            // Info Stat
-            if (hpStatText != null) hpStatText.text = string.Empty;
-            if (atkStatText != null) atkStatText.text = string.Empty;
-            if (defStatText != null) defStatText.text = string.Empty;
-            if (spaStatText != null) spaStatText.text = string.Empty;
-            if (spdStatText != null) spdStatText.text = string.Empty;
-            if (speStatText != null) speStatText.text = string.Empty;
-
-            // IV 아이콘 초기화
-            foreach (var icon in ivRankIcons) icon.enabled = false;
-            foreach (var icon in ivStarIcons) icon.enabled = false;
+            // Stat Slot
+            foreach (var slot in slots)
+            {
+                slot.Clear();
+            }
         }
 
         public void ShowMainPanel()
@@ -300,11 +271,33 @@ namespace PokeClicker
         }
     }
 
+    [System.Serializable]
     public class InfoStatSlot
     {
-        private TextMeshProUGUI statText;
+        public TextMeshProUGUI statText;
 
-        private Image IVsRankIcon; 
-        private Image IVsStarIcon;
+        public Image IVsStarIcon;
+        public Image IVsRankIcon; 
+
+
+        /// <summary>
+        /// 슬롯에 능력치 데이터 설정
+        /// </summary>
+        public void SetData(int statValue, int ivValue, MiscIconSO miscIcons)
+        {
+            statText.text = statValue.ToString();
+            IVsRankIcon.sprite = miscIcons.GetIvRankIcon(ivValue);
+            IVsStarIcon.sprite = miscIcons.GetIvStarIcon(ivValue);
+        }
+
+        /// <summary>
+        /// 슬롯 초기화
+        /// </summary>
+        public void Clear()
+        {
+            statText.text = string.Empty;
+            IVsRankIcon.sprite = null;
+            IVsStarIcon.sprite = null;
+        }
     }
 }
