@@ -20,27 +20,64 @@ namespace PokeClicker
         [SerializeField] private PokeBoxZoneUI boxZoneUI;
         [SerializeField] private Button closeButton;
 
+        [Header("Popup Menu UI")]
+        [SerializeField] private GameObject pokemonPopupUI;
+        [SerializeField] private Button summaryButton;
+        [SerializeField] private Button moveButton;
+        [SerializeField] private Button releaseButton;
+
         [Header("Dependencies")]
         [SerializeField] private OwnedPokemonManager ownedPokemonManager;
         [SerializeField] private SpeciesDB speciesDB;
         [SerializeField] private GameIconDB gameIconDB; // 타입 아이콘 및 기타 아이콘 참조
         [SerializeField] private PokemonTrainerManager trainerManager;
+        [SerializeField] private SummaryUIController summaryUIController; 
 
-        private int? _selectedPuid = null;
+        private int? _selectedPuid = null; //
+        private int? _popupPuid;
         private int _currentBoxIndex = 0;
         private const int PokemonPerBox = 30;
 
         private Coroutine _playAnimationCoroutine;
 
+        private void Awake()
+        {
+            if (summaryButton != null)
+            {
+                summaryButton.onClick.AddListener(OnSummaryButtonClick);
+            }
+            if (moveButton != null)
+            {
+                moveButton.onClick.AddListener(OnMoveButtonClick);
+            }
+            if (releaseButton != null)
+            {
+                releaseButton.onClick.AddListener(OnReleaseButtonClick);
+            }
+        }
+
         private void OnEnable()
         {
             if (ownedPokemonManager != null)
             {
+                // 파티 업데이트 시 박스 존 갱신
+                ownedPokemonManager.OnPartyUpdated += UpdateBoxZone; 
+
                 // UI가 활성화되면 첫 포켓몬 정보를 InfoZone에 표시
                 var firstPokemon = ownedPokemonManager.EnumerateAll().FirstOrDefault();
                 if (firstPokemon != null)
                 {
                     UpdateInfoZone(firstPokemon.P_uid);
+                }
+
+                if (closeButton != null)
+                {
+                    closeButton.onClick.AddListener(OnCloseButtonClick);
+                }
+
+                if (pokemonPopupUI != null)
+                {
+                    pokemonPopupUI.SetActive(false); // UI 활성화 시 팝업 비활성화
                 }
                 UpdateBoxZone();
             }
@@ -53,11 +90,21 @@ namespace PokeClicker
 
         private void OnDisable()
         {
+            if (ownedPokemonManager != null)
+            {
+                ownedPokemonManager.OnPartyUpdated -= UpdateBoxZone;
+            }
+
             if (closeButton != null)
             {
                 closeButton.onClick.RemoveListener(OnCloseButtonClick);
             }
             StopAnimation();
+
+            if (pokemonPopupUI != null)
+            {
+                pokemonPopupUI.SetActive(false); // UI 비활성화 시 팝업 비활성화
+            }
         }
 
         /// <summary>
@@ -73,41 +120,120 @@ namespace PokeClicker
         }
 
         /// <summary>
-        /// 포켓몬 슬롯 클릭 시 호출됩니다. (좌클릭: 선택/교체, 우클릭: 선택 취소)
+        /// 포켓몬 슬롯 좌클릭 시 호출됩니다.
         /// </summary>
-        private void OnPokemonSlotClick(int puid)
+        public void OnPokemonSlotClick(int? puid, int boxIndex, int slotIndex)
         {
-            if (Input.GetMouseButtonDown(0)) // 좌클릭 (선택/교체)
+            if (pokemonPopupUI != null) pokemonPopupUI.SetActive(false);
+
+            if (_selectedPuid.HasValue)
             {
-                if (!_selectedPuid.HasValue)
+                if (puid.HasValue)
                 {
-                    // 첫 번째 포켓몬 선택
-                    _selectedPuid = puid;
-                }
-                else if (_selectedPuid.Value == puid)
-                {
-                    // 같은 포켓몬을 다시 클릭 시 선택 유지 (우클릭으로만 해제)
+                    if (_selectedPuid.Value == puid.Value)
+                    {
+                        _selectedPuid = null;
+                        UpdateBoxZone();
+                    }
+                    else
+                    {
+                        ownedPokemonManager.Swap(_selectedPuid.Value, puid.Value);
+                        _selectedPuid = null;
+                        UpdateBoxZone();
+                    }
                 }
                 else
                 {
-                    // 다른 포켓몬 클릭 시 교체
-                    ownedPokemonManager.Swap(_selectedPuid.Value, puid);
+                    if (boxIndex == -1)
+                    {
+                        ownedPokemonManager.MoveToParty(_selectedPuid.Value, slotIndex);
+                        UpdateBoxZone();
+                    }
+                    else
+                    {
+                        ownedPokemonManager.MoveToBox(_selectedPuid.Value, boxIndex, slotIndex);
+                        UpdateBoxZone();
+                    }
                     _selectedPuid = null;
+                    UpdateBoxZone();
                 }
-
-                UpdateBoxZone(); // UI 갱신
             }
-            else if (Input.GetMouseButtonDown(1)) // 우클릭 (선택 취소)
+            else
             {
-                if (_selectedPuid.HasValue && _selectedPuid.Value == puid)
+                if (puid.HasValue)
                 {
-                    _selectedPuid = null;
-                    UpdateBoxZone(); // UI 갱신
+                    _selectedPuid = puid.Value;
+                    UpdateBoxZone();
                 }
             }
+            UpdateUIBasedOnSelection();
+            UpdateBoxZone();
+        }
 
-            // InfoZone 갱신 (선택된 포켓몬 정보 표시)
-            UpdateInfoZone(puid);
+        /// <summary>
+        /// 포켓몬 슬롯 우클릭 시 호출됩니다.
+        /// </summary>
+        public void OnPokemonSlotRightClick(int? puid)
+        {
+            if (puid.HasValue)
+            {
+                ShowPokemonPopup(puid.Value);
+            }
+            else
+            {
+                if (pokemonPopupUI != null) pokemonPopupUI.SetActive(false);
+            }
+        }
+
+        private void UpdateUIBasedOnSelection()
+        {
+            if (_selectedPuid.HasValue)
+            {
+                UpdateInfoZone(_selectedPuid.Value);
+            }
+            else
+            {
+                ClearInfoZone();
+            }
+            UpdateBoxZone();
+        }
+
+        private void ShowPokemonPopup(int puid)
+        {
+            if (pokemonPopupUI == null) return;
+
+            _popupPuid = puid; // 팝업이 참조할 PUID 설정
+
+            pokemonPopupUI.SetActive(true);
+            pokemonPopupUI.transform.position = Input.mousePosition;
+        }
+
+        private void OnSummaryButtonClick()
+        {
+            if (!_popupPuid.HasValue) return;
+
+            summaryUIController.SetPokemon(ownedPokemonManager.GetByPuid(_popupPuid.Value));
+            summaryUIController.gameObject.SetActive(true);
+            if (pokemonPopupUI != null) pokemonPopupUI.SetActive(false);
+        }
+
+        private void OnMoveButtonClick()
+        {
+            if (!_popupPuid.HasValue) return;
+
+            _selectedPuid = _popupPuid.Value;
+            UpdateUIBasedOnSelection();
+            if (pokemonPopupUI != null) pokemonPopupUI.SetActive(false);
+        }
+
+        private void OnReleaseButtonClick()
+        {
+            if (!_popupPuid.HasValue) return;
+
+            ownedPokemonManager.Release(_popupPuid.Value);
+            _selectedPuid = null;
+            UpdateUIBasedOnSelection();
+            if (pokemonPopupUI != null) pokemonPopupUI.SetActive(false);
         }
 
         /// <summary>
@@ -116,13 +242,25 @@ namespace PokeClicker
         private void UpdateInfoZone(int puid)
         {
             var p = ownedPokemonManager.GetByPuid(puid);
-            if (p == null || speciesDB == null || gameIconDB == null) return;
+            if (p == null || speciesDB == null || gameIconDB == null)
+            {
+                ClearInfoZone();
+                return;
+            }
 
             var species = speciesDB.GetSpecies(p.speciesId);
-            if (species == null) return;
+            if (species == null)
+            {
+                ClearInfoZone();
+                return;
+            }
 
             var form = species.GetForm(p.formKey);
-            if (form == null) return;
+            if (form == null)
+            {
+                ClearInfoZone();
+                return;
+            }
 
             // 이름, 성별 아이콘 업데이트
             infoZoneUI.nameText.text = p.GetDisplayName(species);
@@ -139,7 +277,7 @@ namespace PokeClicker
             StartAnimation(frames, fps);
 
             // 레벨, 아이템, 경험치, 타입 아이콘 업데이트
-            infoZoneUI.levelText.text = $"Lv.{p.level}";
+            infoZoneUI.levelText.text = $"{p.level}";
             infoZoneUI.heldItemText.text = string.IsNullOrWhiteSpace(p.heldItemId) ? "없음" : p.heldItemId; // TODO: 아이템 이름을 DB에서 가져오도록 수정
             infoZoneUI.expText.text = $"{p.currentExp} / {ExperienceCurveService.GetNeedExpForNextLevel(species.curveType, p.level)}";
 
@@ -162,6 +300,23 @@ namespace PokeClicker
         }
 
         /// <summary>
+        /// InfoZone의 UI를 초기화합니다.
+        /// </summary>
+        private void ClearInfoZone()
+        {
+            infoZoneUI.nameText.text = string.Empty;
+            infoZoneUI.genderIcon.sprite = null;
+            infoZoneUI.pokemonFrontImage.sprite = null;
+            infoZoneUI.levelText.text = string.Empty;
+            infoZoneUI.heldItemText.text = string.Empty;
+            infoZoneUI.expText.text = string.Empty;
+            infoZoneUI.singlePrimaryTypeIcon.sprite = null;
+            infoZoneUI.dualPrimaryTypeIcon.sprite = null;
+            infoZoneUI.dualSecondaryTypeIcon.sprite = null;
+            StopAnimation();
+        }
+
+        /// <summary>
         /// BoxZone의 UI를 갱신합니다.
         /// </summary>
         private void UpdateBoxZone()
@@ -169,17 +324,18 @@ namespace PokeClicker
             if (ownedPokemonManager == null || speciesDB == null) return;
 
             // 박스 이름 업데이트
-            boxZoneUI.boxNameText.text = $"BOX {_currentBoxIndex + 1}";
+            boxZoneUI.boxNameText.text = $"박스 {_currentBoxIndex + 1}";
 
             // 박스 슬롯 갱신
             var boxContents = ownedPokemonManager.Boxes.ElementAtOrDefault(_currentBoxIndex);
             for (int i = 0; i < boxZoneUI.boxSlots.Count; i++)
             {
                 var slot = boxZoneUI.boxSlots[i];
+                int? puid = null;
                 if (boxContents != null && i < boxContents.Count)
                 {
-                    int puid = boxContents[i];
-                    var p = ownedPokemonManager.GetByPuid(puid);
+                    puid = boxContents[i];
+                    var p = ownedPokemonManager.GetByPuid(puid.Value);
                     if (p != null)
                     {
                         var species = speciesDB.GetSpecies(p.speciesId);
@@ -187,9 +343,6 @@ namespace PokeClicker
                         if (form?.visual != null)
                         {
                             slot.SetData(p, form);
-                            slot.SetSelectBoxActive(_selectedPuid.HasValue && _selectedPuid.Value == puid);
-                            slot.iconButton.onClick.RemoveAllListeners();
-                            slot.iconButton.onClick.AddListener(() => OnPokemonSlotClick(puid));
                         }
                     }
                 }
@@ -197,17 +350,28 @@ namespace PokeClicker
                 {
                     slot.Clear();
                 }
+
+                var clicker = slot.iconButton.GetComponent<PokemonSlotClicker>() ?? slot.iconButton.gameObject.AddComponent<PokemonSlotClicker>();
+                clicker.puid = puid;
+                clicker.boxIndex = _currentBoxIndex;
+                clicker.slotIndex = i;
+                clicker.controller = this;
+
+                slot.SetSelectBoxActive(_selectedPuid.HasValue && _selectedPuid.Value == puid);
+                slot.iconButton.onClick.RemoveAllListeners();
             }
+
 
             // 파티 슬롯 갱신
             var party = ownedPokemonManager.Party;
             for (int i = 0; i < boxZoneUI.partySlots.Count; i++)
             {
                 var slot = boxZoneUI.partySlots[i];
+                int? puid = null;
                 if (i < party.Count)
                 {
-                    int puid = party[i];
-                    var p = ownedPokemonManager.GetByPuid(puid);
+                    puid = party[i];
+                    var p = ownedPokemonManager.GetByPuid(puid.Value);
                     if (p != null)
                     {
                         var species = speciesDB.GetSpecies(p.speciesId);
@@ -215,9 +379,6 @@ namespace PokeClicker
                         if (form?.visual != null)
                         {
                             slot.SetData(p, form);
-                            slot.SetSelectBoxActive(_selectedPuid.HasValue && _selectedPuid.Value == puid);
-                            slot.iconButton.onClick.RemoveAllListeners();
-                            slot.iconButton.onClick.AddListener(() => OnPokemonSlotClick(puid));
                         }
                     }
                 }
@@ -225,6 +386,15 @@ namespace PokeClicker
                 {
                     slot.Clear();
                 }
+
+                var clicker = slot.iconButton.GetComponent<PokemonSlotClicker>() ?? slot.iconButton.gameObject.AddComponent<PokemonSlotClicker>();
+                clicker.puid = puid;
+                clicker.boxIndex = -1;
+                clicker.slotIndex = i;
+                clicker.controller = this;
+
+                slot.SetSelectBoxActive(_selectedPuid.HasValue && _selectedPuid.Value == puid);
+                slot.iconButton.onClick.RemoveAllListeners();
             }
         }
 
@@ -317,11 +487,13 @@ namespace PokeClicker
         {
             iconButton.gameObject.SetActive(true);
             iconImage.sprite = p.isShiny ? form.visual.shinyIcon : form.visual.icon;
+            iconImage.gameObject.SetActive(true);
         }
 
         public void Clear()
         {
-            iconButton.gameObject.SetActive(false);
+            iconButton.gameObject.SetActive(true); // 빈 슬롯도 클릭 가능하게 활성화
+            iconImage.gameObject.SetActive(false); // 아이콘 이미지만 비활성화
         }
 
         public void SetSelectBoxActive(bool isActive)
@@ -329,6 +501,26 @@ namespace PokeClicker
             if (selectBox != null)
             {
                 selectBox.gameObject.SetActive(isActive);
+            }
+        }
+    }
+
+    public class PokemonSlotClicker : MonoBehaviour, IPointerClickHandler
+    {
+        public int? puid;
+        public int boxIndex;
+        public int slotIndex;
+        public PokePCUIController controller;
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            if (eventData.button == PointerEventData.InputButton.Left)
+            {
+                controller.OnPokemonSlotClick(puid, boxIndex, slotIndex);
+            }
+            else if (eventData.button == PointerEventData.InputButton.Right)
+            {
+                controller.OnPokemonSlotRightClick(puid);
             }
         }
     }

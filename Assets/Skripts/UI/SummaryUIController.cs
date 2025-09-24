@@ -19,7 +19,19 @@ namespace PokeClicker
         [SerializeField] private TextMeshProUGUI levelText;
         [SerializeField] private Image genderIcon;
         [SerializeField] private Image pokemonFrontImage; // 포켓몬 애니메이션 이미지
-        [SerializeField] private Image heldItemIcon; // 가진 도구 아이콘
+
+        //[SerializeField] private Image heldItemIcon; // 가진 도구 아이콘
+        //[SerializeField] private Image heldItemText; // 가진 도구 텍스트
+
+        [SerializeField] private Button infoMainButton;
+        [SerializeField] private Image selectInfoMainIcon; // 인포 메인 활성화시 아이콘
+        [SerializeField] private Image unelectInfoMainIcon; // 인포 메인 비활성화시 아이콘
+
+        [SerializeField] private Button infoStatButton;
+        [SerializeField] private Image selectInfoStatIcon; // 인포 스텟 활성화시 아이콘
+        [SerializeField] private Image unelectInfoStatIcon; // 인포 스텟 비활성화시 아이콘
+
+        [SerializeField] private Button exitButton; // summary UI 비활성화 아이콘
 
         [Header("Info Main Panel")]
         [SerializeField] private GameObject infoMainPanel;
@@ -51,7 +63,54 @@ namespace PokeClicker
 
         private void OnEnable()
         {
+            // 버튼 클릭 이벤트 연결
+            if (infoMainButton != null)
+            {
+                infoMainButton.onClick.AddListener(OnInfoMainButtonClick);
+            }
+            if (infoStatButton != null)
+            {
+                infoStatButton.onClick.AddListener(OnInfoStatButtonClick);
+            }
+            if (exitButton != null)
+            {
+                exitButton.onClick.AddListener(OnExitButtonClick);
+            }
+
             ShowMainPanel();
+        }
+
+        private void OnDisable()
+        {
+            // 버튼 클릭 이벤트 연결 해제
+            if (infoMainButton != null)
+            {
+                infoMainButton.onClick.RemoveListener(OnInfoMainButtonClick);
+            }
+            if (infoStatButton != null)
+            {
+                infoStatButton.onClick.RemoveListener(OnInfoStatButtonClick);
+            }
+            if (exitButton != null)
+            {
+                exitButton.onClick.RemoveListener(OnExitButtonClick);
+            }
+        }
+
+        private void OnInfoMainButtonClick()
+        {
+            ShowMainPanel();
+        }
+
+        private void OnInfoStatButtonClick()
+        {
+            ShowStatPanel();
+        }
+
+        private void OnExitButtonClick()
+        {
+            // Summary UI 비활성화
+            gameObject.SetActive(false);
         }
 
         /// <summary>
@@ -83,8 +142,8 @@ namespace PokeClicker
         /// </summary>
         private void UpdateInfoOverlay()
         {
-            nameText.text = _currentPokemon.GetDisplayName(_currentSpecies);
-            levelText.text = $"Lv.{_currentPokemon.level}";
+            nameText.text = _currentSpecies.nameKeyKor;
+            levelText.text = $"{_currentPokemon.level}";
 
             // 성별 아이콘 업데이트
             if (genderIcon != null && gameIconDB.miscIcons != null)
@@ -135,9 +194,8 @@ namespace PokeClicker
                 }
             }
 
-            // TODO: 트레이너 이름 가져오기
-            trainerNameText.text = trainerManager.TrainerName;
-            friendshipText.text = _currentPokemon.friendship.ToString();
+            trainerNameText.text = trainerManager.TrainerName;              // 트레이너 이름 
+            friendshipText.text = _currentPokemon.friendship.ToString();    // 친밀도
 
             // 경험치 정보 업데이트
             if (_currentPokemon.level < _currentSpecies.maxLevel)
@@ -230,7 +288,7 @@ namespace PokeClicker
             if (nameText != null) nameText.text = string.Empty;
             if (levelText != null) levelText.text = string.Empty;
             if (genderIcon != null) genderIcon.sprite = null;
-            if (heldItemIcon != null) heldItemIcon.sprite = null;
+            //if (heldItemIcon != null) heldItemIcon.sprite = null;
             if (pokemonFrontImage != null) pokemonFrontImage.sprite = null;
 
             if (_playAnimationCoroutine != null)
@@ -262,12 +320,20 @@ namespace PokeClicker
         {
             infoMainPanel.SetActive(true);
             infoStatPanel.SetActive(false);
+            selectInfoMainIcon.gameObject.SetActive(true);
+            unelectInfoMainIcon.gameObject.SetActive(false);
+            selectInfoStatIcon.gameObject.SetActive(false);
+            unelectInfoStatIcon.gameObject.SetActive(true);
         }
 
         public void ShowStatPanel()
         {
             infoMainPanel.SetActive(false);
             infoStatPanel.SetActive(true);
+            selectInfoMainIcon.gameObject.SetActive(false);
+            unelectInfoMainIcon.gameObject.SetActive(true);
+            selectInfoStatIcon.gameObject.SetActive(true);
+            unelectInfoStatIcon.gameObject.SetActive(false);
         }
     }
 
@@ -279,10 +345,6 @@ namespace PokeClicker
         public Image IVsStarIcon;
         public Image IVsRankIcon; 
 
-
-        /// <summary>
-        /// 슬롯에 능력치 데이터 설정
-        /// </summary>
         public void SetData(int statValue, int ivValue, MiscIconSO miscIcons)
         {
             statText.text = statValue.ToString();
@@ -290,9 +352,6 @@ namespace PokeClicker
             IVsStarIcon.sprite = miscIcons.GetIvStarIcon(ivValue);
         }
 
-        /// <summary>
-        /// 슬롯 초기화
-        /// </summary>
         public void Clear()
         {
             statText.text = string.Empty;

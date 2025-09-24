@@ -16,7 +16,7 @@ namespace PokeClicker
     {
         [Header("UI Elements")]
         [SerializeField] private List<PartyPokemonSlot> slots = new List<PartyPokemonSlot>();
-        [SerializeField] private Button closeButton;
+        [SerializeField] private Button exitButton;
 
         [Header("Dependencies")]
         [SerializeField] private OwnedPokemonManager ownedPokemonManager;
@@ -32,17 +32,17 @@ namespace PokeClicker
                 UpdatePartyUI();
             }
 
-            if (closeButton != null)
+            if (exitButton != null)
             {
-                closeButton.onClick.AddListener(OnCloseButtonClick);
+                exitButton.onClick.AddListener(OnCloseButtonClick);
             }
         }
 
         private void OnDisable()
         {
-            if (closeButton != null)
+            if (exitButton != null)
             {
-                closeButton.onClick.RemoveListener(OnCloseButtonClick);
+                exitButton.onClick.RemoveListener(OnCloseButtonClick);
             }
         }
 

@@ -118,7 +118,6 @@ namespace PokeClicker
             var frames = _currentPokemon.isShiny ? form.visual.shinyFrontFrames : form.visual.frontFrames;
             var fps = _currentPokemon.isShiny ? form.visual.shinyFrontAnimationFps : form.visual.frontAnimationFps;
 
-            Debug.Log($"Get Animation \nFrames = {frames}");
             StartAnimation(frames, fps);
         }
 
@@ -158,7 +157,6 @@ namespace PokeClicker
 
             pokemonFrontImage.enabled = true;
             _playAnimationCoroutine = StartCoroutine(PlayAnimation(frames, fps));
-            Debug.Log($"Start Animation \nFrames = {frames}");
         }
 
         private IEnumerator PlayAnimation(Sprite[] frames, float fps)

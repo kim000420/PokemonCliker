@@ -39,7 +39,7 @@ namespace PokeClicker
         {
             if (!string.IsNullOrWhiteSpace(nickname))
                 return nickname;
-            return species != null ? species.nameKeyEng : "Unknown";
+            return species != null ? species.nameKeyKor : "Unknown";
         }
 
         // 로드 후 값 범위 보정

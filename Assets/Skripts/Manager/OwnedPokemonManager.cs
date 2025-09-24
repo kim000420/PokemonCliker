@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 namespace PokeClicker
@@ -137,89 +138,87 @@ namespace PokeClicker
             return P_uid;
         }
 
-        /// <summary>
-        /// 방출(삭제). 파티/박스에서 제거 후 테이블에서 제거.
-        /// </summary>
-        public bool Release(int P_uid)
+        // 포켓몬 방출 (영구 삭제)
+        public void Release(int puid)
         {
-            bool removed = _party.Remove(P_uid);
-            if (!removed)
+            if (IsFirstPartyPokemon(puid))
             {
-                for (int i = 0; i < _boxes.Count; i++)
-                {
-                    if (_boxes[i].Remove(P_uid)) { removed = true; break; }
-                }
+                Debug.LogWarning("파티의 첫 번째 포켓몬은 방출할 수 없습니다.");
+                return;
             }
-            if (removed) _table.Remove(P_uid);
-            return removed;
+
+            RemovePuid(puid); // 리스트에서 제거
+            _table.Remove(puid); // 테이블에서 데이터 제거
+
+            OnPartyUpdated?.Invoke();
+            Debug.Log($"포켓몬 [P_uid: {puid}]이(가) 방출되었습니다.");
         }
 
         // ====== 파티/박스 이동 ======
-        public bool MoveToParty(int P_uid, int slot)
+        public void MoveToParty(int puid, int slotIndex)
         {
-            if (!_table.ContainsKey(P_uid)) return false;
-            if (slot < 0 || slot >= _partyLimit) return false;
-
-            // 이미 파티에 있으면 위치만 조정
-            int idx = _party.IndexOf(P_uid);
-            if (idx >= 0)
+            // 빈 슬롯이 파티에 있어야만 이동
+            if (slotIndex < 0 || slotIndex >= _partyLimit)
             {
-                // 스왑
-                if (slot < _party.Count)
+                return;
+            }
+
+            // 기존 위치에서 제거
+            RemovePuid(puid);
+
+            // 파티에 추가
+            _party[slotIndex] = puid;
+
+            OnPartyUpdated?.Invoke();
+        }
+
+        public void MoveToBox(int puid, int boxIndex, int slotIndex)
+        {
+            if (IsFirstPartyPokemon(puid))
+            {
+                Debug.LogWarning("파티의 첫 번째 포켓몬은 PC로 이동할 수 없습니다.");
+                return;
+            }
+
+            // 기존 위치에서 제거
+            RemovePuid(puid);
+
+            // 새 위치에 추가
+            if (boxIndex >= _boxes.Count)
+            {
+                // 새 박스 생성
+                for (int i = _boxes.Count; i <= boxIndex; i++)
                 {
-                    (_party[idx], _party[slot]) = (_party[slot], _party[idx]);
+                    _boxes.Add(new List<int>());
                 }
-                else
-                {
-                    // 빈 슬롯으로 이동
-                    _party.RemoveAt(idx);
-                    _party.Add(P_uid);
-                }
-                return true;
+            }
+            if (slotIndex >= _boxes[boxIndex].Count)
+            {
+                _boxes[boxIndex].Resize(slotIndex + 1);
+            }
+            _boxes[boxIndex][slotIndex] = puid;
+
+            OnPartyUpdated?.Invoke();
+        }
+
+        private void RemovePuid(int puid)
+        {
+            int partyIndex = _party.IndexOf(puid);
+            if (partyIndex >= 0)
+            {
+                _party[partyIndex] = 0; // 0으로 설정하여 빈 슬롯 표시
             }
 
-            // 박스에서 제거
-            for (int i = 0; i < _boxes.Count; i++)
+            var (boxIndex, slotIndex) = FindInBoxes(puid);
+            if (boxIndex >= 0)
             {
-                if (_boxes[i].Remove(P_uid)) break;
-            }
-
-            // 파티 공간 확보
-            if (_party.Count < _partyLimit)
-            {
-                if (slot <= _party.Count) _party.Insert(slot, P_uid);
-                else _party.Add(P_uid);
-                return true;
-            }
-            else
-            {
-                // 가득 찼다면 실패(정책상 스왑으로 처리하고 싶으면 별도 API 사용)
-                return false;
+                _boxes[boxIndex][slotIndex] = 0; // 0으로 설정하여 빈 슬롯 표시
             }
         }
 
-        public bool MoveToBox(int P_uid, int boxIdx, int? slot = null)
+        private bool IsFirstPartyPokemon(int puid)
         {
-            if (!_table.ContainsKey(P_uid)) return false;
-            if (boxIdx < 0) return false;
-
-            while (_boxes.Count <= boxIdx) _boxes.Add(new List<int>());
-
-            // 파티/다른 박스에서 제거
-            _party.Remove(P_uid);
-            for (int i = 0; i < _boxes.Count; i++)
-            {
-                if (i == boxIdx) continue;
-                _boxes[i].Remove(P_uid);
-            }
-
-            var box = _boxes[boxIdx];
-            if (slot.HasValue && slot.Value >= 0 && slot.Value <= box.Count)
-                box.Insert(slot.Value, P_uid);
-            else
-                box.Add(P_uid);
-
-            return true;
+            return _party.Count > 0 && _party[0] == puid;
         }
 
         /// <summary>
@@ -293,6 +292,41 @@ namespace PokeClicker
             if (repo == null) throw new ArgumentNullException(nameof(repo));
             repo.LoadOwnedPokemon(T_uid, out var table, out var party, out var boxes);
             LoadFromData(table, party, boxes);
+        }
+    }
+
+    public static class ListExtensions
+    {
+        public static void Resize<T>(this List<T> list, int size) where T : new()
+        {
+            int currentSize = list.Count;
+            if (size < currentSize)
+            {
+                list.RemoveRange(size, currentSize - size);
+            }
+            else if (size > currentSize)
+            {
+                while (list.Count < size)
+                {
+                    list.Add(new T());
+                }
+            }
+        }
+
+        public static void Resize<T>(this List<T> list, int size, T value)
+        {
+            int currentSize = list.Count;
+            if (size < currentSize)
+            {
+                list.RemoveRange(size, currentSize - size);
+            }
+            else if (size > currentSize)
+            {
+                while (list.Count < size)
+                {
+                    list.Add(value);
+                }
+            }
         }
     }
 }

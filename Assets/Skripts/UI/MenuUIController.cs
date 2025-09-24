@@ -154,7 +154,9 @@ namespace PokeClicker
             summaryUIOpen.onClick.AddListener(() => OnSummaryUIOpenButtonClick(p, summaryUIController));
 
             // 포켓몬 아이콘 설정
+            pokemonIconImage.gameObject.SetActive(true);
             pokemonIconImage.sprite = p.isShiny ? form.visual.shinyIcon : form.visual.icon;
+
 
             // 경험치 정보 설정
             if (p.level < species.maxLevel)
@@ -172,8 +174,8 @@ namespace PokeClicker
         {
             if (summaryUIController != null)
             {
-                summaryUIController.SetPokemon(p);
                 summaryUIController.gameObject.SetActive(true);
+                summaryUIController.SetPokemon(p);
             }
         }
 
@@ -182,6 +184,7 @@ namespace PokeClicker
             summaryUIOpen.gameObject.SetActive(false);
             pokemonIconImage.sprite = null;
             expBar.fillAmount = 0;
+            pokemonIconImage.gameObject.SetActive(false);
             summaryUIOpen.onClick.RemoveAllListeners();
         }
     }
