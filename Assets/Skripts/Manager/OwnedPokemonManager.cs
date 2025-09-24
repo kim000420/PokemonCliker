@@ -24,23 +24,23 @@ namespace PokeClicker
 
         // ===== 데이터 보관 =====
         private readonly Dictionary<int, PokemonSaveData> _table = new(); // P_uid -> data
-        private readonly List<int> _party = new();                         // P_uid (<=6)
-        private readonly List<List<int>> _boxes = new();                   // 박스들: 각 박스는 P_uid 리스트
+        private int[] _party; // int[] 배열로 변경
+        private readonly List<int[]> _boxes = new(); // int[] 배열의 리스트로 변경
         public event Action OnPartyUpdated; // 파티 데이터 변경 시 호출되는 이벤트
 
         private int _nextPuid = 1;              // P_uid 발급 시퀀스 (기본 1부터)
         private int _partyLimit = 6;            // 파티 최대수 6 고정
-
+        private const int _pokemonPerBox = 30;  // 박스 공간 30 고정
         public void Init(int partyLimit = 6, IPokemonIdProvider idProvider = null)
         {
-            _partyLimit = Math.Max(1, partyLimit);
+            _party = new int[_partyLimit];
             _idProvider = idProvider;
         }
 
 
         // ====== 조회 ======
-        public IReadOnlyList<int> Party => _party;
-        public IReadOnlyList<IReadOnlyList<int>> Boxes => _boxes.Select(b => (IReadOnlyList<int>)b).ToList();
+        public int[] GetParty() => _party;
+        public List<int[]> GetBoxes() => _boxes; // 반환 타입을 List<int[]>로 변경
         public IReadOnlyDictionary<int, PokemonSaveData> Table => _table;
 
         public PokemonSaveData GetByPuid(int P_uid)
@@ -80,7 +80,7 @@ namespace PokeClicker
         public void LoadFromData(Dictionary<int, PokemonSaveData> table, List<int> party, List<List<int>> boxes)
         {
             _table.Clear();
-            _party.Clear();
+            _party = new int[_partyLimit];
             _boxes.Clear();
 
             if (table != null)
@@ -93,10 +93,27 @@ namespace PokeClicker
                     _table[kv.Key] = kv.Value;
                 }
             }
-            if (party != null) _party.AddRange(party);
-            if (boxes != null) _boxes.AddRange(boxes);
+            if (party != null)
+            {
+                for (int i = 0; i < Math.Min(party.Count, _partyLimit); i++)
+                {
+                    _party[i] = party[i];
+                }
+            }
+            if (boxes != null)
+            {
+                foreach (var boxList in boxes)
+                {
+                    int[] boxArray = new int[_pokemonPerBox];
+                    for (int i = 0; i < Math.Min(boxList.Count, _pokemonPerBox); i++)
+                    {
+                        boxArray[i] = boxList[i];
+                    }
+                    _boxes.Add(boxArray);
+                }
+            }
 
-            RefreshNextPuid(); // 로드된 데이터 기반으로 다음 발급 번호 보정
+            RefreshNextPuid();
         }
 
         // ====== 추가/삭제 ======
@@ -117,165 +134,208 @@ namespace PokeClicker
             }
 
 
-            int P_uid = data.P_uid;
+            int puid = data.P_uid;
 
             // 테이블에 등록
-            _table[P_uid] = data;
+            _table[puid] = data;
             Debug.Log($"[OWNED] Added P_uid={data.P_uid}, species={data.speciesId}, form={data.formKey}");
 
 
             // 기본 배치: 파티 우선
-            if (_party.Count < _partyLimit)
+            int firstEmptySlot = Array.IndexOf(_party, 0);
+            if (firstEmptySlot >= 0)
             {
-                _party.Add(P_uid);
-                OnPartyUpdated?.Invoke();
+                _party[firstEmptySlot] = puid;
             }
             else
             {
-                if (_boxes.Count == 0) _boxes.Add(new List<int>());
-                _boxes[0].Add(P_uid);
+                if (_boxes.Count == 0) _boxes.Add(new int[_pokemonPerBox]);
+                int boxIndex = Array.FindIndex(_boxes.ToArray(), b => Array.IndexOf(b, 0) >= 0);
+                if (boxIndex >= 0)
+                {
+                    int slotIndex = Array.IndexOf(_boxes[boxIndex], 0);
+                    _boxes[boxIndex][slotIndex] = puid;
+                }
             }
-            return P_uid;
+
+            OnPartyUpdated?.Invoke();
+            return puid;
         }
 
         // 포켓몬 방출 (영구 삭제)
-        public void Release(int puid)
+        public bool Release(int puid)
         {
-            if (IsFirstPartyPokemon(puid))
+            if (_party[0] == puid)
             {
-                Debug.LogWarning("파티의 첫 번째 포켓몬은 방출할 수 없습니다.");
-                return;
+                Debug.LogWarning("파티의 첫 번째 포켓몬은 방출할 수 없습니다."); // TODO: 팝업 메세지로 변경 해야함 
+                return false;
             }
 
-            RemovePuid(puid); // 리스트에서 제거
-            _table.Remove(puid); // 테이블에서 데이터 제거
-
+            bool removed = false;
+            for (int i = 0; i < _party.Length; i++)
+            {
+                if (_party[i] == puid)
+                {
+                    _party[i] = 0;
+                    removed = true;
+                    break;
+                }
+            }
+            if (!removed)
+            {
+                for (int i = 0; i < _boxes.Count; i++)
+                {
+                    int slotIndex = Array.IndexOf(_boxes[i], puid);
+                    if (slotIndex >= 0)
+                    {
+                        _boxes[i][slotIndex] = 0;
+                        removed = true;
+                        break;
+                    }
+                }
+            }
+            if (removed) _table.Remove(puid);
             OnPartyUpdated?.Invoke();
-            Debug.Log($"포켓몬 [P_uid: {puid}]이(가) 방출되었습니다.");
+            Debug.Log($"포켓몬 [P_uid: {puid}]이(가) 방출되었습니다."); // TODO: 팝업 메세지로 변경 해야함 
+            return removed;
         }
 
         // ====== 파티/박스 이동 ======
-        public void MoveToParty(int puid, int slotIndex)
+        public bool MoveToParty(int puid, int slotIndex)
         {
             // 빈 슬롯이 파티에 있어야만 이동
-            if (slotIndex < 0 || slotIndex >= _partyLimit)
-            {
-                return;
-            }
+            if (slotIndex < 0 || slotIndex >= _partyLimit) return false;
+            if (_party[slotIndex] != 0) return false;
 
             // 기존 위치에서 제거
-            RemovePuid(puid);
+            RemovePuidFromContainers(puid);
 
             // 파티에 추가
             _party[slotIndex] = puid;
 
             OnPartyUpdated?.Invoke();
+            return true;
         }
 
-        public void MoveToBox(int puid, int boxIndex, int slotIndex)
+        public bool MoveToBox(int puid, int boxIndex, int slotIndex)
         {
             if (IsFirstPartyPokemon(puid))
             {
-                Debug.LogWarning("파티의 첫 번째 포켓몬은 PC로 이동할 수 없습니다.");
-                return;
+                Debug.LogWarning("파티의 첫 번째 포켓몬은 PC로 이동할 수 없습니다.");  // TODO: 팝업 메세지로 변경 해야함 
+                return false;
             }
 
             // 기존 위치에서 제거
-            RemovePuid(puid);
+            RemovePuidFromContainers(puid);
 
             // 새 위치에 추가
-            if (boxIndex >= _boxes.Count)
+            while (_boxes.Count <= boxIndex)
             {
-                // 새 박스 생성
-                for (int i = _boxes.Count; i <= boxIndex; i++)
-                {
-                    _boxes.Add(new List<int>());
-                }
+                _boxes.Add(new int[_pokemonPerBox]);
             }
-            if (slotIndex >= _boxes[boxIndex].Count)
-            {
-                _boxes[boxIndex].Resize(slotIndex + 1);
-            }
+            if (slotIndex >= _pokemonPerBox) return false;
+
             _boxes[boxIndex][slotIndex] = puid;
 
             OnPartyUpdated?.Invoke();
-        }
-
-        private void RemovePuid(int puid)
-        {
-            int partyIndex = _party.IndexOf(puid);
-            if (partyIndex >= 0)
-            {
-                _party[partyIndex] = 0; // 0으로 설정하여 빈 슬롯 표시
-            }
-
-            var (boxIndex, slotIndex) = FindInBoxes(puid);
-            if (boxIndex >= 0)
-            {
-                _boxes[boxIndex][slotIndex] = 0; // 0으로 설정하여 빈 슬롯 표시
-            }
-        }
-
-        private bool IsFirstPartyPokemon(int puid)
-        {
-            return _party.Count > 0 && _party[0] == puid;
+            return true;
         }
 
         /// <summary>
         /// 두 P_uid의 위치를 서로 교환(파티↔파티, 박스↔박스, 파티↔박스 모두 허용)
         /// </summary>
-        public bool Swap(int P_uidA, int P_uidB)
+        public bool Swap(int puidA, int puidB)
         {
-            if (!_table.ContainsKey(P_uidA) || !_table.ContainsKey(P_uidB)) return false;
+            var indexA = FindPuidIndex(puidA);
+            var indexB = FindPuidIndex(puidB);
 
-            // 파티 인덱스 찾기
-            int ia = _party.IndexOf(P_uidA);
-            int ib = _party.IndexOf(P_uidB);
-
-            if (ia >= 0 && ib >= 0)
+            if (indexA.boxIndex == -1 && indexB.boxIndex == -1) // 파티-파티 스왑
             {
-                (_party[ia], _party[ib]) = (_party[ib], _party[ia]);
-                return true;
+                if (indexA.slotIndex == 0 && indexB.slotIndex != 0)
+                {
+                    // 파티 0번 슬롯은 다른 포켓몬과의 스왑은 허용
+                    (_party[indexA.slotIndex], _party[indexB.slotIndex]) = (_party[indexB.slotIndex], _party[indexA.slotIndex]);
+                }
+                else if (indexB.slotIndex == 0 && indexA.slotIndex != 0)
+                {
+                    (_party[indexA.slotIndex], _party[indexB.slotIndex]) = (_party[indexB.slotIndex], _party[indexA.slotIndex]);
+                }
+                else
+                {
+                    (_party[indexA.slotIndex], _party[indexB.slotIndex]) = (_party[indexB.slotIndex], _party[indexA.slotIndex]);
+                }
+            }
+            else if (indexA.boxIndex != -1 && indexB.boxIndex != -1) // 박스-박스 스왑
+            {
+                (_boxes[indexA.boxIndex][indexA.slotIndex], _boxes[indexB.boxIndex][indexB.slotIndex]) =
+                (_boxes[indexB.boxIndex][indexB.slotIndex], _boxes[indexA.boxIndex][indexA.slotIndex]);
+            }
+            else if (indexA.boxIndex == -1) // 파티-박스 스왑
+            {
+                if (indexA.slotIndex == 0)
+                {
+                    (_party[indexA.slotIndex], _boxes[indexB.boxIndex][indexB.slotIndex]) =
+                    (_boxes[indexB.boxIndex][indexB.slotIndex], _party[indexA.slotIndex]);
+                }
+                else
+                {
+                    (_party[indexA.slotIndex], _boxes[indexB.boxIndex][indexB.slotIndex]) =
+                    (_boxes[indexB.boxIndex][indexB.slotIndex], _party[indexA.slotIndex]);
+                }
+            }
+            else // 박스-파티 스왑
+            {
+                if (indexB.slotIndex == 0)
+                {
+                    (_boxes[indexA.boxIndex][indexA.slotIndex], _party[indexB.slotIndex]) =
+                    (_party[indexB.slotIndex], _boxes[indexA.boxIndex][indexA.slotIndex]);
+                }
+                else
+                {
+                    (_boxes[indexA.boxIndex][indexA.slotIndex], _party[indexB.slotIndex]) =
+                    (_party[indexB.slotIndex], _boxes[indexA.boxIndex][indexA.slotIndex]);
+                }
             }
 
-            // 박스 내 인덱스 찾기
-            (int biA, int bjA) = FindInBoxes(P_uidA);
-            (int biB, int bjB) = FindInBoxes(P_uidB);
-
-            if (ia >= 0 && biB >= 0)
-            {
-                // 파티(P_uidA) <-> 박스(P_uidB)
-                _party[ia] = P_uidB;
-                _boxes[biB][bjB] = P_uidA;
-                return true;
-            }
-            if (ib >= 0 && biA >= 0)
-            {
-                _party[ib] = P_uidA;
-                _boxes[biA][bjA] = P_uidB;
-                return true;
-            }
-
-            if (biA >= 0 && biB >= 0)
-            {
-                (_boxes[biA][bjA], _boxes[biB][bjB]) = (_boxes[biB][bjB], _boxes[biA][bjA]);
-                OnPartyUpdated?.Invoke();
-                return true;
-            }
-
-            return false;
+            OnPartyUpdated?.Invoke();
+            return true;
         }
-
-        private (int bi, int bj) FindInBoxes(int P_uid)
+        private void RemovePuidFromContainers(int puid)
         {
+            for (int i = 0; i < _party.Length; i++)
+            {
+                if (_party[i] == puid)
+                {
+                    _party[i] = 0;
+                    return;
+                }
+            }
             for (int i = 0; i < _boxes.Count; i++)
             {
-                var box = _boxes[i];
-                int j = box.IndexOf(P_uid);
-                if (j >= 0) return (i, j);
+                int slotIndex = Array.IndexOf(_boxes[i], puid);
+                if (slotIndex >= 0)
+                {
+                    _boxes[i][slotIndex] = 0;
+                    return;
+                }
+            }
+        }
+
+        private (int boxIndex, int slotIndex) FindPuidIndex(int puid)
+        {
+            for (int i = 0; i < _party.Length; i++)
+            {
+                if (_party[i] == puid) return (-1, i);
+            }
+            for (int i = 0; i < _boxes.Count; i++)
+            {
+                int slotIndex = Array.IndexOf(_boxes[i], puid);
+                if (slotIndex >= 0) return (i, slotIndex);
             }
             return (-1, -1);
         }
+
+        private bool IsFirstPartyPokemon(int puid) => _party[0] == puid;
 
         // ====== 외부 저장/로드 호환 유틸 ======
         public void SaveToRepository(ITrainerRepository repo, int T_uid)
@@ -292,41 +352,6 @@ namespace PokeClicker
             if (repo == null) throw new ArgumentNullException(nameof(repo));
             repo.LoadOwnedPokemon(T_uid, out var table, out var party, out var boxes);
             LoadFromData(table, party, boxes);
-        }
-    }
-
-    public static class ListExtensions
-    {
-        public static void Resize<T>(this List<T> list, int size) where T : new()
-        {
-            int currentSize = list.Count;
-            if (size < currentSize)
-            {
-                list.RemoveRange(size, currentSize - size);
-            }
-            else if (size > currentSize)
-            {
-                while (list.Count < size)
-                {
-                    list.Add(new T());
-                }
-            }
-        }
-
-        public static void Resize<T>(this List<T> list, int size, T value)
-        {
-            int currentSize = list.Count;
-            if (size < currentSize)
-            {
-                list.RemoveRange(size, currentSize - size);
-            }
-            else if (size > currentSize)
-            {
-                while (list.Count < size)
-                {
-                    list.Add(value);
-                }
-            }
         }
     }
 }

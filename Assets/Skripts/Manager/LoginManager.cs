@@ -144,7 +144,7 @@ namespace PokeClicker
             trainerManager.LoadForTrainer(T_uid);
             puidSequencer.InitializeFrom(ownedManager);
             ownedManager.LoadFromRepository(_trainerRepo, T_uid);
-            Debug.Log($"[LOGIN] T_uid={T_uid}, Party={ownedManager.Party.Count}, Table={ownedManager.Table.Count}, NextPuid(estimate) ready.");
+            Debug.Log($"[LOGIN] T_uid={T_uid}, Party={ownedManager.GetParty().Length}, Table={ownedManager.Table.Count}, NextPuid(estimate) ready.");
 
             // 진행도(클릭 누적) 로드 - 구현체에 맞게 가져와 주입(예: trainerRepo.LoadTrainerProgress)
             if (tracker == null) tracker = new ClickProgressTracker();
@@ -157,7 +157,7 @@ namespace PokeClicker
             progressController.tracker = tracker;
             progressController.speciesDB = speciesDB;
 
-            Debug.Log($"Login flow completed. T_uid={T_uid}, PartyCount={ownedManager.Party.Count}");
+            Debug.Log($"Login flow completed. T_uid={T_uid}, PartyCount={ownedManager.GetParty().Length}");
 
             trainerManager.Save();
         }

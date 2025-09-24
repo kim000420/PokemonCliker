@@ -42,7 +42,7 @@ namespace PokeClicker
         public void Save()
         {
             _repo.SaveTrainerProfile(Profile);
-            _repo.SaveOwnedPokemon(T_uid, _owned.Table, _owned.Party, _owned.Boxes);
+            _repo.SaveOwnedPokemon(T_uid, _owned.Table, _owned.GetParty(), _owned.GetBoxes());
         }
 
         public void SetTrainerName(string newName)

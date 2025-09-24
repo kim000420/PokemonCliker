@@ -68,13 +68,13 @@ namespace PokeClicker
         /// </summary>
         public void UpdateMainUI()
         {
-            if (ownedPokemonManager == null || ownedPokemonManager.Party.Count == 0 || speciesDB == null)
+            if (ownedPokemonManager == null || ownedPokemonManager.GetParty().Length == 0 || speciesDB == null)
             {
                 ClearUI();
                 return;
             }
 
-            int firstPokemonUid = ownedPokemonManager.Party[0];
+            int firstPokemonUid = ownedPokemonManager.GetParty()[0];
             _currentPokemon = ownedPokemonManager.GetByPuid(firstPokemonUid);
 
             if (_currentPokemon == null)

@@ -30,8 +30,8 @@ namespace PokeClicker
         {
             if (expGainPerInput <= 0) return;
 
-            var party = _owned.Party;
-            for (int i = 0; i < party.Count; i++)
+            var party = _owned.GetParty();
+            for (int i = 0; i < party.Length; i++)
             {
                 var p = _owned.GetByPuid(party[i]);
                 if (p == null) continue;

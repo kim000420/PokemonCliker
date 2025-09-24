@@ -106,11 +106,11 @@ namespace PokeClicker
         /// </summary>
         public void UpdateMenuUI()
         {
-            var party = ownedPokemonManager.Party;
+            var party = ownedPokemonManager.GetParty();
             for (int i = 0; i < slots.Count; i++)
             {
                 var slot = slots[i];
-                if (i < party.Count)
+                if (i < party.Length)
                 {
                     var p = ownedPokemonManager.GetByPuid(party[i]);
                     if (p != null)

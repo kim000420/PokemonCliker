@@ -126,48 +126,35 @@ namespace PokeClicker
         {
             if (pokemonPopupUI != null) pokemonPopupUI.SetActive(false);
 
-            if (_selectedPuid.HasValue)
+            if (_selectedPuid.HasValue) // 이동 모드 활성화 상태
             {
-                if (puid.HasValue)
+                if (puid.HasValue) // 포켓몬이 있는 슬롯을 클릭
                 {
-                    if (_selectedPuid.Value == puid.Value)
-                    {
-                        _selectedPuid = null;
-                        UpdateBoxZone();
-                    }
-                    else
-                    {
-                        ownedPokemonManager.Swap(_selectedPuid.Value, puid.Value);
-                        _selectedPuid = null;
-                        UpdateBoxZone();
-                    }
+                    ownedPokemonManager.Swap(_selectedPuid.Value, puid.Value);
+                    _selectedPuid = null;
                 }
-                else
+                else // 빈 슬롯을 클릭 (이동)
                 {
                     if (boxIndex == -1)
                     {
                         ownedPokemonManager.MoveToParty(_selectedPuid.Value, slotIndex);
-                        UpdateBoxZone();
                     }
                     else
                     {
                         ownedPokemonManager.MoveToBox(_selectedPuid.Value, boxIndex, slotIndex);
-                        UpdateBoxZone();
                     }
                     _selectedPuid = null;
-                    UpdateBoxZone();
                 }
             }
-            else
+            else // 정보 갱신 모드
             {
-                if (puid.HasValue)
+                if (puid.HasValue) // 포켓몬이 있는 슬롯 클릭
                 {
-                    _selectedPuid = puid.Value;
-                    UpdateBoxZone();
+                    UpdateInfoZone(puid.Value);
                 }
+                // 빈 슬롯 클릭시 아무것도 안 함
             }
-            UpdateUIBasedOnSelection();
-            UpdateBoxZone();
+            UpdateBoxZone(); // UI 갱신
         }
 
         /// <summary>
@@ -327,29 +314,31 @@ namespace PokeClicker
             boxZoneUI.boxNameText.text = $"박스 {_currentBoxIndex + 1}";
 
             // 박스 슬롯 갱신
-            var boxContents = ownedPokemonManager.Boxes.ElementAtOrDefault(_currentBoxIndex);
+            var boxContents = ownedPokemonManager.GetBoxes().ElementAtOrDefault(_currentBoxIndex);
             for (int i = 0; i < boxZoneUI.boxSlots.Count; i++)
             {
                 var slot = boxZoneUI.boxSlots[i];
                 int? puid = null;
-                if (boxContents != null && i < boxContents.Count)
+                if (boxContents != null && i < boxContents.Length)
                 {
-                    puid = boxContents[i];
-                    var p = ownedPokemonManager.GetByPuid(puid.Value);
-                    if (p != null)
+                    if (boxContents[i] != 0)
                     {
-                        var species = speciesDB.GetSpecies(p.speciesId);
-                        var form = species.GetForm(p.formKey);
-                        if (form?.visual != null)
+                        puid = boxContents[i];
+                        var p = ownedPokemonManager.GetByPuid(puid.Value);
+                        if (p != null)
                         {
-                            slot.SetData(p, form);
+                            var species = speciesDB.GetSpecies(p.speciesId);
+                            var form = species.GetForm(p.formKey);
+                            if (form?.visual != null)
+                            {
+                                slot.SetData(p, form);
+                            }
                         }
+
                     }
+                    else slot.Clear(); 
                 }
-                else
-                {
-                    slot.Clear();
-                }
+                else slot.Clear();
 
                 var clicker = slot.iconButton.GetComponent<PokemonSlotClicker>() ?? slot.iconButton.gameObject.AddComponent<PokemonSlotClicker>();
                 clicker.puid = puid;
@@ -363,29 +352,30 @@ namespace PokeClicker
 
 
             // 파티 슬롯 갱신
-            var party = ownedPokemonManager.Party;
+            var party = ownedPokemonManager.GetParty();
             for (int i = 0; i < boxZoneUI.partySlots.Count; i++)
             {
                 var slot = boxZoneUI.partySlots[i];
                 int? puid = null;
-                if (i < party.Count)
+                if (i < party.Length)
                 {
-                    puid = party[i];
-                    var p = ownedPokemonManager.GetByPuid(puid.Value);
-                    if (p != null)
+                    if (party[i] != 0)
                     {
-                        var species = speciesDB.GetSpecies(p.speciesId);
-                        var form = species.GetForm(p.formKey);
-                        if (form?.visual != null)
+                        puid = party[i];
+                        var p = ownedPokemonManager.GetByPuid(puid.Value);
+                        if (p != null)
                         {
-                            slot.SetData(p, form);
+                            var species = speciesDB.GetSpecies(p.speciesId);
+                            var form = species.GetForm(p.formKey);
+                            if (form?.visual != null)
+                            {
+                                slot.SetData(p, form);
+                            }
                         }
                     }
+                    else slot.Clear();
                 }
-                else
-                {
-                    slot.Clear();
-                }
+                else slot.Clear();
 
                 var clicker = slot.iconButton.GetComponent<PokemonSlotClicker>() ?? slot.iconButton.gameObject.AddComponent<PokemonSlotClicker>();
                 clicker.puid = puid;

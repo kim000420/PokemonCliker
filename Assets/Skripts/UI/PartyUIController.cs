@@ -65,11 +65,11 @@ namespace PokeClicker
         /// </summary>
         public void UpdatePartyUI()
         {
-            var party = ownedPokemonManager.Party;
+            var party = ownedPokemonManager.GetParty();
             for (int i = 0; i < slots.Count; i++)
             {
                 var slot = slots[i];
-                if (i < party.Count)
+                if (i < party.Length)
                 {
                     var p = ownedPokemonManager.GetByPuid(party[i]);
                     if (p != null)
@@ -133,8 +133,8 @@ namespace PokeClicker
         {
             if (ownedPokemonManager == null) return;
 
-            var party = ownedPokemonManager.Party.ToList();
-            if (indexA < 0 || indexA >= party.Count || indexB < 0 || indexB >= party.Count)
+            var party = ownedPokemonManager.GetParty();
+            if (indexA < 0 || indexA >= party.Length || indexB < 0 || indexB >= party.Length)
             {
                 return;
             }

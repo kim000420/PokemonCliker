@@ -78,6 +78,7 @@ namespace PokeClicker
             }
 
             ShowMainPanel();
+            UpdateInfoOverlay();
         }
 
         private void OnDisable()
