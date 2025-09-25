@@ -54,8 +54,6 @@ namespace PokeClicker
             {
                 trainerNameText.text = trainerManager.TrainerName;
             }
-
-            UpdateMenuUI();
         }
 
         private void OnDisable()
@@ -106,7 +104,17 @@ namespace PokeClicker
         /// </summary>
         public void UpdateMenuUI()
         {
+            if (ownedPokemonManager == null || speciesDB == null)
+            {
+                return;
+            }
+
             var party = ownedPokemonManager.GetParty();
+            if (party == null)
+            {
+                return;
+            }
+
             for (int i = 0; i < slots.Count; i++)
             {
                 var slot = slots[i];

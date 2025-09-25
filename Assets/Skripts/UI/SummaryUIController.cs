@@ -78,7 +78,6 @@ namespace PokeClicker
             }
 
             ShowMainPanel();
-            UpdateInfoOverlay();
         }
 
         private void OnDisable()
@@ -112,6 +111,7 @@ namespace PokeClicker
         {
             // Summary UI 비활성화
             gameObject.SetActive(false);
+            ClearUI();
         }
 
         /// <summary>

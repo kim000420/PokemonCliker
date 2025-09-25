@@ -33,6 +33,8 @@ namespace PokeClicker
             var party = _owned.GetParty();
             for (int i = 0; i < party.Length; i++)
             {
+                if (party[i] == 0) continue;
+
                 var p = _owned.GetByPuid(party[i]);
                 if (p == null) continue;
 

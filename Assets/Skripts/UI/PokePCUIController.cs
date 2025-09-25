@@ -122,7 +122,7 @@ namespace PokeClicker
         /// <summary>
         /// 포켓몬 슬롯 좌클릭 시 호출됩니다.
         /// </summary>
-        public void OnPokemonSlotClick(int? puid, int boxIndex, int slotIndex)
+        public void OnPokemonSlotLeftClick(int? puid, int boxIndex, int slotIndex)
         {
             if (pokemonPopupUI != null) pokemonPopupUI.SetActive(false);
 
@@ -150,10 +150,12 @@ namespace PokeClicker
             {
                 if (puid.HasValue) // 포켓몬이 있는 슬롯 클릭
                 {
+                    _selectedPuid = puid.Value;
                     UpdateInfoZone(puid.Value);
                 }
                 // 빈 슬롯 클릭시 아무것도 안 함
             }
+
             UpdateBoxZone(); // UI 갱신
         }
 
@@ -164,6 +166,9 @@ namespace PokeClicker
         {
             if (puid.HasValue)
             {
+                _selectedPuid = null;
+                UpdateBoxZone();
+
                 ShowPokemonPopup(puid.Value);
             }
             else
@@ -199,9 +204,15 @@ namespace PokeClicker
         {
             if (!_popupPuid.HasValue) return;
 
-            summaryUIController.SetPokemon(ownedPokemonManager.GetByPuid(_popupPuid.Value));
             summaryUIController.gameObject.SetActive(true);
+            StartCoroutine(DelayedSetPokemon(_popupPuid.Value));
             if (pokemonPopupUI != null) pokemonPopupUI.SetActive(false);
+        }
+
+        private IEnumerator DelayedSetPokemon(int puid)
+        {
+            yield return null; // 한 프레임 대기
+            summaryUIController.SetPokemon(ownedPokemonManager.GetByPuid(puid));
         }
 
         private void OnMoveButtonClick()
@@ -319,35 +330,29 @@ namespace PokeClicker
             {
                 var slot = boxZoneUI.boxSlots[i];
                 int? puid = null;
-                if (boxContents != null && i < boxContents.Length)
+                if (boxContents != null && i < boxContents.Length && boxContents[i] != 0)
                 {
-                    if (boxContents[i] != 0)
+                    puid = boxContents[i];
+                    var p = ownedPokemonManager.GetByPuid(puid.Value);
+                    if (p != null)
                     {
-                        puid = boxContents[i];
-                        var p = ownedPokemonManager.GetByPuid(puid.Value);
-                        if (p != null)
+                        var species = speciesDB.GetSpecies(p.speciesId);
+                        var form = species.GetForm(p.formKey);
+                        if (form?.visual != null)
                         {
-                            var species = speciesDB.GetSpecies(p.speciesId);
-                            var form = species.GetForm(p.formKey);
-                            if (form?.visual != null)
-                            {
-                                slot.SetData(p, form);
-                            }
+                            slot.SetData(p, form);
                         }
-
                     }
-                    else slot.Clear(); 
                 }
                 else slot.Clear();
 
-                var clicker = slot.iconButton.GetComponent<PokemonSlotClicker>() ?? slot.iconButton.gameObject.AddComponent<PokemonSlotClicker>();
-                clicker.puid = puid;
-                clicker.boxIndex = _currentBoxIndex;
-                clicker.slotIndex = i;
-                clicker.controller = this;
-
                 slot.SetSelectBoxActive(_selectedPuid.HasValue && _selectedPuid.Value == puid);
+
                 slot.iconButton.onClick.RemoveAllListeners();
+                int? capturedPuid = puid;
+                int capturedBoxIndex = _currentBoxIndex;
+                int capturedSlotIndex = i;
+                slot.iconButton.onClick.AddListener(() => OnPokemonSlotLeftClick(capturedPuid, capturedBoxIndex, capturedSlotIndex));
             }
 
 
@@ -357,34 +362,28 @@ namespace PokeClicker
             {
                 var slot = boxZoneUI.partySlots[i];
                 int? puid = null;
-                if (i < party.Length)
+                if (i < party.Length && party[i] != 0)
                 {
-                    if (party[i] != 0)
+                    puid = party[i];
+                    var p = ownedPokemonManager.GetByPuid(puid.Value);
+                    if (p != null)
                     {
-                        puid = party[i];
-                        var p = ownedPokemonManager.GetByPuid(puid.Value);
-                        if (p != null)
+                        var species = speciesDB.GetSpecies(p.speciesId);
+                        var form = species.GetForm(p.formKey);
+                        if (form?.visual != null)
                         {
-                            var species = speciesDB.GetSpecies(p.speciesId);
-                            var form = species.GetForm(p.formKey);
-                            if (form?.visual != null)
-                            {
-                                slot.SetData(p, form);
-                            }
+                            slot.SetData(p, form);
                         }
                     }
-                    else slot.Clear();
                 }
                 else slot.Clear();
 
-                var clicker = slot.iconButton.GetComponent<PokemonSlotClicker>() ?? slot.iconButton.gameObject.AddComponent<PokemonSlotClicker>();
-                clicker.puid = puid;
-                clicker.boxIndex = -1;
-                clicker.slotIndex = i;
-                clicker.controller = this;
-
                 slot.SetSelectBoxActive(_selectedPuid.HasValue && _selectedPuid.Value == puid);
-                slot.iconButton.onClick.RemoveAllListeners();
+
+                slot.iconButton.onClick.RemoveAllListeners(); // 기존 리스너 모두 제거
+                int? capturedPuid = puid;
+                int capturedSlotIndex = i;
+                slot.iconButton.onClick.AddListener(() => OnPokemonSlotLeftClick(capturedPuid, -1, capturedSlotIndex));
             }
         }
 
@@ -491,26 +490,6 @@ namespace PokeClicker
             if (selectBox != null)
             {
                 selectBox.gameObject.SetActive(isActive);
-            }
-        }
-    }
-
-    public class PokemonSlotClicker : MonoBehaviour, IPointerClickHandler
-    {
-        public int? puid;
-        public int boxIndex;
-        public int slotIndex;
-        public PokePCUIController controller;
-
-        public void OnPointerClick(PointerEventData eventData)
-        {
-            if (eventData.button == PointerEventData.InputButton.Left)
-            {
-                controller.OnPokemonSlotClick(puid, boxIndex, slotIndex);
-            }
-            else if (eventData.button == PointerEventData.InputButton.Right)
-            {
-                controller.OnPokemonSlotRightClick(puid);
             }
         }
     }

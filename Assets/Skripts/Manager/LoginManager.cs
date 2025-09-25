@@ -32,6 +32,8 @@ namespace PokeClicker
         private ITrainerRepository _trainerRepo;
         private AccountService _accountService;
 
+        public event Action OnLoginSuccess;
+
         void Awake()
         {
             // Repo 캐스팅
@@ -76,10 +78,12 @@ namespace PokeClicker
             try
             {
                 // 로그인 시도
-                int tUid = _accountService.Login(id, pw);
+                int tuid = _accountService.Login(id, pw);
                 // 로그인 성공 후 데이터 로드 및 게임 시작
-                LoadGameForTrainer(tUid);
-                onComplete?.Invoke(true, $"로그인 성공! T_uid={tUid}");
+                LoadGameForTrainer(tuid);
+                onComplete?.Invoke(true, $"로그인 성공! T_uid={tuid}");
+
+                OnLoginSuccess?.Invoke();
             }
             catch (InvalidOperationException e)
             {
@@ -115,14 +119,10 @@ namespace PokeClicker
                 var factory = GetComponentInChildren<PokemonFactory>();
                 if (factory != null)
                 {
-                    // 예시: 1번 포켓몬(이상해씨)을 레벨 5로 지급
-                    factory.GiveStarterForSignup(1, "Default", 5);
+                    factory.GiveRandomTest(5);
                 }
-
-                // 3. 포켓몬 지급 후 변경된 OwnedPokemonManager 상태를 즉시 저장합니다.
-                ownedManager.SaveToRepository(_trainerRepo, tUid);
-
                 onComplete?.Invoke(true, $"회원가입 성공! T_uid={tUid}");
+                OnLoginSuccess?.Invoke();
             }
             catch (InvalidOperationException e)
             {

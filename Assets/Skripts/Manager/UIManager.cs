@@ -16,6 +16,7 @@ namespace PokeClicker
         [SerializeField] private GameObject loginPanel;
         [SerializeField] private GameObject mainPanel;
         [SerializeField] private GameObject expandedPanel;
+        [SerializeField] private MainUIController mainUIController;
 
         private void Awake()
         {
@@ -75,6 +76,16 @@ namespace PokeClicker
         {
             SetLoginPanelActive(false);
             SetMainPanelActive(true);
+
+            if (mainUIController != null)
+            {
+                mainUIController.UpdateMainUI();
+            }
+        }
+
+        public MainUIController GetMainUIController()
+        {
+            return mainUIController;
         }
     }
 }

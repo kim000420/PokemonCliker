@@ -8,6 +8,7 @@ namespace PokeClicker
     public class GameProgressController : MonoBehaviour
     {
         [Header("Wiring")]
+        public LoginManager loginManager;               // LoginManager에 대한 참조
         public InputCapture inputCapture;               // 씬의 InputCapture 할당
         public ClickRewardPolicy rewardPolicy;          // 정책 SO
         public OwnedPokemonManager owned;               // 트레이너 로딩 후 주입
@@ -22,28 +23,54 @@ namespace PokeClicker
 
         void Awake()
         {
-            // 의존성 체크는 생략했지만 실제 프로젝트에선 null 검사 권장
-            _exp = new PartyExpDistributor(
-                owned,
-                levelupManager,
-                speciesId => speciesDB.GetSpecies(speciesId));
+            if (loginManager != null)
+            {
+                loginManager.OnLoginSuccess += StartGameSystem;
+            }
 
-            _friend = new PartyFriendshipDistributor(
-                owned,
-                tracker,
-                rewardPolicy);
+            //// TODO: 의존성 체크 해야함
+            //_exp = new PartyExpDistributor(
+            //    owned,
+            //    levelupManager,
+            //    speciesId => speciesDB.GetSpecies(speciesId));
+
+            //_friend = new PartyFriendshipDistributor(
+            //    owned,
+            //    tracker,
+            //    rewardPolicy);
         }
 
-        void OnEnable()
-        {
-            if (inputCapture != null)
-                inputCapture.OnGameInput += HandleGameInput;
-        }
+        //void OnEnable()
+        //{
+        //    if (inputCapture != null && owned != null && tracker != null)
+        //        inputCapture.OnGameInput += HandleGameInput;
+        //}
 
         void OnDisable()
         {
             if (inputCapture != null)
                 inputCapture.OnGameInput -= HandleGameInput;
+        }
+
+        private void StartGameSystem()
+        {
+            // 의존성 체크 후 분배자 초기화
+            if (owned == null || levelupManager == null || speciesDB == null || tracker == null || rewardPolicy == null)
+            {
+                Debug.LogError("게임 시스템을 시작하는 데 필요한 종속성이 부족합니다.");
+                return;
+            }
+
+            _exp = new PartyExpDistributor(owned, levelupManager, speciesId => speciesDB.GetSpecies(speciesId));
+            _friend = new PartyFriendshipDistributor(owned, tracker, rewardPolicy);
+
+            // 입력 이벤트 구독
+            if (inputCapture != null)
+            {
+                inputCapture.OnGameInput += HandleGameInput;
+            }
+
+            Debug.Log("게임 시스템 시작!");
         }
 
         private void HandleGameInput()

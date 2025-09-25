@@ -38,8 +38,6 @@ namespace PokeClicker
             {
                 ownedPokemonManager.OnPartyUpdated += UpdateMainUI;
             }
-
-            UpdateMainUI();
         }
 
         private void OnDisable()
@@ -68,12 +66,19 @@ namespace PokeClicker
         /// </summary>
         public void UpdateMainUI()
         {
-            if (ownedPokemonManager == null || ownedPokemonManager.GetParty().Length == 0 || speciesDB == null)
+            if (ownedPokemonManager == null || speciesDB == null)
             {
                 ClearUI();
                 return;
             }
 
+            var party = ownedPokemonManager.GetParty();
+            if (party.Length == 0)
+            {
+                ClearUI();
+                return;
+            }
+            
             int firstPokemonUid = ownedPokemonManager.GetParty()[0];
             _currentPokemon = ownedPokemonManager.GetByPuid(firstPokemonUid);
 
