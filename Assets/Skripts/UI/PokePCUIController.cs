@@ -15,10 +15,19 @@ namespace PokeClicker
     /// </summary>
     public class PokePCUIController : MonoBehaviour
     {
+        // PC의 상태
+        private enum ePCState
+        {
+            Normal, // 기본 상태
+            Move    // 'Move' 버튼을 눌러 이동/교체를 기다리는 상태
+        }
+
         [Header("UI Zones")]
         [SerializeField] private PokeInfoZoneUI infoZoneUI;
-        [SerializeField] private PokeBoxZoneUI boxZoneUI;
         [SerializeField] private Button closeButton;
+        [SerializeField] private TextMeshProUGUI boxNameText;
+        [SerializeField] private List<PokeSlotUI> boxSlots = new List<PokeSlotUI>();
+        [SerializeField] private List<PokeSlotUI> partySlots = new List<PokeSlotUI>();
 
         [Header("Popup Menu UI")]
         [SerializeField] private GameObject pokemonPopupUI;
@@ -29,82 +38,60 @@ namespace PokeClicker
         [Header("Dependencies")]
         [SerializeField] private OwnedPokemonManager ownedPokemonManager;
         [SerializeField] private SpeciesDB speciesDB;
-        [SerializeField] private GameIconDB gameIconDB; // 타입 아이콘 및 기타 아이콘 참조
-        [SerializeField] private PokemonTrainerManager trainerManager;
-        [SerializeField] private SummaryUIController summaryUIController; 
+        [SerializeField] private GameIconDB gameIconDB;
+        [SerializeField] private SummaryUIController summaryUIController;
 
-        private int? _selectedPuid = null; //
-        private int? _popupPuid;
+        // 상태 관리 변수
+        private ePCState _currentState = ePCState.Normal;
+        private int? _infoPuid = null;     // 정보창에 표시할 포켓몬의 puid
+        private int? _puidToMove = null;   // 이동/교체할 포켓몬의 puid
+        private PokeSlotUI _popupSlot = null; // 팝업 메뉴가 열린 슬롯
+
         private int _currentBoxIndex = 0;
-        private const int PokemonPerBox = 30;
-
         private Coroutine _playAnimationCoroutine;
 
         private void Awake()
         {
-            if (summaryButton != null)
+            // 팝업 메뉴 버튼 이벤트 연결
+            summaryButton?.onClick.AddListener(OnSummaryButtonClick);
+            moveButton?.onClick.AddListener(OnMoveButtonClick);
+            releaseButton?.onClick.AddListener(OnReleaseButtonClick);
+            closeButton?.onClick.AddListener(OnCloseButtonClick);
+
+            // 각 슬롯 초기화 및 클릭 이벤트 구독
+            for (int i = 0; i < boxSlots.Count; i++)
             {
-                summaryButton.onClick.AddListener(OnSummaryButtonClick);
+                boxSlots[i].Init(_currentBoxIndex, i);
+                boxSlots[i].OnSlotClicked += OnSlotClicked;
             }
-            if (moveButton != null)
+            for (int i = 0; i < partySlots.Count; i++)
             {
-                moveButton.onClick.AddListener(OnMoveButtonClick);
-            }
-            if (releaseButton != null)
-            {
-                releaseButton.onClick.AddListener(OnReleaseButtonClick);
+                partySlots[i].Init(-1, i); // boxIndex -1은 파티를 의미
+                partySlots[i].OnSlotClicked += OnSlotClicked;
             }
         }
 
         private void OnEnable()
         {
-            if (ownedPokemonManager != null)
+            ownedPokemonManager.OnPartyUpdated += UpdateAllSlotsData;
+            _currentState = ePCState.Normal;
+            _puidToMove = null;
+            pokemonPopupUI.SetActive(false);
+
+            UpdateAllSlotsData();
+
+            var firstPokemon = ownedPokemonManager.EnumerateAll().FirstOrDefault();
+            if (firstPokemon != null)
             {
-                // 파티 업데이트 시 박스 존 갱신
-                ownedPokemonManager.OnPartyUpdated += UpdateBoxZone; 
-
-                // UI가 활성화되면 첫 포켓몬 정보를 InfoZone에 표시
-                var firstPokemon = ownedPokemonManager.EnumerateAll().FirstOrDefault();
-                if (firstPokemon != null)
-                {
-                    UpdateInfoZone(firstPokemon.P_uid);
-                }
-
-                if (closeButton != null)
-                {
-                    closeButton.onClick.AddListener(OnCloseButtonClick);
-                }
-
-                if (pokemonPopupUI != null)
-                {
-                    pokemonPopupUI.SetActive(false); // UI 활성화 시 팝업 비활성화
-                }
-                UpdateBoxZone();
-            }
-
-            if (closeButton != null)
-            {
-                closeButton.onClick.AddListener(OnCloseButtonClick);
+                _infoPuid = firstPokemon.P_uid;
+                UpdateInfoZone(_infoPuid.Value);
             }
         }
 
         private void OnDisable()
         {
-            if (ownedPokemonManager != null)
-            {
-                ownedPokemonManager.OnPartyUpdated -= UpdateBoxZone;
-            }
-
-            if (closeButton != null)
-            {
-                closeButton.onClick.RemoveListener(OnCloseButtonClick);
-            }
+            ownedPokemonManager.OnPartyUpdated -= UpdateAllSlotsData;
             StopAnimation();
-
-            if (pokemonPopupUI != null)
-            {
-                pokemonPopupUI.SetActive(false); // UI 비활성화 시 팝업 비활성화
-            }
         }
 
         /// <summary>
@@ -112,128 +99,177 @@ namespace PokeClicker
         /// </summary>
         private void OnCloseButtonClick()
         {
-            var expandedController = GetComponentInParent<ExpandedUIController>();
-            if (expandedController != null)
-            {
-                expandedController.ShowMenuPanel();
-            }
+            gameObject.SetActive(false);
         }
 
         /// <summary>
         /// 포켓몬 슬롯 좌클릭 시 호출됩니다.
         /// </summary>
-        public void OnPokemonSlotLeftClick(int? puid, int boxIndex, int slotIndex)
+        private void OnSlotClicked(PokeSlotUI clickedSlot, PointerEventData.InputButton button)
         {
-            if (pokemonPopupUI != null) pokemonPopupUI.SetActive(false);
+            pokemonPopupUI.SetActive(false);
 
-            if (_selectedPuid.HasValue) // 이동 모드 활성화 상태
+            if (button == PointerEventData.InputButton.Left)
             {
-                if (puid.HasValue) // 포켓몬이 있는 슬롯을 클릭
-                {
-                    ownedPokemonManager.Swap(_selectedPuid.Value, puid.Value);
-                    _selectedPuid = null;
-                }
-                else // 빈 슬롯을 클릭 (이동)
-                {
-                    if (boxIndex == -1)
-                    {
-                        ownedPokemonManager.MoveToParty(_selectedPuid.Value, slotIndex);
-                    }
-                    else
-                    {
-                        ownedPokemonManager.MoveToBox(_selectedPuid.Value, boxIndex, slotIndex);
-                    }
-                    _selectedPuid = null;
-                }
+                HandleLeftClick(clickedSlot);
             }
-            else // 정보 갱신 모드
+            else if (button == PointerEventData.InputButton.Right)
             {
-                if (puid.HasValue) // 포켓몬이 있는 슬롯 클릭
-                {
-                    _selectedPuid = puid.Value;
-                    UpdateInfoZone(puid.Value);
-                }
-                // 빈 슬롯 클릭시 아무것도 안 함
+                HandleRightClick(clickedSlot);
             }
-
-            UpdateBoxZone(); // UI 갱신
         }
+
+        private void HandleLeftClick(PokeSlotUI clickedSlot)
+        {
+            switch (_currentState)
+            {
+                case ePCState.Normal:
+                    // 일반 상태: 정보창 업데이트
+                    if (clickedSlot.Puid.HasValue)
+                    {
+                        _infoPuid = clickedSlot.Puid;
+                        UpdateInfoZone(_infoPuid.Value);
+                    }
+                    break;
+
+                case ePCState.Move:
+                    // 이동 상태: 이동 또는 교체 실행
+                    if (clickedSlot.Puid.HasValue) // 다른 포켓몬과 교체
+                    {
+                        ownedPokemonManager.Swap(_puidToMove.Value, clickedSlot.Puid.Value);
+                    }
+                    else // 빈 슬롯으로 이동
+                    {
+                        if (clickedSlot.BoxIndex == -1) // 파티로 이동
+                            ownedPokemonManager.MoveToParty(_puidToMove.Value, clickedSlot.SlotIndex);
+                        else // 박스로 이동
+                            ownedPokemonManager.MoveToBox(_puidToMove.Value, clickedSlot.BoxIndex, clickedSlot.SlotIndex);
+                    }
+
+                    // 상태 초기화
+                    _puidToMove = null;
+                    _currentState = ePCState.Normal;
+                    UpdateAllSlotsData(); // UI 전체 갱신 (OnPartyUpdated 이벤트가 해주지만 즉시 반영을 위해 호출)
+                    break;
+            }
+        }
+
 
         /// <summary>
         /// 포켓몬 슬롯 우클릭 시 호출됩니다.
         /// </summary>
-        public void OnPokemonSlotRightClick(int? puid)
+        private void HandleRightClick(PokeSlotUI clickedSlot)
         {
-            if (puid.HasValue)
+            switch (_currentState)
             {
-                _selectedPuid = null;
-                UpdateBoxZone();
+                case ePCState.Normal:
+                    // 일반 상태: 팝업 메뉴 표시
+                    if (clickedSlot.Puid.HasValue)
+                    {
+                        _popupSlot = clickedSlot;
+                        pokemonPopupUI.transform.position = Input.mousePosition;
+                        pokemonPopupUI.SetActive(true);
+                    }
+                    break;
 
-                ShowPokemonPopup(puid.Value);
-            }
-            else
-            {
-                if (pokemonPopupUI != null) pokemonPopupUI.SetActive(false);
+                case ePCState.Move:
+                    // 이동 상태: 이동 취소
+                    _puidToMove = null;
+                    _currentState = ePCState.Normal;
+                    UpdateAllSlotsSelection(); // 선택 박스만 갱신
+                    break;
             }
         }
 
-        private void UpdateUIBasedOnSelection()
-        {
-            if (_selectedPuid.HasValue)
-            {
-                UpdateInfoZone(_selectedPuid.Value);
-            }
-            else
-            {
-                ClearInfoZone();
-            }
-            UpdateBoxZone();
-        }
-
-        private void ShowPokemonPopup(int puid)
-        {
-            if (pokemonPopupUI == null) return;
-
-            _popupPuid = puid; // 팝업이 참조할 PUID 설정
-
-            pokemonPopupUI.SetActive(true);
-            pokemonPopupUI.transform.position = Input.mousePosition;
-        }
-
+        // --- 팝업 메뉴 버튼 핸들러 ---
         private void OnSummaryButtonClick()
         {
-            if (!_popupPuid.HasValue) return;
+            if (_popupSlot == null || !_popupSlot.Puid.HasValue) return;
 
             summaryUIController.gameObject.SetActive(true);
-            StartCoroutine(DelayedSetPokemon(_popupPuid.Value));
-            if (pokemonPopupUI != null) pokemonPopupUI.SetActive(false);
-        }
-
-        private IEnumerator DelayedSetPokemon(int puid)
-        {
-            yield return null; // 한 프레임 대기
-            summaryUIController.SetPokemon(ownedPokemonManager.GetByPuid(puid));
+            summaryUIController.SetPokemon(ownedPokemonManager.GetByPuid(_popupSlot.Puid.Value));
+            pokemonPopupUI.SetActive(false);
         }
 
         private void OnMoveButtonClick()
         {
-            if (!_popupPuid.HasValue) return;
+            if (_popupSlot == null || !_popupSlot.Puid.HasValue) return;
 
-            _selectedPuid = _popupPuid.Value;
-            UpdateUIBasedOnSelection();
-            if (pokemonPopupUI != null) pokemonPopupUI.SetActive(false);
+            _currentState = ePCState.Move;
+            _puidToMove = _popupSlot.Puid;
+            pokemonPopupUI.SetActive(false);
+            UpdateAllSlotsSelection(); // 선택 UI 갱신
         }
 
         private void OnReleaseButtonClick()
         {
-            if (!_popupPuid.HasValue) return;
+            if (_popupSlot == null || !_popupSlot.Puid.HasValue) return;
 
-            ownedPokemonManager.Release(_popupPuid.Value);
-            _selectedPuid = null;
-            UpdateUIBasedOnSelection();
-            if (pokemonPopupUI != null) pokemonPopupUI.SetActive(false);
+            ownedPokemonManager.Release(_popupSlot.Puid.Value);
+            pokemonPopupUI.SetActive(false);
+
+            // 만약 정보창에 표시되던 포켓몬이 방출되면 정보창 초기화
+            if (_infoPuid.HasValue && _infoPuid.Value == _popupSlot.Puid.Value)
+            {
+                _infoPuid = null;
+                ClearInfoZone();
+            }
+
+            // UI는 OnPartyUpdated 이벤트가 발생하여 자동으로 갱신됩니다.
+        }
+        /// <summary>
+        /// 모든 슬롯의 포켓몬 데이터를 다시 설정합니다.
+        /// </summary>
+        private void UpdateAllSlotsData()
+        {
+            // 박스 슬롯 갱신
+            var boxContents = ownedPokemonManager.GetBoxes().ElementAtOrDefault(_currentBoxIndex);
+            for (int i = 0; i < boxSlots.Count; i++)
+            {
+                int? puid = (boxContents != null && i < boxContents.Length && boxContents[i] != 0) ? boxContents[i] : null;
+                UpdateSlot(boxSlots[i], puid);
+            }
+
+            // 파티 슬롯 갱신
+            var party = ownedPokemonManager.GetParty();
+            for (int i = 0; i < partySlots.Count; i++)
+            {
+                int? puid = (i < party.Length && party[i] != 0) ? party[i] : null;
+                UpdateSlot(partySlots[i], puid);
+            }
+            UpdateAllSlotsSelection(); // 데이터 갱신 후 선택 상태도 갱신
         }
 
+        // 슬롯 하나를 업데이트하는 헬퍼 메서드
+        private void UpdateSlot(PokeSlotUI slot, int? puid)
+        {
+            if (puid.HasValue)
+            {
+                var p = ownedPokemonManager.GetByPuid(puid.Value);
+                var species = speciesDB.GetSpecies(p.speciesId);
+                var form = species.GetForm(p.formKey);
+                slot.SetData(p, form);
+            }
+            else
+            {
+                slot.Clear();
+            }
+        }
+
+        /// <summary>
+        /// 모든 슬롯의 '선택됨' UI(SelectBox) 상태를 갱신합니다.
+        /// </summary>
+        private void UpdateAllSlotsSelection()
+        {
+            foreach (var slot in boxSlots)
+            {
+                slot.SetSelectBoxActive(_puidToMove.HasValue && slot.Puid.HasValue && slot.Puid.Value == _puidToMove.Value);
+            }
+            foreach (var slot in partySlots)
+            {
+                slot.SetSelectBoxActive(_puidToMove.HasValue && slot.Puid.HasValue && slot.Puid.Value == _puidToMove.Value);
+            }
+        }
         /// <summary>
         /// InfoZone의 UI를 갱신합니다.
         /// </summary>
@@ -315,79 +351,6 @@ namespace PokeClicker
         }
 
         /// <summary>
-        /// BoxZone의 UI를 갱신합니다.
-        /// </summary>
-        private void UpdateBoxZone()
-        {
-            if (ownedPokemonManager == null || speciesDB == null) return;
-
-            // 박스 이름 업데이트
-            boxZoneUI.boxNameText.text = $"박스 {_currentBoxIndex + 1}";
-
-            // 박스 슬롯 갱신
-            var boxContents = ownedPokemonManager.GetBoxes().ElementAtOrDefault(_currentBoxIndex);
-            for (int i = 0; i < boxZoneUI.boxSlots.Count; i++)
-            {
-                var slot = boxZoneUI.boxSlots[i];
-                int? puid = null;
-                if (boxContents != null && i < boxContents.Length && boxContents[i] != 0)
-                {
-                    puid = boxContents[i];
-                    var p = ownedPokemonManager.GetByPuid(puid.Value);
-                    if (p != null)
-                    {
-                        var species = speciesDB.GetSpecies(p.speciesId);
-                        var form = species.GetForm(p.formKey);
-                        if (form?.visual != null)
-                        {
-                            slot.SetData(p, form);
-                        }
-                    }
-                }
-                else slot.Clear();
-
-                slot.SetSelectBoxActive(_selectedPuid.HasValue && _selectedPuid.Value == puid);
-
-                slot.iconButton.onClick.RemoveAllListeners();
-                int? capturedPuid = puid;
-                int capturedBoxIndex = _currentBoxIndex;
-                int capturedSlotIndex = i;
-                slot.iconButton.onClick.AddListener(() => OnPokemonSlotLeftClick(capturedPuid, capturedBoxIndex, capturedSlotIndex));
-            }
-
-
-            // 파티 슬롯 갱신
-            var party = ownedPokemonManager.GetParty();
-            for (int i = 0; i < boxZoneUI.partySlots.Count; i++)
-            {
-                var slot = boxZoneUI.partySlots[i];
-                int? puid = null;
-                if (i < party.Length && party[i] != 0)
-                {
-                    puid = party[i];
-                    var p = ownedPokemonManager.GetByPuid(puid.Value);
-                    if (p != null)
-                    {
-                        var species = speciesDB.GetSpecies(p.speciesId);
-                        var form = species.GetForm(p.formKey);
-                        if (form?.visual != null)
-                        {
-                            slot.SetData(p, form);
-                        }
-                    }
-                }
-                else slot.Clear();
-
-                slot.SetSelectBoxActive(_selectedPuid.HasValue && _selectedPuid.Value == puid);
-
-                slot.iconButton.onClick.RemoveAllListeners(); // 기존 리스너 모두 제거
-                int? capturedPuid = puid;
-                int capturedSlotIndex = i;
-                slot.iconButton.onClick.AddListener(() => OnPokemonSlotLeftClick(capturedPuid, -1, capturedSlotIndex));
-            }
-        }
-
-        /// <summary>
         /// 포켓몬 애니메이션을 재생합니다.
         /// </summary>
         private void StartAnimation(Sprite[] frames, float fps)
@@ -447,50 +410,5 @@ namespace PokeClicker
         public Image singlePrimaryTypeIcon; // 단일 타입 아이콘
         public Image dualPrimaryTypeIcon;   // 듀얼 타입 (좌측) 아이콘
         public Image dualSecondaryTypeIcon; // 듀얼 타입 (우측) 아이콘
-    }
-
-    /// <summary>
-    /// PokePC UI의 BoxZone에 필요한 UI 컴포넌트들을 모아놓은 클래스.
-    /// </summary>
-    [System.Serializable]
-    public class PokeBoxZoneUI
-    {
-        public Button prevBoxButton;
-        public Button nextBoxButton;
-        public TextMeshProUGUI boxNameText;
-        public List<PokePokemonSlot> boxSlots = new List<PokePokemonSlot>();
-        public List<PokePokemonSlot> partySlots = new List<PokePokemonSlot>();
-    }
-
-    /// <summary>
-    /// PokePC UI의 포켓몬 아이콘 슬롯을 위한 클래스.
-    /// </summary>
-    [System.Serializable]
-    public class PokePokemonSlot
-    {
-        public Button iconButton;
-        public Image iconImage;
-        public Image selectBox;
-
-        public void SetData(PokemonSaveData p, FormSO form)
-        {
-            iconButton.gameObject.SetActive(true);
-            iconImage.sprite = p.isShiny ? form.visual.shinyIcon : form.visual.icon;
-            iconImage.gameObject.SetActive(true);
-        }
-
-        public void Clear()
-        {
-            iconButton.gameObject.SetActive(true); // 빈 슬롯도 클릭 가능하게 활성화
-            iconImage.gameObject.SetActive(false); // 아이콘 이미지만 비활성화
-        }
-
-        public void SetSelectBoxActive(bool isActive)
-        {
-            if (selectBox != null)
-            {
-                selectBox.gameObject.SetActive(isActive);
-            }
-        }
     }
 }
