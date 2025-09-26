@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -250, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3515447
@@ -292,8 +292,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 302354525}
   iconImage: {fileID: 1950340223}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 580374988}
 --- !u!1 &16412481
 GameObject:
   m_ObjectHideFlags: 0
@@ -2835,8 +2833,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 963296428}
   iconImage: {fileID: 542748517}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 0}
 --- !u!114 &181112958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3314,8 +3310,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 327239041}
   iconImage: {fileID: 1312582650}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 0}
 --- !u!114 &228030085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4624,7 +4618,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -100, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &302354525
@@ -5362,8 +5356,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 1898253836}
   iconImage: {fileID: 127685255}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 0}
 --- !u!114 &348083481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5533,8 +5525,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 1555443338}
   iconImage: {fileID: 596534789}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 0}
 --- !u!114 &359876141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5628,8 +5618,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 658772189}
   iconImage: {fileID: 797844887}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 0}
 --- !u!114 &366458262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5844,8 +5832,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 191331154}
   iconImage: {fileID: 1728316664}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 0}
 --- !u!114 &402513608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6396,8 +6382,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 682766526}
   iconImage: {fileID: 1159566587}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 0}
 --- !u!114 &479039145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7335,8 +7319,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 1642072121}
   iconImage: {fileID: 1073570235}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 0}
 --- !u!114 &548635626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8328,8 +8310,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 1368718209}
   iconImage: {fileID: 1596944344}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 0}
 --- !u!114 &594139364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8735,8 +8715,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 2041065005}
   iconImage: {fileID: 1705329742}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 1183095760}
 --- !u!1 &618346343
 GameObject:
   m_ObjectHideFlags: 0
@@ -8964,8 +8942,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 2065001085}
   iconImage: {fileID: 1671501169}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 0}
 --- !u!114 &628093363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9557,8 +9533,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 353482673}
   iconImage: {fileID: 765273594}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 0}
 --- !u!114 &668419723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10311,8 +10285,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 1069324836}
   iconImage: {fileID: 704985998}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 2123949262}
 --- !u!1 &720073846
 GameObject:
   m_ObjectHideFlags: 0
@@ -10444,8 +10416,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 792339600}
   iconImage: {fileID: 2118760149}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 0}
 --- !u!114 &739922957
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10942,8 +10912,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 1734213550}
   iconImage: {fileID: 155209978}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 0}
 --- !u!114 &771460748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11228,7 +11196,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &791405773
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12094,42 +12062,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slots:
-  - iconButton: {fileID: 1629917799}
+  - background: {fileID: 1629917797}
+    iconButton: {fileID: 1629917799}
     pokemonIconImage: {fileID: 1481142573}
     genderIconImage: {fileID: 36822745}
     expBar: {fileID: 783191104}
     levelText: {fileID: 1260889836}
     nameText: {fileID: 176226801}
     expText: {fileID: 1329769512}
-  - iconButton: {fileID: 1821152914}
+  - background: {fileID: 1821152912}
+    iconButton: {fileID: 1821152914}
     pokemonIconImage: {fileID: 1008921228}
     genderIconImage: {fileID: 1627512040}
     expBar: {fileID: 305000135}
     levelText: {fileID: 1030912635}
     nameText: {fileID: 1954964059}
     expText: {fileID: 165315722}
-  - iconButton: {fileID: 130173457}
+  - background: {fileID: 130173455}
+    iconButton: {fileID: 130173457}
     pokemonIconImage: {fileID: 99807662}
     genderIconImage: {fileID: 520519435}
     expBar: {fileID: 1507734305}
     levelText: {fileID: 1923472049}
     nameText: {fileID: 837762398}
     expText: {fileID: 620217144}
-  - iconButton: {fileID: 1285315439}
+  - background: {fileID: 1285315437}
+    iconButton: {fileID: 1285315439}
     pokemonIconImage: {fileID: 1122622686}
     genderIconImage: {fileID: 80365626}
     expBar: {fileID: 1643519509}
     levelText: {fileID: 1494173302}
     nameText: {fileID: 1525650758}
     expText: {fileID: 241762718}
-  - iconButton: {fileID: 1687641504}
+  - background: {fileID: 1687641502}
+    iconButton: {fileID: 1687641504}
     pokemonIconImage: {fileID: 422358207}
     genderIconImage: {fileID: 720073848}
     expBar: {fileID: 271581490}
     levelText: {fileID: 1611473685}
     nameText: {fileID: 235728126}
     expText: {fileID: 2105135553}
-  - iconButton: {fileID: 978571797}
+  - background: {fileID: 978571795}
+    iconButton: {fileID: 978571797}
     pokemonIconImage: {fileID: 173777167}
     genderIconImage: {fileID: 1823374135}
     expBar: {fileID: 1273909549}
@@ -12137,6 +12111,8 @@ MonoBehaviour:
     nameText: {fileID: 1568390815}
     expText: {fileID: 1727011963}
   exitButton: {fileID: 1573356735}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  selectedColor: {r: 0.5, g: 0.8, b: 1, a: 1}
   ownedPokemonManager: {fileID: 863778545}
   speciesDB: {fileID: 1865642126}
   gameIconDB: {fileID: 11400000, guid: 0125523e81b50e742b54af9b4c4c3fff, type: 2}
@@ -13295,8 +13271,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 615305597}
   iconImage: {fileID: 786914025}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 0}
 --- !u!114 &916582527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13426,8 +13400,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 2059098463}
   iconImage: {fileID: 238340787}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 0}
 --- !u!114 &935388650
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14112,8 +14084,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 1290705737}
   iconImage: {fileID: 1261144115}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 0}
 --- !u!114 &979392648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14494,8 +14464,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 1734901276}
   iconImage: {fileID: 1603796586}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 0}
 --- !u!114 &994672948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14628,8 +14596,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 2130119798}
   iconImage: {fileID: 569472119}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 1179670997}
 --- !u!1 &1001600599
 GameObject:
   m_ObjectHideFlags: 0
@@ -16219,8 +16185,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 2138140997}
   iconImage: {fileID: 1540185232}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 0}
 --- !u!114 &1068292329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16294,7 +16258,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -50, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1069324836
@@ -17470,8 +17434,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 1744680849}
   iconImage: {fileID: 1048239858}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 0}
 --- !u!114 &1174569356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17970,8 +17932,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 1620318162}
   iconImage: {fileID: 1343839098}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 0}
 --- !u!114 &1189917281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19764,8 +19724,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 131936906}
   iconImage: {fileID: 543643394}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 1712087833}
 --- !u!1 &1312582648
 GameObject:
   m_ObjectHideFlags: 0
@@ -21835,8 +21793,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 1625329169}
   iconImage: {fileID: 579187759}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 0}
 --- !u!114 &1423322697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21969,8 +21925,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 3515447}
   iconImage: {fileID: 565485398}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 1791410856}
 --- !u!1 &1442763379
 GameObject:
   m_ObjectHideFlags: 0
@@ -23951,8 +23905,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 685645842}
   iconImage: {fileID: 1909601664}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 0}
 --- !u!114 &1583577482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24164,8 +24116,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 1057595837}
   iconImage: {fileID: 1534975023}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 0}
 --- !u!114 &1603032004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26236,8 +26186,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 773846973}
   iconImage: {fileID: 649579616}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 0}
 --- !u!114 &1711559540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27174,8 +27122,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 202414671}
   iconImage: {fileID: 899578772}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 0}
 --- !u!114 &1762300368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28645,8 +28591,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 408092721}
   iconImage: {fileID: 1780838571}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 0}
 --- !u!114 &1888654905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29272,8 +29216,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 1071125475}
   iconImage: {fileID: 520737006}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 0}
 --- !u!114 &1917928984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29502,8 +29444,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 475940275}
   iconImage: {fileID: 1555362658}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 0}
 --- !u!114 &1922335292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30217,8 +30157,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 513310473}
   iconImage: {fileID: 1317962273}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 0}
 --- !u!114 &1956151569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30350,8 +30288,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectBox: {fileID: 832646350}
   iconImage: {fileID: 829624503}
-  emptySlotVisual: {fileID: 0}
-  puidDebugText: {fileID: 0}
 --- !u!114 &1984478895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31030,7 +30966,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -200, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2041065005
@@ -32413,7 +32349,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -150, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2130119798

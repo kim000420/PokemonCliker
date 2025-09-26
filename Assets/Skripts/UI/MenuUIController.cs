@@ -54,6 +54,7 @@ namespace PokeClicker
             {
                 trainerNameText.text = trainerManager.TrainerName;
             }
+            UpdateMenuUI();
         }
 
         private void OnDisable()
@@ -104,7 +105,7 @@ namespace PokeClicker
         /// </summary>
         public void UpdateMenuUI()
         {
-            if (ownedPokemonManager == null || speciesDB == null)
+            if (ownedPokemonManager == null || speciesDB == null || slots == null)
             {
                 return;
             }
@@ -117,29 +118,25 @@ namespace PokeClicker
 
             for (int i = 0; i < slots.Count; i++)
             {
-                var slot = slots[i];
-                if (i < party.Length)
+                if (i < party.Length && party[i] != 0)
                 {
                     var p = ownedPokemonManager.GetByPuid(party[i]);
+
                     if (p != null)
                     {
                         var species = speciesDB.GetSpecies(p.speciesId);
-                        if (species != null)
-                        {
-                            var form = species.GetForm(p.formKey);
-                            if (form != null && form.visual != null)
-                            {
-                                // 아이콘과 레벨 표시
-                                slot.SetData(p, form, species, summaryUIController);
-                                int slotIndex = i; // 클로저 이슈 방지
-                            }
-                        }
+                        var form = species.GetForm(p.formKey);
+                        slots[i].SetData(p, form, species, summaryUIController);
+                    }
+                    else
+                    {
+                        slots[i].Clear();
                     }
                 }
                 else
                 {
                     // 빈 슬롯 처리
-                    slot.Clear();
+                    slots[i].Clear();
                 }
             }
         }

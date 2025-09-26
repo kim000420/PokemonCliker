@@ -18,6 +18,10 @@ namespace PokeClicker
         [SerializeField] private List<PartyPokemonSlot> slots = new List<PartyPokemonSlot>();
         [SerializeField] private Button exitButton;
 
+        [Header("Selection Colors")]
+        [SerializeField] private Color normalColor = Color.white;
+        [SerializeField] private Color selectedColor = new Color(0.5f, 0.8f, 1f); // 연한 하늘색
+
         [Header("Dependencies")]
         [SerializeField] private OwnedPokemonManager ownedPokemonManager;
         [SerializeField] private SpeciesDB speciesDB;
@@ -69,32 +73,34 @@ namespace PokeClicker
             for (int i = 0; i < slots.Count; i++)
             {
                 var slot = slots[i];
-                if (i < party.Length)
+
+                if (i < party.Length && party[i] != 0)
                 {
                     var p = ownedPokemonManager.GetByPuid(party[i]);
+
                     if (p != null)
                     {
                         var species = speciesDB.GetSpecies(p.speciesId);
-                        if (species != null)
-                        {
-                            var form = species.GetForm(p.formKey);
-                            if (form != null && form.visual != null)
-                            {
-                                // 아이콘과 레벨 표시
-                                slot.SetData(p, form, species, gameIconDB);
-                                slot.iconButton.onClick.RemoveAllListeners();
-                                int slotIndex = i; // 클로저 이슈 방지
-                                slot.iconButton.onClick.AddListener(() => OnPokemonSlotClick(slotIndex));
-                            }
-                        }
+                        var form = species.GetForm(p.formKey);
+
+                        slot.SetData(p, form, species, gameIconDB);
+
+                        slot.iconButton.onClick.RemoveAllListeners();
+                        int slotIndex = i; // 클로저 이슈 방지
+                        slot.iconButton.onClick.AddListener(() => OnPokemonSlotClick(slotIndex));
+                    }
+                    else
+                    {
+                        slot.Clear();
                     }
                 }
                 else
                 {
-                    // 빈 슬롯 처리
                     slot.Clear();
                 }
             }
+
+            UpdateSelectionVisuals();
         }
 
         /// <summary>
@@ -102,27 +108,43 @@ namespace PokeClicker
         /// </summary>
         private void OnPokemonSlotClick(int slotIndex)
         {
-            // 선택된 슬롯이 이미 있으면 교체
+            var party = ownedPokemonManager.GetParty();
+
+            // 빈 슬롯은 선택할 수 없도록 방지
+            if (slotIndex >= party.Length || party[slotIndex] == 0)
+            {
+                _selectedSlotIndex = null;
+                UpdateSelectionVisuals();
+                return;
+            }
+
             if (_selectedSlotIndex.HasValue)
             {
                 int oldIndex = _selectedSlotIndex.Value;
                 if (oldIndex != slotIndex)
                 {
-                    // 파티 포켓몬 순서 교체
                     SwapPartyPokemon(oldIndex, slotIndex);
-                    // 선택 상태 초기화
                     _selectedSlotIndex = null;
+                    UpdatePartyUI();
                 }
                 else
                 {
-                    // 같은 슬롯을 다시 클릭하면 선택 해제
                     _selectedSlotIndex = null;
+                    UpdateSelectionVisuals(); // 선택 해제 시각 효과 적용
                 }
             }
             else
             {
-                // 첫 번째 슬롯 선택
                 _selectedSlotIndex = slotIndex;
+                UpdateSelectionVisuals(); // 첫 선택 시각 효과 적용
+            }
+        }
+
+        private void UpdateSelectionVisuals()
+        {
+            for (int i = 0; i < slots.Count; i++)
+            {
+                slots[i].SetSelected(i == _selectedSlotIndex, normalColor, selectedColor);
             }
         }
 
@@ -143,8 +165,6 @@ namespace PokeClicker
             var puidA = party[indexA];
             var puidB = party[indexB];
             ownedPokemonManager.Swap(puidA, puidB);
-
-            UpdatePartyUI(); // UI 갱신
         }
     }
 
@@ -152,6 +172,7 @@ namespace PokeClicker
     [System.Serializable]
     public class PartyPokemonSlot
     {
+        public Image background;
         public Button iconButton;
         public Image pokemonIconImage;
         public Image genderIconImage;
@@ -208,6 +229,14 @@ namespace PokeClicker
             expText.text = string.Empty;
             expBar.fillAmount = 0;
             genderIconImage.sprite = null;
+        }
+
+        public void SetSelected(bool isSelected, Color normalColor, Color selectedColor)
+        {
+            if (background != null)
+            {
+                background.color = isSelected ? selectedColor : normalColor;
+            }
         }
     }
 }

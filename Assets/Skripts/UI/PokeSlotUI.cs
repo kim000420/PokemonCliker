@@ -11,9 +11,6 @@ namespace PokeClicker
         [Header("UI Components")]
         [SerializeField] private Image selectBox;
         [SerializeField] private Image iconImage;
-        [SerializeField] private GameObject emptySlotVisual; // 빈 슬롯일 때 보여줄 오브젝트 (선택사항)
-        [SerializeField] private TextMeshProUGUI puidDebugText;
-
         // 이 슬롯의 데이터
         public int? Puid { get; private set; }
         public int BoxIndex { get; private set; }
@@ -33,20 +30,12 @@ namespace PokeClicker
             Puid = p.P_uid;
             iconImage.sprite = p.isShiny ? form.visual.shinyIcon : form.visual.icon;
             iconImage.gameObject.SetActive(true);
-            if (emptySlotVisual != null) emptySlotVisual.SetActive(false);
-            
-            // ▼▼▼ 디버그 텍스트 업데이트 (추가) ▼▼▼
-            if (puidDebugText != null) puidDebugText.text = Puid.ToString();
         }
 
         public void Clear()
         {
             Puid = null;
             iconImage.gameObject.SetActive(false);
-            if (emptySlotVisual != null) emptySlotVisual.SetActive(true);
-
-            // ▼▼▼ 디버그 텍스트 업데이트 (추가) ▼▼▼
-            if (puidDebugText != null) puidDebugText.text = "N/A";
         }
 
         public void SetSelectBoxActive(bool isActive)
