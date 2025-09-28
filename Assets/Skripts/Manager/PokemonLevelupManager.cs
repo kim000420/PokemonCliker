@@ -12,6 +12,7 @@ namespace PokeClicker
     public class PokemonLevelupManager : MonoBehaviour
     {
         public event Action<int /*uid*/, int /*newLevel*/> OnLevelUp;
+        public event Action<int /*puid*/> OnExpGained;
 
         /// <summary>
         /// 경험치 추가 → 연쇄 레벨업 처리.
@@ -23,11 +24,14 @@ namespace PokeClicker
             ExperienceCurve curveType,
             int gainedExp)
         {
+            OnExpGained?.Invoke(p.P_uid);
+
             int cnt = ExpService.AddExpAndHandleLevelUps(
                 p, species, curveType, gainedExp,
                 newLv => OnLevelUp?.Invoke(p.P_uid, newLv));
 
             return cnt;
         }
+
     }
 }

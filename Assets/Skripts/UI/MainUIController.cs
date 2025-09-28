@@ -23,6 +23,7 @@ namespace PokeClicker
         [Header("Dependencies")]
         [SerializeField] private OwnedPokemonManager ownedPokemonManager;
         [SerializeField] private SpeciesDB speciesDB;
+        [SerializeField] private PokemonLevelupManager levelupManager;
 
         private PokemonSaveData _currentPokemon;
         private Coroutine _playAnimationCoroutine;
@@ -36,7 +37,13 @@ namespace PokeClicker
 
             if (ownedPokemonManager != null)
             {
-                ownedPokemonManager.OnPartyUpdated += UpdateMainUI;
+                ownedPokemonManager.OnPartyUpdated += HandlePartyUpdate;
+            }
+
+            if (levelupManager != null)
+            {
+                levelupManager.OnExpGained += HandleExpGained;
+                levelupManager.OnLevelUp += HandleLevelUp;
             }
         }
 
@@ -49,7 +56,13 @@ namespace PokeClicker
 
             if (ownedPokemonManager != null)
             {
-                ownedPokemonManager.OnPartyUpdated -= UpdateMainUI;
+                ownedPokemonManager.OnPartyUpdated -= HandlePartyUpdate;
+            }
+
+            if (levelupManager != null)
+            {
+                levelupManager.OnExpGained -= HandleExpGained;
+                levelupManager.OnLevelUp -= HandleLevelUp;
             }
         }
 
@@ -78,7 +91,7 @@ namespace PokeClicker
                 ClearUI();
                 return;
             }
-            
+
             int firstPokemonUid = ownedPokemonManager.GetParty()[0];
             _currentPokemon = ownedPokemonManager.GetByPuid(firstPokemonUid);
 
@@ -104,13 +117,13 @@ namespace PokeClicker
 
             // 포켓몬 정보 표시
             nameText.text = _currentPokemon.GetDisplayName(species);
-            levelText.text = $"Lv.{_currentPokemon.level}";
+            levelText.text = $"{_currentPokemon.level}";
 
             // 경험치 바 업데이트
             if (_currentPokemon.level < species.maxLevel)
             {
                 int needExp = ExperienceCurveService.GetNeedExpForNextLevel(species.curveType, _currentPokemon.level);
-                currentExpText.text = $"{_currentPokemon.currentExp}/{needExp}";
+                currentExpText.text = $"{_currentPokemon.currentExp} / {needExp}";
                 expBar.fillAmount = needExp > 0 ? (float)_currentPokemon.currentExp / needExp : 0;
             }
             else
@@ -126,6 +139,30 @@ namespace PokeClicker
             StartAnimation(frames, fps);
         }
 
+        /// <summary>
+        /// 경험치 관련 UI만 업데이트 합니다.
+        /// 지속적인 애니 업데이트의 경우 연속 입력시 애니가 첫프레임으로 계속 업데이트함
+        /// </summary>
+        private void UpdateExpUI()
+        {
+            if (_currentPokemon == null || speciesDB == null) return;
+
+            var species = speciesDB.GetSpecies(_currentPokemon.speciesId);
+            if (species == null) return;
+
+            // UpdateMainUI에서 경험치 관련 로직만 가져옵니다.
+            if (_currentPokemon.level < species.maxLevel)
+            {
+                int needExp = ExperienceCurveService.GetNeedExpForNextLevel(species.curveType, _currentPokemon.level);
+                currentExpText.text = $"{_currentPokemon.currentExp}/{needExp}";
+                expBar.fillAmount = needExp > 0 ? (float)_currentPokemon.currentExp / needExp : 0;
+            }
+            else
+            {
+                currentExpText.text = "MAX";
+                expBar.fillAmount = 1;
+            }
+        }
         /// <summary>
         /// UI를 초기화하고 모든 정보를 지웁니다.
         /// </summary>
@@ -173,6 +210,61 @@ namespace PokeClicker
                 pokemonFrontImage.sprite = frames[i];
                 i = (i + 1) % frames.Length;
                 yield return new WaitForSeconds(delay);
+            }
+        }
+
+        /// <summary>
+        /// 경험치 획득 이벤트가 발생했을 때 호출됩니다.
+        /// </summary>
+        private void HandleExpGained(int puid)
+        {
+            // 메인 UI는 항상 파티의 첫 번째 포켓몬을 표시하므로,
+            // 어떤 포켓몬이 경험치를 얻었든 상관없이 UI 전체를 갱신하면 됩니다.
+            UpdateExpUI();
+        }
+
+        /// <summary>
+        /// 포켓몬이 레벨업했을 때 호출됩니다.
+        /// </summary>
+        private void HandleLevelUp(int puid, int newLevel)
+        {
+            // 이 UI에 표시된 포켓몬이 레벨업했는지 확인합니다.
+            if (_currentPokemon != null && puid == _currentPokemon.P_uid)
+            {
+                // 레벨, 경험치 바 등 모든 정보를 한번에 갱신하기 위해
+                // UpdateMainUI()를 호출합니다.
+                UpdateMainUI();
+            }
+        }
+
+        /// <summary>
+        /// 파티 정보가 변경되었을 때 호출됩니다.
+        /// </summary>
+        private void HandlePartyUpdate()
+        {
+            if (ownedPokemonManager == null) return;
+
+            var party = ownedPokemonManager.GetParty();
+
+            // 파티가 비었거나 1번 슬롯이 비었을 경우
+            if (party.Length == 0 || party[0] == 0)
+            {
+                if (_currentPokemon != null) ClearUI(); // 이전에 포켓몬이 있었다면 UI를 비움
+                return;
+            }
+
+            int newFirstPokemonPuid = party[0];
+
+            // 1번 포켓몬이 바뀌었는지, 혹은 아직 표시된 포켓몬이 없는지 확인
+            if (_currentPokemon == null || _currentPokemon.P_uid != newFirstPokemonPuid)
+            {
+                // 대표 포켓몬이 바뀌었으므로 전체 UI를 갱신 (애니메이션 포함)
+                UpdateMainUI();
+            }
+            else
+            {
+                // 대표 포켓몬은 그대로지만 레벨업 등 다른 정보가 바뀌었을 수 있으므로 경험치 UI만 갱신
+                UpdateExpUI();
             }
         }
     }
