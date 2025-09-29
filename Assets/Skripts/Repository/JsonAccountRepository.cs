@@ -18,11 +18,16 @@ namespace PokeClicker
 
         AccountMap _accounts;
 
-        public void Initialize()
+        public JsonAccountRepository()
         {
             _accountsPath = Path.Combine(_folderPath, "accounts.json");
             Directory.CreateDirectory(_folderPath);
             _accounts = ReadJson<AccountMap>(_accountsPath) ?? new AccountMap();
+            
+            if (_accounts.list == null)
+            {
+                _accounts.list = new List<AccountRecord>();
+            }
         }
 
         // IAccountRepository -------------------------------
@@ -46,6 +51,17 @@ namespace PokeClicker
         public AccountRecord LoadAccount(string id)
         {
             return _accounts.list.Find(a => a.Id == id);
+        }
+
+        /// <summary>
+        /// 현재 메모리에 있는 계정 목록 전체를 파일에 강제로 저장합니다.
+        /// </summary>
+        public void ForceSave()
+        {
+            if (_accounts != null)
+            {
+                WriteJson(_accountsPath, _accounts);
+            }
         }
 
         // JSON helpers -------------------------------------

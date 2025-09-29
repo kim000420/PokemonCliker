@@ -201,7 +201,7 @@ namespace PokeClicker
             };
 
             // 레벨 및 이름 설정
-            levelText.text = $"Lv.{p.level}";
+            levelText.text = $"{p.level}";
             nameText.text = p.GetDisplayName(species);
 
             // 경험치 정보 설정

@@ -30,7 +30,6 @@ namespace PokeClicker
             _boxes.Clear();
             _nextPuid = 1;
             OnPartyUpdated?.Invoke();
-            Debug.Log("[OWNED] 데이터 초기화 완료.");
         }
 
         // ===== 데이터 보관 =====
@@ -149,7 +148,6 @@ namespace PokeClicker
 
             // 테이블에 등록
             _table[puid] = data;
-            Debug.Log($"[OWNED] Added P_uid={data.P_uid}, species={data.speciesId}, form={data.formKey}");
 
 
             // 기본 배치: 파티 우선
@@ -347,22 +345,5 @@ namespace PokeClicker
         }
 
         private bool IsFirstPartyPokemon(int puid) => _party[0] == puid;
-
-        // ====== 외부 저장/로드 호환 유틸 ======
-        public void SaveToRepository(ITrainerRepository repo, int T_uid)
-        {
-            if (repo == null) throw new ArgumentNullException(nameof(repo));
-            repo.SaveOwnedPokemon(T_uid,
-                new Dictionary<int, PokemonSaveData>(_table),
-                new List<int>(_party),
-                _boxes.Select(b => new List<int>(b)).ToList());
-        }
-
-        public void LoadFromRepository(ITrainerRepository repo, int T_uid)
-        {
-            if (repo == null) throw new ArgumentNullException(nameof(repo));
-            repo.LoadOwnedPokemon(T_uid, out var table, out var party, out var boxes);
-            LoadFromData(table, party, boxes);
-        }
     }
 }

@@ -66,6 +66,7 @@ namespace PokeClicker
         }
     }
 
+    [System.Serializable]
     public class AccountRecord
     {
         public string Id;

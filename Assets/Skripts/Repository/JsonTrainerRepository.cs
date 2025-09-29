@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 
 namespace PokeClicker
@@ -11,6 +12,7 @@ namespace PokeClicker
     public class JsonTrainerRepository : ITrainerRepository
     {
         private readonly string _rootPath = Path.Combine(Application.persistentDataPath, "Trainer");
+        private const int _pokemonPerBox = 30;  // 박스 공간 30 고정
 
         public JsonTrainerRepository()
         {
@@ -37,7 +39,9 @@ namespace PokeClicker
         {
             public List<PokemonSaveData> tableList = new(); // Dictionary<int,PokemonSaveData> 대체
             public List<int> party = new();
-            public List<List<int>> boxes = new();
+
+            public int boxCount = 0; // 총 박스 수
+            public List<int> allBoxedPokemon = new(); // 모든 박스 포켓몬을 하나의 리스트에 저장
         }
 
         public void SaveOwnedPokemon(
@@ -53,9 +57,17 @@ namespace PokeClicker
                 dto.tableList.Add(kv.Value);
 
             dto.party = new List<int>(party);
-            dto.boxes = new List<List<int>>();
-            foreach (var b in boxes)
-                dto.boxes.Add(new List<int>(b));
+            dto.boxCount = boxes.Count;
+            foreach (var box in boxes)
+            {
+                // 각 박스는 30칸을 채우도록 강제 (빈 칸은 0)
+                var boxData = new int[_pokemonPerBox];
+                for (int i = 0; i < box.Count; i++)
+                {
+                    boxData[i] = box.ElementAt(i);
+                }
+                dto.allBoxedPokemon.AddRange(boxData);
+            }
 
             WriteJson(OwnedPath(T_uid), dto);
         }
@@ -66,6 +78,7 @@ namespace PokeClicker
             out List<List<int>> boxes)
         {
             var dto = ReadJson<OwnedDto>(OwnedPath(T_uid)) ?? new OwnedDto();
+
             table = new Dictionary<int, PokemonSaveData>();
             foreach (var p in dto.tableList)
             {
@@ -77,7 +90,28 @@ namespace PokeClicker
                 }
             }
             party = dto.party ?? new List<int>();
-            boxes = dto.boxes ?? new List<List<int>>();
+            boxes = new List<List<int>>();
+            if (dto.allBoxedPokemon != null)
+            {
+                for (int i = 0; i < dto.boxCount; i++)
+                {
+                    var box = new List<int>();
+                    int startIndex = i * _pokemonPerBox;
+                    for (int j = 0; j < _pokemonPerBox; j++)
+                    {
+                        int currentIndex = startIndex + j;
+                        if (currentIndex < dto.allBoxedPokemon.Count)
+                        {
+                            box.Add(dto.allBoxedPokemon[currentIndex]);
+                        }
+                        else
+                        {
+                            box.Add(0); // 데이터가 부족하면 0으로 채움
+                        }
+                    }
+                    boxes.Add(box);
+                }
+            }
         }
 
         // ===== IO 유틸 =====

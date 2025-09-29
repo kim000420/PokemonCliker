@@ -91,7 +91,6 @@ namespace PokeClicker
             return p;
         }
 
-        // 위치: PokemonFactory 안 (메서드 단위 추가)
         public PokemonSaveData GiveRandomTest(int level)
         {
             var s = speciesDB.GetRandom();
@@ -106,5 +105,23 @@ namespace PokeClicker
             return p;
         }
 
+        /// <summary>
+        /// 포획 전의 야생 포켓몬 데이터를 생성만 하고 반환합니다. (소유 처리 X)
+        /// </summary>
+        public PokemonSaveData CreateRandomWildPokemon(int level)
+        {
+            var s = speciesDB.GetRandom();
+            if (s == null) return null;
+
+            var forms = s.Forms;
+            if (forms == null || forms.Count == 0) return null;
+
+            var key = forms[UnityEngine.Random.Range(0, forms.Count)].formKey;
+
+            // Create 메서드는 포켓몬 데이터를 생성만 하므로,
+            // owned.Add()를 호출하지 않으면 소유되지 않은 상태로 남습니다.
+            var p = Create(s, key, level);
+            return p;
+        }
     }
 }

@@ -18,7 +18,6 @@ namespace PokeClicker
         public SpeciesDB speciesDB;                     // 씬 객체(에셋 배열)
         public PokemonLevelupManager levelupManager;    // 씬 객체
         public GameProgressController progressController;// 씬 객체
-        public InputCapture inputCapture;               // 씬 객체
         public ClickRewardPolicy rewardPolicy;          // 에셋
         public PuidSequencer puidSequencer;
         public UIManager uiManager;
@@ -124,20 +123,15 @@ namespace PokeClicker
         private void LoadGameForTrainer(int T_uid)
         {
             // 트레이너 매니저 초기화
-            trainerManager.Init(_trainerRepo, ownedManager);
-            ownedManager.Init(6, puidSequencer);
+            trainerManager.LoadForTrainer(T_uid);
 
             // 세이브 로드
-            trainerManager.LoadForTrainer(T_uid);
             puidSequencer.InitializeFrom(ownedManager);
-            ownedManager.LoadFromRepository(_trainerRepo, T_uid);
-            Debug.Log($"[LOGIN] T_uid={T_uid}, Party={ownedManager.GetParty().Length}, Table={ownedManager.Table.Count}, NextPuid(estimate) ready.");
 
             // 진행도(클릭 누적) 로드 - 구현체에 맞게 가져와 주입(예: trainerRepo.LoadTrainerProgress)
             progressController.tracker = trainerManager.Progress;
 
             // GameProgressController 배선
-            progressController.inputCapture = inputCapture; // 제거예정
             progressController.rewardPolicy = rewardPolicy;
             progressController.owned = ownedManager;
             progressController.levelupManager = levelupManager;
@@ -146,6 +140,16 @@ namespace PokeClicker
             Debug.Log($"Login flow completed. T_uid={T_uid}, PartyCount={ownedManager.GetParty().Length}");
 
             trainerManager.Save();
+        }
+
+        private void OnApplicationQuit()
+        {
+            // LoginManager가 관리하는 Repository의 최종 데이터를 저장합니다.
+            if (_accountRepo is JsonAccountRepository jsonRepo)
+            {
+                Debug.Log("종료 전 계정 데이터 최종 저장...");
+                jsonRepo.ForceSave();
+            }
         }
     }
 }
