@@ -22,6 +22,17 @@ namespace PokeClicker
 
         private IPokemonIdProvider _idProvider;  // null 가능(그 경우 Add 시 P_uid 필수)
 
+        // ===== 이전 세션 초기화 =====
+        public void ClearData()
+        {
+            _table.Clear();
+            _party = new int[_partyLimit];
+            _boxes.Clear();
+            _nextPuid = 1;
+            OnPartyUpdated?.Invoke();
+            Debug.Log("[OWNED] 데이터 초기화 완료.");
+        }
+
         // ===== 데이터 보관 =====
         private readonly Dictionary<int, PokemonSaveData> _table = new(); // P_uid -> data
         private int[] _party; // int[] 배열로 변경

@@ -81,8 +81,5 @@ namespace PokeClicker
         int GetMaxTrainerUid();
         void SaveAccount(AccountRecord record);
         AccountRecord LoadAccount(string id);
-
-        void SaveTrainerProfile(TrainerProfile profile);
-        TrainerProfile LoadTrainerProfile(int T_uid);
     }
 }

@@ -14,9 +14,7 @@ namespace PokeClicker
         public OwnedPokemonManager owned;               // 트레이너 로딩 후 주입
         public PokemonLevelupManager levelupManager;    // 이벤트 방출용
         public ClickProgressTracker tracker;            // 트레이너 단위로 로드/세이브
-
-        // 종/곡선 조회(간단히 Service Locator 스타일로 함수 주입)
-        public SpeciesDB speciesDB;               // 예시: speciesId -> SpeciesSO
+        public SpeciesDB speciesDB;                     // 종/곡선 찾기
 
         private PartyExpDistributor _exp;
         private PartyFriendshipDistributor _friend;
@@ -27,29 +25,10 @@ namespace PokeClicker
             {
                 loginManager.OnLoginSuccess += StartGameSystem;
             }
-
-            //// TODO: 의존성 체크 해야함
-            //_exp = new PartyExpDistributor(
-            //    owned,
-            //    levelupManager,
-            //    speciesId => speciesDB.GetSpecies(speciesId));
-
-            //_friend = new PartyFriendshipDistributor(
-            //    owned,
-            //    tracker,
-            //    rewardPolicy);
         }
-
-        //void OnEnable()
-        //{
-        //    if (inputCapture != null && owned != null && tracker != null)
-        //        inputCapture.OnGameInput += HandleGameInput;
-        //}
-
         void OnDisable()
         {
-            if (inputCapture != null)
-                inputCapture.OnGameInput -= HandleGameInput;
+            InputHookManager.OnGlobalInput -= HandleGameInput;
         }
 
         private void StartGameSystem()
@@ -65,10 +44,7 @@ namespace PokeClicker
             _friend = new PartyFriendshipDistributor(owned, tracker, rewardPolicy);
 
             // 입력 이벤트 구독
-            if (inputCapture != null)
-            {
-                inputCapture.OnGameInput += HandleGameInput;
-            }
+            InputHookManager.OnGlobalInput += HandleGameInput;
 
             Debug.Log("게임 시스템 시작!");
         }

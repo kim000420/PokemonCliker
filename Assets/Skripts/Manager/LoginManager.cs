@@ -12,10 +12,6 @@ namespace PokeClicker
     /// </summary>
     public class LoginManager : MonoBehaviour
     {
-        [Header("Repositories")]
-        public MonoBehaviour accountRepositoryProvider; // IAccountRepository 구현(MonoBehaviour or ScriptableObject)
-        public MonoBehaviour trainerRepositoryProvider; // ITrainerRepository 구현(MonoBehaviour or ScriptableObject)
-
         [Header("Managers in Scene")]
         public PokemonTrainerManager trainerManager;    // 씬 객체
         public OwnedPokemonManager ownedManager;        // 씬 객체
@@ -24,7 +20,6 @@ namespace PokeClicker
         public GameProgressController progressController;// 씬 객체
         public InputCapture inputCapture;               // 씬 객체
         public ClickRewardPolicy rewardPolicy;          // 에셋
-        public ClickProgressTracker tracker;            // 트레이너 진행 데이터(로드 후 주입)
         public PuidSequencer puidSequencer;
         public UIManager uiManager;
 
@@ -36,32 +31,20 @@ namespace PokeClicker
 
         void Awake()
         {
-            // Repo 캐스팅
-            _accountRepo = accountRepositoryProvider as IAccountRepository;
-            _trainerRepo = trainerRepositoryProvider as ITrainerRepository;
-
-            if (_accountRepo == null || _trainerRepo == null)
-            {
-                Debug.LogError("Repository 구현체가 연결되지 않았습니다.");
-                enabled = false;
-                return;
-            }
-
-            // AccountService 생성 전 JsonAccountRepository 초기화
-            var jsonAccountRepo = _accountRepo as JsonAccountRepository;
-            if (jsonAccountRepo != null)
-            {
-                jsonAccountRepo.Initialize();
-            }
+            _accountRepo = new JsonAccountRepository();
+            _trainerRepo = new JsonTrainerRepository();
 
             // AccountService 준비
             _accountService = new AccountService(_accountRepo);
 
-            // SpeciesDB가 다른 컴포넌트들에 사용되기 전에 먼저 초기화되도록 수정
             if (speciesDB != null)
             {
                 speciesDB.Initialize();
             }
+
+            // 매니저 초기화
+            trainerManager.Init(_trainerRepo, ownedManager);
+            ownedManager.Init(6, puidSequencer);
 
             Debug.Log("LoginManager 초기화 완료. UI에서 로그인을 시도해주세요.");
         }
@@ -75,6 +58,8 @@ namespace PokeClicker
         /// </summary>
         public void TryLogin(string id, string pw, Action<bool, string> onComplete)
         {
+            trainerManager.ClearData();
+
             try
             {
                 // 로그인 시도
@@ -97,6 +82,8 @@ namespace PokeClicker
         /// </summary>
         public void TryRegister(string id, string pw, string displayName, Action<bool, string> onComplete)
         {
+            trainerManager.ClearData();
+
             try
             {
                 // 회원가입 시도
@@ -147,14 +134,13 @@ namespace PokeClicker
             Debug.Log($"[LOGIN] T_uid={T_uid}, Party={ownedManager.GetParty().Length}, Table={ownedManager.Table.Count}, NextPuid(estimate) ready.");
 
             // 진행도(클릭 누적) 로드 - 구현체에 맞게 가져와 주입(예: trainerRepo.LoadTrainerProgress)
-            if (tracker == null) tracker = new ClickProgressTracker();
+            progressController.tracker = trainerManager.Progress;
 
             // GameProgressController 배선
-            progressController.inputCapture = inputCapture;
+            progressController.inputCapture = inputCapture; // 제거예정
             progressController.rewardPolicy = rewardPolicy;
             progressController.owned = ownedManager;
             progressController.levelupManager = levelupManager;
-            progressController.tracker = tracker;
             progressController.speciesDB = speciesDB;
 
             Debug.Log($"Login flow completed. T_uid={T_uid}, PartyCount={ownedManager.GetParty().Length}");
