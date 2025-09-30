@@ -36,7 +36,7 @@ namespace PokeClicker
         /// </summary>
         public static bool RollShiny()
         {
-            int r = NextInt(4095); // 0~4095 
+            int r = NextInt(4096); // 0~4095 
             return r == 0;
         }
 
@@ -64,7 +64,7 @@ namespace PokeClicker
         // 무작위 성격 하나 뽑기 
         public static NatureId RollNature()
         {
-            int idx = NextInt(24);
+            int idx = NextInt(25);
             return (NatureId)idx;
         }
 
@@ -87,7 +87,7 @@ namespace PokeClicker
         /// <summary>
         /// 내부 공통 난수 추출: 0..maxExclusive-1
         /// </summary>
-        private static int NextInt(int maxExclusive)
+        public static int NextInt(int maxExclusive)
         {
             if (_rng != null)
                 return _rng.Next(0, maxExclusive);

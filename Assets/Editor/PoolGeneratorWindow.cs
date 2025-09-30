@@ -38,16 +38,16 @@ namespace PokeClicker.EditorTools
             EditorGUILayout.Space();
 
             // --- 필터 UI 부분 (기존과 동일) ---
-            GUILayout.Label("Generation", EditorStyles.boldLabel);
+            GUILayout.Label("최초 출시 세대 필터", EditorStyles.boldLabel);
             for (int i = 0; i < _generationToggles.Length; i++) _generationToggles[i] = EditorGUILayout.Toggle($"Gen {i + 1}", _generationToggles[i]);
             EditorGUILayout.Space();
 
-            GUILayout.Label("Rarity Category", EditorStyles.boldLabel);
+            GUILayout.Label("희귀도 카테고리 필터", EditorStyles.boldLabel);
             string[] rarityNames = Enum.GetNames(typeof(RarityCategory));
             for (int i = 0; i < _rarityToggles.Length; i++) _rarityToggles[i] = EditorGUILayout.Toggle(rarityNames[i], _rarityToggles[i]);
             EditorGUILayout.Space();
 
-            GUILayout.Label("Form Key", EditorStyles.boldLabel);
+            GUILayout.Label("리전폼 필터", EditorStyles.boldLabel);
             for (int i = 0; i < _formToggles.Length; i++) _formToggles[i] = EditorGUILayout.Toggle(_formFilterNames[i], _formToggles[i]);
 
             EditorGUILayout.Space();
@@ -83,7 +83,7 @@ namespace PokeClicker.EditorTools
                 if (_formToggles[i]) selectedForms.Add(_formFilterNames[i]);
             }
 
-            if (selectedGenerations.Count == 0 && selectedRarities.Count == 0)
+            if (selectedGenerations.Count == 0 && selectedRarities.Count == 0 && selectedForms.Count == 0)
             {
                 Debug.LogWarning("No filter conditions were selected. Pool will be empty.");
             }
@@ -96,9 +96,10 @@ namespace PokeClicker.EditorTools
             {
                 var values = line.Split(',');
 
+                int speciesId = int.Parse(values[0]);
+                string formKey = string.IsNullOrWhiteSpace(values[5]) ? "Default" : values[5].Trim();
                 int generation = int.Parse(values[8].Trim());
                 Enum.TryParse<RarityCategory>(values[17].Trim(), true, out var rarity);
-                string formKey = string.IsNullOrWhiteSpace(values[5]) ? "Default" : values[5].Trim();
 
                 bool genMatch = selectedGenerations.Count == 0 || selectedGenerations.Contains(generation);
                 bool rarityMatch = selectedRarities.Count == 0 || selectedRarities.Contains(rarity);
@@ -110,8 +111,8 @@ namespace PokeClicker.EditorTools
                 {
                     poolEntries.Add(new PoolEntry
                     {
-                        speciesId = int.Parse(values[0]),
-                        formKey = string.IsNullOrWhiteSpace(values[5]) ? "Default" : values[5].Trim()
+                        speciesId = speciesId,
+                        formKey = formKey 
                     });
                 }
             }

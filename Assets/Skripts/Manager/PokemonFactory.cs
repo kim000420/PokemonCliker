@@ -15,7 +15,16 @@ namespace PokeClicker
         public SpeciesDB speciesDB;                // 씬에서 연결
         public OwnedPokemonManager owned;   // 씬에서 연결
         public int currentTuid;
-        
+        public PokemonPoolDB poolDB;
+        void Awake()
+        {
+            // 게임 시작 시 PoolDB 초기화
+            if (poolDB != null)
+            {
+                poolDB.Initialize();
+            }
+        }
+
         public struct Options
         {
             public bool rollNature;              // 성격 랜덤 적용 여부 (기본: true)
@@ -37,7 +46,7 @@ namespace PokeClicker
                 rollNature = true,
                 rollShiny = true,
                 rollGender = true,
-                rollIVs = false
+                rollIVs = true
             };
 
             // 기본값 보정
@@ -126,39 +135,48 @@ namespace PokeClicker
 
         public PokemonSaveData PullFromAllPool()
         {
-            // TODO: 나중에 '환상' 등급을 제외하는 로직 추가 필요
-            return GiveRandomTest(5);
+            return PullFromPool("all_pool");
         }
 
         public PokemonSaveData PullFromEventPool()
         {
-            // TODO: 나중에 '환상' 등급을 포함하는 로직 추가 필요
-            return GiveRandomTest(5);
+            return PullFromPool("event_pool");
         }
 
         public PokemonSaveData PullFromShinyPool()
         {
-            // 1. 일반 랜덤 포켓몬을 생성
-            var s = speciesDB.GetRandom();
-            if (s == null) return null;
-            var forms = s.Forms;
-            if (forms == null || forms.Count == 0) return null;
-            var key = forms[UnityEngine.Random.Range(0, forms.Count)].formKey;
-
-            // 2. Create 메서드 호출 시, 옵션을 통해 '이로치'를 강제
-            var options = new Options { rollShiny = false }; // 랜덤 롤링 대신
-            var p = Create(s, key, 5, options);
-            p.isShiny = true; // isShiny를 true로 강제 설정
-
-            // 3. 소유 목록에 추가
+            // 이로치 뽑기는 모든 포켓몬 중에서 랜덤으로 뽑되, isShiny만 true로 설정
+            var p = CreateRandomWildPokemon(1);
+            if (p == null) return null;
+            p.isShiny = true;
             owned.Add(p);
             return p;
         }
 
         public PokemonSaveData PullFromLegendaryPool()
         {
-            // TODO: 나중에 '전설/준전설' 등급만 필터링하는 로직 추가 필요
-            return GiveRandomTest(5);
+            return PullFromPool("legendary_pool");
+        }
+
+        private PokemonSaveData PullFromPool(string poolName)
+        {
+            var pool = poolDB.GetPool(poolName);
+            if (pool == null || pool.entries.Count == 0)
+            {
+                Debug.LogWarning($"{poolName} is empty or not found.");
+                return null;
+            }
+
+            // 1. 풀에서 랜덤으로 하나 선택
+            var randomEntry = pool.entries[RandomService.NextInt(pool.entries.Count)];
+
+            // 2. 해당 정보로 포켓몬 생성
+            var species = speciesDB.GetSpecies(randomEntry.speciesId);
+            var p = Create(species, randomEntry.formKey, 1); // 레벨은 1로 고정
+
+            // 3. 소유 처리
+            owned.Add(p);
+            return p;
         }
     }
 }

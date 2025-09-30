@@ -15,6 +15,7 @@ namespace PokeClicker
         [SerializeField] private GameObject pokePcPanel;
         [SerializeField] private GameObject partyPanel;
         [SerializeField] private GameObject summaryPanel;
+        [SerializeField] private GameObject pokeShopPanel;
 
         [Header("UI Elements")]
         [SerializeField] private Button closeButton; // 확장 UI를 닫는 버튼
@@ -54,6 +55,7 @@ namespace PokeClicker
             pokePcPanel.SetActive(false);
             partyPanel.SetActive(false);
             summaryPanel.SetActive(false);
+            pokeShopPanel.SetActive(false);
         }
 
         /// <summary>
@@ -90,6 +92,12 @@ namespace PokeClicker
         {
             DeactivateAllSubPanels();
             summaryPanel.SetActive(true);
+        }
+
+        public void ShowPokeShopPanel()
+        {
+            DeactivateAllSubPanels();
+            pokeShopPanel.SetActive(true);
         }
     }
 }

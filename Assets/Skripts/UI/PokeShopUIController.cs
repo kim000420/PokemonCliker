@@ -10,8 +10,12 @@ namespace PokeClicker
         [Header("Dependencies")]
         [SerializeField] private PokemonTrainerManager trainerManager;
         [SerializeField] private PokemonFactory pokemonFactory;
+        [SerializeField] private ExpandedUIController expandedUIController;
 
-        [Header("UI Groups (연결 필요)")]
+        [Header("UI Elements")]
+        [SerializeField] private Button closeButton;
+
+        [Header("Shop item")]
         [SerializeField] private Button pullEventButton;
         [SerializeField] private TextMeshProUGUI pullEventCostText;
         [SerializeField] private Button pullAllButton;
@@ -31,6 +35,7 @@ namespace PokeClicker
             pullAllButton.onClick.AddListener(OnPullAllClick);
             pullShinyButton.onClick.AddListener(OnPullShinyClick);
             pullLegendaryButton.onClick.AddListener(OnPullLegendaryClick);
+            closeButton.onClick.AddListener(OnCloseButtonClick);
         }
 
         private void OnDisable()
@@ -40,6 +45,7 @@ namespace PokeClicker
             pullAllButton.onClick.RemoveAllListeners();
             pullShinyButton.onClick.RemoveAllListeners();
             pullLegendaryButton.onClick.RemoveAllListeners();
+            closeButton.onClick.RemoveListener(OnCloseButtonClick);
         }
 
         /// <summary>
@@ -115,6 +121,12 @@ namespace PokeClicker
                 Debug.Log($"[전설!] {newPokemon.GetDisplayName(pokemonFactory.speciesDB.GetSpecies(newPokemon.speciesId))}을(를) 뽑았습니다!");
                 UpdateUI();
             }
+        }
+
+        private void OnCloseButtonClick()
+        {
+            // 상위 컨트롤러에게 메뉴 패널을 보여달라고 요청
+            expandedUIController.ShowMenuPanel();
         }
     }
 }

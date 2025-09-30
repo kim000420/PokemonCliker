@@ -19,11 +19,13 @@ namespace PokeClicker
         [SerializeField] private TextMeshProUGUI currentExpText; // 현재 레벨 내 누적 경험치
         [SerializeField] private Image expBar; // 경험치 바
         [SerializeField] private Button menuButton; // 확장 UI를 여는 버튼
+        [SerializeField] private TextMeshProUGUI rewardTimerText; // 리워드 타이머 텍스트
 
         [Header("Dependencies")]
         [SerializeField] private OwnedPokemonManager ownedPokemonManager;
         [SerializeField] private SpeciesDB speciesDB;
         [SerializeField] private PokemonLevelupManager levelupManager;
+        [SerializeField] private RewardManager rewardManager;
 
         private PokemonSaveData _currentPokemon;
         private Coroutine _playAnimationCoroutine;
@@ -63,6 +65,23 @@ namespace PokeClicker
             {
                 levelupManager.OnExpGained -= HandleExpGained;
                 levelupManager.OnLevelUp -= HandleLevelUp;
+            }
+        }
+
+        private void Update()
+        {
+            if (rewardManager != null && rewardTimerText != null)
+            {
+                if (rewardManager.TimeRemaining > 0)
+                {
+                    // 남은 시간을 분:초 형태로 표시
+                    System.TimeSpan timeSpan = System.TimeSpan.FromSeconds(rewardManager.TimeRemaining);
+                    rewardTimerText.text = $"{timeSpan.Minutes:D2} : {timeSpan.Seconds:D2}";
+                }
+                else
+                {
+                    rewardTimerText.text = "보상!";
+                }
             }
         }
 

@@ -21,6 +21,7 @@ namespace PokeClicker
         [SerializeField] private Button pokeDexButton;
         [SerializeField] private Button partyButton;
         [SerializeField] private Button inventoryButton;
+        [SerializeField] private Button pokeShopButton;
         [SerializeField] private Button exitButton; 
 
         [Header("Dependencies")]
@@ -32,22 +33,11 @@ namespace PokeClicker
 
         private void OnEnable()
         {
-            if (ownedPokemonManager != null)
-            {
-                ownedPokemonManager.OnPartyUpdated += UpdateMenuUI;
-            }
-            if (pokePcButton != null)
-            {
-                pokePcButton.onClick.AddListener(OnPokePcButtonClick);
-            }
-            if (partyButton != null)
-            {
-                partyButton.onClick.AddListener(OnPartyButtonClick);
-            }
-            if (exitButton != null)
-            {
-                exitButton.onClick.AddListener(OnExitButtonClick);
-            }
+            ownedPokemonManager.OnPartyUpdated += UpdateMenuUI;
+            pokePcButton.onClick.AddListener(OnPokePcButtonClick);
+            partyButton.onClick.AddListener(OnPartyButtonClick);
+            pokeShopButton.onClick.AddListener(OnPokeShopButtonClick);
+            exitButton.onClick.AddListener(OnExitButtonClick);
 
             // 트레이너 이름 업데이트
             if (trainerManager != null && trainerNameText != null)
@@ -59,22 +49,11 @@ namespace PokeClicker
 
         private void OnDisable()
         {
-            if (ownedPokemonManager != null)
-            {
-                ownedPokemonManager.OnPartyUpdated -= UpdateMenuUI;
-            }
-            if (pokePcButton != null)
-            {
-                pokePcButton.onClick.RemoveListener(OnPokePcButtonClick);
-            }
-            if (partyButton != null)
-            {
-                partyButton.onClick.RemoveListener(OnPartyButtonClick);
-            }
-            if (exitButton != null)
-            {
-                exitButton.onClick.RemoveListener(OnExitButtonClick);
-            }
+            ownedPokemonManager.OnPartyUpdated -= UpdateMenuUI;
+            pokePcButton.onClick.RemoveListener(OnPokePcButtonClick);
+            partyButton.onClick.RemoveListener(OnPartyButtonClick);
+            pokeShopButton.onClick.RemoveListener(OnPokeShopButtonClick);
+            exitButton.onClick.RemoveListener(OnExitButtonClick);
         }
 
         /// <summary>
@@ -92,6 +71,15 @@ namespace PokeClicker
         {
             expandedUIController.ShowPartyPanel();
         }
+
+        /// <summary>
+        /// PokeShop 버튼 클릭 시 호출됩니다.
+        /// </summary>
+        private void OnPokeShopButtonClick()
+        {
+            expandedUIController.ShowPokeShopPanel();
+        }
+
         /// <summary>
         /// Exit 버튼 클릭 시 호출됩니다.
         /// </summary>
