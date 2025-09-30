@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: TestPoolA
+  m_EditorClassIdentifier: Assembly-CSharp::PokemonPoolSO
+  entries:
+  - speciesId: 144
+    formKey: Default
+  - speciesId: 145
+    formKey: Default
+  - speciesId: 146
+    formKey: Default
+  - speciesId: 150
+    formKey: Default
+  - speciesId: 150
+    formKey: Mega_X
+  - speciesId: 150
+    formKey: Mega_Y

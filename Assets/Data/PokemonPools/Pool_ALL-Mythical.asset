@@ -1,0 +1,2361 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Pool_ALL-Mythical
+  m_EditorClassIdentifier: Assembly-CSharp::PokemonPoolSO
+  entries:
+  - speciesId: 1
+    formKey: Default
+  - speciesId: 2
+    formKey: Default
+  - speciesId: 3
+    formKey: Default
+  - speciesId: 3
+    formKey: Mega
+  - speciesId: 4
+    formKey: Default
+  - speciesId: 5
+    formKey: Default
+  - speciesId: 6
+    formKey: Default
+  - speciesId: 6
+    formKey: Mega_X
+  - speciesId: 6
+    formKey: Mega_Y
+  - speciesId: 7
+    formKey: Default
+  - speciesId: 8
+    formKey: Default
+  - speciesId: 9
+    formKey: Default
+  - speciesId: 9
+    formKey: Mega
+  - speciesId: 10
+    formKey: Default
+  - speciesId: 11
+    formKey: Default
+  - speciesId: 12
+    formKey: Default
+  - speciesId: 13
+    formKey: Default
+  - speciesId: 14
+    formKey: Default
+  - speciesId: 15
+    formKey: Default
+  - speciesId: 15
+    formKey: Mega
+  - speciesId: 16
+    formKey: Default
+  - speciesId: 17
+    formKey: Default
+  - speciesId: 18
+    formKey: Default
+  - speciesId: 18
+    formKey: Mega
+  - speciesId: 19
+    formKey: Default
+  - speciesId: 19
+    formKey: Alolan
+  - speciesId: 20
+    formKey: Default
+  - speciesId: 20
+    formKey: Alolan
+  - speciesId: 21
+    formKey: Default
+  - speciesId: 22
+    formKey: Default
+  - speciesId: 23
+    formKey: Default
+  - speciesId: 24
+    formKey: Default
+  - speciesId: 25
+    formKey: Default
+  - speciesId: 26
+    formKey: Default
+  - speciesId: 26
+    formKey: Alolan
+  - speciesId: 27
+    formKey: Default
+  - speciesId: 27
+    formKey: Alolan
+  - speciesId: 28
+    formKey: Default
+  - speciesId: 28
+    formKey: Alolan
+  - speciesId: 29
+    formKey: Default
+  - speciesId: 30
+    formKey: Default
+  - speciesId: 31
+    formKey: Default
+  - speciesId: 32
+    formKey: Default
+  - speciesId: 33
+    formKey: Default
+  - speciesId: 34
+    formKey: Default
+  - speciesId: 35
+    formKey: Default
+  - speciesId: 36
+    formKey: Default
+  - speciesId: 37
+    formKey: Default
+  - speciesId: 37
+    formKey: Alolan
+  - speciesId: 38
+    formKey: Default
+  - speciesId: 38
+    formKey: Alolan
+  - speciesId: 39
+    formKey: Default
+  - speciesId: 40
+    formKey: Default
+  - speciesId: 41
+    formKey: Default
+  - speciesId: 42
+    formKey: Default
+  - speciesId: 43
+    formKey: Default
+  - speciesId: 44
+    formKey: Default
+  - speciesId: 45
+    formKey: Default
+  - speciesId: 46
+    formKey: Default
+  - speciesId: 47
+    formKey: Default
+  - speciesId: 48
+    formKey: Default
+  - speciesId: 49
+    formKey: Default
+  - speciesId: 50
+    formKey: Default
+  - speciesId: 50
+    formKey: Alolan
+  - speciesId: 51
+    formKey: Default
+  - speciesId: 51
+    formKey: Alolan
+  - speciesId: 52
+    formKey: Default
+  - speciesId: 52
+    formKey: Alolan
+  - speciesId: 52
+    formKey: Galarian
+  - speciesId: 53
+    formKey: Default
+  - speciesId: 53
+    formKey: Alolan
+  - speciesId: 54
+    formKey: Default
+  - speciesId: 55
+    formKey: Default
+  - speciesId: 56
+    formKey: Default
+  - speciesId: 57
+    formKey: Default
+  - speciesId: 58
+    formKey: Default
+  - speciesId: 58
+    formKey: Hisuian
+  - speciesId: 59
+    formKey: Default
+  - speciesId: 59
+    formKey: Hisuian
+  - speciesId: 60
+    formKey: Default
+  - speciesId: 61
+    formKey: Default
+  - speciesId: 62
+    formKey: Default
+  - speciesId: 63
+    formKey: Default
+  - speciesId: 64
+    formKey: Default
+  - speciesId: 65
+    formKey: Default
+  - speciesId: 65
+    formKey: Mega
+  - speciesId: 66
+    formKey: Default
+  - speciesId: 67
+    formKey: Default
+  - speciesId: 68
+    formKey: Default
+  - speciesId: 69
+    formKey: Default
+  - speciesId: 70
+    formKey: Default
+  - speciesId: 71
+    formKey: Default
+  - speciesId: 72
+    formKey: Default
+  - speciesId: 73
+    formKey: Default
+  - speciesId: 74
+    formKey: Default
+  - speciesId: 74
+    formKey: Alolan
+  - speciesId: 75
+    formKey: Default
+  - speciesId: 75
+    formKey: Alolan
+  - speciesId: 76
+    formKey: Default
+  - speciesId: 76
+    formKey: Alolan
+  - speciesId: 77
+    formKey: Default
+  - speciesId: 77
+    formKey: Galarian
+  - speciesId: 78
+    formKey: Default
+  - speciesId: 78
+    formKey: Galarian
+  - speciesId: 79
+    formKey: Default
+  - speciesId: 79
+    formKey: Galarian
+  - speciesId: 80
+    formKey: Default
+  - speciesId: 80
+    formKey: Galarian
+  - speciesId: 80
+    formKey: Mega
+  - speciesId: 81
+    formKey: Default
+  - speciesId: 82
+    formKey: Default
+  - speciesId: 83
+    formKey: Default
+  - speciesId: 83
+    formKey: Galarian
+  - speciesId: 84
+    formKey: Default
+  - speciesId: 85
+    formKey: Default
+  - speciesId: 86
+    formKey: Default
+  - speciesId: 87
+    formKey: Default
+  - speciesId: 88
+    formKey: Default
+  - speciesId: 88
+    formKey: Alolan
+  - speciesId: 89
+    formKey: Default
+  - speciesId: 89
+    formKey: Alolan
+  - speciesId: 90
+    formKey: Default
+  - speciesId: 91
+    formKey: Default
+  - speciesId: 92
+    formKey: Default
+  - speciesId: 93
+    formKey: Default
+  - speciesId: 94
+    formKey: Default
+  - speciesId: 94
+    formKey: Mega
+  - speciesId: 95
+    formKey: Default
+  - speciesId: 96
+    formKey: Default
+  - speciesId: 97
+    formKey: Default
+  - speciesId: 98
+    formKey: Default
+  - speciesId: 99
+    formKey: Default
+  - speciesId: 100
+    formKey: Default
+  - speciesId: 100
+    formKey: Hisuian
+  - speciesId: 101
+    formKey: Default
+  - speciesId: 101
+    formKey: Hisuian
+  - speciesId: 102
+    formKey: Default
+  - speciesId: 103
+    formKey: Default
+  - speciesId: 103
+    formKey: Alolan
+  - speciesId: 104
+    formKey: Default
+  - speciesId: 105
+    formKey: Default
+  - speciesId: 105
+    formKey: Alolan
+  - speciesId: 106
+    formKey: Default
+  - speciesId: 107
+    formKey: Default
+  - speciesId: 108
+    formKey: Default
+  - speciesId: 109
+    formKey: Default
+  - speciesId: 110
+    formKey: Default
+  - speciesId: 110
+    formKey: Galarian
+  - speciesId: 111
+    formKey: Default
+  - speciesId: 112
+    formKey: Default
+  - speciesId: 113
+    formKey: Default
+  - speciesId: 114
+    formKey: Default
+  - speciesId: 115
+    formKey: Default
+  - speciesId: 115
+    formKey: Mega
+  - speciesId: 116
+    formKey: Default
+  - speciesId: 117
+    formKey: Default
+  - speciesId: 118
+    formKey: Default
+  - speciesId: 119
+    formKey: Default
+  - speciesId: 120
+    formKey: Default
+  - speciesId: 121
+    formKey: Default
+  - speciesId: 122
+    formKey: Default
+  - speciesId: 122
+    formKey: Galarian
+  - speciesId: 123
+    formKey: Default
+  - speciesId: 124
+    formKey: Default
+  - speciesId: 125
+    formKey: Default
+  - speciesId: 126
+    formKey: Default
+  - speciesId: 127
+    formKey: Default
+  - speciesId: 127
+    formKey: Mega
+  - speciesId: 128
+    formKey: Default
+  - speciesId: 128
+    formKey: Paldean Combat Breed
+  - speciesId: 128
+    formKey: Paldean Blaze Breed
+  - speciesId: 128
+    formKey: Paldean Aqua Breed
+  - speciesId: 129
+    formKey: Default
+  - speciesId: 130
+    formKey: Default
+  - speciesId: 130
+    formKey: Mega
+  - speciesId: 131
+    formKey: Default
+  - speciesId: 132
+    formKey: Default
+  - speciesId: 133
+    formKey: Default
+  - speciesId: 134
+    formKey: Default
+  - speciesId: 135
+    formKey: Default
+  - speciesId: 136
+    formKey: Default
+  - speciesId: 137
+    formKey: Default
+  - speciesId: 138
+    formKey: Default
+  - speciesId: 139
+    formKey: Default
+  - speciesId: 140
+    formKey: Default
+  - speciesId: 141
+    formKey: Default
+  - speciesId: 142
+    formKey: Default
+  - speciesId: 142
+    formKey: Mega
+  - speciesId: 143
+    formKey: Default
+  - speciesId: 144
+    formKey: Default
+  - speciesId: 144
+    formKey: Galarian
+  - speciesId: 145
+    formKey: Default
+  - speciesId: 145
+    formKey: Galarian
+  - speciesId: 146
+    formKey: Default
+  - speciesId: 146
+    formKey: Galarian
+  - speciesId: 147
+    formKey: Default
+  - speciesId: 148
+    formKey: Default
+  - speciesId: 149
+    formKey: Default
+  - speciesId: 150
+    formKey: Default
+  - speciesId: 150
+    formKey: Mega_X
+  - speciesId: 150
+    formKey: Mega_Y
+  - speciesId: 152
+    formKey: Default
+  - speciesId: 153
+    formKey: Default
+  - speciesId: 154
+    formKey: Default
+  - speciesId: 155
+    formKey: Default
+  - speciesId: 156
+    formKey: Default
+  - speciesId: 157
+    formKey: Default
+  - speciesId: 157
+    formKey: Hisuian
+  - speciesId: 158
+    formKey: Default
+  - speciesId: 159
+    formKey: Default
+  - speciesId: 160
+    formKey: Default
+  - speciesId: 161
+    formKey: Default
+  - speciesId: 162
+    formKey: Default
+  - speciesId: 163
+    formKey: Default
+  - speciesId: 164
+    formKey: Default
+  - speciesId: 165
+    formKey: Default
+  - speciesId: 166
+    formKey: Default
+  - speciesId: 167
+    formKey: Default
+  - speciesId: 168
+    formKey: Default
+  - speciesId: 169
+    formKey: Default
+  - speciesId: 170
+    formKey: Default
+  - speciesId: 171
+    formKey: Default
+  - speciesId: 172
+    formKey: Default
+  - speciesId: 173
+    formKey: Default
+  - speciesId: 174
+    formKey: Default
+  - speciesId: 175
+    formKey: Default
+  - speciesId: 176
+    formKey: Default
+  - speciesId: 177
+    formKey: Default
+  - speciesId: 178
+    formKey: Default
+  - speciesId: 179
+    formKey: Default
+  - speciesId: 180
+    formKey: Default
+  - speciesId: 181
+    formKey: Default
+  - speciesId: 181
+    formKey: Mega
+  - speciesId: 182
+    formKey: Default
+  - speciesId: 183
+    formKey: Default
+  - speciesId: 184
+    formKey: Default
+  - speciesId: 185
+    formKey: Default
+  - speciesId: 186
+    formKey: Default
+  - speciesId: 187
+    formKey: Default
+  - speciesId: 188
+    formKey: Default
+  - speciesId: 189
+    formKey: Default
+  - speciesId: 190
+    formKey: Default
+  - speciesId: 191
+    formKey: Default
+  - speciesId: 192
+    formKey: Default
+  - speciesId: 193
+    formKey: Default
+  - speciesId: 194
+    formKey: Paldean
+  - speciesId: 194
+    formKey: Default
+  - speciesId: 195
+    formKey: Default
+  - speciesId: 196
+    formKey: Default
+  - speciesId: 197
+    formKey: Default
+  - speciesId: 198
+    formKey: Default
+  - speciesId: 199
+    formKey: Default
+  - speciesId: 199
+    formKey: Galarian
+  - speciesId: 200
+    formKey: Default
+  - speciesId: 201
+    formKey: Default
+  - speciesId: 202
+    formKey: Default
+  - speciesId: 203
+    formKey: Default
+  - speciesId: 204
+    formKey: Default
+  - speciesId: 205
+    formKey: Default
+  - speciesId: 206
+    formKey: Default
+  - speciesId: 207
+    formKey: Default
+  - speciesId: 208
+    formKey: Default
+  - speciesId: 208
+    formKey: Mega
+  - speciesId: 209
+    formKey: Default
+  - speciesId: 210
+    formKey: Default
+  - speciesId: 211
+    formKey: Default
+  - speciesId: 211
+    formKey: Hisuian
+  - speciesId: 212
+    formKey: Default
+  - speciesId: 212
+    formKey: Mega
+  - speciesId: 213
+    formKey: Default
+  - speciesId: 214
+    formKey: Default
+  - speciesId: 214
+    formKey: Mega
+  - speciesId: 215
+    formKey: Default
+  - speciesId: 215
+    formKey: Hisuian
+  - speciesId: 216
+    formKey: Default
+  - speciesId: 217
+    formKey: Default
+  - speciesId: 218
+    formKey: Default
+  - speciesId: 219
+    formKey: Default
+  - speciesId: 220
+    formKey: Default
+  - speciesId: 221
+    formKey: Default
+  - speciesId: 222
+    formKey: Default
+  - speciesId: 222
+    formKey: Galarian
+  - speciesId: 223
+    formKey: Default
+  - speciesId: 224
+    formKey: Default
+  - speciesId: 225
+    formKey: Default
+  - speciesId: 226
+    formKey: Default
+  - speciesId: 227
+    formKey: Default
+  - speciesId: 228
+    formKey: Default
+  - speciesId: 229
+    formKey: Default
+  - speciesId: 229
+    formKey: Mega
+  - speciesId: 230
+    formKey: Default
+  - speciesId: 231
+    formKey: Default
+  - speciesId: 232
+    formKey: Default
+  - speciesId: 233
+    formKey: Default
+  - speciesId: 234
+    formKey: Default
+  - speciesId: 235
+    formKey: Default
+  - speciesId: 236
+    formKey: Default
+  - speciesId: 237
+    formKey: Default
+  - speciesId: 238
+    formKey: Default
+  - speciesId: 239
+    formKey: Default
+  - speciesId: 240
+    formKey: Default
+  - speciesId: 241
+    formKey: Default
+  - speciesId: 242
+    formKey: Default
+  - speciesId: 243
+    formKey: Default
+  - speciesId: 244
+    formKey: Default
+  - speciesId: 245
+    formKey: Default
+  - speciesId: 246
+    formKey: Default
+  - speciesId: 247
+    formKey: Default
+  - speciesId: 248
+    formKey: Default
+  - speciesId: 248
+    formKey: Mega
+  - speciesId: 249
+    formKey: Default
+  - speciesId: 250
+    formKey: Default
+  - speciesId: 252
+    formKey: Default
+  - speciesId: 253
+    formKey: Default
+  - speciesId: 254
+    formKey: Default
+  - speciesId: 254
+    formKey: Mega
+  - speciesId: 255
+    formKey: Default
+  - speciesId: 256
+    formKey: Default
+  - speciesId: 257
+    formKey: Default
+  - speciesId: 257
+    formKey: Mega
+  - speciesId: 258
+    formKey: Default
+  - speciesId: 259
+    formKey: Default
+  - speciesId: 260
+    formKey: Default
+  - speciesId: 260
+    formKey: Mega
+  - speciesId: 261
+    formKey: Default
+  - speciesId: 262
+    formKey: Default
+  - speciesId: 263
+    formKey: Default
+  - speciesId: 263
+    formKey: Galarian
+  - speciesId: 264
+    formKey: Default
+  - speciesId: 264
+    formKey: Galarian
+  - speciesId: 265
+    formKey: Default
+  - speciesId: 266
+    formKey: Default
+  - speciesId: 267
+    formKey: Default
+  - speciesId: 268
+    formKey: Default
+  - speciesId: 269
+    formKey: Default
+  - speciesId: 270
+    formKey: Default
+  - speciesId: 271
+    formKey: Default
+  - speciesId: 272
+    formKey: Default
+  - speciesId: 273
+    formKey: Default
+  - speciesId: 274
+    formKey: Default
+  - speciesId: 275
+    formKey: Default
+  - speciesId: 276
+    formKey: Default
+  - speciesId: 277
+    formKey: Default
+  - speciesId: 278
+    formKey: Default
+  - speciesId: 279
+    formKey: Default
+  - speciesId: 280
+    formKey: Default
+  - speciesId: 281
+    formKey: Default
+  - speciesId: 282
+    formKey: Default
+  - speciesId: 282
+    formKey: Mega
+  - speciesId: 283
+    formKey: Default
+  - speciesId: 284
+    formKey: Default
+  - speciesId: 285
+    formKey: Default
+  - speciesId: 286
+    formKey: Default
+  - speciesId: 287
+    formKey: Default
+  - speciesId: 288
+    formKey: Default
+  - speciesId: 289
+    formKey: Default
+  - speciesId: 290
+    formKey: Default
+  - speciesId: 291
+    formKey: Default
+  - speciesId: 292
+    formKey: Default
+  - speciesId: 293
+    formKey: Default
+  - speciesId: 294
+    formKey: Default
+  - speciesId: 295
+    formKey: Default
+  - speciesId: 296
+    formKey: Default
+  - speciesId: 297
+    formKey: Default
+  - speciesId: 298
+    formKey: Default
+  - speciesId: 299
+    formKey: Default
+  - speciesId: 300
+    formKey: Default
+  - speciesId: 301
+    formKey: Default
+  - speciesId: 302
+    formKey: Default
+  - speciesId: 302
+    formKey: Mega
+  - speciesId: 303
+    formKey: Default
+  - speciesId: 303
+    formKey: Mega
+  - speciesId: 304
+    formKey: Default
+  - speciesId: 305
+    formKey: Default
+  - speciesId: 306
+    formKey: Default
+  - speciesId: 306
+    formKey: Mega
+  - speciesId: 307
+    formKey: Default
+  - speciesId: 308
+    formKey: Default
+  - speciesId: 308
+    formKey: Mega
+  - speciesId: 309
+    formKey: Default
+  - speciesId: 310
+    formKey: Default
+  - speciesId: 310
+    formKey: Mega
+  - speciesId: 311
+    formKey: Default
+  - speciesId: 312
+    formKey: Default
+  - speciesId: 313
+    formKey: Default
+  - speciesId: 314
+    formKey: Default
+  - speciesId: 315
+    formKey: Default
+  - speciesId: 316
+    formKey: Default
+  - speciesId: 317
+    formKey: Default
+  - speciesId: 318
+    formKey: Default
+  - speciesId: 319
+    formKey: Default
+  - speciesId: 319
+    formKey: Mega
+  - speciesId: 320
+    formKey: Default
+  - speciesId: 321
+    formKey: Default
+  - speciesId: 322
+    formKey: Default
+  - speciesId: 323
+    formKey: Default
+  - speciesId: 323
+    formKey: Mega
+  - speciesId: 324
+    formKey: Default
+  - speciesId: 325
+    formKey: Default
+  - speciesId: 326
+    formKey: Default
+  - speciesId: 327
+    formKey: Default
+  - speciesId: 328
+    formKey: Default
+  - speciesId: 329
+    formKey: Default
+  - speciesId: 330
+    formKey: Default
+  - speciesId: 331
+    formKey: Default
+  - speciesId: 332
+    formKey: Default
+  - speciesId: 333
+    formKey: Default
+  - speciesId: 334
+    formKey: Default
+  - speciesId: 334
+    formKey: Mega
+  - speciesId: 335
+    formKey: Default
+  - speciesId: 336
+    formKey: Default
+  - speciesId: 337
+    formKey: Default
+  - speciesId: 338
+    formKey: Default
+  - speciesId: 339
+    formKey: Default
+  - speciesId: 340
+    formKey: Default
+  - speciesId: 341
+    formKey: Default
+  - speciesId: 342
+    formKey: Default
+  - speciesId: 343
+    formKey: Default
+  - speciesId: 344
+    formKey: Default
+  - speciesId: 345
+    formKey: Default
+  - speciesId: 346
+    formKey: Default
+  - speciesId: 347
+    formKey: Default
+  - speciesId: 348
+    formKey: Default
+  - speciesId: 349
+    formKey: Default
+  - speciesId: 350
+    formKey: Default
+  - speciesId: 351
+    formKey: Default
+  - speciesId: 351
+    formKey: Sunny
+  - speciesId: 351
+    formKey: Rainy
+  - speciesId: 351
+    formKey: Snowy
+  - speciesId: 352
+    formKey: Default
+  - speciesId: 353
+    formKey: Default
+  - speciesId: 354
+    formKey: Default
+  - speciesId: 354
+    formKey: Mega
+  - speciesId: 355
+    formKey: Default
+  - speciesId: 356
+    formKey: Default
+  - speciesId: 357
+    formKey: Default
+  - speciesId: 358
+    formKey: Default
+  - speciesId: 359
+    formKey: Default
+  - speciesId: 359
+    formKey: Mega
+  - speciesId: 360
+    formKey: Default
+  - speciesId: 361
+    formKey: Default
+  - speciesId: 362
+    formKey: Default
+  - speciesId: 362
+    formKey: Mega
+  - speciesId: 363
+    formKey: Default
+  - speciesId: 364
+    formKey: Default
+  - speciesId: 365
+    formKey: Default
+  - speciesId: 366
+    formKey: Default
+  - speciesId: 367
+    formKey: Default
+  - speciesId: 368
+    formKey: Default
+  - speciesId: 369
+    formKey: Default
+  - speciesId: 370
+    formKey: Default
+  - speciesId: 371
+    formKey: Default
+  - speciesId: 372
+    formKey: Default
+  - speciesId: 373
+    formKey: Default
+  - speciesId: 373
+    formKey: Mega
+  - speciesId: 374
+    formKey: Default
+  - speciesId: 375
+    formKey: Default
+  - speciesId: 376
+    formKey: Default
+  - speciesId: 376
+    formKey: Mega
+  - speciesId: 377
+    formKey: Default
+  - speciesId: 378
+    formKey: Default
+  - speciesId: 379
+    formKey: Default
+  - speciesId: 380
+    formKey: Default
+  - speciesId: 380
+    formKey: Mega
+  - speciesId: 381
+    formKey: Default
+  - speciesId: 381
+    formKey: Mega
+  - speciesId: 382
+    formKey: Default
+  - speciesId: 382
+    formKey: Primal
+  - speciesId: 383
+    formKey: Default
+  - speciesId: 383
+    formKey: Primal
+  - speciesId: 384
+    formKey: Default
+  - speciesId: 384
+    formKey: Mega
+  - speciesId: 387
+    formKey: Default
+  - speciesId: 388
+    formKey: Default
+  - speciesId: 389
+    formKey: Default
+  - speciesId: 390
+    formKey: Default
+  - speciesId: 391
+    formKey: Default
+  - speciesId: 392
+    formKey: Default
+  - speciesId: 393
+    formKey: Default
+  - speciesId: 394
+    formKey: Default
+  - speciesId: 395
+    formKey: Default
+  - speciesId: 396
+    formKey: Default
+  - speciesId: 397
+    formKey: Default
+  - speciesId: 398
+    formKey: Default
+  - speciesId: 399
+    formKey: Default
+  - speciesId: 400
+    formKey: Default
+  - speciesId: 401
+    formKey: Default
+  - speciesId: 402
+    formKey: Default
+  - speciesId: 403
+    formKey: Default
+  - speciesId: 404
+    formKey: Default
+  - speciesId: 405
+    formKey: Default
+  - speciesId: 406
+    formKey: Default
+  - speciesId: 407
+    formKey: Default
+  - speciesId: 408
+    formKey: Default
+  - speciesId: 409
+    formKey: Default
+  - speciesId: 410
+    formKey: Default
+  - speciesId: 411
+    formKey: Default
+  - speciesId: 412
+    formKey: Plant
+  - speciesId: 412
+    formKey: Sandy
+  - speciesId: 412
+    formKey: Trash
+  - speciesId: 413
+    formKey: Plant
+  - speciesId: 413
+    formKey: Sandy
+  - speciesId: 413
+    formKey: Trash
+  - speciesId: 414
+    formKey: Default
+  - speciesId: 415
+    formKey: Default
+  - speciesId: 416
+    formKey: Default
+  - speciesId: 417
+    formKey: Default
+  - speciesId: 418
+    formKey: Default
+  - speciesId: 419
+    formKey: Default
+  - speciesId: 420
+    formKey: Default
+  - speciesId: 421
+    formKey: Default
+  - speciesId: 421
+    formKey: Sunshine
+  - speciesId: 422
+    formKey: East-Sea
+  - speciesId: 422
+    formKey: West-Sea
+  - speciesId: 423
+    formKey: East-Sea
+  - speciesId: 423
+    formKey: West-Sea
+  - speciesId: 424
+    formKey: Default
+  - speciesId: 425
+    formKey: Default
+  - speciesId: 426
+    formKey: Default
+  - speciesId: 427
+    formKey: Default
+  - speciesId: 428
+    formKey: Default
+  - speciesId: 428
+    formKey: Mega
+  - speciesId: 429
+    formKey: Default
+  - speciesId: 430
+    formKey: Default
+  - speciesId: 431
+    formKey: Default
+  - speciesId: 432
+    formKey: Default
+  - speciesId: 433
+    formKey: Default
+  - speciesId: 434
+    formKey: Default
+  - speciesId: 435
+    formKey: Default
+  - speciesId: 436
+    formKey: Default
+  - speciesId: 437
+    formKey: Default
+  - speciesId: 438
+    formKey: Default
+  - speciesId: 439
+    formKey: Default
+  - speciesId: 440
+    formKey: Default
+  - speciesId: 441
+    formKey: Default
+  - speciesId: 442
+    formKey: Default
+  - speciesId: 443
+    formKey: Default
+  - speciesId: 444
+    formKey: Default
+  - speciesId: 445
+    formKey: Default
+  - speciesId: 445
+    formKey: Mega
+  - speciesId: 446
+    formKey: Default
+  - speciesId: 447
+    formKey: Default
+  - speciesId: 448
+    formKey: Default
+  - speciesId: 448
+    formKey: Mega
+  - speciesId: 449
+    formKey: Default
+  - speciesId: 450
+    formKey: Default
+  - speciesId: 451
+    formKey: Default
+  - speciesId: 452
+    formKey: Default
+  - speciesId: 453
+    formKey: Default
+  - speciesId: 454
+    formKey: Default
+  - speciesId: 455
+    formKey: Default
+  - speciesId: 456
+    formKey: Default
+  - speciesId: 457
+    formKey: Default
+  - speciesId: 458
+    formKey: Default
+  - speciesId: 459
+    formKey: Default
+  - speciesId: 460
+    formKey: Default
+  - speciesId: 460
+    formKey: Mega
+  - speciesId: 461
+    formKey: Default
+  - speciesId: 462
+    formKey: Default
+  - speciesId: 463
+    formKey: Default
+  - speciesId: 464
+    formKey: Default
+  - speciesId: 465
+    formKey: Default
+  - speciesId: 466
+    formKey: Default
+  - speciesId: 467
+    formKey: Default
+  - speciesId: 468
+    formKey: Default
+  - speciesId: 469
+    formKey: Default
+  - speciesId: 470
+    formKey: Default
+  - speciesId: 471
+    formKey: Default
+  - speciesId: 472
+    formKey: Default
+  - speciesId: 473
+    formKey: Default
+  - speciesId: 474
+    formKey: Default
+  - speciesId: 475
+    formKey: Default
+  - speciesId: 475
+    formKey: Mega
+  - speciesId: 476
+    formKey: Default
+  - speciesId: 477
+    formKey: Default
+  - speciesId: 478
+    formKey: Default
+  - speciesId: 479
+    formKey: Default
+  - speciesId: 479
+    formKey: Heat
+  - speciesId: 479
+    formKey: Wash
+  - speciesId: 479
+    formKey: Frost
+  - speciesId: 479
+    formKey: Fan
+  - speciesId: 479
+    formKey: Mow
+  - speciesId: 480
+    formKey: Default
+  - speciesId: 481
+    formKey: Default
+  - speciesId: 482
+    formKey: Default
+  - speciesId: 483
+    formKey: Default
+  - speciesId: 483
+    formKey: Origin
+  - speciesId: 484
+    formKey: Default
+  - speciesId: 484
+    formKey: Origin
+  - speciesId: 485
+    formKey: Default
+  - speciesId: 486
+    formKey: Default
+  - speciesId: 487
+    formKey: Default
+  - speciesId: 487
+    formKey: Origin
+  - speciesId: 488
+    formKey: Default
+  - speciesId: 495
+    formKey: Default
+  - speciesId: 496
+    formKey: Default
+  - speciesId: 497
+    formKey: Default
+  - speciesId: 498
+    formKey: Default
+  - speciesId: 499
+    formKey: Default
+  - speciesId: 500
+    formKey: Default
+  - speciesId: 501
+    formKey: Default
+  - speciesId: 502
+    formKey: Default
+  - speciesId: 503
+    formKey: Default
+  - speciesId: 503
+    formKey: Hisuian
+  - speciesId: 504
+    formKey: Default
+  - speciesId: 505
+    formKey: Default
+  - speciesId: 506
+    formKey: Default
+  - speciesId: 507
+    formKey: Default
+  - speciesId: 508
+    formKey: Default
+  - speciesId: 509
+    formKey: Default
+  - speciesId: 510
+    formKey: Default
+  - speciesId: 511
+    formKey: Default
+  - speciesId: 512
+    formKey: Default
+  - speciesId: 513
+    formKey: Default
+  - speciesId: 514
+    formKey: Default
+  - speciesId: 515
+    formKey: Default
+  - speciesId: 516
+    formKey: Default
+  - speciesId: 517
+    formKey: Default
+  - speciesId: 518
+    formKey: Default
+  - speciesId: 519
+    formKey: Default
+  - speciesId: 520
+    formKey: Default
+  - speciesId: 521
+    formKey: Default
+  - speciesId: 522
+    formKey: Default
+  - speciesId: 523
+    formKey: Default
+  - speciesId: 524
+    formKey: Default
+  - speciesId: 525
+    formKey: Default
+  - speciesId: 526
+    formKey: Default
+  - speciesId: 527
+    formKey: Default
+  - speciesId: 528
+    formKey: Default
+  - speciesId: 529
+    formKey: Default
+  - speciesId: 530
+    formKey: Default
+  - speciesId: 531
+    formKey: Default
+  - speciesId: 531
+    formKey: Mega
+  - speciesId: 532
+    formKey: Default
+  - speciesId: 533
+    formKey: Default
+  - speciesId: 534
+    formKey: Default
+  - speciesId: 535
+    formKey: Default
+  - speciesId: 536
+    formKey: Default
+  - speciesId: 537
+    formKey: Default
+  - speciesId: 538
+    formKey: Default
+  - speciesId: 539
+    formKey: Default
+  - speciesId: 540
+    formKey: Default
+  - speciesId: 541
+    formKey: Default
+  - speciesId: 542
+    formKey: Default
+  - speciesId: 543
+    formKey: Default
+  - speciesId: 544
+    formKey: Default
+  - speciesId: 545
+    formKey: Default
+  - speciesId: 546
+    formKey: Default
+  - speciesId: 547
+    formKey: Default
+  - speciesId: 548
+    formKey: Default
+  - speciesId: 549
+    formKey: Default
+  - speciesId: 549
+    formKey: Hisuian
+  - speciesId: 550
+    formKey: Red Stripe
+  - speciesId: 550
+    formKey: Blue Stripe
+  - speciesId: 550
+    formKey: Hisuian
+  - speciesId: 551
+    formKey: Default
+  - speciesId: 552
+    formKey: Default
+  - speciesId: 553
+    formKey: Default
+  - speciesId: 554
+    formKey: Default
+  - speciesId: 554
+    formKey: Galarian
+  - speciesId: 555
+    formKey: Default
+  - speciesId: 555
+    formKey: Zen-Mode
+  - speciesId: 555
+    formKey: Galarian
+  - speciesId: 555
+    formKey: Galarian Zen-Mode
+  - speciesId: 556
+    formKey: Default
+  - speciesId: 557
+    formKey: Default
+  - speciesId: 558
+    formKey: Default
+  - speciesId: 559
+    formKey: Default
+  - speciesId: 560
+    formKey: Default
+  - speciesId: 561
+    formKey: Default
+  - speciesId: 562
+    formKey: Default
+  - speciesId: 562
+    formKey: Galarian
+  - speciesId: 563
+    formKey: Default
+  - speciesId: 564
+    formKey: Default
+  - speciesId: 565
+    formKey: Default
+  - speciesId: 566
+    formKey: Default
+  - speciesId: 567
+    formKey: Default
+  - speciesId: 568
+    formKey: Default
+  - speciesId: 569
+    formKey: Default
+  - speciesId: 570
+    formKey: Default
+  - speciesId: 570
+    formKey: Hisuian
+  - speciesId: 571
+    formKey: Default
+  - speciesId: 571
+    formKey: Hisuian
+  - speciesId: 572
+    formKey: Default
+  - speciesId: 573
+    formKey: Default
+  - speciesId: 574
+    formKey: Default
+  - speciesId: 575
+    formKey: Default
+  - speciesId: 576
+    formKey: Default
+  - speciesId: 577
+    formKey: Default
+  - speciesId: 578
+    formKey: Default
+  - speciesId: 579
+    formKey: Default
+  - speciesId: 580
+    formKey: Default
+  - speciesId: 581
+    formKey: Default
+  - speciesId: 582
+    formKey: Default
+  - speciesId: 583
+    formKey: Default
+  - speciesId: 584
+    formKey: Default
+  - speciesId: 585
+    formKey: Spring
+  - speciesId: 585
+    formKey: Summer
+  - speciesId: 585
+    formKey: Autumn
+  - speciesId: 585
+    formKey: Winter
+  - speciesId: 586
+    formKey: Default
+  - speciesId: 587
+    formKey: Default
+  - speciesId: 588
+    formKey: Default
+  - speciesId: 589
+    formKey: Default
+  - speciesId: 590
+    formKey: Default
+  - speciesId: 591
+    formKey: Default
+  - speciesId: 592
+    formKey: Default
+  - speciesId: 593
+    formKey: Default
+  - speciesId: 594
+    formKey: Default
+  - speciesId: 595
+    formKey: Default
+  - speciesId: 596
+    formKey: Default
+  - speciesId: 597
+    formKey: Default
+  - speciesId: 598
+    formKey: Default
+  - speciesId: 599
+    formKey: Default
+  - speciesId: 600
+    formKey: Default
+  - speciesId: 601
+    formKey: Default
+  - speciesId: 602
+    formKey: Default
+  - speciesId: 603
+    formKey: Default
+  - speciesId: 604
+    formKey: Default
+  - speciesId: 605
+    formKey: Default
+  - speciesId: 606
+    formKey: Default
+  - speciesId: 607
+    formKey: Default
+  - speciesId: 608
+    formKey: Default
+  - speciesId: 609
+    formKey: Default
+  - speciesId: 610
+    formKey: Default
+  - speciesId: 611
+    formKey: Default
+  - speciesId: 612
+    formKey: Default
+  - speciesId: 613
+    formKey: Default
+  - speciesId: 614
+    formKey: Default
+  - speciesId: 615
+    formKey: Default
+  - speciesId: 616
+    formKey: Default
+  - speciesId: 617
+    formKey: Default
+  - speciesId: 618
+    formKey: Default
+  - speciesId: 618
+    formKey: Galarian
+  - speciesId: 619
+    formKey: Default
+  - speciesId: 620
+    formKey: Default
+  - speciesId: 621
+    formKey: Default
+  - speciesId: 622
+    formKey: Default
+  - speciesId: 623
+    formKey: Default
+  - speciesId: 624
+    formKey: Default
+  - speciesId: 625
+    formKey: Default
+  - speciesId: 626
+    formKey: Default
+  - speciesId: 627
+    formKey: Default
+  - speciesId: 628
+    formKey: Default
+  - speciesId: 628
+    formKey: Hisuian
+  - speciesId: 629
+    formKey: Default
+  - speciesId: 630
+    formKey: Default
+  - speciesId: 631
+    formKey: Default
+  - speciesId: 632
+    formKey: Default
+  - speciesId: 633
+    formKey: Default
+  - speciesId: 634
+    formKey: Default
+  - speciesId: 635
+    formKey: Default
+  - speciesId: 636
+    formKey: Default
+  - speciesId: 637
+    formKey: Default
+  - speciesId: 638
+    formKey: Default
+  - speciesId: 639
+    formKey: Default
+  - speciesId: 640
+    formKey: Default
+  - speciesId: 641
+    formKey: Incarnate
+  - speciesId: 641
+    formKey: Therian
+  - speciesId: 642
+    formKey: Incarnate
+  - speciesId: 642
+    formKey: Therian
+  - speciesId: 643
+    formKey: Default
+  - speciesId: 644
+    formKey: Default
+  - speciesId: 645
+    formKey: Incarnate
+  - speciesId: 645
+    formKey: Therian
+  - speciesId: 646
+    formKey: Default
+  - speciesId: 646
+    formKey: White
+  - speciesId: 646
+    formKey: Black
+  - speciesId: 650
+    formKey: Default
+  - speciesId: 651
+    formKey: Default
+  - speciesId: 652
+    formKey: Default
+  - speciesId: 653
+    formKey: Default
+  - speciesId: 654
+    formKey: Default
+  - speciesId: 655
+    formKey: Default
+  - speciesId: 656
+    formKey: Default
+  - speciesId: 657
+    formKey: Default
+  - speciesId: 658
+    formKey: Default
+  - speciesId: 658
+    formKey: Default
+  - speciesId: 659
+    formKey: Default
+  - speciesId: 660
+    formKey: Default
+  - speciesId: 661
+    formKey: Default
+  - speciesId: 662
+    formKey: Default
+  - speciesId: 663
+    formKey: Default
+  - speciesId: 664
+    formKey: Default
+  - speciesId: 665
+    formKey: Default
+  - speciesId: 666
+    formKey: Default
+  - speciesId: 667
+    formKey: Default
+  - speciesId: 668
+    formKey: Default
+  - speciesId: 669
+    formKey: Default
+  - speciesId: 670
+    formKey: Default
+  - speciesId: 671
+    formKey: Default
+  - speciesId: 672
+    formKey: Default
+  - speciesId: 673
+    formKey: Default
+  - speciesId: 674
+    formKey: Default
+  - speciesId: 675
+    formKey: Default
+  - speciesId: 676
+    formKey: Default
+  - speciesId: 677
+    formKey: Default
+  - speciesId: 678
+    formKey: Male
+  - speciesId: 678
+    formKey: Female
+  - speciesId: 679
+    formKey: Default
+  - speciesId: 680
+    formKey: Default
+  - speciesId: 681
+    formKey: Shield
+  - speciesId: 681
+    formKey: Blade
+  - speciesId: 682
+    formKey: Default
+  - speciesId: 683
+    formKey: Default
+  - speciesId: 684
+    formKey: Default
+  - speciesId: 685
+    formKey: Default
+  - speciesId: 686
+    formKey: Default
+  - speciesId: 687
+    formKey: Default
+  - speciesId: 688
+    formKey: Default
+  - speciesId: 689
+    formKey: Default
+  - speciesId: 690
+    formKey: Default
+  - speciesId: 691
+    formKey: Default
+  - speciesId: 692
+    formKey: Default
+  - speciesId: 693
+    formKey: Default
+  - speciesId: 694
+    formKey: Default
+  - speciesId: 695
+    formKey: Default
+  - speciesId: 696
+    formKey: Default
+  - speciesId: 697
+    formKey: Default
+  - speciesId: 698
+    formKey: Default
+  - speciesId: 699
+    formKey: Default
+  - speciesId: 700
+    formKey: Default
+  - speciesId: 701
+    formKey: Default
+  - speciesId: 702
+    formKey: Default
+  - speciesId: 703
+    formKey: Default
+  - speciesId: 704
+    formKey: Default
+  - speciesId: 705
+    formKey: Default
+  - speciesId: 705
+    formKey: Hisuian
+  - speciesId: 706
+    formKey: Default
+  - speciesId: 706
+    formKey: Hisuian
+  - speciesId: 707
+    formKey: Default
+  - speciesId: 708
+    formKey: Default
+  - speciesId: 709
+    formKey: Default
+  - speciesId: 710
+    formKey: Small
+  - speciesId: 710
+    formKey: Average
+  - speciesId: 710
+    formKey: Large
+  - speciesId: 710
+    formKey: Super
+  - speciesId: 711
+    formKey: Small
+  - speciesId: 711
+    formKey: Average
+  - speciesId: 711
+    formKey: Large
+  - speciesId: 711
+    formKey: Super
+  - speciesId: 712
+    formKey: Default
+  - speciesId: 713
+    formKey: Default
+  - speciesId: 713
+    formKey: Hisuian
+  - speciesId: 714
+    formKey: Default
+  - speciesId: 715
+    formKey: Default
+  - speciesId: 716
+    formKey: Default
+  - speciesId: 717
+    formKey: Default
+  - speciesId: 718
+    formKey: 50%_Form
+  - speciesId: 718
+    formKey: 10%_Form
+  - speciesId: 718
+    formKey: Complete
+  - speciesId: 722
+    formKey: Default
+  - speciesId: 723
+    formKey: Default
+  - speciesId: 724
+    formKey: Default
+  - speciesId: 724
+    formKey: Hisuian
+  - speciesId: 725
+    formKey: Default
+  - speciesId: 726
+    formKey: Default
+  - speciesId: 727
+    formKey: Default
+  - speciesId: 728
+    formKey: Default
+  - speciesId: 729
+    formKey: Default
+  - speciesId: 730
+    formKey: Default
+  - speciesId: 731
+    formKey: Default
+  - speciesId: 732
+    formKey: Default
+  - speciesId: 733
+    formKey: Default
+  - speciesId: 734
+    formKey: Default
+  - speciesId: 735
+    formKey: Default
+  - speciesId: 736
+    formKey: Default
+  - speciesId: 737
+    formKey: Default
+  - speciesId: 738
+    formKey: Default
+  - speciesId: 739
+    formKey: Default
+  - speciesId: 740
+    formKey: Default
+  - speciesId: 741
+    formKey: Baile
+  - speciesId: 741
+    formKey: Pom-Pom
+  - speciesId: 741
+    formKey: Pa'u
+  - speciesId: 741
+    formKey: Sensu
+  - speciesId: 742
+    formKey: Default
+  - speciesId: 743
+    formKey: Default
+  - speciesId: 744
+    formKey: Default
+  - speciesId: 745
+    formKey: Midday
+  - speciesId: 745
+    formKey: Midnight
+  - speciesId: 745
+    formKey: Dusk
+  - speciesId: 746
+    formKey: Solo
+  - speciesId: 746
+    formKey: School
+  - speciesId: 747
+    formKey: Default
+  - speciesId: 748
+    formKey: Default
+  - speciesId: 749
+    formKey: Default
+  - speciesId: 750
+    formKey: Default
+  - speciesId: 751
+    formKey: Default
+  - speciesId: 752
+    formKey: Default
+  - speciesId: 753
+    formKey: Default
+  - speciesId: 754
+    formKey: Default
+  - speciesId: 755
+    formKey: Default
+  - speciesId: 756
+    formKey: Default
+  - speciesId: 757
+    formKey: Default
+  - speciesId: 758
+    formKey: Default
+  - speciesId: 759
+    formKey: Default
+  - speciesId: 760
+    formKey: Default
+  - speciesId: 761
+    formKey: Default
+  - speciesId: 762
+    formKey: Default
+  - speciesId: 763
+    formKey: Default
+  - speciesId: 764
+    formKey: Default
+  - speciesId: 765
+    formKey: Default
+  - speciesId: 766
+    formKey: Default
+  - speciesId: 767
+    formKey: Default
+  - speciesId: 768
+    formKey: Default
+  - speciesId: 769
+    formKey: Default
+  - speciesId: 770
+    formKey: Default
+  - speciesId: 771
+    formKey: Default
+  - speciesId: 772
+    formKey: Default
+  - speciesId: 773
+    formKey: Default
+  - speciesId: 774
+    formKey: Meteor
+  - speciesId: 774
+    formKey: Red
+  - speciesId: 774
+    formKey: Orange
+  - speciesId: 774
+    formKey: Yellow
+  - speciesId: 774
+    formKey: Green
+  - speciesId: 774
+    formKey: Blue
+  - speciesId: 774
+    formKey: Indigo
+  - speciesId: 774
+    formKey: Purple
+  - speciesId: 775
+    formKey: Default
+  - speciesId: 776
+    formKey: Default
+  - speciesId: 777
+    formKey: Default
+  - speciesId: 778
+    formKey: Default
+  - speciesId: 779
+    formKey: Default
+  - speciesId: 780
+    formKey: Default
+  - speciesId: 781
+    formKey: Default
+  - speciesId: 782
+    formKey: Default
+  - speciesId: 783
+    formKey: Default
+  - speciesId: 784
+    formKey: Default
+  - speciesId: 785
+    formKey: Default
+  - speciesId: 786
+    formKey: Default
+  - speciesId: 787
+    formKey: Default
+  - speciesId: 788
+    formKey: Default
+  - speciesId: 789
+    formKey: Default
+  - speciesId: 790
+    formKey: Default
+  - speciesId: 791
+    formKey: Default
+  - speciesId: 792
+    formKey: Default
+  - speciesId: 793
+    formKey: Default
+  - speciesId: 794
+    formKey: Default
+  - speciesId: 795
+    formKey: Default
+  - speciesId: 796
+    formKey: Default
+  - speciesId: 797
+    formKey: Default
+  - speciesId: 798
+    formKey: Default
+  - speciesId: 799
+    formKey: Default
+  - speciesId: 800
+    formKey: Default
+  - speciesId: 800
+    formKey: Dusk Mane
+  - speciesId: 800
+    formKey: Dawn Wings
+  - speciesId: 800
+    formKey: Ultra
+  - speciesId: 803
+    formKey: Default
+  - speciesId: 804
+    formKey: Default
+  - speciesId: 805
+    formKey: Default
+  - speciesId: 806
+    formKey: Default
+  - speciesId: 810
+    formKey: Default
+  - speciesId: 811
+    formKey: Default
+  - speciesId: 812
+    formKey: Default
+  - speciesId: 813
+    formKey: Default
+  - speciesId: 814
+    formKey: Default
+  - speciesId: 815
+    formKey: Default
+  - speciesId: 816
+    formKey: Default
+  - speciesId: 817
+    formKey: Default
+  - speciesId: 818
+    formKey: Default
+  - speciesId: 819
+    formKey: Default
+  - speciesId: 820
+    formKey: Default
+  - speciesId: 821
+    formKey: Default
+  - speciesId: 822
+    formKey: Default
+  - speciesId: 823
+    formKey: Default
+  - speciesId: 824
+    formKey: Default
+  - speciesId: 825
+    formKey: Default
+  - speciesId: 826
+    formKey: Default
+  - speciesId: 827
+    formKey: Default
+  - speciesId: 828
+    formKey: Default
+  - speciesId: 829
+    formKey: Default
+  - speciesId: 830
+    formKey: Default
+  - speciesId: 831
+    formKey: Default
+  - speciesId: 832
+    formKey: Default
+  - speciesId: 833
+    formKey: Default
+  - speciesId: 834
+    formKey: Default
+  - speciesId: 835
+    formKey: Default
+  - speciesId: 836
+    formKey: Default
+  - speciesId: 837
+    formKey: Default
+  - speciesId: 838
+    formKey: Default
+  - speciesId: 839
+    formKey: Default
+  - speciesId: 840
+    formKey: Default
+  - speciesId: 841
+    formKey: Default
+  - speciesId: 842
+    formKey: Default
+  - speciesId: 843
+    formKey: Default
+  - speciesId: 844
+    formKey: Default
+  - speciesId: 845
+    formKey: Default
+  - speciesId: 846
+    formKey: Default
+  - speciesId: 847
+    formKey: Default
+  - speciesId: 848
+    formKey: Default
+  - speciesId: 849
+    formKey: Amped
+  - speciesId: 849
+    formKey: Low-Key
+  - speciesId: 850
+    formKey: Default
+  - speciesId: 851
+    formKey: Default
+  - speciesId: 852
+    formKey: Default
+  - speciesId: 853
+    formKey: Default
+  - speciesId: 854
+    formKey: Default
+  - speciesId: 855
+    formKey: Default
+  - speciesId: 856
+    formKey: Default
+  - speciesId: 857
+    formKey: Default
+  - speciesId: 858
+    formKey: Default
+  - speciesId: 859
+    formKey: Default
+  - speciesId: 860
+    formKey: Default
+  - speciesId: 861
+    formKey: Default
+  - speciesId: 862
+    formKey: Default
+  - speciesId: 863
+    formKey: Default
+  - speciesId: 864
+    formKey: Default
+  - speciesId: 865
+    formKey: Default
+  - speciesId: 866
+    formKey: Default
+  - speciesId: 867
+    formKey: Default
+  - speciesId: 868
+    formKey: Default
+  - speciesId: 869
+    formKey: Default
+  - speciesId: 870
+    formKey: Default
+  - speciesId: 871
+    formKey: Default
+  - speciesId: 872
+    formKey: Default
+  - speciesId: 873
+    formKey: Default
+  - speciesId: 874
+    formKey: Default
+  - speciesId: 875
+    formKey: Ice Face
+  - speciesId: 875
+    formKey: Noice Face
+  - speciesId: 876
+    formKey: Male
+  - speciesId: 876
+    formKey: Female
+  - speciesId: 877
+    formKey: Full Berry Mode
+  - speciesId: 877
+    formKey: Hangry Mode
+  - speciesId: 878
+    formKey: Default
+  - speciesId: 879
+    formKey: Default
+  - speciesId: 880
+    formKey: Default
+  - speciesId: 881
+    formKey: Default
+  - speciesId: 882
+    formKey: Default
+  - speciesId: 883
+    formKey: Default
+  - speciesId: 884
+    formKey: Default
+  - speciesId: 885
+    formKey: Default
+  - speciesId: 886
+    formKey: Default
+  - speciesId: 887
+    formKey: Default
+  - speciesId: 888
+    formKey: Hero of Many Battles
+  - speciesId: 888
+    formKey: Crowned Sword
+  - speciesId: 889
+    formKey: Hero of Many Battles
+  - speciesId: 889
+    formKey: Crowned Sword
+  - speciesId: 890
+    formKey: Default
+  - speciesId: 890
+    formKey: Eternatus
+  - speciesId: 891
+    formKey: Default
+  - speciesId: 892
+    formKey: Single Strike
+  - speciesId: 892
+    formKey: Rapid Strike
+  - speciesId: 894
+    formKey: Default
+  - speciesId: 895
+    formKey: Default
+  - speciesId: 896
+    formKey: Default
+  - speciesId: 897
+    formKey: Default
+  - speciesId: 898
+    formKey: Default
+  - speciesId: 898
+    formKey: Ice Rider
+  - speciesId: 898
+    formKey: Shadow Rider
+  - speciesId: 899
+    formKey: Default
+  - speciesId: 900
+    formKey: Default
+  - speciesId: 901
+    formKey: Default
+  - speciesId: 902
+    formKey: Default
+  - speciesId: 902
+    formKey: Default
+  - speciesId: 903
+    formKey: Default
+  - speciesId: 904
+    formKey: Default
+  - speciesId: 905
+    formKey: Incarnate
+  - speciesId: 905
+    formKey: Therian
+  - speciesId: 906
+    formKey: Default
+  - speciesId: 907
+    formKey: Default
+  - speciesId: 908
+    formKey: Default
+  - speciesId: 909
+    formKey: Default
+  - speciesId: 910
+    formKey: Default
+  - speciesId: 911
+    formKey: Default
+  - speciesId: 912
+    formKey: Default
+  - speciesId: 913
+    formKey: Default
+  - speciesId: 914
+    formKey: Default
+  - speciesId: 915
+    formKey: Default
+  - speciesId: 916
+    formKey: Male
+  - speciesId: 916
+    formKey: Female
+  - speciesId: 917
+    formKey: Default
+  - speciesId: 918
+    formKey: Default
+  - speciesId: 919
+    formKey: Default
+  - speciesId: 920
+    formKey: Default
+  - speciesId: 921
+    formKey: Default
+  - speciesId: 922
+    formKey: Default
+  - speciesId: 923
+    formKey: Default
+  - speciesId: 924
+    formKey: Default
+  - speciesId: 925
+    formKey: Family of Three
+  - speciesId: 925
+    formKey: Family of Four
+  - speciesId: 926
+    formKey: Default
+  - speciesId: 927
+    formKey: Default
+  - speciesId: 928
+    formKey: Default
+  - speciesId: 929
+    formKey: Default
+  - speciesId: 930
+    formKey: Default
+  - speciesId: 931
+    formKey: Green
+  - speciesId: 931
+    formKey: Blue
+  - speciesId: 931
+    formKey: Yellow
+  - speciesId: 931
+    formKey: White
+  - speciesId: 932
+    formKey: Default
+  - speciesId: 933
+    formKey: Default
+  - speciesId: 934
+    formKey: Default
+  - speciesId: 935
+    formKey: Default
+  - speciesId: 936
+    formKey: Default
+  - speciesId: 937
+    formKey: Default
+  - speciesId: 938
+    formKey: Default
+  - speciesId: 939
+    formKey: Default
+  - speciesId: 940
+    formKey: Default
+  - speciesId: 941
+    formKey: Default
+  - speciesId: 942
+    formKey: Default
+  - speciesId: 943
+    formKey: Default
+  - speciesId: 944
+    formKey: Default
+  - speciesId: 945
+    formKey: Default
+  - speciesId: 946
+    formKey: Default
+  - speciesId: 947
+    formKey: Default
+  - speciesId: 948
+    formKey: Default
+  - speciesId: 949
+    formKey: Default
+  - speciesId: 950
+    formKey: Default
+  - speciesId: 951
+    formKey: Default
+  - speciesId: 952
+    formKey: Default
+  - speciesId: 953
+    formKey: Default
+  - speciesId: 954
+    formKey: Default
+  - speciesId: 955
+    formKey: Default
+  - speciesId: 956
+    formKey: Default
+  - speciesId: 957
+    formKey: Default
+  - speciesId: 958
+    formKey: Default
+  - speciesId: 959
+    formKey: Default
+  - speciesId: 960
+    formKey: Default
+  - speciesId: 961
+    formKey: Default
+  - speciesId: 962
+    formKey: Default
+  - speciesId: 963
+    formKey: Default
+  - speciesId: 964
+    formKey: Zero
+  - speciesId: 964
+    formKey: Hero
+  - speciesId: 965
+    formKey: Default
+  - speciesId: 966
+    formKey: Default
+  - speciesId: 967
+    formKey: Default
+  - speciesId: 968
+    formKey: Default
+  - speciesId: 969
+    formKey: Default
+  - speciesId: 970
+    formKey: Default
+  - speciesId: 971
+    formKey: Default
+  - speciesId: 972
+    formKey: Default
+  - speciesId: 973
+    formKey: Default
+  - speciesId: 974
+    formKey: Default
+  - speciesId: 975
+    formKey: Default
+  - speciesId: 976
+    formKey: Default
+  - speciesId: 977
+    formKey: Default
+  - speciesId: 978
+    formKey: Curly
+  - speciesId: 978
+    formKey: Droopy
+  - speciesId: 978
+    formKey: Stretchy
+  - speciesId: 979
+    formKey: Default
+  - speciesId: 980
+    formKey: Default
+  - speciesId: 981
+    formKey: Default
+  - speciesId: 982
+    formKey: Two-Segment
+  - speciesId: 982
+    formKey: Default
+  - speciesId: 983
+    formKey: Default
+  - speciesId: 984
+    formKey: Default
+  - speciesId: 985
+    formKey: Default
+  - speciesId: 986
+    formKey: Default
+  - speciesId: 987
+    formKey: Default
+  - speciesId: 988
+    formKey: Default
+  - speciesId: 989
+    formKey: Default
+  - speciesId: 990
+    formKey: Default
+  - speciesId: 991
+    formKey: Default
+  - speciesId: 992
+    formKey: Default
+  - speciesId: 993
+    formKey: Default
+  - speciesId: 994
+    formKey: Default
+  - speciesId: 995
+    formKey: Default
+  - speciesId: 996
+    formKey: Default
+  - speciesId: 997
+    formKey: Default
+  - speciesId: 998
+    formKey: Default
+  - speciesId: 999
+    formKey: Chest
+  - speciesId: 999
+    formKey: Roaming
+  - speciesId: 1000
+    formKey: Default
+  - speciesId: 1001
+    formKey: Default
+  - speciesId: 1002
+    formKey: Default
+  - speciesId: 1003
+    formKey: Default
+  - speciesId: 1004
+    formKey: Default
+  - speciesId: 1005
+    formKey: Default
+  - speciesId: 1006
+    formKey: Default
+  - speciesId: 1007
+    formKey: Default
+  - speciesId: 1008
+    formKey: Default
+  - speciesId: 1009
+    formKey: Default
+  - speciesId: 1010
+    formKey: Default

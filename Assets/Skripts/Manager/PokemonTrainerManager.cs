@@ -51,6 +51,11 @@ namespace PokeClicker
 
             Progress = Profile.ProgressTracker ?? new ClickProgressTracker();
 
+            if (Profile.BallInventory == null)
+            {
+                Profile.BallInventory = new PokeballInventory();
+            }
+
             _repo.LoadOwnedPokemon(T_uid, out var table, out var party, out var boxes);
             _owned.LoadFromData(table, party, boxes);
 
@@ -98,10 +103,11 @@ namespace PokeClicker
     [Serializable]
     public class TrainerProfile
     {
-        public int T_uid;
-        public string TrainerName;
-        public DateTime CreatedAt;
-        public ClickProgressTracker ProgressTracker;
+        public int T_uid;                               // 트레이너 UID
+        public string TrainerName;                      // 트레이너 별명
+        public DateTime CreatedAt;                      // 생성일자
+        public ClickProgressTracker ProgressTracker;    // 클릭수 
+        public PokeballInventory BallInventory;         // 몬스터볼 인벤토리
     }
 
     public interface ITrainerRepository
