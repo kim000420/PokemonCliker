@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2717170500649456251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 6
+  typePair:
+    hasDualType: 1
+    primary: 3
+    secondary: 16
+  baseStats:
+    hp: 72
+    atk: 145
+    def: 67
+    spa: 153
+    spd: 71
+    spe: 132
+  visual: {fileID: 11400000, guid: 18c31922af5c88144b4afd112064026f, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0658_Greninja
+  m_EditorClassIdentifier: 
+  speciesId: 658
+  nameKeyEng: Greninja
+  nameKeyKor: "\uAC1C\uAD74\uB2CC\uC790"
+  rarityCategory: 0
+  catchRate: 45
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 100
+  curveType: 3
+  maxLevel: 100
+  forms:
+  - {fileID: -2717170500649456251}

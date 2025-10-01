@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 639adf82ae8cff94fbc50987f646d392, type: 3}
+  m_Name: 0374_Beldum_Default_Visual
+  m_EditorClassIdentifier: 
+  icon: {fileID: -585950752920692247, guid: 463a005ed61d3b54a98952ae9a8cd4fc, type: 3}
+  shinyIcon: {fileID: -585950752920692247, guid: 05ff516d27b3a8d4586e0f12f896920c, type: 3}
+  frontFrames:
+  - {fileID: -585950752920692247, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: -2618284566254821433, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: 5669331156436438462, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: -4526715557251591981, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: 8102779462409573129, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: -2635199842776295701, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: -4873248667496933816, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: 5069974902879694404, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: 1125580136688146416, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: -7710088470134271041, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: 8110569971374406929, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: 9211323250283960813, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: -7268821127431082527, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: -3005350072705574476, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: 6940503807804622071, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: -4166532211630198975, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: -3325605898070051246, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: 6822894064194695670, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: -7461468747494139628, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: 5519689905105609108, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: 8217551630635055789, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: 1747613070920206424, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: 6420522346471650120, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: -8451496355311768998, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: 4694709415058179903, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: -2245675108962291517, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: -7989557365069191779, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: 1132636745996795008, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: 2346168227833353331, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: 1241664587664308217, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: -6001397149617726745, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: 2568409878067497742, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: 4558364768694844669, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  - {fileID: -7451640427492570151, guid: 85d5e02d917e78e4e819f23fea3ddef6, type: 3}
+  frontAnimationFps: 6
+  shinyFrontFrames:
+  - {fileID: -585950752920692247, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: -2618284566254821433, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: 5669331156436438462, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: -4526715557251591981, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: 8102779462409573129, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: -2635199842776295701, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: -4873248667496933816, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: 5069974902879694404, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: 1125580136688146416, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: -7710088470134271041, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: 8110569971374406929, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: 9211323250283960813, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: -7268821127431082527, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: -3005350072705574476, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: 6940503807804622071, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: -4166532211630198975, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: -3325605898070051246, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: 6822894064194695670, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: -7461468747494139628, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: 5519689905105609108, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: 8217551630635055789, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: 1747613070920206424, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: 6420522346471650120, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: -8451496355311768998, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: 4694709415058179903, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: -2245675108962291517, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: -7989557365069191779, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: 1132636745996795008, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: 2346168227833353331, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: 1241664587664308217, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: -6001397149617726745, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: 2568409878067497742, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: 4558364768694844669, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  - {fileID: -7451640427492570151, guid: 853c63dfedeb660438403febb6f71d9f, type: 3}
+  shinyFrontAnimationFps: 6

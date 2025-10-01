@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5913767925517614710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Plant
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Plant
+  generation: 4
+  typePair:
+    hasDualType: 1
+    primary: 12
+    secondary: 4
+  baseStats:
+    hp: 60
+    atk: 59
+    def: 85
+    spa: 79
+    spd: 105
+    spe: 36
+  visual: {fileID: 11400000, guid: 8f04bc763a72ead4184bb2c16fef26f1, type: 2}
+--- !u!114 &-1367333450614868555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Sandy
+  m_EditorClassIdentifier: 
+  formId: 1
+  formKey: Sandy
+  generation: 4
+  typePair:
+    hasDualType: 1
+    primary: 12
+    secondary: 9
+  baseStats:
+    hp: 60
+    atk: 79
+    def: 105
+    spa: 59
+    spd: 85
+    spe: 36
+  visual: {fileID: 11400000, guid: a1fad9fcd769c514faf3fab2011f7560, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0413_Wormadam
+  m_EditorClassIdentifier: 
+  speciesId: 413
+  nameKeyEng: Wormadam
+  nameKeyKor: "\uB3C4\uB871\uB9C8\uB2F4"
+  rarityCategory: 0
+  catchRate: 45
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 0
+  curveType: 2
+  maxLevel: 100
+  forms:
+  - {fileID: -5913767925517614710}
+  - {fileID: -1367333450614868555}
+  - {fileID: 6494375418026568425}
+--- !u!114 &6494375418026568425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Trash
+  m_EditorClassIdentifier: 
+  formId: 2
+  formKey: Trash
+  generation: 4
+  typePair:
+    hasDualType: 1
+    primary: 12
+    secondary: 17
+  baseStats:
+    hp: 60
+    atk: 69
+    def: 95
+    spa: 69
+    spd: 95
+    spe: 36
+  visual: {fileID: 11400000, guid: 77fe6d527b0f4f0458fd84ef168759c4, type: 2}

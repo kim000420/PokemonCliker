@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6419604816208972712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Mega
+  m_EditorClassIdentifier: 
+  formId: 1
+  formKey: Mega
+  generation: 4
+  typePair:
+    hasDualType: 1
+    primary: 1
+    secondary: 7
+  baseStats:
+    hp: 65
+    atk: 136
+    def: 94
+    spa: 54
+    spd: 96
+    spe: 135
+  visual: {fileID: 11400000, guid: 123d8539a8f58d84f9245e449517f196, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0428_Lopunny
+  m_EditorClassIdentifier: 
+  speciesId: 428
+  nameKeyEng: Lopunny
+  nameKeyKor: "\uC774\uC5B4\uB86D"
+  rarityCategory: 0
+  catchRate: 60
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 2
+  maxLevel: 100
+  forms:
+  - {fileID: 6858971004378761900}
+  - {fileID: -6419604816208972712}
+--- !u!114 &6858971004378761900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 4
+  typePair:
+    hasDualType: 0
+    primary: 1
+    secondary: 0
+  baseStats:
+    hp: 65
+    atk: 76
+    def: 84
+    spa: 54
+    spd: 96
+    spe: 105
+  visual: {fileID: 11400000, guid: bc0521d9fce7758488c090bb0c893f6a, type: 2}

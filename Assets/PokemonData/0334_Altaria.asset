@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2296570721905958040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 3
+  typePair:
+    hasDualType: 1
+    primary: 15
+    secondary: 10
+  baseStats:
+    hp: 75
+    atk: 70
+    def: 90
+    spa: 70
+    spd: 105
+    spe: 80
+  visual: {fileID: 11400000, guid: 8f5dce15859c662488a2de0b6d704dda, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0334_Altaria
+  m_EditorClassIdentifier: 
+  speciesId: 334
+  nameKeyEng: Altaria
+  nameKeyKor: "\uD30C\uBE44\uCF54\uB9AC"
+  rarityCategory: 0
+  catchRate: 45
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 0
+  maxLevel: 100
+  forms:
+  - {fileID: -2296570721905958040}
+  - {fileID: 861083581223744425}
+--- !u!114 &861083581223744425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Mega
+  m_EditorClassIdentifier: 
+  formId: 1
+  formKey: Mega
+  generation: 3
+  typePair:
+    hasDualType: 1
+    primary: 15
+    secondary: 18
+  baseStats:
+    hp: 75
+    atk: 110
+    def: 110
+    spa: 110
+    spd: 105
+    spe: 80
+  visual: {fileID: 11400000, guid: 82e7c7fb22f595b43a630f9019a52fd9, type: 2}

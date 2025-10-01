@@ -49,61 +49,35 @@ namespace PokeClicker
         /// </summary>
         public void ClaimReward()
         {
-            // 1. 클릭 횟수가 충분한지 확인
+
             if (trainerManager.Progress.totalInputs < requiredClicks)
             {
                 Debug.Log("클릭 횟수가 부족하여 보상을 받을 수 없습니다.");
-                // 여기에 "클릭이 부족합니다" 같은 UI 피드백을 추가할 수 있습니다.
+                rewardClaimUI.ShowFeedback("클릭 횟수가 부족합니다!");
                 return;
             }
 
-            // 2. 클릭 횟수 차감 (totalInputs을 직접 줄이는 대신, 별도의 변수를 사용할 수도 있습니다)
-            // 여기서는 간단하게 totalInputs을 직접 차감하겠습니다.
             trainerManager.Progress.totalInputs -= requiredClicks;
-            var rewardedBalls = GrantRandomPokeball(); // 지급된 볼 목록을 받음
-
-            rewardClaimUI.StartClaimAnimation(rewardedBalls);
             Debug.Log($"{requiredClicks} 클릭을 소모했습니다. 남은 클릭: {trainerManager.Progress.totalInputs}");
 
-            // UI 컨트롤러에 연출 시작을 요청
-            rewardClaimUI.StartClaimAnimation(rewardedBalls);
-
-            // 타이머 초기화
-            TimeRemaining = rewardIntervalMinutes * 60;
+            GrantRandomPokeball();
         }
 
-        private List<string> GrantRandomPokeball()
+        private void GrantRandomPokeball()
         {
             var inventory = trainerManager.Profile.BallInventory;
-            if (inventory == null) return new List<string>();
+            if (inventory == null) return;
 
-            var rewardedBalls = new List<string>();
-
+            // 보상 지급 로직
             float roll = Random.value;
-            if (roll < 0.01f)
-            {
-                inventory.AddBallCount(BallId.MasterBall, 1);
-                rewardedBalls.Add(BallId.MasterBall);
-            }
-            else if (roll < 0.06f)
-            {
-                inventory.AddBallCount(BallId.HyperBall, 1);
-                rewardedBalls.Add(BallId.HyperBall);
-            }
-            else
-            {
-                inventory.AddBallCount(BallId.PokeBall, 1);
-                rewardedBalls.Add(BallId.PokeBall);
-            }
+            if (roll < 0.01f) { inventory.AddBallCount(BallId.MasterBall, 1); }
+            else if (roll < 0.06f) { inventory.AddBallCount(BallId.HyperBall, 1); }
+            else { inventory.AddBallCount(BallId.PokeBall, 1); }
 
-            if (Random.value < 0.20f)
-            {
-                inventory.AddBallCount(BallId.PremierBall, 1);
-                rewardedBalls.Add(BallId.PremierBall);
-            }
+            if (Random.value < 0.20f) { inventory.AddBallCount(BallId.PremierBall, 1); }
 
+            // 보상 지급 후 즉시 저장
             trainerManager.Save();
-            return rewardedBalls;
         }
     }
 }

@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0995_IronThorns
+  m_EditorClassIdentifier: 
+  speciesId: 995
+  nameKeyEng: IronThorns
+  nameKeyKor: "\uBB34\uC1E0\uAC00\uC2DC"
+  rarityCategory: 2
+  catchRate: 30
+  genderPolicy:
+    hasGender: 0
+    maleRate0to100: 0
+  curveType: 4
+  maxLevel: 100
+  forms:
+  - {fileID: 6697197683241554880}
+--- !u!114 &6697197683241554880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 9
+  typePair:
+    hasDualType: 1
+    primary: 13
+    secondary: 5
+  baseStats:
+    hp: 100
+    atk: 134
+    def: 110
+    spa: 70
+    spd: 84
+    spe: 72
+  visual: {fileID: 11400000, guid: 6fc9f0da3c119aa4db92349da90715f0, type: 2}

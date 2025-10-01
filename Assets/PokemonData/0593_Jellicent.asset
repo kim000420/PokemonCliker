@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0593_Jellicent
+  m_EditorClassIdentifier: 
+  speciesId: 593
+  nameKeyEng: Jellicent
+  nameKeyKor: "\uD0F1\uD0F1\uAC94"
+  rarityCategory: 0
+  catchRate: 60
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 2
+  maxLevel: 100
+  forms:
+  - {fileID: 2685733802194925938}
+--- !u!114 &2685733802194925938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 5
+  typePair:
+    hasDualType: 1
+    primary: 3
+    secondary: 14
+  baseStats:
+    hp: 100
+    atk: 60
+    def: 70
+    spa: 85
+    spd: 105
+    spe: 60
+  visual: {fileID: 11400000, guid: 02b5eef1ee33f684ab0216a69e01c3a9, type: 2}

@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8906997345038538018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Pom-Pom
+  m_EditorClassIdentifier: 
+  formId: 1
+  formKey: Pom-Pom
+  generation: 7
+  typePair:
+    hasDualType: 1
+    primary: 5
+    secondary: 10
+  baseStats:
+    hp: 75
+    atk: 70
+    def: 70
+    spa: 98
+    spd: 70
+    spe: 93
+  visual: {fileID: 11400000, guid: af32b1d4ece010b458e3f137a8bb9e92, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0741_Oricorio
+  m_EditorClassIdentifier: 
+  speciesId: 741
+  nameKeyEng: Oricorio
+  nameKeyKor: "\uCDA4\uCD94\uC0C8"
+  rarityCategory: 0
+  catchRate: 45
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 25
+  curveType: 2
+  maxLevel: 100
+  forms:
+  - {fileID: 3851873169042611390}
+  - {fileID: -8906997345038538018}
+  - {fileID: 3760558429417744168}
+  - {fileID: 3593731730825017984}
+--- !u!114 &3593731730825017984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Sensu
+  m_EditorClassIdentifier: 
+  formId: 3
+  formKey: Sensu
+  generation: 7
+  typePair:
+    hasDualType: 1
+    primary: 14
+    secondary: 10
+  baseStats:
+    hp: 75
+    atk: 70
+    def: 70
+    spa: 98
+    spd: 70
+    spe: 93
+  visual: {fileID: 11400000, guid: ce079800ca8fdc24a95009ff12d57b77, type: 2}
+--- !u!114 &3760558429417744168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Pa'u
+  m_EditorClassIdentifier: 
+  formId: 2
+  formKey: Pa'u
+  generation: 7
+  typePair:
+    hasDualType: 1
+    primary: 11
+    secondary: 10
+  baseStats:
+    hp: 75
+    atk: 70
+    def: 70
+    spa: 98
+    spd: 70
+    spe: 93
+  visual: {fileID: 11400000, guid: e270d6a7349207a4ca5d111a54e03472, type: 2}
+--- !u!114 &3851873169042611390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 7
+  typePair:
+    hasDualType: 1
+    primary: 2
+    secondary: 10
+  baseStats:
+    hp: 75
+    atk: 70
+    def: 70
+    spa: 98
+    spd: 70
+    spe: 93
+  visual: {fileID: 11400000, guid: 5b833345445d0014ba06a64a7d30dc9a, type: 2}

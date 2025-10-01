@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-1110678346240786466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 5
+  typePair:
+    hasDualType: 0
+    primary: 6
+    secondary: 0
+  baseStats:
+    hp: 80
+    atk: 50
+    def: 50
+    spa: 95
+    spd: 135
+    spe: 105
+  visual: {fileID: 11400000, guid: 61aec9e21a0c6b04b874255601b43c4e, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0615_Cryogonal
+  m_EditorClassIdentifier: 
+  speciesId: 615
+  nameKeyEng: Cryogonal
+  nameKeyKor: "\uD504\uB9AC\uC9C0\uC624"
+  rarityCategory: 0
+  catchRate: 25
+  genderPolicy:
+    hasGender: 0
+    maleRate0to100: 0
+  curveType: 2
+  maxLevel: 100
+  forms:
+  - {fileID: -1110678346240786466}

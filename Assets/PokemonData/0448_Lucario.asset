@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3493097124761245372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Mega
+  m_EditorClassIdentifier: 
+  formId: 1
+  formKey: Mega
+  generation: 4
+  typePair:
+    hasDualType: 1
+    primary: 7
+    secondary: 17
+  baseStats:
+    hp: 70
+    atk: 145
+    def: 88
+    spa: 140
+    spd: 70
+    spe: 112
+  visual: {fileID: 11400000, guid: b72f15d64c6c94f428e6780d6adc7f53, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0448_Lucario
+  m_EditorClassIdentifier: 
+  speciesId: 448
+  nameKeyEng: Lucario
+  nameKeyKor: "\uB8E8\uCE74\uB9AC\uC624"
+  rarityCategory: 0
+  catchRate: 45
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 88
+  curveType: 3
+  maxLevel: 100
+  forms:
+  - {fileID: 3041156702740660739}
+  - {fileID: -3493097124761245372}
+--- !u!114 &3041156702740660739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 4
+  typePair:
+    hasDualType: 1
+    primary: 7
+    secondary: 17
+  baseStats:
+    hp: 70
+    atk: 110
+    def: 70
+    spa: 115
+    spd: 70
+    spe: 90
+  visual: {fileID: 11400000, guid: 9fefa89a09555ed43b1d5ff73db372d4, type: 2}

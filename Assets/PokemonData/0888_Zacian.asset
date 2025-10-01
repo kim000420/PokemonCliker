@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-832513095855105473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Crowned Sword
+  m_EditorClassIdentifier: 
+  formId: 1
+  formKey: Crowned Sword
+  generation: 8
+  typePair:
+    hasDualType: 1
+    primary: 18
+    secondary: 17
+  baseStats:
+    hp: 92
+    atk: 150
+    def: 115
+    spa: 80
+    spd: 115
+    spe: 148
+  visual: {fileID: 11400000, guid: 0cffeadb96904ae4a8aca8f9f3f5ebd8, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0888_Zacian
+  m_EditorClassIdentifier: 
+  speciesId: 888
+  nameKeyEng: Zacian
+  nameKeyKor: "\uC790\uC2DC\uC548"
+  rarityCategory: 1
+  catchRate: 10
+  genderPolicy:
+    hasGender: 0
+    maleRate0to100: 0
+  curveType: 4
+  maxLevel: 100
+  forms:
+  - {fileID: 7436195895905819870}
+  - {fileID: -832513095855105473}
+--- !u!114 &7436195895905819870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 8
+  typePair:
+    hasDualType: 0
+    primary: 18
+    secondary: 0
+  baseStats:
+    hp: 92
+    atk: 120
+    def: 115
+    spa: 80
+    spd: 115
+    spe: 138
+  visual: {fileID: 11400000, guid: d6b315f1ed5c5e2419373208baf2de09, type: 2}

@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-1444090761132462445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 4
+  typePair:
+    hasDualType: 1
+    primary: 6
+    secondary: 9
+  baseStats:
+    hp: 110
+    atk: 130
+    def: 80
+    spa: 70
+    spd: 60
+    spe: 80
+  visual: {fileID: 11400000, guid: beb73c09ccd5e21488b3e9793d1160cf, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0473_Mamoswine
+  m_EditorClassIdentifier: 
+  speciesId: 473
+  nameKeyEng: Mamoswine
+  nameKeyKor: "\uB9D8\uBAA8\uAFB8\uB9AC"
+  rarityCategory: 0
+  catchRate: 50
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 4
+  maxLevel: 100
+  forms:
+  - {fileID: -1444090761132462445}

@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5066010799478961668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 6
+  typePair:
+    hasDualType: 1
+    primary: 14
+    secondary: 4
+  baseStats:
+    hp: 65
+    atk: 90
+    def: 122
+    spa: 58
+    spd: 75
+    spe: 84
+  visual: {fileID: 11400000, guid: 7c786458905f9f740b3050ddd2c3e2c6, type: 2}
+--- !u!114 &-213973764540617633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Super
+  m_EditorClassIdentifier: 
+  formId: 3
+  formKey: Super
+  generation: 6
+  typePair:
+    hasDualType: 1
+    primary: 14
+    secondary: 4
+  baseStats:
+    hp: 85
+    atk: 100
+    def: 122
+    spa: 58
+    spd: 75
+    spe: 54
+  visual: {fileID: 11400000, guid: 1411a0c4198f8614b95120dda88a2745, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0711_Gourgeist
+  m_EditorClassIdentifier: 
+  speciesId: 711
+  nameKeyEng: Gourgeist
+  nameKeyKor: "\uD38C\uD0A8\uC778"
+  rarityCategory: 0
+  catchRate: 60
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 2
+  maxLevel: 100
+  forms:
+  - {fileID: -5066010799478961668}
+  - {fileID: 8351761943904826662}
+  - {fileID: 2432492759901204141}
+  - {fileID: -213973764540617633}
+--- !u!114 &2432492759901204141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Large
+  m_EditorClassIdentifier: 
+  formId: 2
+  formKey: Large
+  generation: 6
+  typePair:
+    hasDualType: 1
+    primary: 14
+    secondary: 4
+  baseStats:
+    hp: 75
+    atk: 95
+    def: 122
+    spa: 58
+    spd: 75
+    spe: 69
+  visual: {fileID: 11400000, guid: b5aa0f3ca81aacd41b212bc51d0a7ffa, type: 2}
+--- !u!114 &8351761943904826662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Average
+  m_EditorClassIdentifier: 
+  formId: 1
+  formKey: Average
+  generation: 6
+  typePair:
+    hasDualType: 1
+    primary: 14
+    secondary: 4
+  baseStats:
+    hp: 55
+    atk: 85
+    def: 122
+    spa: 58
+    spd: 75
+    spe: 99
+  visual: {fileID: 11400000, guid: f1777136d57af504196bfc7032e5f373, type: 2}

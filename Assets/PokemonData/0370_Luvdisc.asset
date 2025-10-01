@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0370_Luvdisc
+  m_EditorClassIdentifier: 
+  speciesId: 370
+  nameKeyEng: Luvdisc
+  nameKeyKor: "\uC0AC\uB791\uB3D9\uC774"
+  rarityCategory: 0
+  catchRate: 225
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 25
+  curveType: 1
+  maxLevel: 100
+  forms:
+  - {fileID: 1509084539936395895}
+--- !u!114 &1509084539936395895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 3
+  typePair:
+    hasDualType: 0
+    primary: 3
+    secondary: 0
+  baseStats:
+    hp: 43
+    atk: 30
+    def: 55
+    spa: 40
+    spd: 65
+    spe: 97
+  visual: {fileID: 11400000, guid: 7b0c7fa143d88494da541116751e4768, type: 2}

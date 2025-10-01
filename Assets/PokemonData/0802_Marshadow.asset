@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3130501025901900739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 7
+  typePair:
+    hasDualType: 1
+    primary: 7
+    secondary: 14
+  baseStats:
+    hp: 90
+    atk: 125
+    def: 80
+    spa: 90
+    spd: 90
+    spe: 125
+  visual: {fileID: 11400000, guid: 3f79af20f80edd743816d1aa542c2b96, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0802_Marshadow
+  m_EditorClassIdentifier: 
+  speciesId: 802
+  nameKeyEng: Marshadow
+  nameKeyKor: "\uB9C8\uC0E4\uB3C4"
+  rarityCategory: 3
+  catchRate: 3
+  genderPolicy:
+    hasGender: 0
+    maleRate0to100: 0
+  curveType: 4
+  maxLevel: 100
+  forms:
+  - {fileID: -3130501025901900739}

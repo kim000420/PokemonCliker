@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0836_Boltund
+  m_EditorClassIdentifier: 
+  speciesId: 836
+  nameKeyEng: Boltund
+  nameKeyKor: "\uD384\uC2A4\uBA4D"
+  rarityCategory: 0
+  catchRate: 45
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 1
+  maxLevel: 100
+  forms:
+  - {fileID: 4056262014721299563}
+--- !u!114 &4056262014721299563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 8
+  typePair:
+    hasDualType: 0
+    primary: 5
+    secondary: 0
+  baseStats:
+    hp: 69
+    atk: 90
+    def: 60
+    spa: 90
+    spd: 60
+    spe: 121
+  visual: {fileID: 11400000, guid: e73bafc5eba0e2b48828e793877d35f2, type: 2}

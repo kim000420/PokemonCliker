@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0451_Skorupi
+  m_EditorClassIdentifier: 
+  speciesId: 451
+  nameKeyEng: Skorupi
+  nameKeyKor: "\uC2A4\uCF5C\uD53C"
+  rarityCategory: 0
+  catchRate: 120
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 4
+  maxLevel: 100
+  forms:
+  - {fileID: 545933734593835728}
+--- !u!114 &545933734593835728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 4
+  typePair:
+    hasDualType: 1
+    primary: 8
+    secondary: 12
+  baseStats:
+    hp: 40
+    atk: 50
+    def: 90
+    spa: 30
+    spd: 55
+    spe: 65
+  visual: {fileID: 11400000, guid: b47bfb5efe5fd2b439841d67806ac52a, type: 2}

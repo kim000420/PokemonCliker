@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4951529997766857183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 4
+  typePair:
+    hasDualType: 0
+    primary: 9
+    secondary: 0
+  baseStats:
+    hp: 68
+    atk: 72
+    def: 78
+    spa: 38
+    spd: 42
+    spe: 32
+  visual: {fileID: 11400000, guid: 6106e0399ad5cf143b98884c9c9d8af6, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0449_Hippopotas
+  m_EditorClassIdentifier: 
+  speciesId: 449
+  nameKeyEng: Hippopotas
+  nameKeyKor: "\uD788\uD3EC\uD3EC\uD0C0\uC2A4"
+  rarityCategory: 0
+  catchRate: 140
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 4
+  maxLevel: 100
+  forms:
+  - {fileID: -4951529997766857183}

@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0907_Floragato
+  m_EditorClassIdentifier: 
+  speciesId: 907
+  nameKeyEng: Floragato
+  nameKeyKor: "\uB098\uB85C\uD14C"
+  rarityCategory: 0
+  catchRate: 45
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 88
+  curveType: 3
+  maxLevel: 100
+  forms:
+  - {fileID: 4729239823786455347}
+--- !u!114 &4729239823786455347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 9
+  typePair:
+    hasDualType: 0
+    primary: 4
+    secondary: 0
+  baseStats:
+    hp: 61
+    atk: 80
+    def: 63
+    spa: 60
+    spd: 63
+    spe: 83
+  visual: {fileID: 11400000, guid: 5ac2e05665b46f0448e5399208cbfbb5, type: 2}

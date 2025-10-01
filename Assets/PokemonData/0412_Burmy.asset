@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0412_Burmy
+  m_EditorClassIdentifier: 
+  speciesId: 412
+  nameKeyEng: Burmy
+  nameKeyKor: "\uB3C4\uB871\uCDA9\uC774"
+  rarityCategory: 0
+  catchRate: 120
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 2
+  maxLevel: 100
+  forms:
+  - {fileID: 7074191557789972625}
+  - {fileID: 4558959157973998797}
+  - {fileID: 4069384682039868452}
+--- !u!114 &4069384682039868452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Trash
+  m_EditorClassIdentifier: 
+  formId: 2
+  formKey: Trash
+  generation: 4
+  typePair:
+    hasDualType: 0
+    primary: 12
+    secondary: 0
+  baseStats:
+    hp: 40
+    atk: 29
+    def: 45
+    spa: 29
+    spd: 45
+    spe: 36
+  visual: {fileID: 11400000, guid: 40e74609c25eefc42ac7f21b1aeea64a, type: 2}
+--- !u!114 &4558959157973998797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Sandy
+  m_EditorClassIdentifier: 
+  formId: 1
+  formKey: Sandy
+  generation: 4
+  typePair:
+    hasDualType: 0
+    primary: 12
+    secondary: 0
+  baseStats:
+    hp: 40
+    atk: 29
+    def: 45
+    spa: 29
+    spd: 45
+    spe: 36
+  visual: {fileID: 11400000, guid: 07f24f171c0494643a3756519ee20143, type: 2}
+--- !u!114 &7074191557789972625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Plant
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Plant
+  generation: 4
+  typePair:
+    hasDualType: 0
+    primary: 12
+    secondary: 0
+  baseStats:
+    hp: 40
+    atk: 29
+    def: 45
+    spa: 29
+    spd: 45
+    spe: 36
+  visual: {fileID: 11400000, guid: 270df17e85fc9ad4f855c2000e160b64, type: 2}

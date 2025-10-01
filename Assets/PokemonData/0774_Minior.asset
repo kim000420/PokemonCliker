@@ -1,0 +1,249 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7860411770375993288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Yellow
+  m_EditorClassIdentifier: 
+  formId: 3
+  formKey: Yellow
+  generation: 7
+  typePair:
+    hasDualType: 1
+    primary: 13
+    secondary: 10
+  baseStats:
+    hp: 60
+    atk: 100
+    def: 60
+    spa: 100
+    spd: 60
+    spe: 120
+  visual: {fileID: 11400000, guid: 2723f2dfedb64214e81cb9dbb8bd0d23, type: 2}
+--- !u!114 &-7314788066664952961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Green
+  m_EditorClassIdentifier: 
+  formId: 4
+  formKey: Green
+  generation: 7
+  typePair:
+    hasDualType: 1
+    primary: 13
+    secondary: 10
+  baseStats:
+    hp: 60
+    atk: 100
+    def: 60
+    spa: 100
+    spd: 60
+    spe: 120
+  visual: {fileID: 11400000, guid: c5a6ce6bc3a8b8b458b575a4d9e2625e, type: 2}
+--- !u!114 &-2832733486593861498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 7
+  typePair:
+    hasDualType: 1
+    primary: 13
+    secondary: 10
+  baseStats:
+    hp: 60
+    atk: 60
+    def: 100
+    spa: 60
+    spd: 100
+    spe: 60
+  visual: {fileID: 11400000, guid: b8c722b5b70ee7e4bb4098858691ea10, type: 2}
+--- !u!114 &-2180017347701794673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Purple
+  m_EditorClassIdentifier: 
+  formId: 7
+  formKey: Purple
+  generation: 7
+  typePair:
+    hasDualType: 1
+    primary: 13
+    secondary: 10
+  baseStats:
+    hp: 60
+    atk: 100
+    def: 60
+    spa: 100
+    spd: 60
+    spe: 120
+  visual: {fileID: 11400000, guid: 6aa931241ff79ce4eb8a752b8147fbfa, type: 2}
+--- !u!114 &-1181491488126690303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Indigo
+  m_EditorClassIdentifier: 
+  formId: 6
+  formKey: Indigo
+  generation: 7
+  typePair:
+    hasDualType: 1
+    primary: 13
+    secondary: 10
+  baseStats:
+    hp: 60
+    atk: 100
+    def: 60
+    spa: 100
+    spd: 60
+    spe: 120
+  visual: {fileID: 11400000, guid: 1b4434736db44f442bc73909558c9e57, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0774_Minior
+  m_EditorClassIdentifier: 
+  speciesId: 774
+  nameKeyEng: Minior
+  nameKeyKor: "\uBA54\uD14C\uB178"
+  rarityCategory: 0
+  catchRate: 255
+  genderPolicy:
+    hasGender: 0
+    maleRate0to100: 0
+  curveType: 3
+  maxLevel: 100
+  forms:
+  - {fileID: -2832733486593861498}
+  - {fileID: 1601027701416320171}
+  - {fileID: 4117995061355297733}
+  - {fileID: -7860411770375993288}
+  - {fileID: -7314788066664952961}
+  - {fileID: 8182951575740487145}
+  - {fileID: -1181491488126690303}
+  - {fileID: -2180017347701794673}
+--- !u!114 &1601027701416320171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Red
+  m_EditorClassIdentifier: 
+  formId: 1
+  formKey: Red
+  generation: 7
+  typePair:
+    hasDualType: 1
+    primary: 13
+    secondary: 10
+  baseStats:
+    hp: 60
+    atk: 100
+    def: 60
+    spa: 100
+    spd: 60
+    spe: 120
+  visual: {fileID: 11400000, guid: 13aa8d7586c612c4fb1fd61d762dfef5, type: 2}
+--- !u!114 &4117995061355297733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Orange
+  m_EditorClassIdentifier: 
+  formId: 2
+  formKey: Orange
+  generation: 7
+  typePair:
+    hasDualType: 1
+    primary: 13
+    secondary: 10
+  baseStats:
+    hp: 60
+    atk: 100
+    def: 60
+    spa: 100
+    spd: 60
+    spe: 120
+  visual: {fileID: 11400000, guid: b70f548307da5314e958902c7d511721, type: 2}
+--- !u!114 &8182951575740487145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Blue
+  m_EditorClassIdentifier: 
+  formId: 5
+  formKey: Blue
+  generation: 7
+  typePair:
+    hasDualType: 1
+    primary: 13
+    secondary: 10
+  baseStats:
+    hp: 60
+    atk: 100
+    def: 60
+    spa: 100
+    spd: 60
+    spe: 120
+  visual: {fileID: 11400000, guid: 5d4d4efe0a4d5b844bf274479e62c1c5, type: 2}

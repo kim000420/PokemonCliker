@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5294851115611050303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 7
+  typePair:
+    hasDualType: 1
+    primary: 1
+    secondary: 10
+  baseStats:
+    hp: 80
+    atk: 120
+    def: 75
+    spa: 75
+    spd: 75
+    spe: 60
+  visual: {fileID: 11400000, guid: d9273faa5ed2c654f82f9c8544119d94, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0733_Toucannon
+  m_EditorClassIdentifier: 
+  speciesId: 733
+  nameKeyEng: Toucannon
+  nameKeyKor: "\uC655\uD070\uBD80\uB9AC"
+  rarityCategory: 0
+  catchRate: 45
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 2
+  maxLevel: 100
+  forms:
+  - {fileID: -5294851115611050303}

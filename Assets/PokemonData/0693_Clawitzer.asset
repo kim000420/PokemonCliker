@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0693_Clawitzer
+  m_EditorClassIdentifier: 
+  speciesId: 693
+  nameKeyEng: Clawitzer
+  nameKeyKor: "\uBE14\uB85C\uC2A4\uD130"
+  rarityCategory: 0
+  catchRate: 55
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 4
+  maxLevel: 100
+  forms:
+  - {fileID: 4751727544835142279}
+--- !u!114 &4751727544835142279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 6
+  typePair:
+    hasDualType: 0
+    primary: 3
+    secondary: 0
+  baseStats:
+    hp: 71
+    atk: 73
+    def: 88
+    spa: 120
+    spd: 89
+    spe: 59
+  visual: {fileID: 11400000, guid: 86c5f36ed55bb4b4f9d19a33e8d277a8, type: 2}

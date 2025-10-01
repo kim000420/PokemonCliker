@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0841_Flapple
+  m_EditorClassIdentifier: 
+  speciesId: 841
+  nameKeyEng: Flapple
+  nameKeyKor: "\uC560\uD504\uB8E1"
+  rarityCategory: 0
+  catchRate: 45
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 0
+  maxLevel: 100
+  forms:
+  - {fileID: 8224399360693373438}
+--- !u!114 &8224399360693373438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 8
+  typePair:
+    hasDualType: 1
+    primary: 4
+    secondary: 15
+  baseStats:
+    hp: 70
+    atk: 110
+    def: 80
+    spa: 95
+    spd: 60
+    spe: 70
+  visual: {fileID: 11400000, guid: f5deeec229f3a5b47b26312fda63f48d, type: 2}

@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9053893552532284198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Mega
+  m_EditorClassIdentifier: 
+  formId: 1
+  formKey: Mega
+  generation: 3
+  typePair:
+    hasDualType: 1
+    primary: 7
+    secondary: 11
+  baseStats:
+    hp: 60
+    atk: 100
+    def: 85
+    spa: 80
+    spd: 85
+    spe: 100
+  visual: {fileID: 11400000, guid: 3ea7e05065b0b0749aa051956b62730b, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0308_Medicham
+  m_EditorClassIdentifier: 
+  speciesId: 308
+  nameKeyEng: Medicham
+  nameKeyKor: "\uC694\uAC00\uB7A8"
+  rarityCategory: 0
+  catchRate: 90
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 2
+  maxLevel: 100
+  forms:
+  - {fileID: 3592710466112168967}
+  - {fileID: -9053893552532284198}
+--- !u!114 &3592710466112168967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 3
+  typePair:
+    hasDualType: 1
+    primary: 7
+    secondary: 11
+  baseStats:
+    hp: 60
+    atk: 60
+    def: 75
+    spa: 60
+    spd: 75
+    spe: 80
+  visual: {fileID: 11400000, guid: bb3a1737823e2534e9c9ce01534263c3, type: 2}

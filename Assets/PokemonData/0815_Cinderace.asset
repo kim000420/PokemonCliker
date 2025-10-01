@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2318124929807311545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 8
+  typePair:
+    hasDualType: 0
+    primary: 2
+    secondary: 0
+  baseStats:
+    hp: 80
+    atk: 116
+    def: 75
+    spa: 65
+    spd: 75
+    spe: 119
+  visual: {fileID: 11400000, guid: a1a649c2f4913f24eaf7895c1d5f0262, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0815_Cinderace
+  m_EditorClassIdentifier: 
+  speciesId: 815
+  nameKeyEng: Cinderace
+  nameKeyKor: "\uC5D0\uC774\uC2A4\uBC88"
+  rarityCategory: 0
+  catchRate: 45
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 88
+  curveType: 3
+  maxLevel: 100
+  forms:
+  - {fileID: -2318124929807311545}

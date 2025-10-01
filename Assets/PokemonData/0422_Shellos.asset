@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0422_Shellos
+  m_EditorClassIdentifier: 
+  speciesId: 422
+  nameKeyEng: Shellos
+  nameKeyKor: "\uAE5D\uC9C8\uBB34"
+  rarityCategory: 0
+  catchRate: 190
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 2
+  maxLevel: 100
+  forms:
+  - {fileID: 5446019181523276195}
+  - {fileID: 8438212780230596986}
+--- !u!114 &5446019181523276195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: East-Sea
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: East-Sea
+  generation: 4
+  typePair:
+    hasDualType: 0
+    primary: 3
+    secondary: 0
+  baseStats:
+    hp: 76
+    atk: 48
+    def: 48
+    spa: 57
+    spd: 62
+    spe: 34
+  visual: {fileID: 11400000, guid: 0afafad77244e3c48b11b9fd0e3dcfa6, type: 2}
+--- !u!114 &8438212780230596986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: West-Sea
+  m_EditorClassIdentifier: 
+  formId: 1
+  formKey: West-Sea
+  generation: 4
+  typePair:
+    hasDualType: 0
+    primary: 3
+    secondary: 0
+  baseStats:
+    hp: 76
+    atk: 48
+    def: 48
+    spa: 57
+    spd: 62
+    spe: 34
+  visual: {fileID: 11400000, guid: ef24a217b396b27449409129057398c6, type: 2}

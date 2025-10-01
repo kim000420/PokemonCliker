@@ -100,6 +100,11 @@ namespace PokeClicker
         private void OnCloseButtonClick()
         {
             gameObject.SetActive(false);
+            var expandedController = GetComponentInParent<ExpandedUIController>();
+            if (expandedController != null)
+            {
+                expandedController.ShowMenuPanel();
+            }
         }
 
         /// <summary>

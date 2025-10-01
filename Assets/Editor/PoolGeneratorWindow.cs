@@ -11,7 +11,7 @@ namespace PokeClicker.EditorTools
     public class PoolGeneratorWindow : EditorWindow
     {
         // --- 설정 ---
-        private const string POKEMON_DB_CSV_PATH = "Assets/Data/PokemonDB_v005.csv"; // PokemonDB.csv 파일의 실제 경로로 수정해주세요.
+        private const string POKEMON_DB_CSV_PATH = "Assets/Data/PokemonDB_v006.csv"; // PokemonDB.csv 파일의 실제 경로로 수정해주세요.
         private const string POOL_DB_PATH = "Assets/Data/PokemonPoolDB.asset";
         private const string POOLS_FOLDER_PATH = "Assets/Data/PokemonPools";
 

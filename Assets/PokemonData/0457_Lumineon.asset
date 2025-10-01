@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3124666342990925723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 4
+  typePair:
+    hasDualType: 0
+    primary: 3
+    secondary: 0
+  baseStats:
+    hp: 69
+    atk: 69
+    def: 76
+    spa: 69
+    spd: 86
+    spe: 91
+  visual: {fileID: 11400000, guid: 7f2720b14921dea4daf4b7825415680a, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0457_Lumineon
+  m_EditorClassIdentifier: 
+  speciesId: 457
+  nameKeyEng: Lumineon
+  nameKeyKor: "\uB124\uC624\uB77C\uC774\uD2B8"
+  rarityCategory: 0
+  catchRate: 75
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 0
+  maxLevel: 100
+  forms:
+  - {fileID: -3124666342990925723}

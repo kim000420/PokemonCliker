@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0247_Pupitar
+  m_EditorClassIdentifier: 
+  speciesId: 247
+  nameKeyEng: Pupitar
+  nameKeyKor: "\uB370\uAE30\uB77C\uC2A4"
+  rarityCategory: 0
+  catchRate: 45
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 4
+  maxLevel: 100
+  forms:
+  - {fileID: 1784847395443895928}
+--- !u!114 &1784847395443895928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 2
+  typePair:
+    hasDualType: 1
+    primary: 13
+    secondary: 9
+  baseStats:
+    hp: 70
+    atk: 84
+    def: 70
+    spa: 65
+    spd: 70
+    spe: 51
+  visual: {fileID: 11400000, guid: 6b8cbe9a976c12c4a91ac33d88d28a51, type: 2}

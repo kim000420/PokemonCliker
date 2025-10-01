@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-1882705877902169120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 5
+  typePair:
+    hasDualType: 1
+    primary: 15
+    secondary: 6
+  baseStats:
+    hp: 125
+    atk: 130
+    def: 90
+    spa: 130
+    spd: 90
+    spe: 95
+  visual: {fileID: 11400000, guid: 8b82c5af3999735488504420576f32c3, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0646_Kyurem
+  m_EditorClassIdentifier: 
+  speciesId: 646
+  nameKeyEng: Kyurem
+  nameKeyKor: "\uD050\uB808\uBB34"
+  rarityCategory: 1
+  catchRate: 3
+  genderPolicy:
+    hasGender: 0
+    maleRate0to100: 0
+  curveType: 4
+  maxLevel: 100
+  forms:
+  - {fileID: -1882705877902169120}
+  - {fileID: 1039823363768497104}
+  - {fileID: 6730633475812478077}
+--- !u!114 &1039823363768497104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: White
+  m_EditorClassIdentifier: 
+  formId: 1
+  formKey: White
+  generation: 5
+  typePair:
+    hasDualType: 1
+    primary: 15
+    secondary: 6
+  baseStats:
+    hp: 125
+    atk: 120
+    def: 90
+    spa: 170
+    spd: 100
+    spe: 95
+  visual: {fileID: 11400000, guid: ff973397f7582c94ca948f72f667d6c3, type: 2}
+--- !u!114 &6730633475812478077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Black
+  m_EditorClassIdentifier: 
+  formId: 2
+  formKey: Black
+  generation: 5
+  typePair:
+    hasDualType: 1
+    primary: 15
+    secondary: 6
+  baseStats:
+    hp: 125
+    atk: 170
+    def: 100
+    spa: 120
+    spd: 90
+    spe: 95
+  visual: {fileID: 11400000, guid: d17f40a43d00b0d47829bab3032351f5, type: 2}

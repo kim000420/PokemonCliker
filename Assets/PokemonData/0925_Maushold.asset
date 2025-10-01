@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7681574371123240664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 9
+  typePair:
+    hasDualType: 0
+    primary: 1
+    secondary: 0
+  baseStats:
+    hp: 74
+    atk: 75
+    def: 70
+    spa: 65
+    spd: 75
+    spe: 111
+  visual: {fileID: 11400000, guid: f2ebbb45dbcf1aa4097fc6a2f13b5488, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0925_Maushold
+  m_EditorClassIdentifier: 
+  speciesId: 925
+  nameKeyEng: Maushold
+  nameKeyKor: "\uD30C\uBC00\uB9AC\uC950"
+  rarityCategory: 0
+  catchRate: 75
+  genderPolicy:
+    hasGender: 0
+    maleRate0to100: 0
+  curveType: 1
+  maxLevel: 100
+  forms:
+  - {fileID: -7681574371123240664}
+  - {fileID: 9028471700358013130}
+--- !u!114 &9028471700358013130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Family of Four
+  m_EditorClassIdentifier: 
+  formId: 1
+  formKey: Family of Four
+  generation: 9
+  typePair:
+    hasDualType: 0
+    primary: 1
+    secondary: 0
+  baseStats:
+    hp: 74
+    atk: 75
+    def: 70
+    spa: 65
+    spd: 75
+    spe: 111
+  visual: {fileID: 11400000, guid: c6083b71313a090488785347e93e19db, type: 2}

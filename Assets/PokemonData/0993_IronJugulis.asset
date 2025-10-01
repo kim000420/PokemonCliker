@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7198382818643944148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 9
+  typePair:
+    hasDualType: 1
+    primary: 16
+    secondary: 10
+  baseStats:
+    hp: 94
+    atk: 80
+    def: 86
+    spa: 122
+    spd: 80
+    spe: 108
+  visual: {fileID: 11400000, guid: dbdac449202615a41ac385d3cc7121e4, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0993_IronJugulis
+  m_EditorClassIdentifier: 
+  speciesId: 993
+  nameKeyEng: IronJugulis
+  nameKeyKor: "\uBB34\uC1E0\uBA38\uB9AC"
+  rarityCategory: 2
+  catchRate: 30
+  genderPolicy:
+    hasGender: 0
+    maleRate0to100: 0
+  curveType: 4
+  maxLevel: 100
+  forms:
+  - {fileID: -7198382818643944148}

@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0853_Grapploct
+  m_EditorClassIdentifier: 
+  speciesId: 853
+  nameKeyEng: Grapploct
+  nameKeyKor: "\uCF00\uC624\uD37C\uC2A4"
+  rarityCategory: 0
+  catchRate: 45
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 3
+  maxLevel: 100
+  forms:
+  - {fileID: 9136910766629849477}
+--- !u!114 &9136910766629849477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 8
+  typePair:
+    hasDualType: 0
+    primary: 7
+    secondary: 0
+  baseStats:
+    hp: 80
+    atk: 118
+    def: 90
+    spa: 70
+    spd: 80
+    spe: 42
+  visual: {fileID: 11400000, guid: 66e8f36e905ef1f4f9b902d6751978e1, type: 2}

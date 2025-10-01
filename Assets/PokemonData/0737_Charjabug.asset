@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0737_Charjabug
+  m_EditorClassIdentifier: 
+  speciesId: 737
+  nameKeyEng: Charjabug
+  nameKeyKor: "\uC804\uC9C0\uCDA9\uC774"
+  rarityCategory: 0
+  catchRate: 120
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 2
+  maxLevel: 100
+  forms:
+  - {fileID: 9151105027379104310}
+--- !u!114 &9151105027379104310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 7
+  typePair:
+    hasDualType: 1
+    primary: 12
+    secondary: 5
+  baseStats:
+    hp: 57
+    atk: 82
+    def: 95
+    spa: 55
+    spd: 75
+    spe: 36
+  visual: {fileID: 11400000, guid: 15d44473ea79f0b47ac2144ed754cc58, type: 2}

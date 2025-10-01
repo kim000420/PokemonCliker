@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5863450122353040859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 8
+  typePair:
+    hasDualType: 1
+    primary: 8
+    secondary: 15
+  baseStats:
+    hp: 140
+    atk: 85
+    def: 95
+    spa: 145
+    spd: 95
+    spe: 130
+  visual: {fileID: 11400000, guid: 9eb1c05df5c18c94a986b64f1012a82e, type: 2}
+--- !u!114 &-5146858636889859658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Eternatus
+  m_EditorClassIdentifier: 
+  formId: 1
+  formKey: Eternatus
+  generation: 8
+  typePair:
+    hasDualType: 1
+    primary: 8
+    secondary: 15
+  baseStats:
+    hp: 255
+    atk: 115
+    def: 250
+    spa: 125
+    spd: 250
+    spe: 130
+  visual: {fileID: 11400000, guid: ed9eb5d0436d3044bbb3dbc7f0f75733, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0890_Eternatus
+  m_EditorClassIdentifier: 
+  speciesId: 890
+  nameKeyEng: Eternatus
+  nameKeyKor: "\uBB34\uD55C\uB2E4\uC774\uB178"
+  rarityCategory: 1
+  catchRate: 255
+  genderPolicy:
+    hasGender: 0
+    maleRate0to100: 0
+  curveType: 4
+  maxLevel: 100
+  forms:
+  - {fileID: -5863450122353040859}
+  - {fileID: -5146858636889859658}

@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5239719481664572085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 9
+  typePair:
+    hasDualType: 0
+    primary: 2
+    secondary: 0
+  baseStats:
+    hp: 67
+    atk: 45
+    def: 59
+    spa: 63
+    spd: 40
+    spe: 36
+  visual: {fileID: 11400000, guid: e7d9f0254f677d34bbca6c0286b5f8be, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0909_Fuecoco
+  m_EditorClassIdentifier: 
+  speciesId: 909
+  nameKeyEng: Fuecoco
+  nameKeyKor: "\uB728\uC544\uAC70"
+  rarityCategory: 0
+  catchRate: 45
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 88
+  curveType: 3
+  maxLevel: 100
+  forms:
+  - {fileID: -5239719481664572085}

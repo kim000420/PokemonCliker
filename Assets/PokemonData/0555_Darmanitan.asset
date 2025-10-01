@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5251775859448747955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Galarian
+  m_EditorClassIdentifier: 
+  formId: 2
+  formKey: Galarian
+  generation: 8
+  typePair:
+    hasDualType: 0
+    primary: 6
+    secondary: 0
+  baseStats:
+    hp: 105
+    atk: 140
+    def: 55
+    spa: 30
+    spd: 55
+    spe: 95
+  visual: {fileID: 11400000, guid: d4cbf9850fd213d49acab984bcfb28f7, type: 2}
+--- !u!114 &-4289458117045948895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 5
+  typePair:
+    hasDualType: 0
+    primary: 2
+    secondary: 0
+  baseStats:
+    hp: 105
+    atk: 140
+    def: 55
+    spa: 30
+    spd: 55
+    spe: 95
+  visual: {fileID: 11400000, guid: 82139ac754f32cf4a92feb7735c822c4, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0555_Darmanitan
+  m_EditorClassIdentifier: 
+  speciesId: 555
+  nameKeyEng: Darmanitan
+  nameKeyKor: "\uBD88\uBE44\uB2EC\uB9C8"
+  rarityCategory: 0
+  catchRate: 60
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 3
+  maxLevel: 100
+  forms:
+  - {fileID: -4289458117045948895}
+  - {fileID: 5233425029006387483}
+  - {fileID: -5251775859448747955}
+  - {fileID: 9178984839373208067}
+--- !u!114 &5233425029006387483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Zen-Mode
+  m_EditorClassIdentifier: 
+  formId: 1
+  formKey: Zen-Mode
+  generation: 5
+  typePair:
+    hasDualType: 1
+    primary: 2
+    secondary: 11
+  baseStats:
+    hp: 105
+    atk: 30
+    def: 105
+    spa: 140
+    spd: 105
+    spe: 55
+  visual: {fileID: 11400000, guid: e3212de800ba98b46b9a6aa3a473d7a1, type: 2}
+--- !u!114 &9178984839373208067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Galarian Zen-Mode
+  m_EditorClassIdentifier: 
+  formId: 3
+  formKey: Galarian Zen-Mode
+  generation: 8
+  typePair:
+    hasDualType: 1
+    primary: 6
+    secondary: 2
+  baseStats:
+    hp: 105
+    atk: 160
+    def: 55
+    spa: 30
+    spd: 55
+    spe: 135
+  visual: {fileID: 11400000, guid: 67f149abf550a214fb175ac3dcea09ed, type: 2}

@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0891_Kubfu
+  m_EditorClassIdentifier: 
+  speciesId: 891
+  nameKeyEng: Kubfu
+  nameKeyKor: "\uCE58\uACE0\uB9C8"
+  rarityCategory: 2
+  catchRate: 3
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 88
+  curveType: 4
+  maxLevel: 100
+  forms:
+  - {fileID: 8199816275641599964}
+--- !u!114 &8199816275641599964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 8
+  typePair:
+    hasDualType: 0
+    primary: 7
+    secondary: 0
+  baseStats:
+    hp: 60
+    atk: 90
+    def: 60
+    spa: 53
+    spd: 50
+    spe: 72
+  visual: {fileID: 11400000, guid: 1e9dbd54770a22e479cb55009002d57f, type: 2}

@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8507326381421993269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 2
+  typePair:
+    hasDualType: 0
+    primary: 1
+    secondary: 0
+  baseStats:
+    hp: 55
+    atk: 20
+    def: 35
+    spa: 20
+    spd: 45
+    spe: 75
+  visual: {fileID: 11400000, guid: 1320f454961d9d14681400c3f63f5a74, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0235_Smeargle
+  m_EditorClassIdentifier: 
+  speciesId: 235
+  nameKeyEng: Smeargle
+  nameKeyKor: "\uB8E8\uBE0C\uB3C4"
+  rarityCategory: 0
+  catchRate: 45
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 1
+  maxLevel: 100
+  forms:
+  - {fileID: -8507326381421993269}

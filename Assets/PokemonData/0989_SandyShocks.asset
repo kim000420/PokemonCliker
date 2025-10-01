@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0989_SandyShocks
+  m_EditorClassIdentifier: 
+  speciesId: 989
+  nameKeyEng: SandyShocks
+  nameKeyKor: "\uBAA8\uB798\uD138\uAC00\uC8FD"
+  rarityCategory: 2
+  catchRate: 30
+  genderPolicy:
+    hasGender: 0
+    maleRate0to100: 0
+  curveType: 4
+  maxLevel: 100
+  forms:
+  - {fileID: 1489264665476453208}
+--- !u!114 &1489264665476453208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 9
+  typePair:
+    hasDualType: 1
+    primary: 5
+    secondary: 9
+  baseStats:
+    hp: 85
+    atk: 81
+    def: 97
+    spa: 121
+    spd: 85
+    spe: 101
+  visual: {fileID: 11400000, guid: 3b13e0f8770c24140b17b9c8a3c293c8, type: 2}

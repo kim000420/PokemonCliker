@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6928657792993912134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 6
+  typePair:
+    hasDualType: 1
+    primary: 15
+    secondary: 9
+  baseStats:
+    hp: 108
+    atk: 100
+    def: 121
+    spa: 81
+    spd: 95
+    spe: 95
+  visual: {fileID: 11400000, guid: 46f2b26cbd464a748a6065c447fb2ca4, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0718_Zygarde
+  m_EditorClassIdentifier: 
+  speciesId: 718
+  nameKeyEng: Zygarde
+  nameKeyKor: "\uC9C0\uAC00\uB974\uB370"
+  rarityCategory: 1
+  catchRate: 3
+  genderPolicy:
+    hasGender: 0
+    maleRate0to100: 0
+  curveType: 4
+  maxLevel: 100
+  forms:
+  - {fileID: -6928657792993912134}
+  - {fileID: 2013624480214028281}
+  - {fileID: 3757648221593167695}
+--- !u!114 &2013624480214028281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: 10%_Form
+  m_EditorClassIdentifier: 
+  formId: 1
+  formKey: 10%_Form
+  generation: 6
+  typePair:
+    hasDualType: 1
+    primary: 15
+    secondary: 9
+  baseStats:
+    hp: 54
+    atk: 100
+    def: 71
+    spa: 61
+    spd: 85
+    spe: 115
+  visual: {fileID: 11400000, guid: 621f29dffcc917240b27fda7da6664cb, type: 2}
+--- !u!114 &3757648221593167695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Complete
+  m_EditorClassIdentifier: 
+  formId: 2
+  formKey: Complete
+  generation: 6
+  typePair:
+    hasDualType: 1
+    primary: 15
+    secondary: 9
+  baseStats:
+    hp: 216
+    atk: 100
+    def: 121
+    spa: 91
+    spd: 95
+    spe: 85
+  visual: {fileID: 11400000, guid: b7aa05cc9120bfd44954acfffcb452a5, type: 2}

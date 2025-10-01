@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0242_Blissey
+  m_EditorClassIdentifier: 
+  speciesId: 242
+  nameKeyEng: Blissey
+  nameKeyKor: "\uD574\uD53C\uB108\uC2A4"
+  rarityCategory: 0
+  catchRate: 30
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 0
+  curveType: 1
+  maxLevel: 100
+  forms:
+  - {fileID: 5975334962896633491}
+--- !u!114 &5975334962896633491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 2
+  typePair:
+    hasDualType: 0
+    primary: 1
+    secondary: 0
+  baseStats:
+    hp: 255
+    atk: 10
+    def: 10
+    spa: 75
+    spd: 135
+    spe: 55
+  visual: {fileID: 11400000, guid: 483c62dcb2e7e064ea74adebe74edca6, type: 2}

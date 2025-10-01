@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0166_Ledian
+  m_EditorClassIdentifier: 
+  speciesId: 166
+  nameKeyEng: Ledian
+  nameKeyKor: "\uB808\uB514\uC548"
+  rarityCategory: 0
+  catchRate: 90
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 1
+  maxLevel: 100
+  forms:
+  - {fileID: 7386188784811344915}
+--- !u!114 &7386188784811344915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 2
+  typePair:
+    hasDualType: 1
+    primary: 12
+    secondary: 10
+  baseStats:
+    hp: 55
+    atk: 35
+    def: 50
+    spa: 55
+    spd: 110
+    spe: 85
+  visual: {fileID: 11400000, guid: 1502843b55326a94794d26c3857b0d9e, type: 2}

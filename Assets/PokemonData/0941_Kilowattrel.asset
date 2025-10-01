@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0941_Kilowattrel
+  m_EditorClassIdentifier: 
+  speciesId: 941
+  nameKeyEng: Kilowattrel
+  nameKeyKor: "\uCC0C\uB9AC\uBE44\uD06C"
+  rarityCategory: 0
+  catchRate: 90
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 3
+  maxLevel: 100
+  forms:
+  - {fileID: 2582338220416962298}
+--- !u!114 &2582338220416962298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 9
+  typePair:
+    hasDualType: 1
+    primary: 5
+    secondary: 10
+  baseStats:
+    hp: 70
+    atk: 70
+    def: 60
+    spa: 105
+    spd: 60
+    spe: 125
+  visual: {fileID: 11400000, guid: 410e66c87f1994d4a935a10a5a3d0498, type: 2}

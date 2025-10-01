@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0535_Tympole
+  m_EditorClassIdentifier: 
+  speciesId: 535
+  nameKeyEng: Tympole
+  nameKeyKor: "\uB3D9\uCC59\uC774"
+  rarityCategory: 0
+  catchRate: 255
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 3
+  maxLevel: 100
+  forms:
+  - {fileID: 1300584923769420648}
+--- !u!114 &1300584923769420648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 5
+  typePair:
+    hasDualType: 0
+    primary: 3
+    secondary: 0
+  baseStats:
+    hp: 50
+    atk: 50
+    def: 40
+    spa: 50
+    spd: 40
+    spe: 64
+  visual: {fileID: 11400000, guid: 083fc43e0decbc34c9253c5fbed4ecac, type: 2}

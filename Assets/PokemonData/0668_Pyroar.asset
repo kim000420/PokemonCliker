@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8827501857171370875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 6
+  typePair:
+    hasDualType: 1
+    primary: 2
+    secondary: 1
+  baseStats:
+    hp: 86
+    atk: 68
+    def: 72
+    spa: 109
+    spd: 66
+    spe: 106
+  visual: {fileID: 11400000, guid: 139a6037c388a0d4eb77671bd3af4a45, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0668_Pyroar
+  m_EditorClassIdentifier: 
+  speciesId: 668
+  nameKeyEng: Pyroar
+  nameKeyKor: "\uD654\uC5FC\uB808\uC624"
+  rarityCategory: 0
+  catchRate: 65
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 12
+  curveType: 3
+  maxLevel: 100
+  forms:
+  - {fileID: -8827501857171370875}

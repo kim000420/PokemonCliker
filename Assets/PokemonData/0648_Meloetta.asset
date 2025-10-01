@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8602211223537591231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 5
+  typePair:
+    hasDualType: 1
+    primary: 1
+    secondary: 11
+  baseStats:
+    hp: 100
+    atk: 77
+    def: 77
+    spa: 128
+    spd: 128
+    spe: 90
+  visual: {fileID: 11400000, guid: 5d8aaa77f1939cc49a9fe7f39fc1970b, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0648_Meloetta
+  m_EditorClassIdentifier: 
+  speciesId: 648
+  nameKeyEng: Meloetta
+  nameKeyKor: "\uBA54\uB85C\uC5E3\uD0C0"
+  rarityCategory: 3
+  catchRate: 3
+  genderPolicy:
+    hasGender: 0
+    maleRate0to100: 0
+  curveType: 4
+  maxLevel: 100
+  forms:
+  - {fileID: -8602211223537591231}
+  - {fileID: 6436051817465582294}
+--- !u!114 &6436051817465582294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Pirouette
+  m_EditorClassIdentifier: 
+  formId: 1
+  formKey: Pirouette
+  generation: 5
+  typePair:
+    hasDualType: 1
+    primary: 1
+    secondary: 7
+  baseStats:
+    hp: 100
+    atk: 128
+    def: 90
+    spa: 77
+    spd: 77
+    spe: 128
+  visual: {fileID: 11400000, guid: e692c05b079b5934da6b0dadd118a606, type: 2}

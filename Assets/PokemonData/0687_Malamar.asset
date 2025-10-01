@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0687_Malamar
+  m_EditorClassIdentifier: 
+  speciesId: 687
+  nameKeyEng: Malamar
+  nameKeyKor: "\uCE7C\uB77C\uB9C8\uB124\uB85C"
+  rarityCategory: 0
+  catchRate: 80
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 2
+  maxLevel: 100
+  forms:
+  - {fileID: 4324414379917203047}
+--- !u!114 &4324414379917203047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 6
+  typePair:
+    hasDualType: 1
+    primary: 16
+    secondary: 11
+  baseStats:
+    hp: 86
+    atk: 92
+    def: 88
+    spa: 68
+    spd: 75
+    spe: 73
+  visual: {fileID: 11400000, guid: b06556d90c79bed4e93bee3fd311b3c1, type: 2}

@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0433_Chingling
+  m_EditorClassIdentifier: 
+  speciesId: 433
+  nameKeyEng: Chingling
+  nameKeyKor: "\uB791\uB538\uB791"
+  rarityCategory: 0
+  catchRate: 120
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 1
+  maxLevel: 100
+  forms:
+  - {fileID: 3842698653778077620}
+--- !u!114 &3842698653778077620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 4
+  typePair:
+    hasDualType: 0
+    primary: 11
+    secondary: 0
+  baseStats:
+    hp: 45
+    atk: 30
+    def: 50
+    spa: 65
+    spd: 50
+    spe: 45
+  visual: {fileID: 11400000, guid: b5b0bc1452eea9949ba98b8b7a1d0613, type: 2}

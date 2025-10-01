@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0431_Glameow
+  m_EditorClassIdentifier: 
+  speciesId: 431
+  nameKeyEng: Glameow
+  nameKeyKor: "\uB098\uC639\uB9C8"
+  rarityCategory: 0
+  catchRate: 190
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 25
+  curveType: 1
+  maxLevel: 100
+  forms:
+  - {fileID: 2790958433940042397}
+--- !u!114 &2790958433940042397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 4
+  typePair:
+    hasDualType: 0
+    primary: 1
+    secondary: 0
+  baseStats:
+    hp: 49
+    atk: 55
+    def: 42
+    spa: 42
+    spd: 37
+    spe: 85
+  visual: {fileID: 11400000, guid: 4b81cca2136f016459514e9a12ecdee4, type: 2}

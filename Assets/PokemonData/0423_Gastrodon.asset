@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4656904018731714357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: East-Sea
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: East-Sea
+  generation: 4
+  typePair:
+    hasDualType: 1
+    primary: 3
+    secondary: 9
+  baseStats:
+    hp: 111
+    atk: 83
+    def: 68
+    spa: 92
+    spd: 82
+    spe: 39
+  visual: {fileID: 11400000, guid: b51bc19ccb6595341a53644d22b911c6, type: 2}
+--- !u!114 &-3927158015058325898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: West-Sea
+  m_EditorClassIdentifier: 
+  formId: 1
+  formKey: West-Sea
+  generation: 4
+  typePair:
+    hasDualType: 1
+    primary: 3
+    secondary: 9
+  baseStats:
+    hp: 111
+    atk: 83
+    def: 68
+    spa: 92
+    spd: 82
+    spe: 39
+  visual: {fileID: 11400000, guid: 122327cf0080f02428489786a14cb2f7, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0423_Gastrodon
+  m_EditorClassIdentifier: 
+  speciesId: 423
+  nameKeyEng: Gastrodon
+  nameKeyKor: "\uD2B8\uB9AC\uD1A0\uB3C8"
+  rarityCategory: 0
+  catchRate: 75
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 2
+  maxLevel: 100
+  forms:
+  - {fileID: -4656904018731714357}
+  - {fileID: -3927158015058325898}

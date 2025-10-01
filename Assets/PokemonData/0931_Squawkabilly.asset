@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8104616934052837791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 9
+  typePair:
+    hasDualType: 1
+    primary: 1
+    secondary: 10
+  baseStats:
+    hp: 82
+    atk: 96
+    def: 51
+    spa: 45
+    spd: 51
+    spe: 92
+  visual: {fileID: 11400000, guid: 2f93b745a8c47464899cd61b87ee774f, type: 2}
+--- !u!114 &-6373866997555733069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: White
+  m_EditorClassIdentifier: 
+  formId: 3
+  formKey: White
+  generation: 9
+  typePair:
+    hasDualType: 1
+    primary: 1
+    secondary: 10
+  baseStats:
+    hp: 82
+    atk: 96
+    def: 51
+    spa: 45
+    spd: 51
+    spe: 92
+  visual: {fileID: 11400000, guid: ba574f83ae9c63d4ab7aca379d94ac92, type: 2}
+--- !u!114 &-1286967339408703736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Blue
+  m_EditorClassIdentifier: 
+  formId: 1
+  formKey: Blue
+  generation: 9
+  typePair:
+    hasDualType: 1
+    primary: 1
+    secondary: 10
+  baseStats:
+    hp: 82
+    atk: 96
+    def: 51
+    spa: 45
+    spd: 51
+    spe: 92
+  visual: {fileID: 11400000, guid: f53c8f046ccfd24439adf4e7ee4bddcb, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0931_Squawkabilly
+  m_EditorClassIdentifier: 
+  speciesId: 931
+  nameKeyEng: Squawkabilly
+  nameKeyKor: "\uC2DC\uBE44\uAF2C"
+  rarityCategory: 0
+  catchRate: 190
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 0
+  maxLevel: 100
+  forms:
+  - {fileID: -8104616934052837791}
+  - {fileID: -1286967339408703736}
+  - {fileID: 7502970614170376905}
+  - {fileID: -6373866997555733069}
+--- !u!114 &7502970614170376905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Yellow
+  m_EditorClassIdentifier: 
+  formId: 2
+  formKey: Yellow
+  generation: 9
+  typePair:
+    hasDualType: 1
+    primary: 1
+    secondary: 10
+  baseStats:
+    hp: 82
+    atk: 96
+    def: 51
+    spa: 45
+    spd: 51
+    spe: 92
+  visual: {fileID: 11400000, guid: c872013fe0a1f2c4aa4920afdd3a3b29, type: 2}

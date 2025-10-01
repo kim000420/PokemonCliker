@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-3454921531453423499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 8
+  typePair:
+    hasDualType: 1
+    primary: 11
+    secondary: 4
+  baseStats:
+    hp: 100
+    atk: 80
+    def: 80
+    spa: 80
+    spd: 80
+    spe: 80
+  visual: {fileID: 11400000, guid: 489c8b3a31a54e7428439a38e68b7dc1, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0898_Calyrex
+  m_EditorClassIdentifier: 
+  speciesId: 898
+  nameKeyEng: Calyrex
+  nameKeyKor: "\uBC84\uB4DC\uB809\uC2A4"
+  rarityCategory: 1
+  catchRate: 3
+  genderPolicy:
+    hasGender: 0
+    maleRate0to100: 0
+  curveType: 4
+  maxLevel: 100
+  forms:
+  - {fileID: -3454921531453423499}
+  - {fileID: 4553085497438918389}
+  - {fileID: 6285763806561302347}
+--- !u!114 &4553085497438918389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Ice Rider
+  m_EditorClassIdentifier: 
+  formId: 1
+  formKey: Ice Rider
+  generation: 8
+  typePair:
+    hasDualType: 1
+    primary: 11
+    secondary: 6
+  baseStats:
+    hp: 100
+    atk: 165
+    def: 150
+    spa: 85
+    spd: 130
+    spe: 50
+  visual: {fileID: 11400000, guid: a6a2e5a9c702f1c41aa07f89801047af, type: 2}
+--- !u!114 &6285763806561302347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Shadow Rider
+  m_EditorClassIdentifier: 
+  formId: 2
+  formKey: Shadow Rider
+  generation: 8
+  typePair:
+    hasDualType: 1
+    primary: 11
+    secondary: 14
+  baseStats:
+    hp: 100
+    atk: 85
+    def: 80
+    spa: 165
+    spd: 100
+    spe: 150
+  visual: {fileID: 11400000, guid: 8419b27a91bc4564f865d5bafd05e078, type: 2}

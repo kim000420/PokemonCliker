@@ -1,0 +1,193 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8537133716337185031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Wash
+  m_EditorClassIdentifier: 
+  formId: 2
+  formKey: Wash
+  generation: 4
+  typePair:
+    hasDualType: 1
+    primary: 5
+    secondary: 3
+  baseStats:
+    hp: 50
+    atk: 65
+    def: 107
+    spa: 105
+    spd: 107
+    spe: 86
+  visual: {fileID: 11400000, guid: 4b51685b69dceec4aa4d273c9e08d07a, type: 2}
+--- !u!114 &-8297869285376603556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 4
+  typePair:
+    hasDualType: 1
+    primary: 5
+    secondary: 14
+  baseStats:
+    hp: 50
+    atk: 50
+    def: 77
+    spa: 95
+    spd: 77
+    spe: 91
+  visual: {fileID: 11400000, guid: 72f428fcded862e4b995dc01e6033553, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0479_Rotom
+  m_EditorClassIdentifier: 
+  speciesId: 479
+  nameKeyEng: Rotom
+  nameKeyKor: "\uB85C\uD1A0\uBB34"
+  rarityCategory: 0
+  catchRate: 45
+  genderPolicy:
+    hasGender: 0
+    maleRate0to100: 0
+  curveType: 2
+  maxLevel: 100
+  forms:
+  - {fileID: -8297869285376603556}
+  - {fileID: 5804824277820335265}
+  - {fileID: -8537133716337185031}
+  - {fileID: 1825593564241287713}
+  - {fileID: 1425055412937356617}
+  - {fileID: 7087057425346245765}
+--- !u!114 &1425055412937356617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Fan
+  m_EditorClassIdentifier: 
+  formId: 4
+  formKey: Fan
+  generation: 4
+  typePair:
+    hasDualType: 1
+    primary: 5
+    secondary: 10
+  baseStats:
+    hp: 50
+    atk: 65
+    def: 107
+    spa: 105
+    spd: 107
+    spe: 86
+  visual: {fileID: 11400000, guid: 70fe64c5c9fa8a54685b40ba2797646a, type: 2}
+--- !u!114 &1825593564241287713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Frost
+  m_EditorClassIdentifier: 
+  formId: 3
+  formKey: Frost
+  generation: 4
+  typePair:
+    hasDualType: 1
+    primary: 5
+    secondary: 6
+  baseStats:
+    hp: 50
+    atk: 65
+    def: 107
+    spa: 105
+    spd: 107
+    spe: 86
+  visual: {fileID: 11400000, guid: de70232cf4b84d341bd431b5c591f2f8, type: 2}
+--- !u!114 &5804824277820335265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Heat
+  m_EditorClassIdentifier: 
+  formId: 1
+  formKey: Heat
+  generation: 4
+  typePair:
+    hasDualType: 1
+    primary: 5
+    secondary: 2
+  baseStats:
+    hp: 50
+    atk: 65
+    def: 107
+    spa: 105
+    spd: 107
+    spe: 86
+  visual: {fileID: 11400000, guid: ef85c3b1c82f38b4a8c545e389201dce, type: 2}
+--- !u!114 &7087057425346245765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Mow
+  m_EditorClassIdentifier: 
+  formId: 5
+  formKey: Mow
+  generation: 4
+  typePair:
+    hasDualType: 1
+    primary: 5
+    secondary: 4
+  baseStats:
+    hp: 50
+    atk: 65
+    def: 107
+    spa: 105
+    spd: 107
+    spe: 86
+  visual: {fileID: 11400000, guid: 86ed3cb201c7ba5418c14c667bc8f395, type: 2}

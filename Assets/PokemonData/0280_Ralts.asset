@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0280_Ralts
+  m_EditorClassIdentifier: 
+  speciesId: 280
+  nameKeyEng: Ralts
+  nameKeyKor: "\uB784\uD1A0\uC2A4"
+  rarityCategory: 0
+  catchRate: 235
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 4
+  maxLevel: 100
+  forms:
+  - {fileID: 3880732039640152854}
+--- !u!114 &3880732039640152854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 3
+  typePair:
+    hasDualType: 1
+    primary: 11
+    secondary: 18
+  baseStats:
+    hp: 28
+    atk: 25
+    def: 25
+    spa: 45
+    spd: 35
+    spe: 40
+  visual: {fileID: 11400000, guid: 64889b9d2010dc84cb19aed9e807d03a, type: 2}

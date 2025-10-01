@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6836274943966919580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 2
+  typePair:
+    hasDualType: 0
+    primary: 1
+    secondary: 0
+  baseStats:
+    hp: 85
+    atk: 80
+    def: 90
+    spa: 105
+    spd: 95
+    spe: 60
+  visual: {fileID: 11400000, guid: be6577c7cfc273d4786adc7bda247fb9, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0233_Porygon2
+  m_EditorClassIdentifier: 
+  speciesId: 233
+  nameKeyEng: Porygon2
+  nameKeyKor: "\uD3F4\uB9AC\uACE42"
+  rarityCategory: 0
+  catchRate: 45
+  genderPolicy:
+    hasGender: 0
+    maleRate0to100: 0
+  curveType: 2
+  maxLevel: 100
+  forms:
+  - {fileID: -6836274943966919580}

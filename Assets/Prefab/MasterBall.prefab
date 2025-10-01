@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7409094332122161398}
   - component: {fileID: 6025217888349667098}
   - component: {fileID: 7813457323633389730}
+  - component: {fileID: 2073772426712818558}
   m_Layer: 0
   m_Name: MasterBall
   m_TagString: Untagged
@@ -76,3 +77,15 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &2073772426712818558
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1742571664339522578}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

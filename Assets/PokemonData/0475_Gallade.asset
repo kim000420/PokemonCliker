@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8468670145630610194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 4
+  typePair:
+    hasDualType: 1
+    primary: 11
+    secondary: 7
+  baseStats:
+    hp: 68
+    atk: 125
+    def: 65
+    spa: 65
+    spd: 115
+    spe: 80
+  visual: {fileID: 11400000, guid: f371fc1f919f07549acda28c75b0839a, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0475_Gallade
+  m_EditorClassIdentifier: 
+  speciesId: 475
+  nameKeyEng: Gallade
+  nameKeyKor: "\uC5D8\uB808\uC774\uB4DC"
+  rarityCategory: 0
+  catchRate: 45
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 100
+  curveType: 4
+  maxLevel: 100
+  forms:
+  - {fileID: -8468670145630610194}
+  - {fileID: 949492196017273526}
+--- !u!114 &949492196017273526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Mega
+  m_EditorClassIdentifier: 
+  formId: 1
+  formKey: Mega
+  generation: 4
+  typePair:
+    hasDualType: 1
+    primary: 11
+    secondary: 7
+  baseStats:
+    hp: 68
+    atk: 165
+    def: 95
+    spa: 65
+    spd: 115
+    spe: 110
+  visual: {fileID: 11400000, guid: c1012f47335acaf47b3d4f5b2e3eb84a, type: 2}

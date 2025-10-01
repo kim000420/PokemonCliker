@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0214_Heracross
+  m_EditorClassIdentifier: 
+  speciesId: 214
+  nameKeyEng: Heracross
+  nameKeyKor: "\uD5E4\uB77C\uD06C\uB85C\uC2A4"
+  rarityCategory: 0
+  catchRate: 45
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 4
+  maxLevel: 100
+  forms:
+  - {fileID: 3014575094494880744}
+  - {fileID: 4832881528166785055}
+--- !u!114 &3014575094494880744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 2
+  typePair:
+    hasDualType: 1
+    primary: 12
+    secondary: 7
+  baseStats:
+    hp: 80
+    atk: 125
+    def: 75
+    spa: 40
+    spd: 95
+    spe: 85
+  visual: {fileID: 11400000, guid: e3bd8fb550e539d4ea1e230f05e15d39, type: 2}
+--- !u!114 &4832881528166785055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Mega
+  m_EditorClassIdentifier: 
+  formId: 1
+  formKey: Mega
+  generation: 2
+  typePair:
+    hasDualType: 1
+    primary: 12
+    secondary: 7
+  baseStats:
+    hp: 80
+    atk: 185
+    def: 115
+    spa: 40
+    spd: 105
+    spe: 75
+  visual: {fileID: 11400000, guid: 425e1c5a91572cc49b79fdf4b285e28b, type: 2}

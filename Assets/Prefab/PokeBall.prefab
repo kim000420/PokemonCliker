@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8077742456336244550}
   - component: {fileID: 5389797991371254565}
   - component: {fileID: 4743800398842151751}
+  - component: {fileID: -5092150491896102860}
   m_Layer: 0
   m_Name: PokeBall
   m_TagString: Untagged
@@ -76,3 +77,15 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &-5092150491896102860
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7644912656985736741}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

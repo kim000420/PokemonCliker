@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0425_Drifloon
+  m_EditorClassIdentifier: 
+  speciesId: 425
+  nameKeyEng: Drifloon
+  nameKeyKor: "\uD754\uB4E4\uD48D\uC190"
+  rarityCategory: 0
+  catchRate: 125
+  genderPolicy:
+    hasGender: 1
+    maleRate0to100: 50
+  curveType: 5
+  maxLevel: 100
+  forms:
+  - {fileID: 7263537893161924423}
+--- !u!114 &7263537893161924423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 4
+  typePair:
+    hasDualType: 1
+    primary: 14
+    secondary: 10
+  baseStats:
+    hp: 90
+    atk: 50
+    def: 34
+    spa: 60
+    spd: 44
+    spe: 70
+  visual: {fileID: 11400000, guid: d45979bdc1281ff47a5270124d6683c9, type: 2}

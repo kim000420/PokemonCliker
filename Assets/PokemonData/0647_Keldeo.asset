@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7841330615965417690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: 
+  formId: 0
+  formKey: Default
+  generation: 5
+  typePair:
+    hasDualType: 1
+    primary: 3
+    secondary: 7
+  baseStats:
+    hp: 91
+    atk: 72
+    def: 90
+    spa: 129
+    spd: 90
+    spe: 108
+  visual: {fileID: 11400000, guid: 144cbd102ba3e66418e94721850d8655, type: 2}
+--- !u!114 &-3056982746982890437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9fc0b554f2f3444a88865415f1a6ba, type: 3}
+  m_Name: Resolute
+  m_EditorClassIdentifier: 
+  formId: 1
+  formKey: Resolute
+  generation: 5
+  typePair:
+    hasDualType: 1
+    primary: 3
+    secondary: 7
+  baseStats:
+    hp: 91
+    atk: 72
+    def: 90
+    spa: 129
+    spd: 90
+    spe: 108
+  visual: {fileID: 11400000, guid: 6b139ec639db6644081c93a17dfdca8c, type: 2}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62837bb19c4309942b672aba62212a8e, type: 3}
+  m_Name: 0647_Keldeo
+  m_EditorClassIdentifier: 
+  speciesId: 647
+  nameKeyEng: Keldeo
+  nameKeyKor: "\uCF00\uB974\uB514\uC624"
+  rarityCategory: 3
+  catchRate: 3
+  genderPolicy:
+    hasGender: 0
+    maleRate0to100: 0
+  curveType: 4
+  maxLevel: 100
+  forms:
+  - {fileID: -7841330615965417690}
+  - {fileID: -3056982746982890437}
