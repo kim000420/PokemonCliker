@@ -14061,8 +14061,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86885264ba4330443a9390dfb8734c49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rewardIntervalMinutes: 0.001
-  requiredClicks: 10
+  rewardIntervalMinutes: 30
+  requiredClicks: 1000
   trainerManager: {fileID: 863778547}
   rewardPopup: {fileID: 1905299664}
   rewardClaimUI: {fileID: 1905299666}
@@ -16774,7 +16774,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 16.126583, y: 41}
-  m_SizeDelta: {x: 290.1463, y: 265.1766}
+  m_SizeDelta: {x: 290.1463, y: 240}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1020337122
 MonoBehaviour:
@@ -33290,8 +33290,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u200B"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a0059e0135693f9418d39183b79d1c70, type: 2}
+  m_sharedMaterial: {fileID: -2115370258893385183, guid: a0059e0135693f9418d39183b79d1c70, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
